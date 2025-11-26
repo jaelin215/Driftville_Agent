@@ -1,0 +1,7 @@
+# config.yaml
+
+model:
+  name: "gemini-2.5-flash-lite"
+
+model2:
+  name: "gemini-2.0-flash-lite"

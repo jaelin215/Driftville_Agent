@@ -1,0 +1,115 @@
+[
+  {
+    "name": "Jaelin",
+    "personality": {
+      "traits": "INTJ, Curious, practical, YouTuber",
+      "interests": "Korean food, hot yoga, starting a collective intelligence discussion group",
+      "relationships": {"Max": "partner", "Lily": "neighbor", "Sam": "friend"},
+      "goals": "Finish capstone by Dec 1, land a new job, keep life balanced",
+      "emotional_baseline": "focused",
+      "emotional_resilience_profile": {
+        "range": "high",
+        "dysregulation_triggers": ["looming deadlines", "feeling stuck", "partner in distress"],
+        "regulation_strategies": ["hot yoga", "structured planning", "deep breaths", "running", "taking a shower"],
+        "stress_response": "problem-solving mode",
+        "conflict_style": "direct but calm",
+        "comfort_behavior": "making tea and tidying her workspace",
+        "supportive_behavior": "offers practical help and plans"
+      }
+    },
+    "schedule": [
+      {"action": "morning_routine", "start_time": 420, "end_time": 540, "location": "home"},
+      {"action": "deep_work",   "start_time": 540, "end_time": 720, "location": "home"},
+      {"action": "lunch",           "start_time": 720, "end_time": 780, "location": "home"},
+      {"action": "hot_yoga",        "start_time": 780, "end_time": 870, "location": "sports_centre"},
+      {"action": "deep_work",   "start_time": 870, "end_time": 1080, "location": "home"},
+      {"action": "dinner",          "start_time": 1080, "end_time": 1140, "location": "home"},
+      {"action": "deep_work",    "start_time": 1140, "end_time": 1320, "location": "home"},
+      {"action": "bedtime",         "start_time": 1320, "end_time": 1380, "location": "home"}
+    ]
+  },
+  {
+    "name": "Max",
+    "personality": {
+      "traits": "Inventive, playful, Elon-esque tinkerer",
+      "interests": "Tech, rockets, sci-fi, long runs, goofy ideas",
+      "relationships": {"Jaelin": "partner", "Lily": "neighbor", "Sam": "friend"},
+      "goals": "Ship startup features, squeeze in runs, make life fun",
+      "emotional_baseline": "energized",
+      "emotional_resilience_profile": {
+        "range": "high",
+        "dysregulation_triggers": ["stalled progress", "rigid constraints", "letting partner down"],
+        "regulation_strategies": ["humor", "long runs", "tinkering with gadgets"],
+        "stress_response": "overclocking ideas",
+        "conflict_style": "playful debate with sarcasm",
+        "comfort_behavior": "sci-fi tangents and coffee rituals",
+        "supportive_behavior": "builds quick prototypes and cheerleads"
+      }
+    },
+    "schedule": [
+      {"action": "morning_run",     "start_time": 360, "end_time": 450, "location": "outside"},
+      {"action": "morning_routine", "start_time": 450, "end_time": 540, "location": "home"},
+      {"action": "deep_work",    "start_time": 540, "end_time": 720, "location": "home"},
+      {"action": "lunch",           "start_time": 720, "end_time": 780, "location": "home"},
+      {"action": "deep_work",    "start_time": 780, "end_time": 1080, "location": "home"},
+      {"action": "dinner",          "start_time": 1080, "end_time": 1140, "location": "home"},
+      {"action": "deep_work",    "start_time": 1140, "end_time": 1380, "location": "home"}
+    ]
+  },
+  {
+    "name": "Lily",
+    "personality": {
+      "traits": "Chill, sociable, loves small talk and community vibes",
+      "interests": "Coffee shops, indie music, neighborhood gossip, casual gaming",
+      "relationships": {"Jaelin": "neighbor", "Max": "neighbor", "Sam": "friend"},
+      "goals": "Keep things light, organize hangouts, enjoy everyday moments",
+      "emotional_baseline": "relaxed",
+      "emotional_resilience_profile": {
+        "range": "medium",
+        "dysregulation_triggers": ["tense vibes", "being isolated", "friends arguing"],
+        "regulation_strategies": ["humor", "small talk", "music breaks"],
+        "stress_response": "seeks connection",
+        "conflict_style": "soothing reassurance",
+        "comfort_behavior": "coffee walks and playlists",
+        "supportive_behavior": "organizes hangouts and checks in gently"
+      }
+    },
+    "schedule": [
+      {"action": "morning_walk",    "start_time": 420, "end_time": 480, "location": "home"},
+      {"action": "deep_work",       "start_time": 480, "end_time": 720, "location": "home"},
+      {"action": "lunch",           "start_time": 720, "end_time": 780, "location": "home"},
+      {"action": "afternoon_chill", "start_time": 780, "end_time": 1020, "location": "home"},
+      {"action": "dinner",          "start_time": 1080, "end_time": 1140, "location": "home"},
+      {"action": "evening_hang",    "start_time": 1140, "end_time": 1320, "location": "park"},
+      {"action": "bedtime",         "start_time": 1320, "end_time": 1380, "location": "home"}
+    ]
+  },
+  {
+    "name": "Sam",
+    "personality": {
+      "traits": "Easygoing, witty, loves puns and story-telling",
+      "interests": "Board games, street food, photography, casual coding",
+      "relationships": {"Jaelin": "friend", "Max": "friend", "Lily": "friend"},
+      "goals": "Capture fun moments, keep friends laughing, try new foods",
+      "emotional_baseline": "upbeat",
+      "emotional_resilience_profile": {
+        "range": "medium-high",
+        "dysregulation_triggers": ["conflict in the group", "boredom", "being dismissed"],
+        "regulation_strategies": ["puns", "fresh air", "photography walks"],
+        "stress_response": "lightens the mood",
+        "conflict_style": "gentle deflection",
+        "comfort_behavior": "board games and snacks",
+        "supportive_behavior": "listens and jokes to ease tension"
+      }
+    },
+    "schedule": [
+      {"action": "late_morning_start", "start_time": 540, "end_time": 660, "location": "home"},
+      {"action": "deep_work",        "start_time": 660, "end_time": 900, "location": "home"},
+      {"action": "lunch",              "start_time": 900, "end_time": 960, "location": "home"},
+      {"action": "photo_walk",         "start_time": 960, "end_time": 1080, "location": "outside"},
+      {"action": "dinner",             "start_time": 1080, "end_time": 1140, "location": "home"},
+      {"action": "game_night",         "start_time": 1140, "end_time": 1320, "location": "home"},
+      {"action": "bedtime",            "start_time": 1320, "end_time": 1380, "location": "home"}
+    ]
+  }
+]
