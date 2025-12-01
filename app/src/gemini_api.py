@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # print(ROOT)
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from config.config import MODEL_NAME
+from app.config.config import MODEL_NAME
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -39,7 +39,7 @@ class RateLimiter:
         self.calls.append(time.time())
 
 
-rate_limiter = RateLimiter(calls_per_minute=15)
+rate_limiter = RateLimiter(calls_per_minute=3000)
 
 
 async def call_gemini(prompt):

@@ -13,13 +13,13 @@ import random
 from datetime import datetime
 from pathlib import Path
 
-from gemini_api import call_gemini
 from google.adk.runners import InMemoryRunner
 from google.adk.models.google_llm import _ResourceExhaustedError
 from google.genai.errors import ClientError
 
-import brain
-from brain import (
+from .gemini_api import call_gemini
+from . import brain
+from .brain import (
     importance_agent,
     run_and_log,
     safe_generate,
@@ -88,6 +88,31 @@ Do you want to speak now? Reply with yes/no only."""
             if summary_text
             else ""
         )
+        drift_block = {
+            self.agent1.name: {
+                "drift_type": (getattr(self.agent1, "current_action", {}) or {}).get(
+                    "drift_type"
+                ),
+                "drift_topic": (getattr(self.agent1, "current_action", {}) or {}).get(
+                    "topic"
+                ),
+                "drift_intensity": (
+                    getattr(self.agent1, "current_action", {}) or {}
+                ).get("drift_intensity"),
+            },
+            self.agent2.name: {
+                "drift_type": (getattr(self.agent2, "current_action", {}) or {}).get(
+                    "drift_type"
+                ),
+                "drift_topic": (getattr(self.agent2, "current_action", {}) or {}).get(
+                    "topic"
+                ),
+                "drift_intensity": (
+                    getattr(self.agent2, "current_action", {}) or {}
+                ).get("drift_intensity"),
+            },
+        }
+
         score = None
         if memory_text:
             async with InMemoryRunner(agent=importance_agent) as runner:
@@ -98,6 +123,7 @@ Do you want to speak now? Reply with yes/no only."""
                     memory_text,
                     runner,
                     summary_override=summary_text,
+                    drift=drift_block,
                 )
                 score = res[1] if res else None
 
@@ -108,6 +134,7 @@ Do you want to speak now? Reply with yes/no only."""
             "participants": [self.agent1.name, self.agent2.name],
             "dialogue": dialogue,
             "importance": score,
+            "drift": drift_block,
         }
         # append to in-memory agent logs if available
         for agent in [self.agent1, self.agent2]:

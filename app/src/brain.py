@@ -13,7 +13,7 @@ from google.adk.agents import LlmAgent
 from google.genai import types
 from google.adk.runners import InMemoryRunner
 
-from config.config import MODEL_NAME
+from app.config.config import MODEL_NAME
 
 # serialize LLM requests to avoid bursts / rate hits
 _llm_semaphore = asyncio.Semaphore(1)
@@ -47,7 +47,11 @@ def calc_recency_score(last_accessed_date=None, decay_factor=0.995):
 
 
 def log_conv_memory(
-    author: str, participants: List[str], summary: str, score: int | float
+    author: str,
+    participants: List[str],
+    summary: str,
+    score: int | float,
+    drift: dict | None = None,
 ):
     """the core components of a Memory Stream object, including the natural language description (text)
     and the LLM-generated Importance score [i, 45, 47, 48]
@@ -67,6 +71,7 @@ def log_conv_memory(
         "type": "conversation",
         "participants": participants,
         "text": summary,
+        "drift": drift or {},
     }
     MEMORY_PATH.parent.mkdir(parents=True, exist_ok=True)
     with MEMORY_PATH.open("a", encoding="utf-8") as f:
@@ -196,7 +201,15 @@ async def generate_turn_line(speaker, listener, context, history, observation=No
     summary = ""
     if isinstance(getattr(speaker, "personality", {}), dict):
         summary = speaker.personality
-    prompt = f"""{speaker.name}'s personality: {summary or speaker.name}
+    drift_info = ""
+    if getattr(speaker, "current_action", None):
+        drift_info = (
+            f"Drift state: type={speaker.current_action.get('drift_type')}, "
+            f"topic={speaker.current_action.get('topic')}, "
+            f"intensity={speaker.current_action.get('drift_intensity')}."
+        )
+    prompt = f"""{drift_info}
+{speaker.name}'s personality: {summary or speaker.name}
 Current Context: {context}
 Observation: {observation or last_line or "N/A"}
 Relevant Memory Summary: {recent_text}
@@ -238,6 +251,7 @@ async def run_and_log(
     dialogue: str,
     runner: InMemoryRunner,
     summary_override: str | None = None,
+    drift: dict | None = None,
 ):
     async with _llm_semaphore:
         events = await runner.run_debug(dialogue, verbose=False)
@@ -254,7 +268,7 @@ async def run_and_log(
             if summary_override is not None
             else await summarize_dialogue(dialogue)
         )
-        log_conv_memory(author, participants, summary, score)
+        log_conv_memory(author, participants, summary, score, drift=drift)
     return events, score
 
 

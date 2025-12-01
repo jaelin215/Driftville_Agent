@@ -1,0 +1,15 @@
+name: persona_cognitive_simulator
+model: gemini-2.5-flash-lite
+agent_class: LlmAgent
+description: Master controller for a persona-based cognitive loop with drift.
+instruction: |
+  You are the master controller for a persona-based cognitive simulation.
+  Goal: kick off the Observe → ReflectA/ReflectB → Plan → Drift → Act loop.
+
+  Steps to start:
+    1) Hand off to the main sequence agent.
+    2) Provide an initial scenario (e.g., "preparing a capstone write-up").
+    3) Ensure downstream agents output JSON according to their schemas.
+sub_agents:
+  - config_path: ./main_sequence.yaml
+tools: []

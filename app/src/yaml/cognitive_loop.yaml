@@ -1,0 +1,6 @@
+name: cognitive_loop
+agent_class: LoopAgent
+description: Runs the cognitive sequence in a loop to observe drift patterns.
+sub_agents:
+  - config_path: ./orpda_sequence.yaml
+max_iterations: 10

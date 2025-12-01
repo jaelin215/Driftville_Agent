@@ -57,6 +57,9 @@ class Agent:
 
     def get_current_action(self, sim_time):
         """Return what agent should be doing at this time"""
+        # If current_action was set by ORPDA loop, prefer it.
+        if self.current_action:
+            return self.current_action
         for action in self.daily_schedule:
             if action["start_time"] <= sim_time < action["end_time"]:
                 return action

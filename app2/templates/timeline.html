@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
+</head>
+
+<body>
+    <h2>Agent Simulation Timeline</h2>
+    <div id="timeline"></div>
+
+    <script>
+    fetch("/timeline-data")
+    .then(resp => resp.json())
+    .then(data => {
+
+        const traces = [];
+
+        // group by agent
+        let agents = [...new Set(data.map(d => d.agent))];
+
+        agents.forEach(agent => {
+            let agentRows = data.filter(d => d.agent === agent);
+
+            traces.push({
+                x: agentRows.map(d => [new Date(d.start), new Date(d.end)]),
+                y: agentRows.map(d => agent),
+                mode: "lines",
+                line: {
+                    width: 20,
+                    color: agentRows.map(r =>
+                        r.drift_type === "none"        ? "rgb(120,180,255)" :
+                        r.drift_type === "internal"    ? "rgb(180,150,255)" :
+                        r.drift_type === "attentional_leak" ? "rgb(255,200,80)" :
+                        "rgb(255,120,120)" // behavioral
+                    )
+                },
+                text: agentRows.map(d =>
+                    d.action + "<br>" +
+                    d.location + "<br>" +
+                    "drift=" + d.drift_type + " (" + d.drift_intensity + ")"
+                ),
+                hoverinfo: "text"
+            });
+        });
+
+        Plotly.newPlot("timeline", traces, {
+            title: "Agent Actions & Drift Timeline",
+            xaxis: { type: "date" },
+            yaxis: { automargin: true },
+            height: 600
+        });
+
+    });
+    </script>
+
+</body>
+</html>

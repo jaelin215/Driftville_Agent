@@ -1,0 +1,233 @@
+[
+  {
+    "name": "Isabella Rodriguez",
+    "personality": {
+      "traits": "friendly, outgoing, hospitable",
+      "interests": "hosting at Hobbs Cafe, making guests feel welcome",
+      "relationships": {},
+      "goals": "Run a welcoming cafe; host a Valentine’s Day party on Feb 14, 2023 from 5-7pm",
+      "emotional_baseline": "warm"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 360, "end_time": 420, "location": "home" },
+      { "action": "storekeeping", "start_time": 480, "end_time": 720, "location": "Hobbs_Cafe:main_floor" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "event_preparation", "start_time": 840, "end_time": 960, "location": "Hobbs_Cafe:main_floor" },
+      { "action": "shopping", "start_time": 960, "end_time": 1020, "location": "Willow_Market_and_Pharmacy:grocery_area" },
+      { "action": "decorate", "start_time": 1020, "end_time": 1080, "location": "Hobbs_Cafe:decor_area" }
+    ]
+  },
+  {
+    "name": "Tom Moreno",
+    "personality": {
+      "traits": "rude, aggressive, energetic",
+      "interests": "running The Willow Market, local mayor election news",
+      "relationships": { "Jane Moreno": "wife" },
+      "goals": "Keep the store running smoothly; follow mayor election",
+      "emotional_baseline": "amped"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 420, "end_time": 480, "location": "home" },
+      { "action": "storekeeping", "start_time": 480, "end_time": 720, "location": "Willow_Market_and_Pharmacy:grocery_area" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "storekeeping", "start_time": 780, "end_time": 960, "location": "Willow_Market_and_Pharmacy:grocery_area" },
+      { "action": "snack", "start_time": 1020, "end_time": 1050, "location": "home:kitchen" },
+      { "action": "dinner", "start_time": 1080, "end_time": 1140, "location": "home:kitchen" }
+    ]
+  },
+  {
+    "name": "Giorgio Rossi",
+    "personality": {
+      "traits": "analytical, logical, eccentric",
+      "interests": "math research, patterns in nature, local election chatter",
+      "relationships": {},
+      "goals": "Advance research project; stay current on math theories",
+      "emotional_baseline": "curious"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 420, "end_time": 480, "location": "home" },
+      { "action": "research", "start_time": 540, "end_time": 720, "location": "Oak_Hill_College:study_area" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "online_class", "start_time": 780, "end_time": 840, "location": "Oak_Hill_College:online_learning_space" },
+      { "action": "research", "start_time": 840, "end_time": 960, "location": "Oak_Hill_College:study_area" },
+      { "action": "reading_news", "start_time": 960, "end_time": 1020, "location": "home:living_room" },
+      { "action": "dinner", "start_time": 1080, "end_time": 1140, "location": "home:kitchen" },
+      { "action": "watch_tv", "start_time": 1140, "end_time": 1200, "location": "home:living_room" }
+    ]
+  },
+  {
+    "name": "Adam Smith",
+    "personality": {
+      "traits": "thoughtful, reflective, intellectual",
+      "interests": "philosophy, creativity, challenging assumptions",
+      "relationships": {},
+      "goals": "Write a book on creativity; explore new ideas",
+      "emotional_baseline": "calm"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 240, "end_time": 300, "location": "home" },
+      { "action": "exercise", "start_time": 300, "end_time": 360, "location": "running_trail" },
+      { "action": "breakfast", "start_time": 360, "end_time": 420, "location": "home:kitchen" },
+      { "action": "reading_books", "start_time": 480, "end_time": 600, "location": "home:office" },
+      { "action": "meeting", "start_time": 600, "end_time": 660, "location": "meeting_room" },
+      { "action": "writing", "start_time": 720, "end_time": 780, "location": "writer_desk" },
+      { "action": "lunch", "start_time": 780, "end_time": 840, "location": "lunch_spot" },
+      { "action": "walk", "start_time": 960, "end_time": 1020, "location": "running_trail" }
+    ]
+  },
+  {
+    "name": "Sam Moore",
+    "personality": {
+      "traits": "wise, resourceful, humorous",
+      "interests": "sharing stories, park upkeep, mayor run",
+      "relationships": { "Jennifer Moore": "wife" },
+      "goals": "Run for local mayor; stay active and social",
+      "emotional_baseline": "steady"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 300, "end_time": 360, "location": "home" },
+      { "action": "walk", "start_time": 480, "end_time": 540, "location": "Johnson_Park" },
+      { "action": "breakfast", "start_time": 540, "end_time": 570, "location": "home:kitchen" },
+      { "action": "visit_cafe", "start_time": 540, "end_time": 600, "location": "Hobbs_Cafe:main_floor" },
+      { "action": "reading_books", "start_time": 600, "end_time": 720, "location": "home:living_room" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "phone_call", "start_time": 840, "end_time": 900, "location": "home:living_room" },
+      { "action": "reading_news", "start_time": 990, "end_time": 1020, "location": "home:living_room" },
+      { "action": "dinner", "start_time": 1020, "end_time": 1080, "location": "home:kitchen" }
+    ]
+  },
+  {
+    "name": "Maria Lopez",
+    "personality": {
+      "traits": "energetic, enthusiastic, inquisitive",
+      "interests": "physics studies, Twitch streaming, Hobbs Cafe",
+      "relationships": {},
+      "goals": "Complete physics degree; grow Twitch audience",
+      "emotional_baseline": "lively"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 600, "end_time": 630, "location": "home" },
+      { "action": "study", "start_time": 660, "end_time": 720, "location": "Oak_Hill_College:online_learning_space" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "rock_climbing", "start_time": 780, "end_time": 840, "location": "rock_climbing_gym" },
+      { "action": "twitch_stream", "start_time": 840, "end_time": 1080, "location": "home:twitch_streaming_room" },
+      { "action": "dinner", "start_time": 1140, "end_time": 1200, "location": "home:kitchen" }
+    ]
+  },
+  {
+    "name": "Mei Lin",
+    "personality": {
+      "traits": "nurturing, kind, patient",
+      "interests": "teaching, research, supporting family",
+      "relationships": { "John Lin": "husband", "Eddy Lin": "son" },
+      "goals": "Teach philosophy, advance research, help her kids",
+      "emotional_baseline": "supportive"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 420, "end_time": 480, "location": "home" },
+      { "action": "breakfast", "start_time": 480, "end_time": 540, "location": "home:kitchen" },
+      { "action": "commuting", "start_time": 540, "end_time": 570, "location": "commute" },
+      { "action": "teaching", "start_time": 570, "end_time": 720, "location": "Oak_Hill_College:lecture_hall" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "research", "start_time": 900, "end_time": 960, "location": "home:office" },
+      { "action": "mentoring", "start_time": 990, "end_time": 1050, "location": "home:living_room" },
+      { "action": "dinner", "start_time": 1050, "end_time": 1110, "location": "home:kitchen" }
+    ]
+  },
+  {
+    "name": "Jennifer Moore",
+    "personality": {
+      "traits": "wise, experienced, warm",
+      "interests": "watercolor painting, mentoring artists",
+      "relationships": { "Sam Moore": "husband" },
+      "goals": "Prepare for an exhibition; mentor younger artists",
+      "emotional_baseline": "warm"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 300, "end_time": 360, "location": "home" },
+      { "action": "gardening", "start_time": 360, "end_time": 480, "location": "home:garden" },
+      { "action": "painting", "start_time": 480, "end_time": 720, "location": "painting_studio" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "mentoring", "start_time": 780, "end_time": 960, "location": "art_studio" },
+      { "action": "dinner", "start_time": 1020, "end_time": 1080, "location": "home:kitchen" },
+      { "action": "watch_tv", "start_time": 1140, "end_time": 1200, "location": "home:living_room" }
+    ]
+  },
+  {
+    "name": "Hailey Johnson",
+    "personality": {
+      "traits": "imaginative, energetic, resourceful",
+      "interests": "writing, cultures, storytelling, podcasts",
+      "relationships": {},
+      "goals": "Finish her novel; start a podcast",
+      "emotional_baseline": "creative"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 600, "end_time": 630, "location": "home" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "writing", "start_time": 780, "end_time": 1020, "location": "writer_desk" },
+      { "action": "walk", "start_time": 1080, "end_time": 1140, "location": "running_trail" },
+      { "action": "dinner", "start_time": 1140, "end_time": 1200, "location": "home:kitchen" },
+      { "action": "watch_tv", "start_time": 1200, "end_time": 1260, "location": "home:living_room" }
+    ]
+  },
+  {
+    "name": "Eddy Lin",
+    "personality": {
+      "traits": "curious, analytical, musical",
+      "interests": "music theory, composition, studying at Hobbs Cafe",
+      "relationships": { "Mei Lin": "mother", "John Lin": "father" },
+      "goals": "Complete composition projects; learn new musical styles",
+      "emotional_baseline": "curious"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 480, "end_time": 510, "location": "home" },
+      { "action": "breakfast", "start_time": 510, "end_time": 540, "location": "home:kitchen" },
+      { "action": "class", "start_time": 600, "end_time": 690, "location": "Oak_Hill_College:lecture_hall" },
+      { "action": "lunch", "start_time": 690, "end_time": 735, "location": "lunch_spot" },
+      { "action": "class", "start_time": 735, "end_time": 840, "location": "Oak_Hill_College:lecture_hall" },
+      { "action": "study", "start_time": 840, "end_time": 1050, "location": "Hobbs_Cafe:main_floor" },
+      { "action": "dinner", "start_time": 1050, "end_time": 1110, "location": "home:kitchen" },
+      { "action": "study", "start_time": 1110, "end_time": 1170, "location": "Oak_Hill_College:study_area" }
+    ]
+  },
+  {
+    "name": "John Lin",
+    "personality": {
+      "traits": "patient, kind, organized",
+      "interests": "pharmacy work, customer care, election news",
+      "relationships": { "Mei Lin": "wife", "Eddy Lin": "son" },
+      "goals": "Run the pharmacy efficiently; learn new treatments",
+      "emotional_baseline": "calm"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 360, "end_time": 420, "location": "home" },
+      { "action": "storekeeping", "start_time": 540, "end_time": 600, "location": "Willow_Market_and_Pharmacy:pharmacy_counter" },
+      { "action": "admin", "start_time": 600, "end_time": 720, "location": "Willow_Market_and_Pharmacy:pharmacy_counter" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "restocking", "start_time": 780, "end_time": 870, "location": "Willow_Market_and_Pharmacy:storage_room" },
+      { "action": "customer_service", "start_time": 870, "end_time": 1020, "location": "Willow_Market_and_Pharmacy:grocery_area" },
+      { "action": "commuting", "start_time": 1020, "end_time": 1050, "location": "commute" },
+      { "action": "dinner", "start_time": 1050, "end_time": 1110, "location": "home:kitchen" }
+    ]
+  },
+  {
+    "name": "Abigail Chen",
+    "personality": {
+      "traits": "open-minded, curious, determined",
+      "interests": "digital art, animation, interactive art",
+      "relationships": {},
+      "goals": "Deliver client animation; explore new tools",
+      "emotional_baseline": "focused"
+    },
+    "schedule": [
+      { "action": "morning_routine", "start_time": 480, "end_time": 510, "location": "home" },
+      { "action": "animation", "start_time": 510, "end_time": 720, "location": "animation_workspace" },
+      { "action": "lunch", "start_time": 720, "end_time": 780, "location": "lunch_spot" },
+      { "action": "animation", "start_time": 780, "end_time": 1050, "location": "animation_workspace" },
+      { "action": "jogging", "start_time": 1080, "end_time": 1140, "location": "running_trail" },
+      { "action": "dinner", "start_time": 1140, "end_time": 1200, "location": "home:kitchen" },
+      { "action": "watch_tv", "start_time": 1200, "end_time": 1260, "location": "home:living_room" }
+    ]
+  }
+]

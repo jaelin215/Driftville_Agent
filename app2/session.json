@@ -1,0 +1,228 @@
+### Created new session: debug_session_id
+
+User > {"raw_persona": "Abigail Chen\nBasic information\nFirst name Abigail\nLast name Chen\nAge 25\nCurrent time February 13, 2023, 16:00:00\nCurrent tile [36, 22]\n\nSettings\nVision Radius 8\nAttention Bandwidth 8\nRetention 8\n\nPersonality and Lifestyle\nInnate tendency open-minded, curious, determined\nLearned tendency Abigail Chen is a digital artist and animator who loves to explore how technology can be used to express ideas. She is always looking for new ways to combine art and technology.\nCurrently Abigail Chen is working on an animation project for a client. She is also experimenting with different tools and techniques to create interactive art.\nLifestyle Abigail Chen goes to bed around midnight, awakes up around 8am, eats dinner around 6pm.\n\nCurrent Action State\nDaily Requirement wake up and complete the morning routine at 8:00 am; get back to working on the animation project at 8:30 am; have lunch and take a break at 12:00 pm; continue working on the animation project from 1:00 to 5:30 pm; go out jogging at 6:00 pm; have dinner at 7:00 pm; take a break and watch TV from 7:00 to 8:00 pm.\n\nDaily distractions include buzzing phone notifications, constant email pings, background chatter that pulls off-task nearly half of the waking hours.", "last_action_result": null, "recent_history": [], "current_datetime": "2025-11-30 17:25"}
+persona_cognitive_simulator > {"action": "main_sequence", "parameters": {"scenario": "Abigail is preparing a capstone write-up for her digital art course. She has gathered her research and is now outlining the structure of the document."}}
+persona_injector > ```json
+{
+  "persona": {
+    "name": "Abigail Chen",
+    "occupation": "Digital Artist and Animator",
+    "relationship": null,
+    "innate_tendency": [
+      "open-minded",
+      "curious",
+      "determined"
+    ],
+    "learned_tendency": "Abigail Chen is a digital artist and animator who loves to explore how technology can be used to express ideas. She is always looking for new ways to combine art and technology.",
+    "current_situation": "Abigail Chen is working on an animation project for a client. She is also experimenting with different tools and techniques to create interactive art.",
+    "lifestyle": "Abigail Chen goes to bed around midnight, awakes up around 8am, eats dinner around 6pm."
+  },
+  "schedule": [
+    {
+      "datetime_start": "2025-11-30 08:00",
+      "duration_min": 30,
+      "location": "home:bathroom",
+      "action": "morning_routine",
+      "environment_description": "background chatter",
+      "notes": "waking up and starting the day"
+    },
+    {
+      "datetime_start": "2025-11-30 08:30",
+      "duration_min": 240,
+      "location": "home:studio",
+      "action": "creative_work",
+      "environment_description": "buzzing phone notifications, constant email pings, background chatter",
+      "notes": "working on animation project, energy is high"
+    },
+    {
+      "datetime_start": "2025-11-30 12:30",
+      "duration_min": 30,
+      "location": "home:kitchen",
+      "action": "lunch",
+      "environment_description": "background chatter",
+      "notes": "taking a break for lunch"
+    },
+    {
+      "datetime_start": "2025-11-30 13:00",
+      "duration_min": 270,
+      "location": "home:studio",
+      "action": "creative_work",
+      "environment_description": "buzzing phone notifications, constant email pings, background chatter",
+      "notes": "continuing work on animation project, potential for distraction"
+    },
+    {
+      "datetime_start": "2025-11-30 17:30",
+      "duration_min": 60,
+      "location": "running_trail",
+      "action": "jogging",
+      "environment_description": "outdoor sounds, light breeze",
+      "notes": "time to get some exercise"
+    },
+    {
+      "datetime_start": "2025-11-30 18:30",
+      "duration_min": 30,
+      "location": "home:kitchen",
+      "action": "dinner",
+      "environment_description": "background chatter",
+      "notes": "having dinner"
+    },
+    {
+      "datetime_start": "2025-11-30 19:00",
+      "duration_min": 60,
+      "location": "home:living_room",
+      "action": "watch_tv",
+      "environment_description": "television sounds",
+      "notes": "relaxing and watching TV"
+    },
+    {
+      "datetime_start": "2025-11-30 20:00",
+      "duration_min": 240,
+      "location": "home:studio",
+      "action": "creative_work",
+      "environment_description": "buzzing phone notifications, constant email pings, background chatter",
+      "notes": "continuing creative work, focus might be waning"
+    },
+    {
+      "datetime_start": "2025-11-30 00:00",
+      "duration_min": 480,
+      "location": "home:bedroom",
+      "action": "night_routine",
+      "environment_description": "quiet",
+      "notes": "getting ready for bed"
+    }
+  ]
+}
+```
+INFO:     127.0.0.1:61036 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61036 - "GET /personas HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61037 - "GET /events HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61038 - "GET /memory HTTP/1.1" 200 OK
+schedule_injector > ```json
+{
+  "schedule": [
+    {
+      "datetime_start": "2025-11-30 08:00",
+      "duration_min": 30,
+      "location": "home:bathroom",
+      "action": "morning_routine",
+      "environment_description": "background chatter",
+      "notes": "waking up and starting the day"
+    },
+    {
+      "datetime_start": "2025-11-30 08:30",
+      "duration_min": 240,
+      "location": "home:studio",
+      "action": "creative_work",
+      "environment_description": "buzzing phone notifications, constant email pings, background chatter",
+      "notes": "working on animation project, energy is high"
+    },
+    {
+      "datetime_start": "2025-11-30 12:30",
+      "duration_min": 30,
+      "location": "home:kitchen",
+      "action": "lunch",
+      "environment_description": "background chatter",
+      "notes": "taking a break for lunch"
+    },
+    {
+      "datetime_start": "2025-11-30 13:00",
+      "duration_min": 270,
+      "location": "home:studio",
+      "action": "creative_work",
+      "environment_description": "buzzing phone notifications, constant email pings, background chatter",
+      "notes": "continuing work on animation project, potential for distraction"
+    },
+    {
+      "datetime_start": "2025-11-30 17:30",
+      "duration_min": 60,
+      "location": "running_trail",
+      "action": "jogging",
+      "environment_description": "outdoor sounds, light breeze",
+      "notes": "time to get some exercise"
+    },
+    {
+      "datetime_start": "2025-11-30 18:30",
+      "duration_min": 30,
+      "location": "home:kitchen",
+      "action": "dinner",
+      "environment_description": "background chatter",
+      "notes": "having dinner"
+    },
+    {
+      "datetime_start": "2025-11-30 19:00",
+      "duration_min": 60,
+      "location": "home:living_room",
+      "action": "watch_tv",
+      "environment_description": "television sounds",
+      "notes": "relaxing and watching TV"
+    },
+    {
+      "datetime_start": "2025-11-30 20:00",
+      "duration_min": 240,
+      "location": "home:studio",
+      "action": "creative_work",
+      "environment_description": "buzzing phone notifications, constant email pings, background chatter",
+      "notes": "continuing creative work, focus might be waning"
+    },
+    {
+      "datetime_start": "2025-11-30 00:00",
+      "duration_min": 480,
+      "location": "home:bedroom",
+      "action": "night_routine",
+      "environment_description": "quiet",
+      "notes": "getting ready for bed"
+    }
+  ]
+}
+```
+observer > ```json
+{
+  "observation": {
+    "datetime_start": "2025-11-30 17:25",
+    "duration_min": 5,
+    "location": "home:studio",
+    "action": "creative_work",
+    "state_summary": "Abigail is finishing up her animation project in her studio, likely dealing with distractions."
+  }
+}
+```
+reflector > ```json
+{
+  "reflection": {
+    "plan_alignment": "aligned",
+    "repeated_topic_count": 0,
+    "boredom_fatigue": "low",
+    "attention_stability": "stable",
+    "meta_rule": "continue",
+    "state_summary": "Abigail is focused on her animation project, managing distractions in her studio.",
+    "reasoning": "The current action aligns with the schedule. No repetition or signs of fatigue detected."
+  }
+}
+```
+^CINFO:     Shutting down
+INFO:     Waiting for background tasks to complete. (CTRL+C to force quit)
+planner > ```json
+{
+  "plan": {
+    "location": "running_trail",
+    "action": "jogging",
+    "datetime_start": "2025-11-30 17:30",
+    "duration_min": 15,
+    "topic": "Evening jog",
+    "state_summary": "Abigail is heading out for her scheduled jog after finishing up work in her studio."
+  }
+}
+```
+drifter > ```json
+{
+  "drift_decision": {
+    "should_drift": true,
+    "drift_type": "attentional_leak",
+    "drift_topic": "animation project ideas",
+    "drift_action": "thinking about new animation techniques",
+    "drift_intensity": 0.3,
+    "potential_recovery": "Abigail may return to the jogging plan as she starts her run.",
+    "justification": "Distractions and a successful work session may lead to lingering thoughts about creative projects."
+  }
+}
+```
