@@ -3,14 +3,12 @@
 Persona-based ORPDA loop (Observe → Reflect → Plan → Drift → Act) with a small web UI and ablation metrics.
 
 ## Quick Start
-1) Install deps (activate your env first: Enter your `GOOGLE_API_KEY` in .env ):
-   pip install -r requirements.txt
+1) activate your env first: Enter your `GOOGLE_API_KEY` in .env
+2) Install deps: `pip install -r requirements.txt`
 2) Set model in `app/config/config.yaml` (e.g., gemini-2.5-flash-lite).
-3) Run the FastAPI app (backend services):
-   uvicorn app.app:app --reload
-4) UI status: the Driftville page is visualization-only (no live ORPDA wiring yet). To preview the layout:
+3) UI status: the Driftville page is visualization-only (no live ORPDA wiring yet). To preview the layout:
    python app2/app2.py
-   # visit the printed URL (default http://127.0.0.1:5000)
+   visit the printed URL (default http://127.0.0.1:5000)
 
 ## ORPDA Loop
 - YAML agent configs live in `app/src/yaml/` (`root_agent.yaml`, `observer.yaml`, etc.).
@@ -23,19 +21,18 @@ Persona-based ORPDA loop (Observe → Reflect → Plan → Drift → Act) with a
 - To control start time (after adding the argparse flag as needed), pass `--sim-start "YYYY-MM-DD HH:MM"`.
 
 ## Logs
-- Session logs: `app/logs/session_*.log`
-- Memory streams: `app/logs/memory_streams*.log`
-- Trace/events: `app/logs/trace.log`, `app/logs/events.log`
+- Session logs (raw ORPDA loop output): `app/logs/session_*.log`
+- Memory streams (summarized long-term memory): `app/logs/memory_streams*.log`
 
 ## Metrics & Ablation
 - `app/src/metrics.py` compares ORPDA (with drift) vs ORPA (no drift).
 - Compute and plot:
    python -m app.src.metrics
-- Outputs: `app/logs/metrics.json` and `app/logs/metrics_plot.png`.
+- Outputs: `app/logs/metrics.json`.
 
 ## Personas
+- Raw bios: `app/src/smallville_personas.json` (Copied from `https://reverie.herokuapp.com/UIST_Demo/`. Used as SEED personality for Driftville. )
 - Driftville schedules: `app/src/driftville_personas.json`
-- Raw bios: `app/src/smallville_personas.json`
 - UI persona loader (arcade-style): `app2/app2.py`
 
 ## Config
