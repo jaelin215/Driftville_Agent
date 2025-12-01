@@ -3,6 +3,22 @@
 A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (Observe → Reflect → Plan → Drift → Act) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
 ![ORPDA Architecture](ORPDA_architecture.png)
 
+**Why Driftville?**
+
+Most LLM agents today operate inside simplified cognitive loops—typically variants of Observe → Reflect → Plan → Act. These architectures assume stable attention, perfect goal adherence, and minimal internal variability. Real humans do not behave this way. We drift, ruminate, get distracted, recover, and reorient throughout the day.
+
+**Driftville was designed to close this gap.**
+
+This framework introduces ORPDA, a novel cognitive cycle that explicitly models drift as a first-class operator. By instrumenting an agent’s internal reasoning steps and evaluating its behavior over long simulated timelines, Driftville enables:
+	•	Research-grade analysis of attention stability, cognitive drift, and emotional resilience
+	•	Quantitative comparisons between idealized agents (ORPA) and realistic agents (ORPDA)
+	•	Transparent, interpretable traces that reveal how an LLM’s internal “inner voice” evolves over time
+	•	Benchmarking of agent personas for coaching, education, enterprise decision-making, and human-facing applications
+	•	A sandbox for behavioral experiments, including conflict simulation, team dynamics, and population-level cognitive modeling
+
+In contrast to social-emergence environments like Smallville (2023), Driftville focuses on cognitive fidelity over social fidelity. It is not about building towns—it is about understanding minds.
+By providing drift-aware reasoning, memory streams, and structured ablation metrics, Driftville supports both academic research and real-world agent evaluation.
+
 ## Quick Start
 1) activate your env first: Enter your `GOOGLE_API_KEY` in .env
 2) Install deps: `pip install -r requirements.txt`
