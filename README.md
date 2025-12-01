@@ -1,13 +1,15 @@
 # Driftville: Understanding LLM Attention, Drift, and Emotional Stability Through ORPDA
 
 A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (Observe → Reflect → Plan → Drift → Act) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
-![ORPDA Architecture](ORPDA_architecture.png)
 
-**Why Driftville?**
+![ORPDA Architecture](tools/ORPDA.png)
+
+
+**🚀 Why Driftville?**
 
 Most LLM agents today operate inside simplified cognitive loops—typically variants of Observe → Reflect → Plan → Act. These architectures assume stable attention, perfect goal adherence, and minimal internal variability. Real humans do not behave this way. We drift, ruminate, get distracted, recover, and reorient throughout the day.
 
-**Driftville was designed to close this gap.**
+**✅ Driftville was designed to close this gap.**
 
 This framework introduces ORPDA, a novel cognitive cycle that explicitly models drift as a first-class operator. By instrumenting an agent’s internal reasoning steps and evaluating its behavior over long simulated timelines, Driftville enables:
 
