@@ -32,7 +32,7 @@ Persona-based ORPDA loop (Observe → Reflect → Plan → Drift → Act) with a
 
 ## Personas
 - Raw bios: `app/src/smallville_personas.json` (Copied from `https://reverie.herokuapp.com/UIST_Demo/`. Used as SEED personality for Driftville. )
-- Driftville schedules: `app/src/driftville_personas.json`
+- Driftville personas and schedules: `app/src/driftville_personas.json`
 - UI persona loader (arcade-style): `app2/app2.py`
 
 ## Config
