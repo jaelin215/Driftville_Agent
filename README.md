@@ -1,6 +1,6 @@
-# Driftville ORPDA Simulator
+# Driftville: Understanding LLM Attention, Drift, and Emotional Stability Through ORPDA
 
-Persona-based ORPDA loop (Observe → Reflect → Plan → Drift → Act) with a small web UI and ablation metrics.
+A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (Observe → Reflect → Plan → Drift → Act) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
 ![ORPDA Architecture](ORPDA_architecture.png)
 
 ## Quick Start
