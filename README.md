@@ -1,6 +1,7 @@
 # Driftville ORPDA Simulator
 
 Persona-based ORPDA loop (Observe → Reflect → Plan → Drift → Act) with a small web UI and ablation metrics.
+![ORPDA Architecture](ORPDA_architecture.png)
 
 ## Quick Start
 1) activate your env first: Enter your `GOOGLE_API_KEY` in .env
