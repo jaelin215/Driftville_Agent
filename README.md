@@ -10,6 +10,7 @@ Most LLM agents today operate inside simplified cognitive loops—typically vari
 **Driftville was designed to close this gap.**
 
 This framework introduces ORPDA, a novel cognitive cycle that explicitly models drift as a first-class operator. By instrumenting an agent’s internal reasoning steps and evaluating its behavior over long simulated timelines, Driftville enables:
+
 	•	Research-grade analysis of attention stability, cognitive drift, and emotional resilience
 	•	Quantitative comparisons between idealized agents (ORPA) and realistic agents (ORPDA)
 	•	Transparent, interpretable traces that reveal how an LLM’s internal “inner voice” evolves over time
