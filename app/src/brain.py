@@ -133,6 +133,12 @@ summary_agent = LlmAgent(
     instruction="Summarize observations into a concise one- or two-sentence memory for later recall.",
 )
 
+current_status_agent = LlmAgent(
+    name="current_status_agent",
+    model=Gemini(model=MODEL_NAME, retry_config=retry_config),
+    instruction="Retrieve current datetime inside simulation, user name, user ",
+)
+
 
 # -----------------------------------------*
 # Turn generation

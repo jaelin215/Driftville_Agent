@@ -44,7 +44,7 @@ class RateLimiter:
         self.calls.append(time.time())
 
 
-rate_limiter = RateLimiter(calls_per_minute=50)
+rate_limiter = RateLimiter(calls_per_minute=15)
 
 
 async def call_gemini(prompt, model=None, timeout_sec: float = 30):

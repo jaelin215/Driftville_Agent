@@ -6,6 +6,7 @@
 
 import json
 from pathlib import Path
+import datetime
 
 ROOT = Path.cwd()
 AGENT_PERSONAS_PATH = ROOT / "app/src/agent_personas.json"
@@ -17,15 +18,30 @@ REFLECTION_PATH = ROOT / "app/logs/reflection.jsonl"
 # Define agent
 # --------------------------------*
 class Agent:
-    def __init__(self, name, personality, daily_schedule):
+    def __init__(
+        self,
+        name,
+        personality,
+        daily_schedule,
+        current_time=None,
+        current_location=None,
+        current_action=None,
+        current_environment=None,
+        current_notes=None,
+    ):
         self.name = name
         self.personality = personality
         self.daily_schedule = daily_schedule
         self.memory = []
-        self.current_time = 0
-        self.current_action = None
-        self.location = "home"
+        # Default to "now" and home if not provided (e.g., when loading static personas)
+        self.current_time = current_time or datetime.datetime.now().strftime(
+            "%Y-%m-%d %H:%M"
+        )
+        self.current_action = current_action or "idle"
+        self.location = current_location or "home"
         self.reflection = []
+        self.current_environment = current_environment or "quiet"
+        self.current_notes = current_notes or ""
 
     def load_memory(self, memory_path=MEMORY_PATH):
         """Load memories for this agent from a JSONL file."""
