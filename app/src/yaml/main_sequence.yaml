@@ -1,7 +1,0 @@
-name: main_sequence
-agent_class: SequentialAgent
-description: Injects persona, creates a schedule, then starts the cognitive loop.
-sub_agents:
-  - config_path: ./persona_injector.yaml
-  - config_path: ./schedule_injector.yaml
-  - config_path: ./cognitive_loop.yaml

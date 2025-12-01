@@ -16,8 +16,13 @@ if str(ROOT) not in sys.path:
 from app.config.config import MODEL_NAME
 
 load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-client = genai.Client(api_key=GEMINI_API_KEY)
+# Prefer GEMINI_API_KEY; fall back to GOOGLE_API_KEY.
+API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+if not API_KEY:
+    raise RuntimeError(
+        "Missing API key: set GEMINI_API_KEY or GOOGLE_API_KEY in your environment/.env"
+    )
+client = genai.Client(api_key=API_KEY)
 
 
 class RateLimiter:
@@ -39,16 +44,18 @@ class RateLimiter:
         self.calls.append(time.time())
 
 
-rate_limiter = RateLimiter(calls_per_minute=3000)
+rate_limiter = RateLimiter(calls_per_minute=50)
 
 
-async def call_gemini(prompt):
-    """Call Gemini with rate limiting"""
+async def call_gemini(prompt, model=None, timeout_sec: float = 30):
+    """Call Gemini with rate limiting; if model is None, uses MODEL_NAME."""
     await rate_limiter.acquire()
 
     try:
+        # Note: some client versions don't accept request_options. To avoid breaking,
+        # we pass only required params.
         response = client.models.generate_content(
-            model=MODEL_NAME,
+            model=model or MODEL_NAME,
             contents=prompt,
         )
         return response.text

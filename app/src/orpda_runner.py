@@ -4,10 +4,19 @@ import json
 from google.adk.agents import LlmAgent, SequentialAgent, ParallelAgent, LoopAgent
 from google.adk.runners import InMemoryRunner
 from google.adk.models.google_llm import Gemini
+
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 from app.config.config import MODEL_NAME  # your model choice
 
 ROOT = Path(__file__).resolve().parent
 YAML_DIR = ROOT / "yaml"
+print
 
 
 def build_agent(cfg_path: Path):
@@ -16,18 +25,24 @@ def build_agent(cfg_path: Path):
         build_agent((cfg_path.parent / s["config_path"]).resolve())
         for s in cfg.get("sub_agents", [])
     ]
+    # print(cfg)
+    # print("sub_agents", sub_agents)
+
     cls = cfg.get("agent_class", "LlmAgent")
 
     if cls == "SequentialAgent":
+        # print("SequentialAgent", cfg["name"])
         return SequentialAgent(name=cfg["name"], sub_agents=sub_agents)
     if cls == "ParallelAgent":
         return ParallelAgent(name=cfg["name"], sub_agents=sub_agents)
+        # print("ParallelAgent", cfg["name"])
     if cls == "LoopAgent":
+        # print("LoopAgent", cfg["name"])
         # Keep loop to 1 iteration per sim tick to avoid long-running inner loops.
         return LoopAgent(
             name=cfg["name"],
             sub_agents=sub_agents,
-            max_iterations=1,
+            max_iterations=3,
         )
 
     # Default: LlmAgent (optionally prepend to a Sequential if there are sub-agents)
@@ -42,6 +57,7 @@ def build_agent(cfg_path: Path):
             name=f"{cfg['name']}_seq",
             sub_agents=[llm] + sub_agents,
         )
+
     return llm
 
 

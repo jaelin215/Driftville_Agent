@@ -11,6 +11,8 @@ EVENT_LOG_PATH = Path("app/logs/event_logs.jsonl")
 MEMORY_LOG_PATH = Path("app/logs/memory.jsonl")
 SMALLVILLE_PATH = Path("app/src/smallville_personas.json")
 UI_SIM_LOG_PATH = Path("app/logs/ui_simulate.log")
+TRACE_LOG_PATH = Path("app/logs/trace.log")
+MEMORY_STREAM_PATH = Path("app/logs/memory_streams.log")
 
 
 def load_events():
@@ -80,9 +82,12 @@ except Exception:
 def _make_agent(name: str):
     """Create a lightweight Agent with raw persona text."""
     persona_text = RAW_PERSONAS.get(name, "")
-    agent = Agent(name=name, personality={"raw_persona": persona_text}, daily_schedule=[])
+    agent = Agent(
+        name=name, personality={"raw_persona": persona_text}, daily_schedule=[]
+    )
     agent.memory = []
     return agent
+
 
 @app.get("/state")
 def state():
@@ -110,7 +115,37 @@ def personas():
     return JSONResponse({"personas": sorted(RAW_PERSONAS.keys())})
 
 
-async def _run_tick(agent_a, agent_b, current_time, agent_states, minutes_per_step=15):
+def _log_trace(entry: dict):
+    """Append a single trace entry to trace.log."""
+    try:
+        TRACE_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with TRACE_LOG_PATH.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(entry) + "\n")
+    except Exception:
+        pass
+
+
+def _log_memory_stream(agent_name: str, action_result: dict, tick_idx: int, sim_ts: str):
+    """Append a memory_stream record for the agent's action_result."""
+    try:
+        MEMORY_STREAM_PATH.parent.mkdir(parents=True, exist_ok=True)
+        text = f"{agent_name} {action_result.get('action','')} at {action_result.get('location','')}"
+        entry = {
+            "ts_created": sim_ts,
+            "ts_last_accessed": sim_ts,
+            "agent": agent_name,
+            "tick": tick_idx,
+            "type": "action_result",
+            "text": text.strip(),
+            "payload": action_result,
+        }
+        with MEMORY_STREAM_PATH.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(entry) + "\n")
+    except Exception:
+        pass
+
+
+async def _run_tick(agent_a, agent_b, current_time, agent_states, minutes_per_step=15, tick_idx=0):
     """Run one ORPDA tick for both agents and optionally generate a short dialogue."""
     tick_start = current_time.strftime("%Y-%m-%d %H:%M")
     for agent in (agent_a, agent_b):
@@ -121,11 +156,11 @@ async def _run_tick(agent_a, agent_b, current_time, agent_states, minutes_per_st
             "current_datetime": tick_start,
         }
         orpda_out = await run_orpda_cycle(ctx)
-        action_result = orpda_out.get("action_result") or {}
-        drift_decision = orpda_out.get("drift_decision") or {}
-        plan = orpda_out.get("plan") or {}
-        reflection = orpda_out.get("reflection") or {}
         observation = orpda_out.get("observation")
+        reflection = orpda_out.get("reflection") or {}
+        plan = orpda_out.get("plan") or {}
+        drift_decision = orpda_out.get("drift_decision") or {}
+        action_result = orpda_out.get("action_result") or {}
 
         # clamp timing to tick
         action_result["datetime_start"] = tick_start
@@ -157,6 +192,7 @@ async def _run_tick(agent_a, agent_b, current_time, agent_states, minutes_per_st
             "drift_intensity": drift_decision.get("drift_intensity"),
             "sim_datetime": action_result.get("datetime_start", tick_start),
         }
+        _log_memory_stream(agent.name, action_result, tick_idx, tick_start)
 
     # Force a short conversation each tick
     cm = ConversationManager(agent_a, agent_b)
@@ -166,13 +202,31 @@ async def _run_tick(agent_a, agent_b, current_time, agent_states, minutes_per_st
     for _ in range(MAX_TURNS):
         if not await cm.wants_to_speak(speaker, listener, "tick", dialogue):
             break
-        line = await with_backoff(
-            cm.generate_turn, speaker, listener, "tick", dialogue
-        )
+        line = await with_backoff(cm.generate_turn, speaker, listener, "tick", dialogue)
         if not line:
             break
         dialogue.append(line)
         speaker, listener = listener, speaker
+
+    trace_entry = {
+        "ts_real": datetime.datetime.now().isoformat() + "Z",
+        "tick_time": tick_start,
+        "tick_idx": tick_idx,
+        "agents": [
+            {
+                "name": agent_a.name,
+                "action": agent_a.current_action,
+                "reflection": agent_states[agent_a.name]["history"][-1].get("reflection", {}),
+            },
+            {
+                "name": agent_b.name,
+                "action": agent_b.current_action,
+                "reflection": agent_states[agent_b.name]["history"][-1].get("reflection", {}),
+            },
+        ],
+        "dialogue": dialogue,
+    }
+    _log_trace(trace_entry)
 
     return {
         "tick_time": tick_start,
@@ -180,14 +234,16 @@ async def _run_tick(agent_a, agent_b, current_time, agent_states, minutes_per_st
             {
                 "name": agent_a.name,
                 "action": agent_a.current_action,
-                "reflection": agent_states[agent_a.name]["history"][-1]
-                .get("reflection", {}),
+                "reflection": agent_states[agent_a.name]["history"][-1].get(
+                    "reflection", {}
+                ),
             },
             {
                 "name": agent_b.name,
                 "action": agent_b.current_action,
-                "reflection": agent_states[agent_b.name]["history"][-1]
-                .get("reflection", {}),
+                "reflection": agent_states[agent_b.name]["history"][-1].get(
+                    "reflection", {}
+                ),
             },
         ],
         "dialogue": dialogue,
@@ -199,19 +255,28 @@ async def simulate_pair(payload: dict):
     """Run a short 2-tick ORPDA conversation for two selected personas."""
     name_a = payload.get("agent1")
     name_b = payload.get("agent2")
-    if not name_a or not name_b or name_a not in RAW_PERSONAS or name_b not in RAW_PERSONAS:
-        return JSONResponse({"error": "agent1 and agent2 must be valid persona names"}, status_code=400)
+    if (
+        not name_a
+        or not name_b
+        or name_a not in RAW_PERSONAS
+        or name_b not in RAW_PERSONAS
+    ):
+        return JSONResponse(
+            {"error": "agent1 and agent2 must be valid persona names"}, status_code=400
+        )
 
     agent_a = _make_agent(name_a)
     agent_b = _make_agent(name_b)
 
-    agent_states = {name_a: {"last_action_result": None, "history": []},
-                    name_b: {"last_action_result": None, "history": []}}
+    agent_states = {
+        name_a: {"last_action_result": None, "history": []},
+        name_b: {"last_action_result": None, "history": []},
+    }
 
     now = datetime.datetime.now().replace(second=0, microsecond=0)
     timeline = []
-    for _ in range(2):  # two ticks
-        tick = await _run_tick(agent_a, agent_b, now, agent_states, minutes_per_step=15)
+    for idx in range(2):  # two ticks
+        tick = await _run_tick(agent_a, agent_b, now, agent_states, minutes_per_step=15, tick_idx=idx)
         timeline.append(tick)
         now = now + timedelta(minutes=15)
 

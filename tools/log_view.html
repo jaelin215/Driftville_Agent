@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Trace & Memory Viewer</title>
+  <style>
+    body { background:#0b132b; color:#f8f9ff; font-family: Arial, sans-serif; margin:0; padding:20px; }
+    .tick { border:1px solid rgba(111,255,233,0.3); border-radius:10px; padding:10px; margin-bottom:12px; }
+    .tick-header { font-weight:700; color:#6fffe9; margin-bottom:8px; }
+    .agents { display:flex; flex-wrap:wrap; gap:8px; }
+    .agent-card { background:rgba(255,255,255,0.03); border:1px solid rgba(111,255,233,0.2); border-radius:8px; padding:8px; min-width:180px; }
+    .agent-card .name { font-weight:800; color:#ffd166; margin-bottom:4px; }
+    .dialogue { margin-top:8px; display:flex; flex-direction:column; gap:6px; }
+    .bubble { padding:8px 10px; border-radius:12px; max-width:70%; color:#0b132b; }
+    .bubble.left { align-self:flex-start; background:#ffd166; }
+    .bubble.right { align-self:flex-end; background:#6fffe9; }
+    .speaker { font-weight:700; margin-bottom:4px; }
+    .mem-section { margin-top:20px; }
+    .mem-title { font-weight:800; color:#6fffe9; margin-bottom:6px; }
+    .mem-item { background:rgba(255,255,255,0.03); border:1px solid rgba(111,255,233,0.2); border-radius:8px; padding:8px; margin-bottom:6px; }
+  </style>
+</head>
+<body>
+  <h2>Trace (ticks)</h2>
+  <div class="tick"><div class="tick-header">Tick 0 @ 2025-12-01 14:00</div><div class="agents">
+                <div class="agent-card">
+                  <div class="name">Mei Lin</div>
+                  <div><strong>Action:</strong> idle</div>
+                  <div><strong>Location:</strong> home</div>
+                  <div><strong>Drift:</strong> none</div>
+                  <div><strong>Topic:</strong> None</div>
+                  <div><strong>Reflection:</strong> </div>
+                </div>
+                
+                <div class="agent-card">
+                  <div class="name">Eddy Lin</div>
+                  <div><strong>Action:</strong> idle</div>
+                  <div><strong>Location:</strong> home</div>
+                  <div><strong>Drift:</strong> none</div>
+                  <div><strong>Topic:</strong> None</div>
+                  <div><strong>Reflection:</strong> </div>
+                </div>
+                </div><div class="dialogue">
+        <div class="bubble left">
+          <div class="speaker">Eddy Lin</div>
+          <div class="text">Just trying to absorb all this musical knowledge, you know? It&#x27;s a lot to take in.</div>
+        </div>
+        
+        <div class="bubble right">
+          <div class="speaker">Mei Lin</div>
+          <div class="text">It is, isn&#x27;t it? But think of how much richer your world will be for it, sweetie.</div>
+        </div>
+        </div></div>
+  <div class="mem-section">
+    <h2>Memory Streams (last 10 per agent)</h2>
+    <div class="mem-agent"><div class="mem-title">Mei Lin</div>
+            <div class="mem-item">
+              <div><strong>ts:</strong> 2025-12-01 14:00</div>
+              <div>Mei Lin  at</div>
+            </div>
+            </div><div class="mem-agent"><div class="mem-title">Eddy Lin</div>
+            <div class="mem-item">
+              <div><strong>ts:</strong> 2025-12-01 14:00</div>
+              <div>Eddy Lin  at</div>
+            </div>
+            </div>
+  </div>
+</body>
+</html>
