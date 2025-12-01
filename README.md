@@ -3,7 +3,7 @@
 Persona-based ORPDA loop (Observe → Reflect → Plan → Drift → Act) with a small web UI and ablation metrics.
 
 ## Quick Start
-1) Install deps (activate your env first):
+1) Install deps (activate your env first: Enter your `GOOGLE_API_KEY` in .env ):
    pip install -r requirements.txt
 2) Set model in `app/config/config.yaml` (e.g., gemini-2.5-flash-lite).
 3) Run the FastAPI app (backend services):
