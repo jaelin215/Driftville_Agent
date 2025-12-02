@@ -45,7 +45,7 @@ By providing drift-aware reasoning, memory streams, and structured ablation metr
 - Programmatic runner: `app/src/orpda_runner.py` exposes `run_orpda_cycle(ctx)`; call with a context dict (raw persona, last_action_result, recent_history, current_datetime).
 
 <p align="center">
-![Drift intensity, Semantic drift score over loop](app/img/drift_over_tick.png)
+	  <img src="app/img/drift_over_tick.png" alt="Drift intensity, Semantic drift score over loop" width="700">
 </p>
 With ORPDA, it resembles human drift mind throughout the time. Without drift agent layer, drift tends to happend only at the beginning and topic of drift also looses diversity.
 	•	ORPDA (orange) shows frequent, distributed drift events throughout the 60 ticks.
