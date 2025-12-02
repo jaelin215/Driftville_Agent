@@ -200,17 +200,17 @@ async def run_simulation(agent, steps=1):
         drift = orpda_out.get("drift_decision", {}) or {}
         action_result = orpda_out.get("action_result", {}) or {}
 
-        # Ablation toggle
-        if not USE_DRIFT:
-            drift = {
-                "should_drift": False,
-                "drift_type": "none",
-                "drift_topic": None,
-                "drift_intensity": 0.0,
-                "drift_action": "continue",
-                "justification": "Drift disabled by ablation flag.",
-            }
-            orpda_out["drift_decision"] = drift
+        # # Ablation toggle
+        # if not USE_DRIFT:
+        #     drift = {
+        #         "should_drift": False,
+        #         "drift_type": "none",
+        #         "drift_topic": None,
+        #         "drift_intensity": 0.0,
+        #         "drift_action": "continue",
+        #         "justification": "Drift disabled by ablation flag.",
+        #     }
+        #     orpda_out["drift_decision"] = drift
 
         # Cleanup next_datetime hallucinations
         for block in (obs, ref, plan, drift, action_result):
