@@ -2,7 +2,13 @@
 
 A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (**Observe → Reflect → Plan → Drift → Act**) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
 
-![ORPDA Architecture](tools/ORPDA.png)
+<p align="center">
+  <img src="tools/ORPDA.png" alt="ORPDA Architecture">
+</p>
+
+<p align="center">
+  <img src="app/img/drift_probability.png" alt="ORPDA vs ORPA" width="500">
+</p>
 
 
 **🚀 Why Driftville?**
@@ -30,11 +36,17 @@ By providing drift-aware reasoning, memory streams, and structured ablation metr
    `python app2/app2.py`
    Then open the printed URL (default: http://127.0.0.1:5000)
 
+<p align="center">
+	<img src="app/img/driftville_ui.png" alt="Driftville UI">
+</p>
+
 ## ORPDA Loop
 - YAML agent configs live in `app/src/yaml/` (`root_agent.yaml`, `observer.yaml`, etc.).
 - Programmatic runner: `app/src/orpda_runner.py` exposes `run_orpda_cycle(ctx)`; call with a context dict (raw persona, last_action_result, recent_history, current_datetime).
 
+<p align="center">
 ![Drift intensity, Semantic drift score over loop](app/img/drift_over_tick.png)
+</p>
 With ORPDA, it resembles human drift mind throughout the time. Without drift agent layer, drift tends to happend only at the beginning and topic of drift also looses diversity.
 	•	ORPDA (orange) shows frequent, distributed drift events throughout the 60 ticks.
 
@@ -47,13 +59,11 @@ humans don’t drift once; we drift repeatedly and intermittently over the day.
 ➤ Interpretation:
 ORPDA produces cognitively realistic “micro-instabilities” over time, while ORPA locks into a rigid behavioral groove.
 
-
 ## Simulation CLI
 - Run the full ORPDA simulation loop:
     `app/src/simulate.py` 
 - Personas are defined in `app/src/driftville_personas.json` (generated using `persona_injector.yaml` LLM agent)
 - To control start time (after adding the argparse flag as needed), pass `--sim-start "YYYY-MM-DD HH:MM"`.
-
 
 ## Logs
 - Session logs (raw ORPDA loop output): `app/logs/session_*.log`
