@@ -57,7 +57,13 @@ By providing drift-aware reasoning, memory streams, and structured ablation metr
 - UI persona loader (arcade-style): `app2/app2.py`
 
 ## Config
-- Model selection: `app/config/config.yaml` (`MODEL_NAME` used by agents).
+- Model selection, Toggle "Drift" layer:
+  ```bash
+  app/config/config.yaml
+  ```
+	- set `MODEL_NAME` to be used by agents (default: `gemini-2.5-flash-lite`).
+ 	- set `use_drift` to **True** (to run ORPDA loop).
+  	- set `use_drift` to **False** (to run ORPA loop).	
 - Additional personas: add to `driftville_personas.json` with schedule blocks; raw bios can go into `smallville_personas.json`.
 
 ## Development Notes
