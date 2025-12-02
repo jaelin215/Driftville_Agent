@@ -291,7 +291,7 @@ if __name__ == "__main__":
     )
     print(f"Simulating {steps} timestamps (15‑minute ticks)")
 
-    agent = load_agent("Mei Lin", start_time="2023-02-13 06:00")
+    agent = load_agent("Eddy Lin", start_time="2023-02-13 06:00")
     if not agent:
         raise SystemExit("Failed to load agent.")
 

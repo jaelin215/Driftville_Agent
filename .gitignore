@@ -1,6 +1,7 @@
 # custom 
 **/archive/
 .env
+__pycache__
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
@@ -61,7 +62,6 @@ cover/
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -249,8 +249,6 @@ Thumbs.db
 *.sqlite3
 
 # Logs
-*.log
-logs/
 .venv_old/
 NDVI/
 

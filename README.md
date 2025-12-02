@@ -34,6 +34,20 @@ By providing drift-aware reasoning, memory streams, and structured ablation metr
 - YAML agent configs live in `app/src/yaml/` (`root_agent.yaml`, `observer.yaml`, etc.).
 - Programmatic runner: `app/src/orpda_runner.py` exposes `run_orpda_cycle(ctx)`; call with a context dict (raw persona, last_action_result, recent_history, current_datetime).
 
+![Drift intensity, Semantic drift score over loop](app/img/drift_over_tick.png)
+With ORPDA, it resembles human drift mind throughout the time. Without drift agent layer, drift tends to happend only at the beginning and topic of drift also looses diversity.
+	•	ORPDA (orange) shows frequent, distributed drift events throughout the 60 ticks.
+
+This pattern resembles human cognition: 
+humans don’t drift once; we drift repeatedly and intermittently over the day.
+	•	ORPA (blue) — the version without the drift agent — shows drift mostly:
+		•	in the early ticks (startup instability),
+		•	but becomes flat and stable for long stretches.
+
+➤ Interpretation:
+ORPDA produces cognitively realistic “micro-instabilities” over time, while ORPA locks into a rigid behavioral groove.
+
+
 ## Simulation CLI
 - Run the full ORPDA simulation loop:
     `app/src/simulate.py` 
