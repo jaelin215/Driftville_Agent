@@ -3,11 +3,15 @@
   <img src="tools/ORPDA.png" alt="ORPDA Architecture">
 </p>
 
-A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (**Observe → Reflect → Plan → Drift → Act**) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
+A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (**Observe → Reflect → Plan → Drift → Act**) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning. 
+
+This bar chart shows the agent’s inherent probability of drifting away from its scheduled action. ORPDA’s drift layer increases baseline drift by ~4× compared to ORPA, producing internal variability that more closely resembles human attention patterns. ORPA, by contrast, remains largely stable and goal-locked.
 
 <p align="center">
   <img src="app/img/drift_probability.png" alt="ORPDA vs ORPA" width="500">
 </p>
+
+
 
 
 **🚀 Why Driftville?**
