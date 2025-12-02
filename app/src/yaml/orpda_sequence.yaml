@@ -6,4 +6,4 @@ sub_agents:
   - config_path: ./reflector.yaml
   - config_path: ./planner.yaml
   - config_path: ./drifter.yaml
-  - config_path: ./actor.yaml
+  - config_path: ./actor_orpda.yaml

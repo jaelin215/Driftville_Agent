@@ -1,6 +1,6 @@
 # Driftville: Understanding LLM Attention, Drift, and Emotional Stability Through ORPDA
 
-A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (Observe → Reflect → Plan → Drift → Act) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
+A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (**Observe → Reflect → Plan → Drift → Act**) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
 
 ![ORPDA Architecture](tools/ORPDA.png)
 
@@ -23,22 +23,23 @@ In contrast to social-emergence environments like Smallville (2023), Driftville 
 By providing drift-aware reasoning, memory streams, and structured ablation metrics, Driftville supports both academic research and real-world agent evaluation.
 
 ## Quick Start
-1) activate your env first: Enter your `GOOGLE_API_KEY` in .env
+1) activate your `GOOGLE_API_KEY` to .env
 2) Install deps: `pip install -r requirements.txt`
 2) Set model in `app/config/config.yaml` (e.g., gemini-2.5-flash-lite).
-3) UI status: the Driftville page is visualization-only (no live ORPDA wiring yet). To preview the layout:
-   python app2/app2.py
-   visit the printed URL (default http://127.0.0.1:5000)
+3) UI preview (visual only; no ORPDA execution yet):
+   `python app2/app2.py`
+   Then open the printed URL (default: http://127.0.0.1:5000)
 
 ## ORPDA Loop
 - YAML agent configs live in `app/src/yaml/` (`root_agent.yaml`, `observer.yaml`, etc.).
 - Programmatic runner: `app/src/orpda_runner.py` exposes `run_orpda_cycle(ctx)`; call with a context dict (raw persona, last_action_result, recent_history, current_datetime).
 
 ## Simulation CLI
-- `app/src/simulate.py` runs a ticked ORPDA loop over personas in `app/src/driftville_personas.json`.
-- Run with package import safety:
-   python -m app.src.simulate
+- Run the full ORPDA simulation loop:
+    `app/src/simulate.py` 
+- Personas are defined in `app/src/driftville_personas.json` (generated using `persona_injector.yaml` LLM agent)
 - To control start time (after adding the argparse flag as needed), pass `--sim-start "YYYY-MM-DD HH:MM"`.
+
 
 ## Logs
 - Session logs (raw ORPDA loop output): `app/logs/session_*.log`
@@ -62,3 +63,9 @@ By providing drift-aware reasoning, memory streams, and structured ablation metr
 ## Development Notes
 - Keep `sys.path` setup at the top of scripts when running as plain Python (`Path(__file__).resolve().parents[2]`).
 - Avoid hard resets; logs are useful for debugging.
+
+## Referenced work:
+This project draws conceptual inspiration from Smallville (Park et al., 2023) but diverges significantly in scope and methodology, focusing on internal cognitive modeling rather than multi-agent social emergence.
+
+- Joon Sung Park, Joseph C. O’Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. Generative Agents: Interactive Simulacra of Human Behavior. In The 36th Annual ACM Symposium on User Interface Software and Technology (UIST ’23), October 29-November 1, 2023, San Francisco, CA, USA. ACM, New York, NY, USA, 22 pages. https://doi.org/10.1145/3586183.3606763
+

@@ -1,0 +1,33 @@
+name: actor_orpda
+model: gemini-2.5-flash-lite
+agent_class: LlmAgent
+description: Describes the final action taken in the cycle.
+instruction: |
+  You are the Actor.
+  Inputs: plan + drift_decision + persona/schedule context.
+  Produce the executed action for the next Observer step.
+  Time rule: datetime_start must equal the plan.datetime_start (do not shift date/time). next_datetime is strictly datetime_start + duration_min with calendar day rollover only when the 24h boundary is crossed.
+
+  Output ONLY JSON:
+  {
+    "action_result": {
+      "datetime_start": "YYYY-MM-DD HH:MM",
+      "duration_min": 15,
+        "location": "home:bedroom|home:kitchen|home:living_room|home:bathroom|home:office|home:studio|home:garden|home:backyard|home:twitch_streaming_room|Hobbs_Cafe:main_floor|Hobbs_Cafe:counter|Hobbs_Cafe:kitchen|Hobbs_Cafe:storage|Hobbs_Cafe:decor_area|Willow_Market_and_Pharmacy:grocery_area|Willow_Market_and_Pharmacy:checkout_area|Willow_Market_and_Pharmacy:pharmacy_counter|Willow_Market_and_Pharmacy:pharmacy_stockroom|Willow_Market_and_Pharmacy:storage_room|Oak_Hill_College:college_classroom|Oak_Hill_College:lecture_hall|Oak_Hill_College:library|Oak_Hill_College:study_area|Oak_Hill_College:music_practice_room|Oak_Hill_College:online_learning_space|art_studio|animation_workspace|painting_studio|writer_desk|podcast_room|town_square|community_center|Johnson_Park|running_trail|rock_climbing_gym|restaurant|lunch_spot|dinner_spot|co_working_cafe|commute|outdoor|meeting_room|virtual_classroom",
+        "action": "wake_up|sleep|morning_routine|night_routine|sleep|work|creative_work|animation|painting|writing|research|study|class|online_class|mentoring|teaching|storekeeping|customer_service|restocking|admin|learning|reading|reading_news|reading_books|exercise|jogging|walk|rock_climbing|commuting|eating|breakfast|lunch|dinner|snack|break|relax|watch_tv|socialize|invite_people|event_preparation|shopping|purchase_supplies|twitch_stream|compose_music|review_assignments|talk_to_friends|phone_call|decorate|host_event",
+      "drift_type": "none|internal|attentional_leak|behavioral",
+      "topic": "short topic/goal",
+      "state_summary": "one-sentence executed action (<=25 words)",
+      "next_datetime": "YYYY-MM-DD HH:MM",
+    }
+  }
+
+  RULES (Drift rules for selecting action):
+    - If drift_type == "none": use the planned action exactly.
+    - If drift_type == "internal": use the planned action; maintain location.
+    - If drift_type == "attentional_leak": keep the planned action but allow topic drift.
+    - If drift_type == "behavioral": override planned action with drift_action.
+    - next_datetime = time_start + duration_min (wrap to next day when needed)
+  No prose beyond the JSON.
+sub_agents: []
+tools: []

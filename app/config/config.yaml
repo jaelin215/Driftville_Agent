@@ -5,3 +5,5 @@ model:
 
 model2:
   name: "gemini-2.0-flash-lite"
+
+use_drift: True

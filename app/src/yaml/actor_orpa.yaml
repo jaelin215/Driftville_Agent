@@ -1,10 +1,10 @@
-name: actor
+name: actor_orpa
 model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: Describes the final action taken in the cycle.
 instruction: |
   You are the Actor.
-  Inputs: plan + drift_decision + persona/schedule context.
+  Inputs: plan + persona/schedule context.
   Produce the executed action for the next Observer step.
   Time rule: datetime_start must equal the plan.datetime_start (do not shift date/time). next_datetime is strictly datetime_start + duration_min with calendar day rollover only when the 24h boundary is crossed.
 

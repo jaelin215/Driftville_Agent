@@ -28,7 +28,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from app.config.config import MODEL_NAME
+from app.config.config import MODEL_NAME, USE_DRIFT
 
 load_dotenv()
 
@@ -86,33 +86,6 @@ def build_agent(cfg_path: Path):
     )
 
 
-# Build root agent (ONLY one used in Option A)
-root_agent = build_agent(YAML_DIR / "root_agent.yaml")
-importance_agent = build_agent(YAML_DIR / "importance_evaluator.yaml")
-
-
-async def llm_importance(summary: str, orpda: dict) -> int:
-    """Ask LLM whether this memory is important."""
-    payload = {"summary": summary, "orpda": orpda}
-
-    async with InMemoryRunner(agent=importance_agent) as runner:
-        events = await runner.run_debug(json.dumps(payload), verbose=False)
-
-    for ev in events:
-        if getattr(ev.content, "parts", None):
-            for part in ev.content.parts:
-                txt = getattr(part, "text", None)
-                if not txt:
-                    continue
-                try:
-                    data = json.loads(txt)
-                    if "importance" in data:
-                        return int(data["importance"])
-                except:
-                    continue
-    return 0  # default fallback
-
-
 # -------------------------
 # Extract JSON in ```json blocks
 # -------------------------
@@ -122,6 +95,11 @@ def extract_json_from_markdown(text: str):
         lines = text.split("\n")
         return "\n".join(lines[1:-1]).strip()
     return text
+
+
+# Build root agent (ONLY one used in Option A)
+cfg_path = "orpda_sequence.yaml" if USE_DRIFT else "orpa_sequence.yaml"
+root_agent = build_agent(YAML_DIR / cfg_path)
 
 
 # -------------------------

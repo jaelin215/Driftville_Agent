@@ -9,7 +9,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.src.agents import Agent
-from app.src.orpda_runner import run_orpda_cycle
+from app.src.orpda_runner import run_orpda_cycle, build_agent
+from app.config.config import USE_DRIFT
 
 # -------------------------
 # CONFIG & PATHS
@@ -21,7 +22,6 @@ DEFAULT_START = datetime(2023, 2, 13, 14, 0)
 DRIFTVILLE_PERSONA_PATH = ROOT / "app/src/driftville_personas.json"
 SMALLVILLE_PERSONA_PATH = ROOT / "app/src/smallville_personas.json"
 
-USE_DRIFT = False  # toggle for ablation
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 prefix = "session_orpda" if USE_DRIFT else "session_orpa"
@@ -275,9 +275,22 @@ async def run_simulation(agent, steps=1):
 # -------------------------
 # ENTRY
 # -------------------------
+ROOT = Path(__file__).resolve().parent
+YAML_DIR = ROOT / "yaml"
+# Build root agent (ONLY one used in Option A)
+cfg_path = "orpda_sequence.yaml" if USE_DRIFT else "orpa_sequence.yaml"
+root_agent = build_agent(YAML_DIR / cfg_path)
+
 
 if __name__ == "__main__":
     steps = 60  # 60 ticks = 06:00 → 21:00
+    print(
+        f"USE_DRIFT = {USE_DRIFT}  (ORPDA enabled)"
+        if USE_DRIFT
+        else f"USE_DRIFT = {USE_DRIFT}  (ORPA baseline mode)"
+    )
+    print(f"Simulating {steps} timestamps (15‑minute ticks)")
+
     agent = load_agent("Mei Lin", start_time="2023-02-13 06:00")
     if not agent:
         raise SystemExit("Failed to load agent.")

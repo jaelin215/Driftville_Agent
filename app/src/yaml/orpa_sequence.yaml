@@ -1,0 +1,8 @@
+name: orpa_sequence
+agent_class: SequentialAgent
+description: Executes the Observe, Reflect, Plan, and Act steps in order.
+sub_agents:
+  - config_path: ./observer.yaml
+  - config_path: ./reflector.yaml
+  - config_path: ./planner.yaml
+  - config_path: ./actor_orpa.yaml
