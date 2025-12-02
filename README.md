@@ -1,10 +1,9 @@
 # Driftville: Understanding LLM Attention, Drift, and Emotional Stability Through ORPDA
-
-A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (**Observe → Reflect → Plan → Drift → Act**) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
-
 <p align="center">
   <img src="tools/ORPDA.png" alt="ORPDA Architecture">
 </p>
+
+A cognitive simulation framework that models and evaluates an LLM agent’s internal reasoning loop (**Observe → Reflect → Plan → Drift → Act**) to study attention stability, behavioral drift, emotional resilience, and long-horizon planning.
 
 <p align="center">
   <img src="app/img/drift_probability.png" alt="ORPDA vs ORPA" width="500">
@@ -41,23 +40,29 @@ By providing drift-aware reasoning, memory streams, and structured ablation metr
 </p>
 
 ## ORPDA Loop
-- YAML agent configs live in `app/src/yaml/` (`root_agent.yaml`, `observer.yaml`, etc.).
-- Programmatic runner: `app/src/orpda_runner.py` exposes `run_orpda_cycle(ctx)`; call with a context dict (raw persona, last_action_result, recent_history, current_datetime).
-
-<p align="center">
-	  <img src="app/img/drift_over_tick.png" alt="Drift intensity, Semantic drift score over loop" width="700">
-</p>
 With ORPDA, it resembles human drift mind throughout the time. Without drift agent layer, drift tends to happend only at the beginning and topic of drift also looses diversity.
+
 	•	ORPDA (orange) shows frequent, distributed drift events throughout the 60 ticks.
 
 This pattern resembles human cognition: 
 humans don’t drift once; we drift repeatedly and intermittently over the day.
+
 	•	ORPA (blue) — the version without the drift agent — shows drift mostly:
 		•	in the early ticks (startup instability),
 		•	but becomes flat and stable for long stretches.
 
 ➤ Interpretation:
 ORPDA produces cognitively realistic “micro-instabilities” over time, while ORPA locks into a rigid behavioral groove.
+
+<p align="center">
+	  <img src="app/img/drift_over_tick.png" alt="Drift intensity, Semantic drift score over loop" width="700">
+</p>
+
+## YAML
+- YAML agent configs live in `app/src/yaml/` (`root_agent.yaml`, `observer.yaml`, etc.).
+- Programmatic runner: `app/src/orpda_runner.py` exposes `run_orpda_cycle(ctx)`; call with a context dict (raw persona, last_action_result, recent_history, current_datetime).
+
+
 
 ## Simulation CLI
 - Run the full ORPDA simulation loop:
