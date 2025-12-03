@@ -85,12 +85,6 @@ ORPDA produces cognitively realistic “micro-instabilities” over time, while 
 - YAML agent configs live in `app/src/yaml/` (`root_agent.yaml`, `observer.yaml`, etc.).
 - Programmatic runner: `app/src/orpda_runner.py` exposes `run_orpda_cycle(ctx)`; call with a context dict (raw persona, last_action_result, recent_history, current_datetime).
 
-## Simulation CLI
-- Run the full ORPDA simulation loop:
-    `app/src/simulate.py` 
-- Personas are defined in `app/src/driftville_personas.json` (generated using `persona_injector.yaml` LLM agent)
-- To control start time (after adding the argparse flag as needed), pass `--sim-start "YYYY-MM-DD HH:MM"`.
-
 ## Logs
 - Session logs (raw ORPDA loop output): `app/logs/session_*.log`
 - Memory streams (summarized long-term memory): `app/logs/memory_streams*.log`
@@ -105,10 +99,6 @@ ORPDA produces cognitively realistic “micro-instabilities” over time, while 
 - Raw bios: `app/src/smallville_personas.json` (Copied from `https://reverie.herokuapp.com/UIST_Demo/`. Used as SEED personality for Driftville. )
 - Driftville personas and schedules: `app/src/driftville_personas.json`
 - UI persona loader (arcade-style): `app2/app2.py`
-
-## Development Notes
-- Keep `sys.path` setup at the top of scripts when running as plain Python (`Path(__file__).resolve().parents[2]`).
-- Avoid hard resets; logs are useful for debugging.
 
 ## Referenced work:
 This project draws conceptual inspiration from Smallville (Park et al., 2023) but diverges significantly in scope and methodology, focusing on internal cognitive modeling rather than multi-agent social emergence.
