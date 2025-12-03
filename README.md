@@ -90,10 +90,9 @@ ORPDA produces cognitively realistic “micro-instabilities” over time, while 
 - Memory streams (summarized long-term memory): `app/logs/memory_streams*.log`
 
 ## Metrics & Ablation
-- `app/src/metrics.py` compares ORPDA (with drift) vs ORPA (no drift).
-- Compute and plot:
-   python -m app.src.metrics
-- Outputs: `app/logs/metrics.json`.
+- The effecitve ness of "D" (drift) layer is tested by ablation. 
+- `app/src/viz_metrics.ipynb` compares ORPDA (with drift) vs ORPA (no drift).
+- Outputs: Plots saved to `app/img/`.
 
 ## Personas
 - Raw bios: `app/src/smallville_personas.json` (Copied from `https://reverie.herokuapp.com/UIST_Demo/`. Used as SEED personality for Driftville. )
@@ -107,4 +106,14 @@ In contrast to social-emergence environments like Smallville (2023), Driftville 
 By providing drift-aware reasoning, memory streams, and structured ablation metrics, Driftville supports both academic research and real-world agent evaluation.
 
 
-- Joon Sung Park, Joseph C. O’Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. Generative Agents: Interactive Simulacra of Human Behavior. In The 36th Annual ACM Symposium on User Interface Software and Technology (UIST ’23), October 29-November 1, 2023, San Francisco, CA, USA. ACM, New York, NY, USA, 22 pages. https://doi.org/10.1145/3586183.3606763
+1) Smallville
+
+Joon Sung Park, Joseph C. O’Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. Generative Agents: Interactive Simulacra of Human Behavior. In The 36th Annual ACM Symposium on User Interface Software and Technology (UIST ’23), October 29-November 1, 2023, San Francisco, CA, USA. ACM, New York, NY, USA, 22 pages. https://doi.org/10.1145/3586183.3606763
+
+2) Neuroscience paper about Default Mode Network (DMN):
+  
+Alves, P. N., Foulon, C., Karolis, V., Bzdok, D., Margulies, D. S., Volle, E., & Thiebaut de Schotten, M. (2019). An improved neuroanatomical model of the default-mode network reconciles previous neuroimaging and neuropathological findings. Communications Biology, 2, 370. https://doi.org/10.1038/s42003-019-0552-8
+
+3) Article about wandering mind stats being 47%:
+  
+https://news.harvard.edu/gazette/story/2010/11/wandering-mind-not-a-happy-mind/
