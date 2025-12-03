@@ -39,7 +39,13 @@ Agent roles:
 6) Configure model/drift toggle: edit `app/config/config.yaml` (`model.name`, `use_drift`).
 7) Run main simulation: `python app/src/simulate.py` (logs to `app/logs/`).
 8) UI preview (static): `python app2/app2.py` then open the printed URL.
-9) Metrics/ablation: `python -m app.src.metrics` → outputs JSON/plots in `app/logs/`.
+
+## Metrics & Ablation
+- Notebook-driven analysis: open `app/src/viz_metrics.ipynb` and run the cells to visualize drift vs. alignment, semantic drift scores, and comparisons of ORPDA vs. ORPA.
+- Inputs: logs in `app/logs/` (e.g., `session_orpda_*.log`, `session_orpa_*.log`).
+- Outputs: figures and tables rendered in the notebook; save/export from Jupyter if needed. Successful graphs are saved to `./img` folder.
+- CLI note: the old `python -m app.src.metrics` entry point is deprecated; use the notebook instead.
+
 
 ## ORPDA Loop (Behavior)
 - ORPDA shows distributed drift events over time; ORPA (drift disabled) is stable after early ticks.
