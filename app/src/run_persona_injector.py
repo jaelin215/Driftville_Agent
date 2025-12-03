@@ -1,3 +1,8 @@
+# app/src/run_persona_injector.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: CLI to run the persona_injector agent and write generated personas.
+# --------------------------------------
 """
 Run the persona_injector LLM agent to generate a persona+schedules JSON block.
 
@@ -35,6 +40,7 @@ DEFAULT_MODEL = "gemini-2.5-flash"
 
 
 def load_prompt_config(path: Path) -> dict:
+    """Load the persona injector prompt configuration from YAML."""
     cfg = yaml.safe_load(path.read_text(encoding="utf-8"))
     if not cfg or "instruction" not in cfg:
         raise ValueError(f"No instruction found in {path}")
@@ -42,10 +48,12 @@ def load_prompt_config(path: Path) -> dict:
 
 
 def ensure_api_key_env() -> None:
+    """Load environment variables to expose Gemini keys."""
     load_dotenv()
 
 
 async def call_llm(instruction: str, persona_text: str, model_name: str) -> str:
+    """Invoke the Gemini-backed persona injector with provided instruction and text."""
     from app.src.gemini_api import call_gemini  # late import to honor env setup
 
     print(model_name)
@@ -60,6 +68,7 @@ async def call_llm(instruction: str, persona_text: str, model_name: str) -> str:
 
 
 def main() -> None:
+    """CLI entry to generate personas from raw input text."""
     ensure_api_key_env()
     parser = argparse.ArgumentParser(description="Run persona_injector LLM agent.")
     parser.add_argument(

@@ -1,3 +1,8 @@
+# app/src/orpda_runner.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: Builds the YAML-defined agent graph and runs a single ORPDA cycle.
+# --------------------------------------
 """
 orpda_runner.py — cleaned (Option A)
 Minimal ORPDA engine:
@@ -40,6 +45,7 @@ YAML_DIR = ROOT / "yaml"
 # YAML → ADK Agent Builder
 # -------------------------
 def build_agent(cfg_path: Path):
+    """Recursively construct ADK agents from YAML configs."""
     cfg_text = cfg_path.read_text().strip()
     if not cfg_text:
         raise ValueError(f"YAML config is empty: {cfg_path}")
@@ -90,6 +96,7 @@ def build_agent(cfg_path: Path):
 # Extract JSON in ```json blocks
 # -------------------------
 def extract_json_from_markdown(text: str):
+    """Strip markdown fences to recover JSON payloads."""
     text = text.strip()
     if text.startswith("```"):
         lines = text.split("\n")
@@ -106,15 +113,7 @@ root_agent = build_agent(YAML_DIR / cfg_path)
 # Run ORPDA cycle
 # -------------------------
 async def run_orpda_cycle(context: dict) -> dict:
-    """
-    Run ORPDA via root_agent and extract structured outputs.
-    Returns dict containing keys:
-      - observation
-      - reflection
-      - plan
-      - drift_decision
-      - action_result
-    """
+    """Execute one ORPDA/ORPA pass and merge structured outputs from sub-agents."""
     prompt = json.dumps(context, ensure_ascii=False)
 
     async with InMemoryRunner(agent=root_agent) as runner:

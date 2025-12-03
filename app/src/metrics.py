@@ -1,3 +1,8 @@
+# app/src/metrics.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: Ablation/metrics utilities comparing ORPDA vs ORPA and drift detection.
+# --------------------------------------
 """
 Ablation Metrics Module
 -----------------------
@@ -50,6 +55,7 @@ import numpy as np
 
 
 def cosine_sim(a, b):
+    """Compute cosine similarity for numpy arrays with zero-safe denom."""
     if a is None or b is None:
         return 0.0
     a = np.array(a)
@@ -190,6 +196,7 @@ def cosine_similarity(a, b):
 
 
 def load_log(path: Path) -> List[Dict]:
+    """Load a JSONL session log into a list of dict rows."""
     rows = []
     for line in path.read_text().splitlines():
         try:
@@ -200,6 +207,7 @@ def load_log(path: Path) -> List[Dict]:
 
 
 def get_latest_logs(log_dir: Path) -> Tuple[Path, Path]:
+    """Return the newest ORPDA and ORPA session logs."""
     orpda_logs = sorted(
         log_dir.glob("session_orpda_*.log"),
         key=lambda p: p.stat().st_mtime,
@@ -239,6 +247,7 @@ def infer_step_minutes(rows: List[Dict], default: float = 15.0) -> float:
 
 
 def plot_metrics(metrics: Dict, out_path: Path):
+    """Render bar/line plots comparing with- and without-drift runs."""
     import matplotlib.gridspec as gridspec
 
     labels, with_vals, no_vals = [], [], []
@@ -320,6 +329,7 @@ def plot_metrics(metrics: Dict, out_path: Path):
 
 
 def _collect_drift_rows(rows: List[Dict]) -> List[Dict]:
+    """Filter rows to only those with should_drift=True."""
     drift_rows = []
     for r in rows:
         drift = r.get("orpda", {}).get("drift_decision", {}) or {}
@@ -431,6 +441,7 @@ def compute_attention_stability_ratio(rows: List[Dict]) -> float:
 
 
 def _safe_embed(texts: List[str]):
+    """Embed only non-empty strings, guarding against bad input."""
     texts = [t for t in texts if isinstance(t, str) and t.strip()]
     if len(texts) == 0:
         return []
@@ -575,6 +586,7 @@ def compute_plan_adherence(rows: List[Dict]) -> float:
 
 
 def compute_action_diversity(rows: List[Dict]) -> float:
+    """Count unique actions taken across the run."""
     actions = set()
     for r in rows:
         act = r.get("orpda", {}).get("action_result", {}).get("action")
@@ -589,6 +601,7 @@ def compute_action_diversity(rows: List[Dict]) -> float:
 
 
 def compute_metrics(LOG_DIR: Path) -> Dict:
+    """Load latest ORPDA/ORPA logs and compute comparison metrics."""
     orpda_path, orpa_path = get_latest_logs(LOG_DIR)
 
     orpda_rows = load_log(orpda_path)
@@ -715,6 +728,7 @@ def compute_metrics(LOG_DIR: Path) -> Dict:
 
 
 def save_metrics(metrics: Dict, out_path: Path):
+    """Write computed metrics to JSON on disk."""
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", encoding="utf-8") as f:
         f.write(json.dumps(metrics, indent=2))

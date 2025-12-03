@@ -1,4 +1,8 @@
 # app/src/agents.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: Lightweight Agent class representing persona state and memory.
+# --------------------------------------
 
 import json
 from pathlib import Path
@@ -11,6 +15,8 @@ ROOT = Path.cwd()
 # Define agent
 # --------------------------------*
 class Agent:
+    """Container for persona state, schedule, and short-term memory."""
+
     def __init__(
         self,
         name,
@@ -22,6 +28,7 @@ class Agent:
         current_environment=None,
         current_notes=None,
     ):
+        """Initialize an agent with persona details and the current context."""
         self.name = name
         self.personality = personality
         self.daily_schedule = daily_schedule

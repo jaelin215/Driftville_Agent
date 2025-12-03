@@ -1,3 +1,9 @@
+# app2/app2.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: Flask-based UI preview for Driftville personas and schedule viewer.
+# --------------------------------------
+
 from flask import Flask, render_template_string, request, jsonify
 import json
 from pathlib import Path

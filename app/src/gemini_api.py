@@ -1,4 +1,8 @@
-# gemini_api.py
+# app/src/gemini_api.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: Gemini client wrapper with rate limiting for agent calls.
+# --------------------------------------
 from google import genai
 import asyncio
 import time
@@ -27,10 +31,12 @@ client = genai.Client(api_key=API_KEY)
 
 class RateLimiter:
     def __init__(self, calls_per_minute=15):
+        """Track timestamps to cap outbound calls per minute."""
         self.rate = calls_per_minute
         self.calls = deque()
 
     async def acquire(self):
+        """Sleep if needed so calls stay within the per-minute quota."""
         now = time.time()
         # Remove calls older than 1 minute
         while self.calls and self.calls[0] < now - 60:

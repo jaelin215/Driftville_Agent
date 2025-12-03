@@ -1,1 +1,1 @@
-# __init__.py
+# app/logs/__init__.py

@@ -1,3 +1,8 @@
+# app/src/simulate.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: ORPDA simulation loop, persona loading, logging, and memory streaming.
+# --------------------------------------
 import asyncio
 import json
 from datetime import datetime, timedelta
@@ -49,6 +54,7 @@ except Exception:
 
 
 def load_agent(agent_name: str, start_time=None):
+    """Load a persona and schedule by name and seed current time/location."""
     try:
         data = json.loads(DRIFTVILLE_PERSONA_PATH.read_text())
     except Exception as e:
@@ -106,6 +112,7 @@ def load_agent(agent_name: str, start_time=None):
 
 
 def log_memory_stream(agent_name: str, summary: str, sim_ts: str):
+    """Append a natural-language memory summary for the agent at a timestamp."""
     MEMORY_STREAM_PATH.parent.mkdir(parents=True, exist_ok=True)
     entry = {
         "ts_created": datetime.now().astimezone().isoformat(),
@@ -123,6 +130,7 @@ def log_memory_stream(agent_name: str, summary: str, sim_ts: str):
 
 
 def summarize_orpda(agent_name: str, orpda: dict) -> str:
+    """Condense ORPDA block outputs into a single human-readable summary."""
     obs = orpda.get("observation", {}) or {}
     ref = orpda.get("reflection", {}) or {}
     plan = orpda.get("plan", {}) or {}
@@ -163,6 +171,7 @@ def summarize_orpda(agent_name: str, orpda: dict) -> str:
 
 
 async def run_simulation(agent, steps=1):
+    """Run the ORPDA loop for a given agent over a number of 15-minute ticks."""
     print(f"Running single-agent simulation for: {agent.name}")
 
     MINUTES_PER_STEP = 15

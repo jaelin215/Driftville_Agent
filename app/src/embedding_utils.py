@@ -1,3 +1,8 @@
+# app/src/embedding_utils.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: Helpers for Gemini embeddings of text for drift/metrics analysis.
+# --------------------------------------
 import os
 from google import genai
 from dotenv import load_dotenv
@@ -9,10 +14,7 @@ client = genai.Client(api_key=GOOGLE_API_KEY)
 
 
 def embed_texts(texts, model="text-embedding-004"):
-    """
-    Embed a list of strings using Gemini embeddings.
-    Handles batch size limit of 100.
-    """
+    """Embed a list of texts with Gemini, batching to stay under limits."""
     if not texts:
         return []
 
@@ -39,9 +41,7 @@ def embed_texts(texts, model="text-embedding-004"):
 
 
 def embed_text(text, model="text-embedding-004"):
-    """
-    Embed a single string using Gemini embeddings.
-    """
+    """Embed a single string with Gemini embeddings."""
     if not text:
         return []
 

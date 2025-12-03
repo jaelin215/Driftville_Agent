@@ -1,3 +1,9 @@
+# tools/edit_image_res.py
+# --------------------------------------
+# Author: Jaelin Lee
+# Description: Quick utility to resize images (used for project assets).
+# --------------------------------------
+
 from PIL import Image, ImageOps
 
 input_path = "tools/input.png"
