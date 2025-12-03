@@ -7,6 +7,10 @@
 Ablation Metrics Module
 -----------------------
 
+This module reads explicit drift flags logged by ORPDA/ORPA to compare runs.
+Inherent drift detection (semantic/implicit) is handled in the notebook
+`app/src/viz_metrics.ipynb`, not here.
+
 Compare two simulation runs:
 1. ORPDA (with drift)
 2. ORPA  (drift disabled)
