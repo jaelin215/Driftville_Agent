@@ -1,0 +1,87 @@
+{
+  "drift_rate": {
+    "definition": "Proportion of ticks where the agent decides to drift.",
+    "with_drift": 0.03333333333333333,
+    "no_drift": 0.0
+  },
+  "drift_time_fraction": {
+    "definition": "Fraction of simulated time spent in drift (unweighted).",
+    "with_drift": 0.03333333333333333,
+    "no_drift": 0.0
+  },
+  "intensity_weighted_drift_fraction": {
+    "definition": "Estimated mental time in drift: drift_rate \u00d7 mean drift_intensity.",
+    "with_drift": 0.01,
+    "no_drift": 0.0
+  },
+  "drifts_per_hour": {
+    "definition": "Average number of drift events per simulated hour.",
+    "with_drift": 0.13333333333333333,
+    "no_drift": 0.0
+  },
+  "drifts_per_16h_day": {
+    "definition": "Extrapolated drift count over a 16-hour waking day.",
+    "with_drift": 2.1333333333333333,
+    "no_drift": 0.0
+  },
+  "drift_type_internal_ratio": {
+    "definition": "Share of drift events classified as internal (thought/rumination).",
+    "with_drift": 0.0,
+    "no_drift": 0.0
+  },
+  "drift_type_attentional_leak_ratio": {
+    "definition": "Share of drift events classified as attentional leaks (environment, notifications, etc.).",
+    "with_drift": 1.0,
+    "no_drift": 0.0
+  },
+  "drift_type_behavioral_ratio": {
+    "definition": "Share of drift events classified as behavioral (changing physical task/behavior).",
+    "with_drift": 0.0,
+    "no_drift": 0.0
+  },
+  "attention_stability_ratio": {
+    "definition": "Proportion of ticks labeled as 'stable' in reflection.attention_stability.",
+    "with_drift": 1.0,
+    "no_drift": 0.9666666666666667
+  },
+  "drift_topic_coherence": {
+    "definition": "Average cosine similarity between consecutive drift topics (1 = highly coherent, 0 = orthogonal).",
+    "with_drift": 0.2842762199773627,
+    "no_drift": 0.0
+  },
+  "justification_consistency": {
+    "definition": "Average cosine similarity between consecutive drift justifications.",
+    "with_drift": 0.6058105024264533,
+    "no_drift": 0.0
+  },
+  "semantic_plan_deviation": {
+    "definition": "Average semantic distance (1 - cosine similarity) between plan.topic and drift_topic on drift ticks.",
+    "with_drift": 0.40151341264901824,
+    "no_drift": 0.0
+  },
+  "task_switch_cost": {
+    "definition": "Number of times the agent changes its action between ticks.",
+    "with_drift": 14,
+    "no_drift": 14
+  },
+  "plan_adherence": {
+    "definition": "Fraction of ticks where executed action matches planned action.",
+    "with_drift": 0.95,
+    "no_drift": 0.9333333333333333
+  },
+  "action_diversity": {
+    "definition": "Number of unique actions taken during the run.",
+    "with_drift": 8.0,
+    "no_drift": 8.0
+  },
+  "n_ticks": {
+    "definition": "Total number of ticks in the session.",
+    "with_drift": 60,
+    "no_drift": 60
+  },
+  "minutes_per_tick": {
+    "definition": "Inferred minutes per simulation tick.",
+    "with_drift": 15.0,
+    "no_drift": 15.0
+  }
+}
