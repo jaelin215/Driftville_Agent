@@ -54,6 +54,13 @@ Agent roles:
   <img src="app/img/drift_over_tick.png" alt="Drift intensity over loop" width="700">
 </p>
 
+<p align="center">
+  <img src="app/img/topic_shift_heatmap.png" alt="Realignment lags heatmap (time to re-align to plan)">
+</p>
+
+- Topic-shift heatmap: drift topics diversify and recur later in the day, indicating mind-wandering that re-engages multiple themes (consistent with DMN-like spontaneous thought).
+- Realignment lags heatmap: most drift episodes re-align within short windows, showing the loop can refocus quickly after DMN-like excursions; longer lags cluster around fatigue windows.
+
 ## Logs
 - Session logs: `app/logs/session_*.log`
 - Memory streams: `app/logs/memory_streams*.log`
