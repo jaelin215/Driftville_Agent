@@ -5,7 +5,7 @@
 
 Humans rarely follow plans. Our mind wanders ~47% of waking hours.
 
-Most LLM agents today operate inside simplified cognitive loops—typically variants of **Observe → Reflect → Plan → Act**. These architectures assume stable attention, perfect goal adherence, and minimal internal variability. Real humans do not behave this way. We drift, ruminate, get distracted, recover, and reorient throughout the day.
+Most LLM agents today operate inside simplified cognitive loops—typically variants of Observe → Reflect → Plan → Act. These architectures assume stable attention, perfect goal adherence, and minimal internal variability. Real humans do not behave this way. We drift, ruminate, get distracted, recover, and reorient throughout the day.
 
 **✅ Driftville was designed to close this gap.**
 
