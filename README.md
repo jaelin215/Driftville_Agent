@@ -20,7 +20,7 @@ This framework introduces **ORPDA** (**Observe → Reflect → Plan → Drift (n
 - A sandbox for behavioral experiments, including conflict simulation, team dynamics, and population-level cognitive modeling
 
 <p align="center">
-  <img src="app/img/ORPDA_architecture.png" alt="ORPDA Architecture">
+  <img src="app/img/ORPA_to_ORPDA_diagram.png" alt="ORPDA Architecture">
 </p>
 
 
