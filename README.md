@@ -4,15 +4,28 @@
 
 # Driftville - Human Mind Simulation Lab
 
-**🚀 Why Driftville?**
+Our quest started from philosophical and enthropological question. **"What makes fullfilling life of a human?"** From Aristotle's book 'Politics' in 300s B.C., he explored this question and concluded that we need other humans to live a fulfilling life because we are not super humans. Even with the advancement of AI, we're told to belive that we are becoming a super human. We can be solopreneurs and we are empowered to do everything alone. Yes, right. We now can do much more than before we ever imagined. However, we believe that the path to fulfilling life still requires other humans. Our experience proved time and time again that we unlock our own limits that we didn't even know existed before by inviting other humans into our lives (even if we can do it alone). That magical moment happened too many times to us.
+
+So, our mission is to explore the best ways for us to be together as a groupd of "Collective Intelligence". To break the limits and unlock unimaginable opportunities. And, we will do this by starting from understanding our own minds. When we are alone, and when we are with other humans. How would the dynamics change in our inner voices that affects a lot of our happiness in our daily lives? It's a life-long quest where we want to explore together, with you.
+
+**🏡 What is Driftville?**
+
+Driftville is a vitual town where we can hear the inner voices of human-like characters. We do this by using LLM-agents as characters living in this town. 
+
+**🤖 Why AI Agent?**
+
+LLM-powered agents allow us to model human cognition in a structured, modular way. Prior work (such as Smallville) shows that agents can generate believable, human-like behaviors in simulated environments. To study internal cognitive processes—not just actions—we needed a system where each component of thinking is separated and observable.
+By assigning each cognitive step in ORPDA (Observe → Reflect → Plan → Drift → Act) to its own agent, we can surface the “inner voice,” measure drift, and evaluate how minds wander over time.
+
+**🚀 Why is the new ORPDA architecture necessary?**
 
 Humans rarely follow plans. Our mind wanders ~47% of waking hours.
 
-Most LLM agents today operate inside simplified cognitive loops—typically variants of Observe → Reflect → Plan → Act. These architectures assume stable attention, perfect goal adherence, and minimal internal variability. Real humans do not behave this way. We drift, ruminate, get distracted, recover, and reorient throughout the day.
+Most LLM agents today operate inside simplified cognitive loops—typically variants of ORPA (Observe → Reflect → Plan → Act). These architectures assume stable attention, perfect goal adherence, and minimal internal variability. Real humans do not behave this way. We drift, ruminate, get distracted, recover, and reorient throughout the day.
 
-**✅ Driftville was designed to close this gap.**
+**✅ Driftville was designed to have visibility to human minds.**
 
-This framework introduces **ORPDA** (**Observe → Reflect → Plan → Drift (new) → Act**), a novel cognitive cycle that explicitly models drift as a first-class operator. By instrumenting an agent’s internal reasoning steps and evaluating its behavior over long simulated timelines, Driftville enables:
+Driftville give us the visibility to believable human minds over long simulated timelines. It enables:
 - Research-grade analysis of attention stability, cognitive drift, and emotional resilience
 - Quantitative comparisons between idealized agents (ORPA) and realistic agents (ORPDA)
 - Transparent, interpretable traces that reveal how an LLM’s internal “inner voice” evolves over time
