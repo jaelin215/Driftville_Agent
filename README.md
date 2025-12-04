@@ -159,5 +159,7 @@ https://news.harvard.edu/gazette/story/2010/11/wandering-mind-not-a-happy-mind/
 
 https://youtu.be/ikpDw2BMcZ0
 
-![app/img/problem_statement.png](Problem statement)
+<p align="center">
+  <img src="app/img/problem_statement.png" alt="Problem statement">
+</p>
 
