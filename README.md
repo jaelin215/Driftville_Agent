@@ -109,6 +109,19 @@ This project is licensed under the Apache 2.0 License.
 It allows open collaboration, reuse, and contributions while ensuring strong protection against patent-related restrictions.  
 See the [LICENSE](./LICENSE) file for full details.
 
+# Contributing 
+
+Ways you can contribute
+	•	Improve ORPDA logic or add new reasoning steps
+	•	Build or enhance the DriftVille UI
+	•	Add new agents or multi-agent conversation flows
+	•	Improve evaluation, drift metrics, or log visualizations
+	•	Extend examples, tutorials, or documentation
+	•	Fix bugs and improve code clarity
+	•	Conduct research using DriftVille and share insights
+
+Open an Issue or Pull Request to get started — no contribution is too small.
+
 
 ## Referenced work:
 This project draws conceptual inspiration from Smallville (Park et al., 2023) but diverges significantly in scope and methodology, focusing on internal cognitive modeling rather than multi-agent social emergence.
