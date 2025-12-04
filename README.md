@@ -102,6 +102,13 @@ ORPDA produces cognitively realistic “micro-instabilities” over time, while 
 - Driftville personas and schedules: `app/src/driftville_personas.json`
 - UI persona loader (arcade-style): `app2/app2.py`
 
+## License
+
+This project is licensed under the Apache 2.0 License.  
+It allows open collaboration, reuse, and contributions while ensuring strong protection against patent-related restrictions.  
+See the [LICENSE](./LICENSE) file for full details.
+
+
 ## Referenced work:
 This project draws conceptual inspiration from Smallville (Park et al., 2023) but diverges significantly in scope and methodology, focusing on internal cognitive modeling rather than multi-agent social emergence.
 
