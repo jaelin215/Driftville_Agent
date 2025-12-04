@@ -109,16 +109,26 @@ This project is licensed under the Apache 2.0 License.
 It allows open collaboration, reuse, and contributions while ensuring strong protection against patent-related restrictions.  
 See the [LICENSE](./LICENSE) file for full details.
 
-# Contributing 
+## Contributing 
+
+DriftVille is an open collaborative space for exploring ORPDA,
+a novel agent-orchestration approach inspired by ORPA but extended for:
+- step-wise inspectable reasoning
+- drift detection and evaluation
+- multi-agent (A2A) conversations
+- UI-based visualization of each loop step
+- community-driven research on agent cognition
+
+We welcome contributions from researchers, engineers, and students.
 
 Ways you can contribute
-	•	Improve ORPDA logic or add new reasoning steps
-	•	Build or enhance the DriftVille UI
-	•	Add new agents or multi-agent conversation flows
-	•	Improve evaluation, drift metrics, or log visualizations
-	•	Extend examples, tutorials, or documentation
-	•	Fix bugs and improve code clarity
-	•	Conduct research using DriftVille and share insights
+- Improve ORPDA logic or add new reasoning steps
+- Build or enhance the DriftVille UI
+- Add new agents or multi-agent conversation flows
+- Improve evaluation, drift metrics, or log visualizations
+- Extend examples, tutorials, or documentation
+- Fix bugs and improve code clarity
+- Conduct research using DriftVille and share insights
 
 Open an Issue or Pull Request to get started — no contribution is too small.
 
