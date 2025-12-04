@@ -105,6 +105,7 @@ ORPDA produces cognitively realistic “micro-instabilities” over time, while 
 ## License
 
 This project is licensed under the Apache 2.0 License.  
+
 It allows open collaboration, reuse, and contributions while ensuring strong protection against patent-related restrictions.  
 See the [LICENSE](./LICENSE) file for full details.
 
