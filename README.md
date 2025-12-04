@@ -2,7 +2,7 @@
   <img src="app/img/problem_statement.png" alt="Problem Statement">
 </p>
 
-# Driftville: Where Minds Drift (Through the ORPDA Architecture)
+# Driftville Simulation Environment
 
 **🚀 Why Driftville?**
 
