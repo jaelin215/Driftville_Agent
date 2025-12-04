@@ -2,6 +2,10 @@
   <img src="app/img/hero.png" alt="Problem Statement">
 </p>
 
+<p align="center">
+  <img src="app/img/problem_statement.png" alt="Problem statement">
+</p>
+
 # Driftville Simulation Environment
 
 **🚀 Why Driftville?**
@@ -159,7 +163,5 @@ https://news.harvard.edu/gazette/story/2010/11/wandering-mind-not-a-happy-mind/
 
 https://youtu.be/ikpDw2BMcZ0
 
-<p align="center">
-  <img src="app/img/problem_statement.png" alt="Problem statement">
-</p>
+
 
