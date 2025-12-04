@@ -2,12 +2,12 @@
   <img src="app/img/hero.png" alt="Problem Statement">
 </p>
 
-# Driftville - Human Mind Simulation Lab
+# Driftville — Human Mind Simulation Lab
 
-Our quest started from philosophical and enthropological question. **"What makes fullfilling life of a human?"** 
+Our quest started from a philosophical and anthropological question. **"What makes fulfilling life of a human?"** 
 
-Aristotle argued that humans need other humans to flourish. Yet today, with AI empowering individuals to do mroe than ever, we're told we can become "superhuman" —solopreneurs, infinitely capable, endlessly productive. And while that empowerment is real, our lived experience repeatedly shows something deeper: **we grow beyond our limits when other humnas enter the picture.**
-Breakthrough happends socially, not alone.
+Aristotle argued that humans need other humans to flourish. Yet today, with AI empowering individuals to do more than ever, we're told we can become "superhuman" —solopreneurs, infinitely capable, endlessly productive. And while that empowerment is real, our lived experience repeatedly shows something deeper: **we grow beyond our limits when other humans enter the picture.**
+Breakthroughs happen socially, not alone.
 
 Our mission is to explore how minds meet—how individual inner voices become a collective intelligence. Growth rarely happens in isolation; it happens when our thinking is challenged, expanded, or stabilized by others. To understand this, we start with the mind itself: how it drifts, refocuses, imagines, and responds when alone or in the presence of others. These quiet internal movements shape so much of our happiness. Driftville is our long-term exploration of these dynamics—an invitation to study them together.
 
@@ -26,7 +26,7 @@ It is a controlled cognitive environment where emergent inner behavior becomes v
 LLM agents let us model cognition as a set of explicit, modular steps. Smallville showed that ORPA-style agents (Observe → Reflect → Plan → Act) can produce believable human-like external behavior. Driftville builds on this idea but goes deeper: by adding Drift as its own cognitive layer, we can observe internal variability—how attention wavers, how thoughts wander, and how mind-wandering reshapes decisions over time.
 Separating each ORPDA step into its own agent makes the inner voice observable, measurable, and comparable—revealing patterns a single LLM call would never expose.
 
-**🚀 What Problem Does ORPDA Sovle?**
+**🚀 What Problem Does ORPDA Solve?**
 
 Humans rarely follow plans. Our mind wanders ~47% of waking hours.
 
@@ -50,7 +50,7 @@ In short, Driftville turns internal cognition into something we can observe, mea
 ## System Architecture (ORPDA)
 
 <p align="center">
-  <img src="app/img/ORPA_to_ORPDA_diagram.png" alt="ORPDA Archittcture">
+  <img src="app/img/ORPA_to_ORPDA_diagram.png" alt="ORPDA Architecture">
 </p>
 
 <p align="center">
@@ -66,8 +66,8 @@ Agent roles:
 - **Drifter**: injects cognitive drift decisions (`app/src/yaml/drifter.yaml`).
 - **Actor**: commits the executed action for the next loop (`app/src/yaml/actor_orpda.yaml`).
 
-## Resemblence to neuroscience Default Mode Network (DMN)
-With ORPDA, it resembles human drift mind throughout the time. Without drift agent layer, drift tends to happend only at the beginning and topic of drift also looses diversity.
+## Resemblance to neuroscience Default Mode Network (DMN)
+With ORPDA, it resembles human drift mind throughout the time. Without drift agent layer, drift tends to happened only at the beginning and topic of drift also looses diversity.
 - ORPDA (orange) shows frequent, distributed drift events throughout the 60 ticks.
 
 This pattern resembles human cognition: 
