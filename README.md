@@ -39,11 +39,15 @@ ORPDA addresses this gap by adding Drift as its own cognitive layer. It models t
 Driftville is a cognitive exploration environment — a place to study how minds think, drift, stabilize, and interact across different agent architectures and scenarios. It allows us to compare multiple models of cognition side-by-side and observe how inner lives evolve over time, alone or with others.
 
 It enables insights that matter at every level:
-- For research: a sandbox to study attention, drift, resilience, and emergent behavior with scientific traceability.
-- For individuals: a way to understand how inner voices shift, recover, and influence daily well-being.
-- For teams & society: a lens into how minds interact, stabilize each other, or create collective intelligence.
-- For enterprise: a framework to evaluate agent reliability, coaching quality, decision support, and safety.
+- **For research**: a sandbox to study attention, drift, resilience, and emergent behavior with scientific traceability.
+- **For individuals**: a way to understand how inner voices shift, recover, and influence daily well-being.
+- **For teams & society**: a lens into how minds interact, stabilize each other, or create collective intelligence.
+- **For enterprise**: a framework to evaluate agent reliability, coaching quality, decision support, and safety.
+- **For AI alignment & safety**: a controlled environment to test how different cognitive architectures behave under drift, pressure, or ambiguity—supporting more predictable, interpretable, and human-aligned AI systems.
 
+In short, Driftville turns internal cognition into something we can observe, measure, and improve—creating a foundation for safer AI, more human-aligned reasoning, and a deeper understanding of what supports real human flourishing.
+
+## System Architecture (ORPDA)
 
 <p align="center">
   <img src="app/img/ORPA_to_ORPDA_diagram.png" alt="ORPDA Archittcture">
@@ -52,9 +56,6 @@ It enables insights that matter at every level:
 <p align="center">
   <img src="app/img/ORPDA_architecture.png" alt="System Architecture">
 </p>
-
-
-## System Architecture (ORPDA)
 
 ORPDA is a cognitive simulation loop designed to model and evaluate human-like variability in LLM reasoning. It extends the classic ORPA pipeline with an explicit Drift step:
 
