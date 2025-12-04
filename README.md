@@ -1,5 +1,8 @@
-# Driftville: Where Minds Drift (Through the ORPDA Architecture)
+<p align="center">
+  <img src="app/img/problem_statement.png" alt="Problem Statement">
+</p>
 
+# Driftville: Where Minds Drift (Through the ORPDA Architecture)
 
 **🚀 Why Driftville?**
 
