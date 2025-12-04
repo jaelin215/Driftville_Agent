@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/img/problem_statement.png" alt="Problem Statement">
+  <img src="app/img/driftville_hero.png" alt="Problem Statement">
 </p>
 
 # Driftville Simulation Environment
