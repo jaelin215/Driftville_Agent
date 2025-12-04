@@ -28,33 +28,6 @@ This framework introduces **ORPDA** (**Observe → Reflect → Plan → Drift (n
 </p>
 
 
-**📊 Outcome**
-
-This bar chart shows the agent’s inherent probability of drifting away from its scheduled action. ORPDA’s drift layer increases baseline drift by ~4× compared to ORPA, producing internal variability that more closely resembles human attention patterns. ORPA, by contrast, remains largely stable and goal-locked.
-
-<p align="center">
-  <img src="app/img/drift_probability.png" alt="ORPDA vs ORPA" width="500">
-</p>
-
-
-
-## Quick Start
-1) **Env vars**: create .env with your `GOOGLE_API_KEY`.
-2) **Install deps**: `pip install -r requirements.txt`
-3) **Set config**: in `app/config/config.yaml`
-    - set `MODEL_NAME` to be used by agents (default: `gemini-2.5-flash-lite`).
- 	- set `use_drift` to **True** (to run ORPDA loop).
-  	- set `use_drift` to **False** (to run ORPA loop).	
-4) **Run main simulation**: `python app/src/simulate.py` (it generates logs to `app/logs/`).
-5) **UI preview** (visual only; no ORPDA execution yet):
-   `python app2/app2.py`
-   Then open the printed URL (default: http://127.0.0.1:5000)
-
-<p align="center">
-	<img src="app/img/driftville_ui.png" alt="Driftville UI">
-</p>
-
-
 ## System Architecture (ORPDA)
 
 ORPDA is a cognitive simulation loop designed to model and evaluate human-like variability in LLM reasoning. It extends the classic ORPA pipeline with an explicit Drift step:
@@ -65,9 +38,6 @@ Agent roles:
 - **Planner**: generates the next 15-min plan block (`app/src/yaml/planner.yaml`).
 - **Drifter**: injects cognitive drift decisions (`app/src/yaml/drifter.yaml`).
 - **Actor**: commits the executed action for the next loop (`app/src/yaml/actor_orpda.yaml`).
-
-
-
 
 ## Resemblence to neuroscience Default Mode Network (DMN)
 With ORPDA, it resembles human drift mind throughout the time. Without drift agent layer, drift tends to happend only at the beginning and topic of drift also looses diversity.
@@ -85,6 +55,31 @@ ORPDA produces cognitively realistic “micro-instabilities” over time, while 
 
 <p align="center">
 	  <img src="app/img/drift_over_tick.png" alt="Drift intensity, Semantic drift score over loop" width="700">
+</p>
+
+**📊 Outcome**
+
+This bar chart shows the agent’s inherent probability of drifting away from its scheduled action. ORPDA’s drift layer increases baseline drift by ~4× compared to ORPA, producing internal variability that more closely resembles human attention patterns. ORPA, by contrast, remains largely stable and goal-locked.
+
+<p align="center">
+  <img src="app/img/drift_probability.png" alt="ORPDA vs ORPA" width="500">
+</p>
+
+
+## Quick Start
+1) **Env vars**: create .env with your `GOOGLE_API_KEY`.
+2) **Install deps**: `pip install -r requirements.txt`
+3) **Set config**: in `app/config/config.yaml`
+    - set `MODEL_NAME` to be used by agents (default: `gemini-2.5-flash-lite`).
+ 	- set `use_drift` to **True** (to run ORPDA loop).
+  	- set `use_drift` to **False** (to run ORPA loop).	
+4) **Run main simulation**: `python app/src/simulate.py` (it generates logs to `app/logs/`).
+5) **UI preview** (visual only; no ORPDA execution yet):
+   `python app2/app2.py`
+   Then open the printed URL (default: http://127.0.0.1:5000)
+
+<p align="center">
+	<img src="app/img/driftville_ui.png" alt="Driftville UI">
 </p>
 
 ## YAML
