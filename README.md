@@ -2,7 +2,7 @@
   <img src="app/img/hero.png" alt="Problem Statement">
 </p>
 
-# Driftville Simulation Environment
+# Driftville - Human Mind Simulation Environment
 
 **🚀 Why Driftville?**
 
