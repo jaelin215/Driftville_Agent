@@ -26,7 +26,7 @@
     .arcade-label { font-weight:900; font-size:13px; letter-spacing:1px; color:#6fffe9; text-transform:uppercase; text-shadow: 1px 1px 0 #0b132b, 2px 2px 0 #0b132b; }
     .hidden { opacity:0; pointer-events:none; transition: opacity 0.25s ease; }
     #floorplan { margin-top:16px; padding:14px; background: rgba(255,255,255,0.04); border:1px solid rgba(111,255,233,0.25); border-radius:12px; }
-    .town { display:flex; justify-content:center; gap:10px; min-height:130px; align-items:center; flex-wrap:wrap; padding:8px 0; transition: min-height 0.25s ease, max-height 0.25s ease; }
+    .town { display:flex; justify-content:center; gap:10px; min-height:260px; align-items:center; flex-wrap:wrap; padding:8px 0; transition: min-height 0.25s ease, max-height 0.25s ease; }
     .tile { width:150px; height:80px; background: linear-gradient(135deg, #0f1f3a 0%, #16294d 100%); border:1px dashed rgba(111,255,233,0.4); border-radius:10px; padding:10px; text-align:center; color:#f8f9ff; display:flex; flex-direction:column; align-items:center; justify-content:center; box-sizing:border-box; }
     .tile .emoji { font-size:24px; }
     .faded { opacity: 0.35; transition: opacity 0.25s ease; pointer-events: none; }
@@ -35,38 +35,42 @@
     #restart { background: transparent; box-shadow:none; color:#6fffe9; border:1px solid rgba(111,255,233,0.5); border-radius:8px; height:28px; display:none; align-items:center; justify-content:center; padding:0 8px; font-size:14px; text-transform:uppercase; letter-spacing:0.5px; gap:4px; }
     #restart:hover { transform:none; box-shadow: none; }
     /* Floorplan */
-    #floorplan-map { margin-top:12px; background: rgba(255,255,255,0.04); border:1px solid rgba(111,255,233,0.25); border-radius:12px; padding:12px; display:none; }
+    #floorplan-map { margin-top:12px; background: rgba(255,255,255,0.03); border:1px solid rgba(111,255,233,0.25); border-radius:12px; padding:12px; display:none; }
     #map-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; }
-    .cell { position:relative; border:1px dashed rgba(111,255,233,0.3); border-radius:10px; min-height:120px; padding:8px; color:#9fb3c8; box-sizing:border-box; }
+    .cell { position:relative; border:1px dashed rgba(111,255,233,0.3); border-radius:10px; min-height:120px; padding:8px; color:#9fb3c8; box-sizing:border-box; background: rgba(255,255,255,0.02); }
     .cell-label { font-size:12px; margin-bottom:6px; font-weight:700; color:#6fffe9; }
     .children { font-size:11px; line-height:1.4; color:#b8c7d9; }
     .token-tray { display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; margin-top:auto; }
     .cell { display:flex; flex-direction:column; gap:8px; }
-    .token { padding:6px 10px; border-radius:999px; font-size:11px; color:#0b132b; font-weight:700; background:#6fffe9; box-shadow: 0 6px 14px rgba(0,0,0,0.15); }
+    .token { padding:6px 12px; border-radius:999px; font-size:12px; color:#0b132b; font-weight:700; background:#6fffe9; box-shadow: 0 6px 14px rgba(0,0,0,0.15); white-space:nowrap; }
+    .child-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:6px; margin-top:4px; }
+    .subcell { min-height:60px; min-width:max-content; border:1px dashed rgba(111,255,233,0.25); border-radius:8px; padding:6px; background: rgba(255,255,255,0.01); display:flex; flex-direction:column; gap:6px; }
+    .subcell-label { font-size:11px; font-weight:700; color:#6fffe9; }
     /* Sections */
-    .section { margin-top:18px; border:1px solid rgba(111,255,233,0.25); border-radius:12px; background: rgba(255,255,255,0.04); overflow:hidden; }
+    .section { margin-top:18px; border:1px solid rgba(111,255,233,0.25); border-radius:12px; background: rgba(255,255,255,0.02); overflow:hidden; }
     .section-header { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; cursor:pointer; }
-    .section-header:hover { background: rgba(255,255,255,0.04); }
+    .section-header:hover { background: rgba(255,255,255,0.02); }
     .section-title { font-weight:800; letter-spacing:0.5px; color:#6fffe9; }
     .section-toggle { color:#9fb3c8; font-size:12px; letter-spacing:0.4px; }
     .section-body { padding:12px 14px; display:block; }
     .section-body.collapsed { display:none; }
     .section-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:12px; }
     /* Match Driftville Town inner background */
-    .section-card { background: rgba(255,255,255,0.04); border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:12px; color:#e8f4ff; font-family: "Inter", -apple-system, sans-serif; }
+    .section-card { background: rgba(255,255,255,0.02); border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:12px; color:#e8f4ff; font-family: "Inter", -apple-system, sans-serif; }
     .section-card * { font-family: "Inter", -apple-system, sans-serif; }
     .section-card h4 { margin:0 0 8px 0; color:#6fffe9; font-size:14px; letter-spacing:0.4px; }
     .chip { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; margin:0 0 10px 0; border-radius:999px; background: rgba(111,255,233,0.12); border:1px solid rgba(111,255,233,0.25); color:#e8f4ff; font-size:12px; font-family: "Inter", -apple-system, sans-serif; }
     .small-muted { color:#9fb3c8; font-size:11px; }
     .mono { font-family: "Inter", -apple-system, sans-serif; font-size:12px; }
     /* Current state row */
-    .state-row { margin-top:16px; border:1px solid rgba(111,255,233,0.3); border-radius:12px; background: rgba(255,255,255,0.04); padding:12px; }
+    .state-row { margin-top:16px; border:1px solid rgba(111,255,233,0.3); border-radius:12px; background: rgba(255,255,255,0.02); padding:12px; }
     .state-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:10px; }
-    .state-card { border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:10px; color:#e8f4ff; background: rgba(255,255,255,0.04); }
+    .state-card { border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:10px; color:#e8f4ff; background: rgba(255,255,255,0.01); display:flex; flex-direction:column; gap:4px; }
+    .state-top { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
     .state-card h4 { margin:0 0 6px 0; color:#6fffe9; font-size:13px; letter-spacing:0.3px; }
     .state-card .label { font-weight:700; color:#9fb3c8; font-size:12px; }
     .state-card .line { margin:2px 0; font-size:12px; }
-    .state-card .distract { margin-top:6px; color:#ffd166; font-weight:700; font-size:12px; }
+    .state-card .distract-label { margin-top:2px; color:#ffd166; font-weight:700; font-size:12px; }
   </style>
 </head>
 <body>
@@ -143,6 +147,14 @@
     const faceMap = {{ face_map | tojson | safe }};
     const personaByName = Object.fromEntries(personas.map(p => [p.name, p]));
     const scheduleByName = Object.fromEntries(personas.map(p => [p.name, p.schedule || []]));
+    const badgePalette = ["#6fffe9", "#ffd166"];
+    const badgeColors = {};
+    const colorFor = (name) => {
+      if (badgeColors[name]) return badgeColors[name];
+      const idx = Object.keys(badgeColors).length % badgePalette.length;
+      badgeColors[name] = badgePalette[idx];
+      return badgeColors[name];
+    };
     const grid = document.getElementById("grid");
     const town = document.getElementById("town");
     const townLabel = document.getElementById("town-label");
@@ -214,37 +226,42 @@
       chosen.forEach(name => {
         const persona = personaByName[name];
         if (!persona) return;
-        const loc = currentLocationFor(name, minute);
-        let cell = (loc || "home").split(":")[0];
+        const loc = currentLocationFor(name, minute) || "home";
+        const [parentRaw, childRaw] = loc.split(":");
+        let cell = parentRaw || "home";
         if (!mapIds.has(cell)) cell = "outdoor";
         if (!assignments[cell]) assignments[cell] = [];
-        assignments[cell].push(name);
+        assignments[cell].push({ name, child: childRaw || null });
       });
       return assignments;
     };
 
     function rebuildMapFromSelection() {
       const tree = {};
+      const ensureParent = (parent) => {
+        if (!tree[parent]) tree[parent] = new Set();
+      };
       const addLoc = (loc) => {
         if (!loc) return;
-        const [parent, child] = loc.split(":");
-        if (!tree[parent]) tree[parent] = new Set();
-        if (child) tree[parent].add(child.replace(/_/g, " "));
+        const [parentRaw, childRaw] = loc.split(":");
+        const parent = parentRaw || "home";
+        ensureParent(parent);
+        if (childRaw) tree[parent].add(childRaw);
       };
-      if (chosen.length === 0) {
-        addLoc("home");
-      } else {
-        chosen.forEach(name => {
-          (scheduleByName[name] || []).forEach(slot => addLoc(slot.location || "home"));
-        });
-      }
-      // ensure at least one row
-      if (Object.keys(tree).length === 0) addLoc("home");
+      // Seed a few core locations so empty selections still show boxes
+      ["home", "commute", "Oak_Hill_College", "Hobbs_Cafe", "painting_studio"].forEach(ensureParent);
+
+      chosen.forEach(name => {
+        (scheduleByName[name] || []).forEach(slot => addLoc(slot.location || "home"));
+      });
 
       mapLayout = Object.keys(tree).map(parent => ({
         id: parent,
         label: parent.replace(/_/g, " "),
-        children: Array.from(tree[parent]),
+        children: Array.from(tree[parent] || []).map(ch => ({
+          id: ch,
+          label: (ch || "").replace(/_/g, " "),
+        })),
       }));
       mapIds = new Set(mapLayout.map(c => c.id));
       buildMap();
@@ -257,8 +274,14 @@
         const div = document.createElement("div");
         div.className = "cell";
         div.dataset.cellId = cell.id;
-        const children = (cell.children || []).map(c => `<span>${c}</span>`).join(" · ");
-        div.innerHTML = `<div class="cell-label">${cell.label}</div><div class="children">${children}</div><div class="token-tray"></div>`;
+        const children = (cell.children || []).map(child => {
+          return `<div class="subcell" data-child-id="${cell.id}:${child.id}">
+                    <div class="subcell-label">${child.label}</div>
+                    <div class="token-tray"></div>
+                  </div>`;
+        }).join("");
+        const childrenBlock = `<div class="child-grid">${children}</div>`;
+        div.innerHTML = `<div class="cell-label">${cell.label}</div>${childrenBlock}<div class="token-tray"></div>`;
         mapGrid.appendChild(div);
       });
     }
@@ -267,17 +290,22 @@
       mapLayout.forEach(cell => {
         const target = mapGrid.querySelector(`[data-cell-id="${cell.id}"]`);
         if (!target) return;
-        const tray = target.querySelector(".token-tray") || target;
-        // remove old tokens
-        tray.querySelectorAll(".token").forEach(t => t.remove());
+        // clear existing tokens in both parent tray and child trays
+        target.querySelectorAll(".token-tray").forEach(tr => tr.querySelectorAll(".token").forEach(t => t.remove()));
         const list = assignments[cell.id] || [];
-        list.forEach((name, idx) => {
+        list.forEach((entry) => {
+          const { name, child } = typeof entry === "string" ? { name: entry, child: null } : entry;
           const tok = document.createElement("div");
           tok.className = "token";
-          tok.style.background = idx % 2 === 0 ? "#6fffe9" : "#ffd166";
+          tok.style.background = colorFor(name);
           const icon = faceMap[name] || emojiMap[name] || "🧩";
           tok.textContent = `${icon} ${name.split(" ")[0] || name}`;
-          tray.appendChild(tok);
+          let tray = target.querySelector(".token-tray");
+          if (child) {
+            const childTray = target.querySelector(`[data-child-id="${cell.id}:${child}"] .token-tray`);
+            if (childTray) tray = childTray;
+          }
+          (tray || target).appendChild(tok);
         });
       });
     }
@@ -381,7 +409,8 @@
         stateGrid.innerHTML = `<div class="small-muted">Select personas to view their current state.</div>`;
         return;
       }
-      stateGrid.innerHTML = chosen.map(name => {
+      const cards = [];
+      chosen.forEach(name => {
         const slot = currentSlotFor(name, selectedMinute);
         const loc = slot?.location || "home";
         const action = slot?.action || "idle";
@@ -391,17 +420,22 @@
         const pad = (n) => String(n).padStart(2, "0");
         const hhmm = (m) => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
         const timeRange = `${hhmm(start)}-${hhmm(end)}`;
-        return `
+        cards.push(`
           <div class="state-card">
             <h4>${name}</h4>
             <div class="line"><span class="label">Time:</span> ${timeRange}</div>
             <div class="line"><span class="label">Location:</span> ${loc}</div>
             <div class="line"><span class="label">Action:</span> ${action}</div>
-            <div class="distract">Distractors</div>
+          </div>
+        `);
+        cards.push(`
+          <div class="state-card">
+            <h4 style="color:#ffd166;">${name} — Distractions</h4>
             <div class="line" style="color:#e8f4ff;">${env}</div>
           </div>
-        `;
-      }).join("");
+        `);
+      });
+      stateGrid.innerHTML = cards.join("");
     }
 
     function renderBios() {
@@ -442,7 +476,7 @@
       };
       grid.appendChild(card);
     });
-    // initial placeholders
+    // initial placeholders and base map
     renderTown();
     rebuildMapFromSelection();
     refreshMap();
@@ -508,8 +542,8 @@
       setSectionState(schedulesBody, schedulesToggle, false);
       if (floorplanMap) floorplanMap.style.display = "block";
       townLabel.textContent = "Welcome to Driftville!";
-      town.style.minHeight = "60px";
-      town.style.maxHeight = "60px";
+      town.style.minHeight = "120px";
+      town.style.maxHeight = "120px";
       simLocked = true;
       fetch("/simulate_conversation", {
         method: "POST",
@@ -542,8 +576,8 @@
       floorTop.classList.remove("faded");
       floorBottom.classList.remove("faded");
       townLabel.textContent = chosen.length < 2 ? "Select two personas" : "Ready to simulate";
-      town.style.minHeight = "130px";
-      town.style.maxHeight = "130px";
+      town.style.minHeight = "260px";
+      town.style.maxHeight = "260px";
       simLocked = false;
       syncSectionsVisibility();
     };
