@@ -12,7 +12,7 @@ embedding_model:
 use_drift: True
 
 sim_config:
-  persona: "Eddy Lin"
+  persona: "Mei Lin"
   start_time: "2023-02-13 06:00"
-  num_ticks: 60
+  num_ticks: 15
   

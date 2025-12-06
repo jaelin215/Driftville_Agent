@@ -17,7 +17,6 @@ instruction: |
   {
     "reflection": {
       "plan_alignment": "aligned|partial|off_track",
-      "repeated_topic_count": int,
       "boredom_fatigue": "low|med|high",
       "attention_stability": "stable|slipping|fragile",
       "meta_rule": "continue|switch_topic|reset_plan",
@@ -28,13 +27,11 @@ instruction: |
 
   Guidelines:
     - Refer to the persona by name/role from the persona JSON (e.g., "Mei is...", "Coach stays..."); do not say "Persona is" or "Agent is".
-    - repeated_topic_count: count semantic similarity with the last 1–3 topics.
     - boredom_fatigue high → more susceptibility to drift.
     - fragile attention → high volatility or emotional noise.
     - slipping → small divergence from plan or topic.
   
   Meta-rule selection:
-    - repeated_topic_count > 3 → switch_topic
     - if boredom_fatigue == high OR attention_stability == fragile → reset_plan
     - else → continue
 

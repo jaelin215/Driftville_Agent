@@ -717,16 +717,17 @@
                   `<span class="label">Alignment:</span> ${p.ref.plan_alignment || ""}`,
                   `<span class="label">Attention:</span> ${p.ref.attention_stability || ""}`,
                   `<span class="label">Boaredome fatigue:</span> ${p.ref.boredom_fatigue || ""}`,
-                  `<span class="label">Repated topic count:</span> ${p.ref.repeated_topic_count || 0}`,
-                  `<span class="label">Meta:</span> ${p.ref.meta_rule || ""}`,
+                  <!-- `<span class="label">DMN mode:</span> ${p.ref.dmn_mode || ""}`, -->
                   `<span class="label">Summary:</span> ${p.ref.state_summary || ""}`,
                 ],
                 false,
                 p.variantClass
               ),
               makeCell("", [
-                  `${p.ref.plan_alignment || ""}, ${p.ref.attention_stability || ""}, ${p.ref.meta_rule || ""}`,
-              ], true, p.variantClass),
+                  `${p.ref.plan_alignment || ""}, ${p.ref.attention_stability || ""}, <span>${p.ref.boredom_fatigue || ""} boredome</span>`,
+                  `<div style="height:6px;"></div>`,
+                  `${p.ref.reasoning || ""}`,
+                  ], true, p.variantClass),
             ];
           case "Plan":
             if (!hasContent(p.plan)) {
@@ -765,6 +766,7 @@
                   `<span class="label">Should drift?</span> ${p.drift.should_drift ?? ""}`,
                   `<span class="label">Drift type:</span> ${p.drift.drift_type ?? ""}`,
                   `<span class="label">Drift intensity:</span> ${p.drift.drift_intensity ?? ""}`,
+                  `<span class="label">DMN mode:</span> ${p.drift.dmn_mode || ""}`,
                   `<span class="label">Topic:</span> ${p.drift.drift_topic || ""}`,
                   `<span class="label">Justification:</span> ${p.drift.justification || ""}`,
                   `<span class="label">Potential recovery:</span> ${p.drift.potential_recovery || ""}`,
@@ -776,7 +778,7 @@
               makeCell(
                 "",
                 [
-                  ,
+                  `<span class="label">DMN mode: ${p.drift.dmn_mode || ""}</span>`,
                   `${p.drift.drift_type || ""}`,
                   `${p.drift.drift_intensity ?? ""}`,
                   `<span class="label">[</span>${p.drift.drift_topic ?? ""}<span class="label">]</span>`,
@@ -802,8 +804,8 @@
                 [
                   `<span class="label">Time:</span> ${p.act.datetime_start || p.timeRange}`,
                   `<span class="label">Location:</span> ${p.act.location || p.loc}`,
-                  `<span class="label">Drift type:</span> ${p.act.drift_type || ""}`,
-                  `<span class="label">Drift topic:</span> ${p.act.drift_topic || ""}`,
+                  <!-- `<span class="label">Drift type:</span> ${p.act.drift_type || ""}`, -->
+                  <!-- `<span class="label">Drift topic:</span> ${p.act.drift_topic || ""}`, -->
                   actionLine(p.act.action || p.action),
                   `<span class="label">Topic:</span> ${p.act.topic || ""}`,
                   `<span class="label">Summary:</span> ${p.act.state_summary || ""}`,
