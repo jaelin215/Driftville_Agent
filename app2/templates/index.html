@@ -547,15 +547,16 @@
               makeCell(
                 "Drift",
                 [
-                  
+                  `<span class="label">Should drift?</span> ${p.drift.should_drift ?? ""}`,
                   `<span class="label">Topic:</span> ${p.drift.drift_topic || ""}`,
                   `<span class="label">Justification:</span> ${p.drift.justification || ""}`,
                 ]
               ),
               makeCell(
-                "Should drift?",
+                "",
                 [
-                  `${p.drift.should_drift ?? ""} -- ${p.drift.drift_type ? p.drift.drift_type : ""}`,
+                  ,
+                  `<span class="highlight">${p.drift.drift_type ? p.drift.drift_type : ""}</span>`,
                 ],
                 true
               ),
