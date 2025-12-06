@@ -1,0 +1,554 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Driftville</title>
+  <style>
+    body { font-family: "Press Start 2P", "Inter", -apple-system, sans-serif; margin:0; padding:0; background: radial-gradient(circle at 20% 20%, #1c2541, #0b132b); color:#f8f9ff; }
+    header { padding: 18px 24px; background: rgba(255,255,255,0.06); box-shadow: 0 10px 25px rgba(0,0,0,0.25); position: sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    h1 { margin:0; font-size: 18px; letter-spacing: 1px; }
+    #time-controls { display:flex; align-items:center; gap:10px; background: rgba(255,255,255,0.08); border:1px solid rgba(111,255,233,0.4); border-radius:14px; padding:6px 10px; box-shadow: 0 8px 18px rgba(0,0,0,0.2); }
+    #time-controls button { background:#10243a; color:#6fffe9; border:1px solid rgba(111,255,233,0.4); border-radius:10px; padding:6px 10px; font-weight:700; box-shadow:none; }
+    #time-controls button:hover { transform:none; border-color:#6fffe9; }
+    #time-slider { width:160px; accent-color:#6fffe9; }
+    #time-label { min-width:48px; text-align:right; font-weight:700; letter-spacing:0.5px; color:#6fffe9; }
+    #date-label { min-width:98px; text-align:right; font-weight:700; letter-spacing:0.5px; color:#9fb3c8; }
+    .panel { padding: 16px 24px; }
+    button { background:#6fffe9; color:#0b132b; border:none; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer; box-shadow: 0 8px 20px rgba(111,255,233,0.4); }
+    button:hover { transform: translateY(-1px); }
+    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap:12px; transition: height 0.3s ease, opacity 0.3s ease; }
+    .card { background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%); border:1px solid rgba(111,255,233,0.3); border-radius:14px; padding:12px; box-shadow: 0 10px 25px rgba(0,0,0,0.35); cursor:pointer; }
+    .card:hover { border-color:#6fffe9; }
+    .emoji { font-size:32px; }
+    .duo { display:flex; gap:6px; align-items:center; }
+    .name { margin-top:6px; font-weight:700; }
+    .muted { color:#9fb3c8; font-size:11px; margin-top:4px; }
+    .arcade-label { font-weight:900; font-size:13px; letter-spacing:1px; color:#6fffe9; text-transform:uppercase; text-shadow: 1px 1px 0 #0b132b, 2px 2px 0 #0b132b; }
+    .hidden { opacity:0; pointer-events:none; transition: opacity 0.25s ease; }
+    #floorplan { margin-top:16px; padding:14px; background: rgba(255,255,255,0.04); border:1px solid rgba(111,255,233,0.25); border-radius:12px; }
+    .town { display:flex; justify-content:center; gap:10px; min-height:130px; align-items:center; flex-wrap:wrap; padding:8px 0; transition: min-height 0.25s ease, max-height 0.25s ease; }
+    .tile { width:150px; height:80px; background: linear-gradient(135deg, #0f1f3a 0%, #16294d 100%); border:1px dashed rgba(111,255,233,0.4); border-radius:10px; padding:10px; text-align:center; color:#f8f9ff; display:flex; flex-direction:column; align-items:center; justify-content:center; box-sizing:border-box; }
+    .tile .emoji { font-size:24px; }
+    .faded { opacity: 0.35; transition: opacity 0.25s ease; pointer-events: none; }
+    .placeholder { border:1px dashed rgba(111,255,233,0.3); background: rgba(255,255,255,0.02); color:#9fb3c8; }
+    .centered { display:flex; flex-direction:column; align-items:center; text-align:center; }
+    #restart { background: transparent; box-shadow:none; color:#6fffe9; border:1px solid rgba(111,255,233,0.5); border-radius:8px; height:28px; display:none; align-items:center; justify-content:center; padding:0 8px; font-size:14px; text-transform:uppercase; letter-spacing:0.5px; gap:4px; }
+    #restart:hover { transform:none; box-shadow: none; }
+    /* Floorplan */
+    #floorplan-map { margin-top:12px; background: rgba(255,255,255,0.04); border:1px solid rgba(111,255,233,0.25); border-radius:12px; padding:12px; display:none; }
+    #map-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; }
+    .cell { position:relative; border:1px dashed rgba(111,255,233,0.3); border-radius:10px; min-height:120px; padding:8px; color:#9fb3c8; box-sizing:border-box; }
+    .cell-label { font-size:12px; margin-bottom:6px; font-weight:700; color:#6fffe9; }
+    .children { font-size:11px; line-height:1.4; color:#b8c7d9; }
+    .token-tray { display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; margin-top:auto; }
+    .cell { display:flex; flex-direction:column; gap:8px; }
+    .token { padding:6px 10px; border-radius:999px; font-size:11px; color:#0b132b; font-weight:700; background:#6fffe9; box-shadow: 0 6px 14px rgba(0,0,0,0.15); }
+    /* Sections */
+    .section { margin-top:18px; border:1px solid rgba(111,255,233,0.25); border-radius:12px; background: rgba(255,255,255,0.04); overflow:hidden; }
+    .section-header { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; cursor:pointer; }
+    .section-header:hover { background: rgba(255,255,255,0.04); }
+    .section-title { font-weight:800; letter-spacing:0.5px; color:#6fffe9; }
+    .section-toggle { color:#9fb3c8; font-size:12px; letter-spacing:0.4px; }
+    .section-body { padding:12px 14px; display:block; }
+    .section-body.collapsed { display:none; }
+    .section-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:12px; }
+    /* Match Driftville Town inner background */
+    .section-card { background: rgba(255,255,255,0.04); border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:12px; color:#e8f4ff; font-family: "Inter", -apple-system, sans-serif; }
+    .section-card * { font-family: "Inter", -apple-system, sans-serif; }
+    .section-card h4 { margin:0 0 8px 0; color:#6fffe9; font-size:14px; letter-spacing:0.4px; }
+    .chip { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; margin:0 0 10px 0; border-radius:999px; background: rgba(111,255,233,0.12); border:1px solid rgba(111,255,233,0.25); color:#e8f4ff; font-size:12px; font-family: "Inter", -apple-system, sans-serif; }
+    .small-muted { color:#9fb3c8; font-size:11px; }
+    .mono { font-family: "Inter", -apple-system, sans-serif; font-size:12px; }
+    /* Current state row */
+    .state-row { margin-top:16px; border:1px solid rgba(111,255,233,0.3); border-radius:12px; background: rgba(255,255,255,0.04); padding:12px; }
+    .state-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:10px; }
+    .state-card { border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:10px; color:#e8f4ff; background: rgba(255,255,255,0.04); }
+    .state-card h4 { margin:0 0 6px 0; color:#6fffe9; font-size:13px; letter-spacing:0.3px; }
+    .state-card .label { font-weight:700; color:#9fb3c8; font-size:12px; }
+    .state-card .line { margin:2px 0; font-size:12px; }
+    .state-card .distract { margin-top:6px; color:#ffd166; font-weight:700; font-size:12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Driftville</h1>
+    <div id="time-controls">
+      <button id="time-minus">-15m</button>
+      <input type="range" id="time-slider" min="0" max="1439" step="15" />
+      <button id="time-plus">+15m</button>
+      <div id="time-label">--:--</div>
+      <div id="date-label">--</div>
+    </div>
+  </header>
+  <div class="panel">
+    <div class="grid" id="grid"></div>
+
+    <div id="floorplan">
+      <div id="floor-top" class="centered" style="position:relative;">
+        <button id="restart" title="Restart" style="position:absolute; left:0; top:-6px;">← RESTART</button>
+        <div class="muted arcade-label" id="town-label" style="margin-bottom:6px; text-align:center;">Select maximum 2 personas</div>
+      </div>
+      <div class="town" id="town"></div>
+      <div id="floor-bottom" style="margin-top:10px; display:flex; justify-content:center;">
+        <button id="simulate" style="min-width:220px;">Simulate</button>
+      </div>
+      <div id="floorplan-map">
+        <div class="muted" style="margin-bottom:6px;">Driftville Town</div>
+        <div id="map-grid"></div>
+      </div>
+    </div>
+
+    <div class="state-row" id="state-row">
+      <div class="small-muted" style="margin-bottom:6px;">Current state at selected time</div>
+      <div class="state-grid" id="state-grid"></div>
+    </div>
+
+    <div class="section" id="schedules-section">
+      <div class="section-header" data-target="schedules-body">
+        <div class="section-title">Schedules</div>
+        <div class="section-toggle" id="schedules-toggle">Collapse</div>
+      </div>
+      <div class="section-body" id="schedules-body">
+        <div id="schedules-grid" class="section-grid"></div>
+      </div>
+    </div>
+
+    <div class="section" id="bios-section">
+      <div class="section-header" data-target="bios-body">
+        <div class="section-title">Bios</div>
+        <div class="section-toggle" id="bios-toggle">Collapse</div>
+      </div>
+      <div class="section-body" id="bios-body">
+        <div id="bios-grid" class="section-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+    const showError = (err) => {
+      console.error(err);
+      const box = document.createElement("pre");
+      box.style.background = "#2b1b2f";
+      box.style.color = "#ffd1dc";
+      box.style.padding = "12px";
+      box.style.margin = "12px";
+      box.style.border = "1px solid #ff8ccf";
+      box.textContent = `UI error: ${err && err.message ? err.message : err}`;
+      document.body.prepend(box);
+    };
+    try {
+    const personas = {{ personas | tojson | safe }};
+    const emojiMap = {{ emoji_map | tojson | safe }};
+    const faceMap = {{ face_map | tojson | safe }};
+    const personaByName = Object.fromEntries(personas.map(p => [p.name, p]));
+    const scheduleByName = Object.fromEntries(personas.map(p => [p.name, p.schedule || []]));
+    const grid = document.getElementById("grid");
+    const town = document.getElementById("town");
+    const townLabel = document.getElementById("town-label");
+    const floorTop = document.getElementById("floor-top");
+    const floorBottom = document.getElementById("floor-bottom");
+    const simBtn = document.getElementById("simulate");
+    const restartBtn = document.getElementById("restart");
+    const chosen = []; // names added to Driftville (max 2)
+    let simLocked = false;
+    const floorplanMap = document.getElementById("floorplan-map");
+    const mapGrid = document.getElementById("map-grid");
+    let mapLayout = [];
+    let mapIds = new Set();
+    const schedulesSection = document.getElementById("schedules-section");
+    const biosSection = document.getElementById("bios-section");
+    const schedulesGrid = document.getElementById("schedules-grid");
+    const biosGrid = document.getElementById("bios-grid");
+    const stateGrid = document.getElementById("state-grid");
+    const minutesNow = () => {
+      const d = new Date();
+      return d.getHours() * 60 + d.getMinutes();
+    };
+    const clampMinute = (m) => Math.min(1439, Math.max(0, m));
+    const fmtTime = (m) => {
+      const hh = String(Math.floor(m / 60)).padStart(2, "0");
+      const mm = String(m % 60).padStart(2, "0");
+      return `${hh}:${mm}`;
+    };
+    let selectedMinute = 6 * 60; // default to 06:00 on load
+    const timeSlider = document.getElementById("time-slider");
+    const timeLabel = document.getElementById("time-label");
+    const timeMinus = document.getElementById("time-minus");
+    const timePlus = document.getElementById("time-plus");
+    const schedulesBody = document.getElementById("schedules-body");
+    const biosBody = document.getElementById("bios-body");
+    const schedulesToggle = document.getElementById("schedules-toggle");
+    const biosToggle = document.getElementById("bios-toggle");
+    const dateLabel = document.getElementById("date-label");
+    const setSectionState = (body, toggleEl, expand) => {
+      if (!body) return;
+      body.classList.toggle("collapsed", !expand);
+      if (toggleEl) toggleEl.textContent = expand ? "Collapse" : "Expand";
+    };
+    const extractDate = (sched) => {
+      const first = (sched && sched[0] && sched[0].datetime_start) || "";
+      return first.split(" ")[0] || "--";
+    };
+    const updateDateLabel = () => {
+      if (!dateLabel) return;
+      let dateStr = "--";
+      if (chosen.length > 0) {
+        const sched = scheduleByName[chosen[0]] || [];
+        dateStr = extractDate(sched);
+      } else if (personas[0] && personas[0].schedule) {
+        dateStr = extractDate(personas[0].schedule);
+      }
+      dateLabel.textContent = dateStr;
+    };
+    const currentLocationFor = (name, minute) => {
+      const sched = scheduleByName[name] || [];
+      const slot = sched.find(s => minute >= (s.start_time ?? 0) && minute < (s.end_time ?? 0));
+      if (slot && slot.location) return slot.location;
+      const route = guessRoute(name);
+      return route[0] || "home";
+    };
+    const buildAssignmentsAt = (minute) => {
+      if (chosen.length === 0) return {};
+      const assignments = {};
+      chosen.forEach(name => {
+        const persona = personaByName[name];
+        if (!persona) return;
+        const loc = currentLocationFor(name, minute);
+        let cell = (loc || "home").split(":")[0];
+        if (!mapIds.has(cell)) cell = "outdoor";
+        if (!assignments[cell]) assignments[cell] = [];
+        assignments[cell].push(name);
+      });
+      return assignments;
+    };
+
+    function rebuildMapFromSelection() {
+      const tree = {};
+      const addLoc = (loc) => {
+        if (!loc) return;
+        const [parent, child] = loc.split(":");
+        if (!tree[parent]) tree[parent] = new Set();
+        if (child) tree[parent].add(child.replace(/_/g, " "));
+      };
+      if (chosen.length === 0) {
+        addLoc("home");
+      } else {
+        chosen.forEach(name => {
+          (scheduleByName[name] || []).forEach(slot => addLoc(slot.location || "home"));
+        });
+      }
+      // ensure at least one row
+      if (Object.keys(tree).length === 0) addLoc("home");
+
+      mapLayout = Object.keys(tree).map(parent => ({
+        id: parent,
+        label: parent.replace(/_/g, " "),
+        children: Array.from(tree[parent]),
+      }));
+      mapIds = new Set(mapLayout.map(c => c.id));
+      buildMap();
+      refreshMap();
+    }
+
+    function buildMap() {
+      mapGrid.innerHTML = "";
+      mapLayout.forEach(cell => {
+        const div = document.createElement("div");
+        div.className = "cell";
+        div.dataset.cellId = cell.id;
+        const children = (cell.children || []).map(c => `<span>${c}</span>`).join(" · ");
+        div.innerHTML = `<div class="cell-label">${cell.label}</div><div class="children">${children}</div><div class="token-tray"></div>`;
+        mapGrid.appendChild(div);
+      });
+    }
+
+    function placeTokens(assignments) {
+      mapLayout.forEach(cell => {
+        const target = mapGrid.querySelector(`[data-cell-id="${cell.id}"]`);
+        if (!target) return;
+        const tray = target.querySelector(".token-tray") || target;
+        // remove old tokens
+        tray.querySelectorAll(".token").forEach(t => t.remove());
+        const list = assignments[cell.id] || [];
+        list.forEach((name, idx) => {
+          const tok = document.createElement("div");
+          tok.className = "token";
+          tok.style.background = idx % 2 === 0 ? "#6fffe9" : "#ffd166";
+          const icon = faceMap[name] || emojiMap[name] || "🧩";
+          tok.textContent = `${icon} ${name.split(" ")[0] || name}`;
+          tray.appendChild(tok);
+        });
+      });
+    }
+
+    function refreshMap() {
+      placeTokens(buildAssignmentsAt(selectedMinute));
+      if (timeLabel) timeLabel.textContent = fmtTime(selectedMinute);
+      if (timeSlider) timeSlider.value = selectedMinute;
+      renderStateRow();
+    }
+
+    const guessRoute = (name) => {
+      const persona = personas.find(x => x.name === name) || {};
+      const text = (persona.raw_persona || "").toLowerCase();
+      const route = [];
+      const pushIf = (key, id) => { if (text.includes(key)) route.push(id); };
+      pushIf("home", "home");
+      pushIf("cafe", "Hobbs_Cafe");
+      pushIf("hobbs", "Hobbs_Cafe");
+      pushIf("market", "Willow_Market_and_Pharmacy");
+      pushIf("pharmacy", "Willow_Market_and_Pharmacy");
+      pushIf("college", "Oak_Hill_College");
+      pushIf("park", "Johnson_Park");
+      pushIf("studio", "art_studio");
+      pushIf("writer", "writer_desk");
+      pushIf("classroom", "Oak_Hill_College");
+      if (route.length === 0) route.push("home", "office");
+      return route.slice(0, 4);
+    };
+
+    function renderTown(message = "") {
+      town.innerHTML = "";
+      chosen.forEach(name => {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        const prof = emojiMap[name] || "🧩";
+        tile.innerHTML = `<div class="emoji">${prof}</div><div style="font-size:11px; margin-top:4px;">${name}</div>`;
+        tile.onclick = () => {
+          if (simLocked) return;
+          const idx = chosen.indexOf(name);
+          if (idx >= 0) {
+            chosen.splice(idx, 1);
+            renderTown();
+          }
+        };
+        town.appendChild(tile);
+      });
+      // add empty placeholders up to 2 slots
+      for (let i = chosen.length; i < 2; i++) {
+        const ph = document.createElement("div");
+        ph.className = "tile placeholder";
+        ph.innerHTML = `<div style="font-size:12px;">Empty slot</div>`;
+        town.appendChild(ph);
+      }
+      if (message) {
+        townLabel.textContent = message;
+      } else {
+        townLabel.textContent = chosen.length < 2 ? "Select two personas" : "Ready to simulate";
+      }
+      rebuildMapFromSelection();
+      renderSchedules();
+      renderStateRow();
+      renderBios();
+      updateDateLabel();
+    }
+
+    function renderSchedules() {
+      if (!schedulesGrid) return;
+      if (chosen.length === 0) {
+        schedulesGrid.innerHTML = `<div class="small-muted">Select personas to view their schedules.</div>`;
+        return;
+      }
+      schedulesGrid.innerHTML = chosen.map(name => {
+        const sched = scheduleByName[name] || [];
+        if (!sched.length) {
+          return `<div class="section-card"><div class="chip">${emojiMap[name] || "🧩"} ${name}</div><div class="small-muted">No schedule available.</div></div>`;
+        }
+        const fmtRange = (s) => {
+          const start = s.start_time ?? 0;
+          const end = s.end_time ?? (start + (s.duration_min || 0));
+          const pad = (n) => String(n).padStart(2, "0");
+          const hhmm = (m) => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
+          return `${hhmm(start)}-${hhmm(end)}`;
+        };
+        const rows = sched.map(s => {
+          const t = fmtRange(s);
+          return `<div class="mono" style="margin:2px 0;">${t} — ${s.location || "home"} — ${s.action || ""}${s.topic ? " — " + s.topic : ""}</div>`;
+        }).join("");
+        return `<div class="section-card"><div class="chip">${emojiMap[name] || "🧩"} ${name} schedule</div>${rows}</div>`;
+      }).join("");
+    }
+
+    const currentSlotFor = (name, minute) => {
+      const sched = scheduleByName[name] || [];
+      return sched.find(s => minute >= (s.start_time ?? 0) && minute < (s.end_time ?? 0));
+    };
+
+    function renderStateRow() {
+      if (!stateGrid) return;
+      if (chosen.length === 0) {
+        stateGrid.innerHTML = `<div class="small-muted">Select personas to view their current state.</div>`;
+        return;
+      }
+      stateGrid.innerHTML = chosen.map(name => {
+        const slot = currentSlotFor(name, selectedMinute);
+        const loc = slot?.location || "home";
+        const action = slot?.action || "idle";
+        const env = slot?.environment_description || "No distractors noted.";
+        const start = slot?.start_time ?? 0;
+        const end = slot?.end_time ?? (start + (slot?.duration_min || 0));
+        const pad = (n) => String(n).padStart(2, "0");
+        const hhmm = (m) => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
+        const timeRange = `${hhmm(start)}-${hhmm(end)}`;
+        return `
+          <div class="state-card">
+            <h4>${name}</h4>
+            <div class="line"><span class="label">Time:</span> ${timeRange}</div>
+            <div class="line"><span class="label">Location:</span> ${loc}</div>
+            <div class="line"><span class="label">Action:</span> ${action}</div>
+            <div class="distract">Distractors</div>
+            <div class="line" style="color:#e8f4ff;">${env}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderBios() {
+      if (!biosGrid) return;
+      if (chosen.length === 0) {
+        biosGrid.innerHTML = `<div class="small-muted">Select personas to view their bios.</div>`;
+        return;
+      }
+      biosGrid.innerHTML = chosen.map(name => {
+        const persona = personas.find(p => p.name === name) || {};
+        const bio = persona.raw_persona || "No bio available.";
+        return `<div class="section-card"><div class="chip">${emojiMap[name] || "🧩"} ${name} bio</div><div style="white-space:pre-wrap; line-height:1.5; margin-top:6px;">${bio}</div></div>`;
+      }).join("");
+    }
+
+    personas.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
+      const prof = emojiMap[p.name] || "🧩";
+      card.innerHTML = `
+        <div class="emoji">${prof}</div>
+        <div class="name">${p.name}</div>
+        <div class="muted">view bio</div>
+      `;
+      card.onclick = () => {
+        if (simLocked) return;
+        const idx = chosen.indexOf(p.name);
+        if (idx >= 0) {
+          chosen.splice(idx, 1);
+        } else if (chosen.length < 2) {
+          chosen.push(p.name);
+        } else {
+          alert("Select maximum 2 personas.");
+          renderTown("Select maximum 2 personas (click a selected below to remove)");
+          return;
+        }
+        renderTown();
+      };
+      grid.appendChild(card);
+    });
+    // initial placeholders
+    renderTown();
+    rebuildMapFromSelection();
+    refreshMap();
+    // initial collapsed defaults
+    setSectionState(schedulesBody, schedulesToggle, false);
+    setSectionState(biosBody, biosToggle, true);
+    if (schedulesSection) schedulesSection.style.display = "none";
+    renderStateRow();
+    const syncSectionsVisibility = () => {
+      const restartVisible = restartBtn && restartBtn.style.display !== "none";
+      if (schedulesSection) {
+        schedulesSection.style.display = restartVisible ? "block" : "none";
+        if (!restartVisible) setSectionState(schedulesBody, schedulesToggle, false);
+      }
+      setSectionState(biosBody, biosToggle, !restartVisible ? true : false);
+      updateDateLabel();
+    };
+    syncSectionsVisibility();
+    setInterval(refreshMap, 1000 * 30); // update positions every 30s
+
+    // Collapsible sections
+    document.querySelectorAll(".section-header").forEach(head => {
+      head.addEventListener("click", () => {
+        const targetId = head.dataset.target;
+        const body = document.getElementById(targetId);
+        if (!body) return;
+        const toggleLabel = head.querySelector(".section-toggle");
+        const expand = body.classList.contains("collapsed");
+        setSectionState(body, toggleLabel, expand);
+      });
+    });
+
+    // Time controls wiring
+    if (timeSlider) {
+      timeSlider.value = selectedMinute;
+      timeSlider.addEventListener("input", (e) => {
+        selectedMinute = clampMinute(parseInt(e.target.value || "0", 10) || 0);
+        refreshMap();
+      });
+    }
+    const shiftBy = (delta) => {
+      selectedMinute = clampMinute(selectedMinute + delta);
+      refreshMap();
+    };
+    if (timeMinus) timeMinus.onclick = () => shiftBy(-15);
+    if (timePlus) timePlus.onclick = () => shiftBy(15);
+
+    simBtn.onclick = () => {
+      if (chosen.length < 2) {
+        alert("Add at least two personas to Driftville to simulate.");
+        return;
+      }
+      const [a, b] = chosen; // first two added
+      floorTop.classList.add("faded");
+      floorBottom.classList.add("faded");
+      grid.classList.add("hidden");
+      grid.style.height = "0px";
+      grid.style.opacity = "0";
+      grid.style.pointerEvents = "none";
+      simBtn.style.display = "none";
+      restartBtn.style.display = "inline-block";
+      syncSectionsVisibility();
+      setSectionState(schedulesBody, schedulesToggle, false);
+      if (floorplanMap) floorplanMap.style.display = "block";
+      townLabel.textContent = "Welcome to Driftville!";
+      town.style.minHeight = "60px";
+      town.style.maxHeight = "60px";
+      simLocked = true;
+      fetch("/simulate_conversation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ agent1: a, agent2: b })
+      })
+      .then(r => r.json())
+      .then(data => {
+        console.log("Simulation result:", data);
+      })
+      .catch(() => { console.warn("Simulation failed."); })
+      .finally(() => {
+        floorTop.classList.remove("faded");
+        floorBottom.classList.remove("faded");
+        // keep grid collapsed until restart
+      });
+    };
+
+    restartBtn.onclick = () => {
+      // simple reload/reset of selections and UI
+      chosen.splice(0, chosen.length);
+      renderTown();
+      restartBtn.style.display = "none";
+      if (floorplanMap) floorplanMap.style.display = "none";
+      grid.classList.remove("hidden");
+      grid.style.height = "";
+      grid.style.opacity = "1";
+      grid.style.pointerEvents = "auto";
+      simBtn.style.display = "inline-block";
+      floorTop.classList.remove("faded");
+      floorBottom.classList.remove("faded");
+      townLabel.textContent = chosen.length < 2 ? "Select two personas" : "Ready to simulate";
+      town.style.minHeight = "130px";
+      town.style.maxHeight = "130px";
+      simLocked = false;
+      syncSectionsVisibility();
+    };
+    } catch (err) { showError(err); }
+    })();
+  </script>
+</body>
+</html>
