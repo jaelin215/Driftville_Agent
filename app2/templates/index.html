@@ -16,18 +16,18 @@
     .panel { padding: 16px 24px; }
     button { background:#6fffe9; color:#0b132b; border:none; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer; box-shadow: 0 8px 20px rgba(111,255,233,0.4); }
     button:hover { transform: translateY(-1px); }
-    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap:12px; transition: height 0.3s ease, opacity 0.3s ease; }
-    .card { background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%); border:1px solid rgba(111,255,233,0.3); border-radius:14px; padding:12px; box-shadow: 0 10px 25px rgba(0,0,0,0.35); cursor:pointer; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)); gap:12px; transition: height 0.3s ease, opacity 0.3s ease; }
+    .card { background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%); border:1px solid rgba(111,255,233,0.3); border-radius:14px; padding:12px; box-shadow: 0 10px 25px rgba(0,0,0,0.35); cursor:pointer; min-height:118px; display:flex; flex-direction:column; justify-content:center; gap:6px; }
     .card:hover { border-color:#6fffe9; }
     .emoji { font-size:32px; }
     .duo { display:flex; gap:6px; align-items:center; }
     .name { margin-top:6px; font-weight:700; }
-    .muted { color:#9fb3c8; font-size:11px; margin-top:4px; }
+    .muted { color:#9fb3c8; font-size:11px; margin-top:2px; }
     .arcade-label { font-weight:900; font-size:13px; letter-spacing:1px; color:#6fffe9; text-transform:uppercase; text-shadow: 1px 1px 0 #0b132b, 2px 2px 0 #0b132b; }
     .hidden { opacity:0; pointer-events:none; transition: opacity 0.25s ease; }
     #floorplan { margin-top:16px; padding:14px; background: rgba(255,255,255,0.04); border:1px solid rgba(111,255,233,0.25); border-radius:12px; }
     .town { display:flex; justify-content:center; gap:10px; min-height:260px; align-items:center; flex-wrap:wrap; padding:8px 0; transition: min-height 0.25s ease, max-height 0.25s ease; }
-    .tile { width:150px; height:80px; background: linear-gradient(135deg, #0f1f3a 0%, #16294d 100%); border:1px dashed rgba(111,255,233,0.4); border-radius:10px; padding:10px; text-align:center; color:#f8f9ff; display:flex; flex-direction:column; align-items:center; justify-content:center; box-sizing:border-box; }
+    .tile { width:320px; height:250px; background: linear-gradient(135deg, #0f1f3a 0%, #16294d 100%); border:1px dashed rgba(111,255,233,0.4); border-radius:16px; padding:16px; text-align:center; color:#f8f9ff; display:flex; flex-direction:column; align-items:center; justify-content:center; box-sizing:border-box; gap:8px; }
     .tile .emoji { font-size:24px; }
     .faded { opacity: 0.35; transition: opacity 0.25s ease; pointer-events: none; }
     .placeholder { border:1px dashed rgba(111,255,233,0.3); background: rgba(255,255,255,0.02); color:#9fb3c8; }
@@ -83,6 +83,19 @@
     .header-badge.orpa-cell { background:#d9e2ec; color:#0f172a; }
     .header-badge.orpda-cell { background:#cfe7d6; color:#0f172a; }
     .no-data { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:#e5e7eb; color:#374151; font-weight:700; font-size:12px; }
+    .metrics-row { display:flex; flex-wrap:wrap; gap:8px; padding:8px 14px 2px 14px; align-items:center; }
+    .metric-badge { display:inline-flex; align-items:center; gap:4px; padding:6px 10px; border-radius:999px; background:#e9d8af; color:#111827; font-weight:700; font-size:12px; }
+    .metric-label { color:#4b5563; font-weight:700; }
+    .metrics-section { margin-top:16px; border:1px solid #e6dcb5; border-radius:12px; background:#fdf6e3; padding:12px; color:#1f2d3d; }
+    .metrics-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; }
+    .metric-card { background:#fffaf0; border:1px dashed #d8c9a2; border-radius:10px; padding:8px; }
+    .metric-title { font-weight:700; color:#0f172a; margin-bottom:4px; }
+    .metric-gauge-track { width:100%; height:10px; background:#e5e7eb; border-radius:999px; overflow:hidden; }
+    .metric-gauge-fill { height:100%; border-radius:999px; }
+    .metric-gauge-label { font-size:12px; color:#111827; margin-bottom:4px; display:flex; justify-content:space-between; }
+    .chipline { display:flex; flex-wrap:wrap; gap:6px; margin-top:0; }
+    .metric-label.inline { display:inline-flex; align-items:center; margin-right:6px; }
+    .chipline .metric-badge { background:#e5e7eb; }
     .feedback-box textarea { background:#0d1f34; border:1px solid rgba(111,255,233,0.25); border-radius:8px; color:#e8f4ff; padding:6px; width:100%; min-height:70px; }
     .feedback-box select { background:#0d1f34; border:1px solid rgba(111,255,233,0.25); border-radius:8px; color:#e8f4ff; padding:4px 6px; width:100%; }
     .feedback-box .actions { display:flex; gap:6px; align-items:center; margin-top:6px; }
@@ -115,12 +128,16 @@
       </div>
       <div class="town" id="town"></div>
       <div id="floor-bottom" style="margin-top:10px; display:flex; justify-content:center;">
-        <button id="simulate" style="min-width:220px;">Simulate</button>
+        <button id="simulate" style="min-width:320px;">Simulate</button>
       </div>
       <div id="floorplan-map">
         <div class="muted" style="margin-bottom:6px;">Driftville Town</div>
         <div id="map-grid"></div>
       </div>
+    </div>
+
+    <div class="metrics-section" id="metrics-section" style="display:none;">
+      <div id="metrics-body"></div>
     </div>
 
     <div class="state-row" id="state-row" style="display:none;">
@@ -192,6 +209,7 @@
     const orpdaSessions = sessionData.orpda || {};
     const orpaSessions = sessionData.orpa || {};
     const showEval = {{ show_eval | tojson | safe }};
+    const metricsByName = {};
     const personaByName = Object.fromEntries(personas.map(p => [p.name, p]));
     const scheduleByName = Object.fromEntries(personas.map(p => [p.name, p.schedule || []]));
     const sessionsByName = sessionData || {};
@@ -259,6 +277,70 @@
       if (Number.isFinite(h) && Number.isFinite(m)) return h * 60 + m;
       return null;
     };
+    const stopWords = new Set(["the","and","for","with","from","this","that","about","into","over","into","while","her","his","him","she","him","they","them","their","our","ours","your","yours","will","none","null","true","false","just","new"]);
+    const avgScore = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0) / arr.length : 0;
+    const modeMap = {
+      aligned: 1, partial: 0.5, off_track: 0,
+      stable: 1, slipping: 0.5, fragile: 0,
+      low: 0, med: 0.5, high: 1,
+    };
+    const computeMetrics = (name) => {
+      const entries = orpdaSessions[name] || [];
+      if (!entries.length) return null;
+      const attn = [];
+      const align = [];
+      const fatigue = [];
+      const driftInt = [];
+      const driftTypes = {};
+      const driftTopics = {};
+      let shouldDriftTrue = 0;
+      entries.forEach(e => {
+        const ref = (e.orpda || {}).reflection || {};
+        const drift = (e.orpda || {}).drift_decision || {};
+        const ar = (e.orpda || {}).action_result || {};
+        if (ref.attention_stability in modeMap) attn.push(modeMap[ref.attention_stability]);
+        if (ref.plan_alignment in modeMap) align.push(modeMap[ref.plan_alignment]);
+        if (ref.boredom_fatigue in modeMap) fatigue.push(modeMap[ref.boredom_fatigue]);
+        const di = parseFloat(drift.drift_intensity ?? ar.drift_intensity ?? 0);
+        if (Number.isFinite(di)) driftInt.push(di);
+        const dt = drift.drift_type || ar.drift_type || "none";
+        driftTypes[dt] = (driftTypes[dt] || 0) + 1;
+        const topic = drift.drift_topic || ar.drift_topic || "";
+        if (topic) driftTopics[topic] = (driftTopics[topic] || 0) + 1;
+        if (drift.should_drift === true || ar.should_drift === true) shouldDriftTrue += 1;
+      });
+      const total = entries.length;
+      const topTopics = Object.entries(driftTopics).sort((a,b) => b[1]-a[1]).slice(0,5).map(([t,c]) => t);
+      // keywords from topics
+      const kwCounts = {};
+      Object.keys(driftTopics).forEach(t => {
+        t.split(/[^A-Za-z]+/).forEach(w => {
+          const w2 = w.toLowerCase();
+          if (w2.length < 4) return;
+          if (stopWords.has(w2)) return;
+          kwCounts[w2] = (kwCounts[w2] || 0) + driftTopics[t];
+        });
+      });
+      const topKeywords = Object.entries(kwCounts).sort((a,b) => b[1]-a[1]).slice(0,5).map(([w,c]) => w);
+      return {
+        attnAvg: avgScore(attn),
+        alignAvg: avgScore(align),
+        fatigueAvg: avgScore(fatigue),
+        driftAvg: avgScore(driftInt),
+        driftTypes,
+        shouldDriftPct: total ? Math.round((shouldDriftTrue / total) * 100) : 0,
+        topTopics,
+        topKeywords,
+      };
+    };
+
+    const gauge = (label, val, color) => {
+      const pct = Math.max(0, Math.min(100, Math.round(val * 100)));
+      return `<div class="metric-card">
+        <div class="metric-gauge-label"><span>${label}</span><span>${pct}%</span></div>
+        <div class="metric-gauge-track"><div class="metric-gauge-fill" style="width:${pct}%; background:${color};"></div></div>
+      </div>`;
+    };
     let selectedMinute = 6 * 60; // default to 06:00 on load
     const timeSlider = document.getElementById("time-slider");
     const timeLabel = document.getElementById("time-label");
@@ -275,6 +357,8 @@
     const feedbackStatus = document.getElementById("feedback-status");
     const dateLabel = document.getElementById("date-label");
     const stateRow = document.getElementById("state-row");
+    const metricsSection = document.getElementById("metrics-section");
+    const metricsBody = document.getElementById("metrics-body");
     const yamlOverlay = document.getElementById("yaml-overlay");
     const yamlContent = document.getElementById("yaml-content");
     const yamlClose = document.getElementById("yaml-close");
@@ -455,13 +539,20 @@
         const tile = document.createElement("div");
         tile.className = "tile";
         const prof = emojiMap[name] || "🧩";
-        tile.innerHTML = `<div class="emoji">${prof}</div><div style="font-size:11px; margin-top:4px;">${name}</div>`;
+        const m = metricsByName[name];
+        const driftPct = m ? `${m.shouldDriftPct || 0}%` : "--";
+        tile.innerHTML = `
+          <div class="emoji" style="font-size:42px; margin-top:4px;">${prof}</div>
+          <div style="font-size:14px; font-weight:800; margin-top:10px;">${name}</div>
+          <div style="font-size:12px; margin-top:12px; color:#9fb3c8;">Drift: ${driftPct}</div>
+        `;
         tile.onclick = () => {
           if (simLocked) return;
           const idx = chosen.indexOf(name);
           if (idx >= 0) {
             chosen.splice(idx, 1);
             renderTown();
+            renderMetricsPanel();
           }
         };
         town.appendChild(tile);
@@ -482,6 +573,7 @@
       renderSchedules();
       renderStateRow();
       renderBios();
+      renderMetricsPanel();
       updateDateLabel();
     }
 
@@ -971,13 +1063,16 @@
     }
 
     personas.forEach(p => {
+      metricsByName[p.name] = computeMetrics(p.name);
       const card = document.createElement("div");
       card.className = "card";
       const prof = emojiMap[p.name] || "🧩";
+      const m = metricsByName[p.name];
+      const driftBadge = m ? `<div class="muted" style="font-size:11px; margin-top:8px;">Drift: ${m.shouldDriftPct || 0}%</div>` : `<div class="muted" style="font-size:11px; margin-top:8px;">Drift: --</div>`;
       card.innerHTML = `
         <div class="emoji">${prof}</div>
         <div class="name">${p.name}</div>
-        <div class="muted">view bio</div>
+        ${driftBadge}
       `;
       card.onclick = () => {
         if (simLocked) return;
@@ -992,10 +1087,42 @@
       };
       grid.appendChild(card);
     });
+    const renderMetricsPanel = () => {
+      if (!metricsSection || !metricsBody) return;
+      if (chosen.length === 0) {
+        metricsSection.style.display = "none";
+        return;
+      }
+      const m = metricsByName[chosen[0]];
+      if (!m) {
+        metricsSection.style.display = "none";
+        return;
+      }
+      metricsSection.style.display = "block";
+      const driftTypeText = Object.entries(m.driftTypes || {}).map(([k,v]) => `${k}: ${v}`).join(" | ") || "none";
+      const keywords = (m.topKeywords || []).map(k => `<span class="metric-badge">${k}</span>`).join("") || "<span class=\"metric-badge\">none</span>";
+      metricsBody.innerHTML = `
+        <div class="metrics-grid">
+          ${gauge("Attention", m.attnAvg, "#2dd4bf")}
+          ${gauge("Alignment", m.alignAvg, "#60a5fa")}
+          ${gauge("Fatigue", m.fatigueAvg, "#f59e0b")}
+          ${gauge("Drift intensity", m.driftAvg, "#f97316")}
+          ${gauge("Should drift", m.shouldDriftPct/100, "#a78bfa")}
+        </div>
+        <div class="metrics-row">
+          <span class="metric-badge"><span class="metric-label">Drift types:</span> ${driftTypeText}</span>
+        </div>
+        <div class="metrics-row" style="gap:10px;">
+          <span class="metric-label inline" style="margin-top:2px;">Top drift keywords:</span>
+          <span class="chipline">${keywords}</span>
+        </div>
+      `;
+    };
     // initial placeholders and base map
     renderTown();
     rebuildMapFromSelection();
     refreshMap();
+    renderMetricsPanel();
     // initial collapsed defaults
     setSectionState(schedulesBody, schedulesToggle, false);
     setSectionState(biosBody, biosToggle, true);
@@ -1087,7 +1214,8 @@
       syncSectionsVisibility();
       setSectionState(schedulesBody, schedulesToggle, false);
       if (floorplanMap) floorplanMap.style.display = "block";
-      townLabel.textContent = "Observing persona";
+      townLabel.textContent = "Welcome to Driftville! - where mind drifts";
+      if (town) town.style.display = "none";
       town.style.minHeight = "120px";
       town.style.maxHeight = "120px";
       simLocked = true;
@@ -1116,6 +1244,7 @@
       renderTown();
       restartBtn.style.display = "none";
       if (floorplanMap) floorplanMap.style.display = "none";
+      if (town) town.style.display = "flex";
       grid.classList.remove("hidden");
       grid.style.height = "";
       grid.style.opacity = "1";

@@ -9,7 +9,7 @@ model2:
 embedding_model:
   name: "text-embedding-004"
 
-use_drift: True
+use_drift: False
 
 sim_config:
   persona: "Hailey Johnson"
