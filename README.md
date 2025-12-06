@@ -94,11 +94,11 @@ This bar chart shows the agent’s inherent probability of drifting away from it
 
 
 ## Quick Start
+Foundation: Python, Google ADK, Flask, Gemini model/embedding model
+
 <p align="center">
   <img src="app/img/driftville_stats_ui_small.png" alt="Drift tendency per character">
 </p>
-
-Foundation: Python, Google ADK, Flask, Gemini model/embedding model
 
 1) **Env vars**: create .env with your `GOOGLE_API_KEY`.
 2) **Install deps**: `pip install -r requirements.txt`
