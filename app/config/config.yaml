@@ -9,10 +9,10 @@ model2:
 embedding_model:
   name: "text-embedding-004"
 
-use_drift: True
+use_drift: False
 
 sim_config:
-  persona: "Mei Lin"
+  persona: "Eddy Lin"
   start_time: "2023-02-13 06:00"
   num_ticks: 10
   

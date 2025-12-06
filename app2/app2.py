@@ -74,6 +74,37 @@ def load_personas():
 
 
 PERSONAS = load_personas()
+SESSION_LOGS_DIR = Path(__file__).resolve().parent.parent / "app/logs"
+
+
+def load_session_data():
+    """Load ORPDA session logs (session_orpda_*.log JSONL) and group entries by agent."""
+    if not SESSION_LOGS_DIR.exists():
+        return {}
+    files = sorted(
+        SESSION_LOGS_DIR.glob("session_orpda_*.log"),
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
+    by_agent = {}
+    for path in files:
+        try:
+            with path.open() as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        entry = json.loads(line)
+                    except Exception:
+                        continue
+                    agent = entry.get("agent")
+                    if not agent:
+                        continue
+                    by_agent.setdefault(agent, []).append(entry)
+        except Exception:
+            continue
+    return by_agent
 
 EMOJI_MAP = {
     "Isabella Rodriguez": "☕️",
@@ -108,7 +139,11 @@ FACE_MAP = {
 @APP.route("/")
 def home():
     return render_template(
-        "index.html", personas=PERSONAS, emoji_map=EMOJI_MAP, face_map=FACE_MAP
+        "index.html",
+        personas=PERSONAS,
+        emoji_map=EMOJI_MAP,
+        face_map=FACE_MAP,
+        session_data=load_session_data(),
     )
 
 

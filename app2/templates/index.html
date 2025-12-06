@@ -64,13 +64,13 @@
     .mono { font-family: "Inter", -apple-system, sans-serif; font-size:12px; }
     /* Current state row */
     .state-row { margin-top:16px; border:1px solid rgba(111,255,233,0.3); border-radius:12px; background: rgba(255,255,255,0.02); padding:12px; }
-    .state-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:10px; }
-    .state-card { border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:10px; color:#e8f4ff; background: rgba(255,255,255,0.01); display:flex; flex-direction:column; gap:4px; }
-    .state-top { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
-    .state-card h4 { margin:0 0 6px 0; color:#6fffe9; font-size:13px; letter-spacing:0.3px; }
-    .state-card .label { font-weight:700; color:#9fb3c8; font-size:12px; }
-    .state-card .line { margin:2px 0; font-size:12px; }
-    .state-card .distract-label { margin-top:2px; color:#ffd166; font-weight:700; font-size:12px; }
+    .state-grid { display:flex; flex-direction:column; gap:10px; }
+    .row-grid { display:grid; grid-template-columns: repeat(4, minmax(240px, 1fr)); gap:6px; width:100%; }
+    .row-box { border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:8px; color:#e8f4ff; background: rgba(255,255,255,0.01); min-height:110px; display:flex; flex-direction:column; gap:2px; }
+    .row-title { font-weight:700; color:#6fffe9; margin:0 0 4px 0; font-size:12px; letter-spacing:0.3px; }
+    .row-box .label { font-weight:700; color:#9fb3c8; font-size:11px; }
+    .row-box .line { margin:1px 0; font-size:12px; }
+    .row-box.distract .row-title { color:#ffd166; }
   </style>
 </head>
 <body>
@@ -102,7 +102,7 @@
       </div>
     </div>
 
-    <div class="state-row" id="state-row">
+    <div class="state-row" id="state-row" style="display:none;">
       <div class="small-muted" style="margin-bottom:6px;">Current state at selected time</div>
       <div class="state-grid" id="state-grid"></div>
     </div>
@@ -145,8 +145,10 @@
     const personas = {{ personas | tojson | safe }};
     const emojiMap = {{ emoji_map | tojson | safe }};
     const faceMap = {{ face_map | tojson | safe }};
+    const sessionData = {{ session_data | tojson | safe }};
     const personaByName = Object.fromEntries(personas.map(p => [p.name, p]));
     const scheduleByName = Object.fromEntries(personas.map(p => [p.name, p.schedule || []]));
+    const sessionsByName = sessionData || {};
     const badgePalette = ["#6fffe9", "#ffd166"];
     const badgeColors = {};
     const colorFor = (name) => {
@@ -183,6 +185,14 @@
       const mm = String(m % 60).padStart(2, "0");
       return `${hh}:${mm}`;
     };
+    const minsFromDt = (dt) => {
+      if (!dt) return null;
+      const parts = dt.split(" ");
+      const hm = parts[1] || dt;
+      const [h, m] = hm.split(":").map(Number);
+      if (Number.isFinite(h) && Number.isFinite(m)) return h * 60 + m;
+      return null;
+    };
     let selectedMinute = 6 * 60; // default to 06:00 on load
     const timeSlider = document.getElementById("time-slider");
     const timeLabel = document.getElementById("time-label");
@@ -193,6 +203,7 @@
     const schedulesToggle = document.getElementById("schedules-toggle");
     const biosToggle = document.getElementById("bios-toggle");
     const dateLabel = document.getElementById("date-label");
+    const stateRow = document.getElementById("state-row");
     const setSectionState = (body, toggleEl, expand) => {
       if (!body) return;
       body.classList.toggle("collapsed", !expand);
@@ -248,12 +259,13 @@
         ensureParent(parent);
         if (childRaw) tree[parent].add(childRaw);
       };
-      // Seed a few core locations so empty selections still show boxes
-      ["home", "commute", "Oak_Hill_College", "Hobbs_Cafe", "painting_studio"].forEach(ensureParent);
 
       chosen.forEach(name => {
         (scheduleByName[name] || []).forEach(slot => addLoc(slot.location || "home"));
       });
+      if (chosen.length === 0 && Object.keys(tree).length === 0) {
+        ensureParent("home");
+      }
 
       mapLayout = Object.keys(tree).map(parent => ({
         id: parent,
@@ -403,39 +415,183 @@
       return sched.find(s => minute >= (s.start_time ?? 0) && minute < (s.end_time ?? 0));
     };
 
+    function actualStateFor(name, minute) {
+      const entries = sessionsByName[name] || [];
+      let best = null;
+      let bestDelta = Infinity;
+      entries.forEach(e => {
+        const orpda = e.orpda || {};
+        const ar = orpda.action_result || {};
+        const obs = orpda.observation || {};
+        const ref = orpda.reflection || {};
+        const plan = orpda.plan || {};
+        const drift = orpda.drift_decision || {};
+        const t = minsFromDt(ar.datetime_start || e.sim_time);
+        if (t === null) return;
+        const delta = Math.abs(minute - t);
+        if (delta < bestDelta) {
+          bestDelta = delta;
+          best = {
+            time: ar.datetime_start || e.sim_time,
+            location: ar.location || "",
+            action: ar.action || "",
+            summary: ar.state_summary || "",
+            observation: obs,
+            reflection: ref,
+            plan: plan,
+            drift: drift,
+            action_result: ar,
+          };
+        }
+      });
+      return best;
+    }
+
     function renderStateRow() {
       if (!stateGrid) return;
+      const restartVisible = restartBtn && window.getComputedStyle(restartBtn).display !== "none";
+      if (!restartVisible) {
+        if (stateRow) stateRow.style.display = "none";
+      }
       if (chosen.length === 0) {
         stateGrid.innerHTML = `<div class="small-muted">Select personas to view their current state.</div>`;
         return;
       }
-      const cards = [];
-      chosen.forEach(name => {
+      if (stateRow) stateRow.style.display = restartVisible ? "block" : "none";
+      const rows = ["Scheduled", "Observe", "Reflect", "Plan", "Drift", "Action"];
+      const perPersona = chosen.map(name => {
+        const actual = actualStateFor(name, selectedMinute);
         const slot = currentSlotFor(name, selectedMinute);
-        const loc = slot?.location || "home";
-        const action = slot?.action || "idle";
-        const env = slot?.environment_description || "No distractors noted.";
+        const loc = (actual && actual.location) || slot?.location || "home";
+        const action = (actual && actual.action) || slot?.action || "idle";
+        const env = (actual && actual.summary) || slot?.environment_description || "No distractors noted.";
         const start = slot?.start_time ?? 0;
         const end = slot?.end_time ?? (start + (slot?.duration_min || 0));
         const pad = (n) => String(n).padStart(2, "0");
         const hhmm = (m) => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
-        const timeRange = `${hhmm(start)}-${hhmm(end)}`;
-        cards.push(`
-          <div class="state-card">
-            <h4>${name}</h4>
-            <div class="line"><span class="label">Time:</span> ${timeRange}</div>
-            <div class="line"><span class="label">Location:</span> ${loc}</div>
-            <div class="line"><span class="label">Action:</span> ${action}</div>
-          </div>
-        `);
-        cards.push(`
-          <div class="state-card">
-            <h4 style="color:#ffd166;">${name} — Distractions</h4>
-            <div class="line" style="color:#e8f4ff;">${env}</div>
-          </div>
-        `);
+        const timeRange = (actual && actual.time) || `${hhmm(start)}-${hhmm(end)}`;
+        return {
+          name,
+          slot,
+          loc,
+          action,
+          env,
+          timeRange,
+          obs: actual?.observation || {},
+          ref: actual?.reflection || {},
+          plan: actual?.plan || {},
+          drift: actual?.drift || {},
+          act: actual?.action_result || {},
+        };
       });
-      stateGrid.innerHTML = cards.join("");
+      const makeCell = (title, lines, isDistract = false) => {
+        const content = lines.map(l => `<div class="line">${l}</div>`).join("");
+        return `<div class="row-box ${isDistract ? "distract" : ""}"><div class="row-title ${isDistract ? "distract" : ""}">${title}</div>${content}</div>`;
+      };
+      const cellsFor = (p, stage) => {
+        switch (stage) {
+          case "Scheduled":
+            return [
+              makeCell(
+                "Scheduled",
+                [
+                  `<span class="label">Time:</span> ${p.slot?.datetime_start || p.timeRange}`,
+                  `<span class="label">Location:</span> ${p.slot?.location || p.loc}`,
+                  `<span class="label">Action:</span> ${p.slot?.action || p.action}`,
+                  `<span class="label">Topic:</span> ${p.slot?.topic || ""}`,
+                ]
+              ),
+              makeCell("Scheduled — Distractions", [p.slot?.environment_description || p.env], true),
+            ];
+          case "Observe":
+            return [
+              makeCell(
+                "Observe",
+                [
+                  `<span class="label">Time:</span> ${p.obs.datetime_start || p.timeRange}`,
+                  `<span class="label">Location:</span> ${p.obs.location || p.loc}`,
+                  `<span class="label">Action:</span> ${p.obs.action || ""}`,
+                  `<span class="label">Summary:</span> ${p.obs.state_summary || ""}`,
+                ]
+              ),
+              makeCell("", [], true),
+            ];
+          case "Reflect":
+            return [
+              makeCell(
+                "Reflect",
+                [
+                  `<span class="label">Alignment:</span> ${p.ref.plan_alignment || ""}`,
+                  `<span class="label">Attention:</span> ${p.ref.attention_stability || ""}`,
+                  `<span class="label">Meta:</span> ${p.ref.meta_rule || ""}`,
+                  `<span class="label">Summary:</span> ${p.ref.state_summary || ""}`,
+                ]
+              ),
+              makeCell("", [], true),
+            ];
+          case "Plan":
+            return [
+              makeCell(
+                "Plan",
+                [
+                  `<span class="label">Time:</span> ${p.plan.datetime_start || ""}`,
+                  `<span class="label">Location:</span> ${p.plan.location || ""}`,
+                  `<span class="label">Action:</span> ${p.plan.action || ""}`,
+                  `<span class="label">Topic:</span> ${p.plan.topic || ""}`,
+                ]
+              ),
+              makeCell("", [], true),
+            ];
+          case "Drift":
+            return [
+              makeCell(
+                "Drift",
+                [
+                  
+                  `<span class="label">Topic:</span> ${p.drift.drift_topic || ""}`,
+                  `<span class="label">Justification:</span> ${p.drift.justification || ""}`,
+                ]
+              ),
+              makeCell(
+                "Should drift?",
+                [
+                  `${p.drift.should_drift ?? ""} -- ${p.drift.drift_type ? p.drift.drift_type : ""}`,
+                ],
+                true
+              ),
+              
+            ];
+          case "Action":
+            return [
+              makeCell(
+                "Action",
+                [
+                  `<span class="label">Time:</span> ${p.act.datetime_start || p.timeRange}`,
+                  `<span class="label">Location:</span> ${p.act.location || p.loc}`,
+                  `<span class="label">Action:</span> ${p.act.action || p.action}`,
+                  `<span class="label">Topic:</span> ${p.act.topic || ""}`,
+                  `<span class="label">Summary:</span> ${p.act.state_summary || ""}`,
+                ]
+              ),
+              makeCell("Results", [p.env], true),
+            ];
+          default:
+            return [makeCell(stage, []), makeCell("Distractions", [], true)];
+        }
+      };
+
+      const htmlRows = [];
+      rows.forEach(stage => {
+        const gridCells = [];
+        perPersona.forEach(p => {
+          const [info, distract] = cellsFor(p, stage);
+          gridCells.push(info);
+          gridCells.push(distract);
+        });
+        htmlRows.push(`<div class="row-grid">${gridCells.join("")}</div>`);
+      });
+
+      stateGrid.innerHTML = htmlRows.join("");
     }
 
     function renderBios() {
@@ -484,6 +640,7 @@
     setSectionState(schedulesBody, schedulesToggle, false);
     setSectionState(biosBody, biosToggle, true);
     if (schedulesSection) schedulesSection.style.display = "none";
+    if (stateRow) stateRow.style.display = "none";
     renderStateRow();
     const syncSectionsVisibility = () => {
       const restartVisible = restartBtn && restartBtn.style.display !== "none";
@@ -491,6 +648,7 @@
         schedulesSection.style.display = restartVisible ? "block" : "none";
         if (!restartVisible) setSectionState(schedulesBody, schedulesToggle, false);
       }
+      if (stateRow) stateRow.style.display = restartVisible ? "block" : "none";
       setSectionState(biosBody, biosToggle, !restartVisible ? true : false);
       updateDateLabel();
     };
