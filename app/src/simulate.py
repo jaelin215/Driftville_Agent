@@ -15,7 +15,8 @@ if str(ROOT) not in sys.path:
 
 from app.src.agents import Agent
 from app.src.orpda_runner import run_orpda_cycle, build_agent
-from app.config.config import USE_DRIFT
+from app.config.config import USE_DRIFT, PERSONA_NAME, SIM_START_TIME, NUM_TICKS
+
 
 # -------------------------
 # CONFIG & PATHS
@@ -237,6 +238,16 @@ async def run_simulation(agent, steps=1):
             action_result["drift_type"] = drift.get("drift_type")
             action_result["drift_topic"] = drift.get("drift_topic")
 
+        # Ensure non-behavioral drift keeps the planned location/action
+        drift_type = drift.get("drift_type", "none")
+        if drift_type in ("none", "internal", "attentional_leak"):
+            if plan.get("location"):
+                action_result["location"] = plan["location"]
+            if plan.get("action"):
+                action_result["action"] = plan["action"]
+            if plan.get("topic"):
+                action_result.setdefault("topic", plan["topic"])
+
         # Compute next tick
         action_result["next_datetime"] = (
             current_time + timedelta(minutes=MINUTES_PER_STEP)
@@ -292,7 +303,7 @@ root_agent = build_agent(YAML_DIR / cfg_path)
 
 
 if __name__ == "__main__":
-    steps = 60  # 60 ticks = 06:00 → 21:00
+    steps = NUM_TICKS  # 60 ticks = 06:00 → 21:00
     print(
         f"USE_DRIFT = {USE_DRIFT}  (ORPDA enabled)"
         if USE_DRIFT
@@ -300,7 +311,7 @@ if __name__ == "__main__":
     )
     print(f"Simulating {steps} timestamps (15‑minute ticks)")
 
-    agent = load_agent("Eddy Lin", start_time="2023-02-13 06:00")
+    agent = load_agent(PERSONA_NAME, start_time=SIM_START_TIME)
     if not agent:
         raise SystemExit("Failed to load agent.")
 

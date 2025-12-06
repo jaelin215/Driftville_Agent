@@ -94,12 +94,15 @@ This bar chart shows the agent’s inherent probability of drifting away from it
 
 
 ## Quick Start
+Foundation: Python, Google ADK, Flask, Gemini model/embedding model
+
 1) **Env vars**: create .env with your `GOOGLE_API_KEY`.
 2) **Install deps**: `pip install -r requirements.txt`
 3) **Set config**: in `app/config/config.yaml`
-    - set `MODEL_NAME` to be used by agents (default: `gemini-2.5-flash-lite`).
- 	- set `use_drift` to **True** (to run ORPDA loop).
-  	- set `use_drift` to **False** (to run ORPA loop).	
+  - set `model_name` to be used by agents (default: `gemini-2.5-flash-lite`).
+  - set `embedding_model_name` to be used to create inherent drift flag (default: `text-embedding-004`).
+  - set `use_drift` to **True** (to run ORPDA loop).
+  - set `use_drift` to **False** (to run ORPA loop).	
 4) **Run main simulation**: `python app/src/simulate.py` (it generates logs to `app/logs/`).
 5) **UI preview** (visual only; no ORPDA execution yet):
    `python app2/app2.py`

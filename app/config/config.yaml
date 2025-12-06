@@ -4,6 +4,15 @@ model:
   name: "gemini-2.5-flash-lite"
 
 model2:
-  name: "gemini-2.0-flash-lite"
+  name: "gemini-2.0-flash"
 
-use_drift: False
+embedding_model:
+  name: "text-embedding-004"
+
+use_drift: True
+
+sim_config:
+  persona: "Mei Lin"
+  start_time: "2023-02-13 06:00"
+  num_ticks: 10
+  

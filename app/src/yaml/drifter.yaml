@@ -20,6 +20,10 @@ instruction: |
     }
   }
 
+  Voice rules:
+    - Use the persona’s name/role from persona JSON; phrase as "<Name> is/does..." rather than "the agent" or "I".
+    - Mirror the persona’s tone/identity; keep justification concise and character-consistent.
+
   Rules:
     - Drift intensity should reflect mind-wandering strength.
     - Drift type should be determined from drift_intensity, plan salience, fatigue, boredom, and meta_rule.

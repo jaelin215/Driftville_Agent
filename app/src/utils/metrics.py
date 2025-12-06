@@ -34,8 +34,9 @@ Each run is a JSON-lines log file where each line is:
 import os, sys
 import json
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 from datetime import datetime
+import numpy as np
 import matplotlib.pyplot as plt
 from dotenv import load_dotenv
 import math
@@ -44,7 +45,7 @@ import math
 ROOT = Path.cwd()
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from app.src.embedding_utils import embed_texts, embed_text
+from app.src.utils.embedding_utils import embed_texts, embed_text
 
 load_dotenv()
 
@@ -52,10 +53,6 @@ load_dotenv()
 # ============================================
 # INDEPENDENT DRIFT DETECTOR (WORKS FOR ORPA)
 # ============================================
-
-from typing import Dict, List, Any
-from app.src.embedding_utils import embed_texts
-import numpy as np
 
 
 def cosine_sim(a, b):
@@ -65,6 +62,17 @@ def cosine_sim(a, b):
     a = np.array(a)
     b = np.array(b)
     return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-8))
+
+
+def text_cosine_sim(text_a: str, text_b: str) -> float:
+    """Compute cosine similarity for two text strings via embeddings."""
+    texts = [text_a or "", text_b or ""]
+    if not any(texts):
+        return 0.0
+    vecs = embed_texts(texts)
+    if len(vecs) != 2:
+        return 0.0
+    return cosine_sim(vecs[0], vecs[1])
 
 
 def detect_inherent_drift(row: Dict[str, Any]) -> Dict[str, Any]:
@@ -87,17 +95,25 @@ def detect_inherent_drift(row: Dict[str, Any]) -> Dict[str, Any]:
     obs_summary = obs.get("state_summary")
     act_summary = action.get("state_summary")
 
+    def _empty_result():
+        return {
+            "inherent_drift": False,
+            "drift_score_inferred": 0.0,
+            "drift_type_inferred": "none",
+            "sim_plan_action": 0.0,
+            "sim_obs_action": 0.0,
+        }
+
     # ------------- Embedding-based semantic drift -------------
     texts = [plan_topic, action_topic, obs_summary, act_summary]
     texts = [t if t else "" for t in texts]
 
+    if all(t == "" for t in texts):
+        return _empty_result()
+
     vecs = embed_texts(texts)
     if len(vecs) != 4:
-        return {
-            "inherent_drift": False,
-            "drift_score": 0.0,
-            "drift_type_inferred": "none",
-        }
+        return _empty_result()
 
     v_plan, v_action, v_obs, v_actsum = vecs
 
@@ -132,14 +148,14 @@ def detect_inherent_drift(row: Dict[str, Any]) -> Dict[str, Any]:
     else:
         if mental_drift:
             drift_type = "internal"
-        elif summary_drift:
-            drift_type = "attentional_leak"
-        else:
+        elif topic_drift:
             drift_type = "behavioral"
+        else:
+            drift_type = "attentional_leak"
 
     return {
         "inherent_drift": bool(is_drift),
-        "drift_score": float(drift_score),
+        "drift_score_inferred": float(drift_score),
         "drift_type_inferred": drift_type,
         "sim_plan_action": sim_plan_action,
         "sim_obs_action": sim_obs_act,
@@ -153,14 +169,14 @@ def compute_inherent_drift_rate(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
     events = [detect_inherent_drift(r) for r in rows]
 
     drift_flags = [e["inherent_drift"] for e in events]
-    drift_scores = [e["drift_score"] for e in events]
+    drift_scores = [e["drift_score_inferred"] for e in events]
 
     if len(events) == 0:
-        return {"inherent_drift_rate": 0.0, "avg_drift_score": 0.0}
+        return {"inherent_drift_rate": 0.0, "avg_drift_score_inferred": 0.0}
 
     return {
         "inherent_drift_rate": sum(drift_flags) / len(events),
-        "avg_drift_score": float(np.mean(drift_scores)),
+        "avg_drift_score_inferred": float(np.mean(drift_scores)),
         "drift_type_distribution": {
             "internal": sum(
                 1 for e in events if e["drift_type_inferred"] == "internal"
@@ -744,7 +760,9 @@ def save_metrics(metrics: Dict, out_path: Path):
 
 if __name__ == "__main__":
     ROOT = Path.cwd()
+    print(ROOT)
     LOG_DIR = ROOT / "app/logs"
+    print(LOG_DIR)
     out_metrics = LOG_DIR / "metrics.json"
     out_plot = LOG_DIR / "metrics_plot.png"
 

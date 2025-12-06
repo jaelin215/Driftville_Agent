@@ -111,8 +111,13 @@ HTML = r"""
   <title>Driftville</title>
   <style>
     body { font-family: "Press Start 2P", "Inter", -apple-system, sans-serif; margin:0; padding:0; background: radial-gradient(circle at 20% 20%, #1c2541, #0b132b); color:#f8f9ff; }
-    header { padding: 18px 24px; background: rgba(255,255,255,0.06); box-shadow: 0 10px 25px rgba(0,0,0,0.25); position: sticky; top:0; z-index:2; }
+    header { padding: 18px 24px; background: rgba(255,255,255,0.06); box-shadow: 0 10px 25px rgba(0,0,0,0.25); position: sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:16px; }
     h1 { margin:0; font-size: 18px; letter-spacing: 1px; }
+    #time-controls { display:flex; align-items:center; gap:10px; background: rgba(255,255,255,0.08); border:1px solid rgba(111,255,233,0.4); border-radius:14px; padding:6px 10px; box-shadow: 0 8px 18px rgba(0,0,0,0.2); }
+    #time-controls button { background:#10243a; color:#6fffe9; border:1px solid rgba(111,255,233,0.4); border-radius:10px; padding:6px 10px; font-weight:700; box-shadow:none; }
+    #time-controls button:hover { transform:none; border-color:#6fffe9; }
+    #time-slider { width:160px; accent-color:#6fffe9; }
+    #time-label { min-width:48px; text-align:right; font-weight:700; letter-spacing:0.5px; color:#6fffe9; }
     .panel { padding: 16px 24px; }
     button { background:#6fffe9; color:#0b132b; border:none; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer; box-shadow: 0 8px 20px rgba(111,255,233,0.4); }
     button:hover { transform: translateY(-1px); }
@@ -147,7 +152,15 @@ HTML = r"""
   </style>
 </head>
 <body>
-  <header><h1>Driftville</h1></header>
+  <header>
+    <h1>Driftville</h1>
+    <div id="time-controls">
+      <button id="time-minus">-15m</button>
+      <input type="range" id="time-slider" min="0" max="1439" step="15" />
+      <button id="time-plus">+15m</button>
+      <div id="time-label">--:--</div>
+    </div>
+  </header>
   <div class="panel">
     <div class="grid" id="grid"></div>
 
@@ -255,6 +268,17 @@ HTML = r"""
       const d = new Date();
       return d.getHours() * 60 + d.getMinutes();
     };
+    const clampMinute = (m) => Math.min(1439, Math.max(0, m));
+    const fmtTime = (m) => {
+      const hh = String(Math.floor(m / 60)).padStart(2, "0");
+      const mm = String(m % 60).padStart(2, "0");
+      return `${hh}:${mm}`;
+    };
+    let selectedMinute = minutesNow();
+    const timeSlider = document.getElementById("time-slider");
+    const timeLabel = document.getElementById("time-label");
+    const timeMinus = document.getElementById("time-minus");
+    const timePlus = document.getElementById("time-plus");
     const currentLocationFor = (name, minute) => {
       const sched = scheduleByName[name] || [];
       const slot = sched.find(s => minute >= (s.start_time ?? 0) && minute < (s.end_time ?? 0));
@@ -278,7 +302,9 @@ HTML = r"""
     };
 
     function refreshMap() {
-      placeTokens(buildAssignmentsAt(minutesNow()));
+      placeTokens(buildAssignmentsAt(selectedMinute));
+      if (timeLabel) timeLabel.textContent = fmtTime(selectedMinute);
+      if (timeSlider) timeSlider.value = selectedMinute;
     }
 
     function guessRoute(name) {
@@ -366,7 +392,23 @@ HTML = r"""
     // initial placeholders
     renderTown();
     rebuildMapFromSelection();
+    refreshMap();
     setInterval(refreshMap, 1000 * 30); // update positions every 30s
+
+    // Time controls wiring
+    if (timeSlider) {
+      timeSlider.value = selectedMinute;
+      timeSlider.addEventListener("input", (e) => {
+        selectedMinute = clampMinute(parseInt(e.target.value || "0", 10) || 0);
+        refreshMap();
+      });
+    }
+    const shiftBy = (delta) => {
+      selectedMinute = clampMinute(selectedMinute + delta);
+      refreshMap();
+    };
+    if (timeMinus) timeMinus.onclick = () => shiftBy(-15);
+    if (timePlus) timePlus.onclick = () => shiftBy(15);
 
     simBtn.onclick = () => {
       if (chosen.length < 2) {
