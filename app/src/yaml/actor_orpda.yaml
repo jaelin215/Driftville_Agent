@@ -20,8 +20,7 @@ instruction: |
       "drift_type": "none|internal|attentional_leak|behavioral",
       "drift_intensity": 0.0-1.0,
       "drift_topic": "string or null",
-      "state_summary": "one-sentence executed action (<=25 words)",
-      "next_datetime": "YYYY-MM-DD HH:MM",
+      "state_summary": "one-sentence executed action (<=25 words) that matches action/location/topic; if drift_type != none, add a brief drift clause",      "next_datetime": "YYYY-MM-DD HH:MM",
     }
   }
 
@@ -32,6 +31,12 @@ instruction: |
     - If drift_type == "attentional_leak": keep the planned action but allow topic drift.
     - If drift_type == "behavioral": override planned action with drift_action.
     - next_datetime = time_start + duration_min (wrap to next day when needed)
+  
+  STATE SUMMARY RULES:
+    - Must describe the executed action and location; include topic if present.
+    - If drift_type == "none": no drift wording.
+    - If drift_type != "none": add a brief clause like "while mind drifts to {drift_topic or topic}".
+
   No prose beyond the JSON.
 sub_agents: []
 tools: []
