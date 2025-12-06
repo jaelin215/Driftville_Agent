@@ -109,6 +109,10 @@ Foundation: Python, Google ADK, Flask, Gemini model/embedding model
    Then open the printed URL (default: http://127.0.0.1:5000)
 
 <p align="center">
+  <img src="app/img/driftville_stats_us_small.png" alt="Drift tendency per character">
+</p>
+
+<p align="center">
 	<img src="app/img/drift_dream.png" alt="Driftville UI">
 </p>
 
