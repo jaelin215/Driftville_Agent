@@ -1,8 +1,0 @@
-name: persona_cognitive_simulator
-model: gemini-2.5-flash-lite
-agent_class: SequentialAgent
-description: Kicks off persona cognitive loop.
-
-sub_agents:
-  - config_path: ./cognitive_loop_orpda.yaml
-tools: []

@@ -1,0 +1,3 @@
+name: observer
+agent_class: ToolAgent
+tool_name: deterministic_observer

@@ -19,6 +19,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from app.config.config import MODEL_NAME
 
+
 load_dotenv()
 # Prefer GEMINI_API_KEY; fall back to GOOGLE_API_KEY.
 API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")

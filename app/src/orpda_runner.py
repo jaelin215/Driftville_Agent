@@ -34,6 +34,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from app.config.config import MODEL_NAME, USE_DRIFT
+# from app.src.observe_non_llm_agent import deterministic_observe
 
 load_dotenv()
 
@@ -92,6 +93,54 @@ def build_agent(cfg_path: Path):
     )
 
 
+def build_observation(ctx: dict) -> dict:
+    """
+    Deterministic, non-LLM observer.
+
+    Uses:
+      - persona
+      - current_slot
+      - last_action_result
+
+    to produce a single `observation` block that downstream LLM agents consume.
+    """
+    persona = ctx.get("persona", {})
+    name = persona.get("name", "The person")
+
+    current_slot = ctx.get("current_slot", {})
+    last = ctx.get("last_action_result")
+
+    # 1) Decide time / action / location: follow your old Observer rules
+    if last:
+        # continue from last.next_datetime and reuse its action/location
+        datetime_start = last.get("next_datetime", current_slot.get("datetime_start"))
+        location = last.get("location", current_slot.get("location"))
+        action = last.get("action", current_slot.get("action"))
+    else:
+        # first tick: copy from current_slot
+        datetime_start = current_slot.get("datetime_start")
+        location = current_slot.get("location")
+        action = current_slot.get("action")
+
+    # 2) Duration: default to 15 min, capped by current_slot
+    slot_duration = current_slot.get("duration_min", 15) or 15
+    duration_min = min(slot_duration, 15)
+
+    # 3) Simple factual summary (you can refine later)
+    state_summary = f"{name} is at {location} doing {action}."
+    state_summary = state_summary[:160]  # keep it short
+
+    return {
+        "observation": {
+            "datetime_start": datetime_start,
+            "duration_min": duration_min,
+            "location": location,
+            "action": action,
+            "state_summary": state_summary,
+        }
+    }
+
+
 # -------------------------
 # Extract JSON in ```json blocks
 # -------------------------
@@ -113,14 +162,26 @@ root_agent = build_agent(YAML_DIR / cfg_path)
 # Run ORPDA cycle
 # -------------------------
 async def run_orpda_cycle(context: dict) -> dict:
-    """Execute one ORPDA/ORPA pass and merge structured outputs from sub-agents."""
-    prompt = json.dumps(context, ensure_ascii=False)
+    """
+    Execute one ORPDA/ORPA pass and merge structured outputs from sub-agents.
+    Now:
+      - Observation is computed symbolically in Python (non-LLM).
+      - LLM agents only handle reflection/plan/drift/action.
+    """
+    # 1) Build deterministic observation
+    obs_block = build_observation(context)
+
+    # 2) Inject into context so Reflector/Planner see it
+    ctx_with_obs = {**context, **obs_block}
+
+    prompt = json.dumps(ctx_with_obs, ensure_ascii=False)
 
     async with InMemoryRunner(agent=root_agent) as runner:
         events = await runner.run_debug(prompt, verbose=False)
 
+    # 3) Seed merged with the symbolic observation
     merged = {
-        "observation": None,
+        "observation": obs_block["observation"],
         "reflection": None,
         "plan": None,
         "drift_decision": None,
@@ -144,8 +205,8 @@ async def run_orpda_cycle(context: dict) -> dict:
             except Exception:
                 continue
 
-            # merge only known ORPDA keys
-            for key in merged.keys():
+            # merge only known ORPDA keys (observation already set)
+            for key in ("reflection", "plan", "drift_decision", "action_result"):
                 if key in data:
                     merged[key] = data[key]
 
@@ -159,3 +220,4 @@ async def run_orpda_cycle(context: dict) -> dict:
 
 if __name__ == "__main__":
     print("orpda_runner loaded (clean mode).")
+    run_orpda_cycle("hello")

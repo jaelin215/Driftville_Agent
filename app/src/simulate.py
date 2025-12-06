@@ -27,6 +27,7 @@ DEFAULT_START = datetime(2023, 2, 13, 14, 0)
 
 DRIFTVILLE_PERSONA_PATH = ROOT / "app/src/driftville_personas.json"
 SMALLVILLE_PERSONA_PATH = ROOT / "app/src/smallville_personas.json"
+DATE_FMT = "%Y-%m-%d %H:%M"
 
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -166,6 +167,38 @@ def summarize_orpda(agent_name: str, orpda: dict) -> str:
     return " ".join(parts).strip()
 
 
+def slot_at(schedule, dt: datetime):
+    """Return the active schedule slot for a datetime."""
+    for slot in schedule:
+        try:
+            start = datetime.strptime(slot.get("datetime_start"), DATE_FMT)
+        except Exception:
+            continue
+        dur = int(slot.get("duration_min", 0))
+        end = start + timedelta(minutes=dur)
+        if start <= dt < end:
+            return slot, start, end
+    return None, None, None
+
+
+def next_slot(schedule, dt: datetime):
+    """Return the next schedule slot starting after dt."""
+    future = []
+    for slot in schedule:
+        try:
+            start = datetime.strptime(slot.get("datetime_start"), DATE_FMT)
+        except Exception:
+            continue
+        if start > dt:
+            future.append((start, slot))
+    if not future:
+        return None, None, None
+    start, slot = sorted(future, key=lambda x: x[0])[0]
+    dur = int(slot.get("duration_min", 0))
+    end = start + timedelta(minutes=dur)
+    return slot, start, end
+
+
 # -------------------------
 # SINGLE-AGENT SIMULATION LOOP
 # -------------------------
@@ -187,13 +220,17 @@ async def run_simulation(agent, steps=1):
         sim_ts = current_time.strftime("%Y-%m-%d %H:%M")
         print(f"\n--- Tick {tick} at {sim_ts} ---")
 
+        cur_slot, cur_start, cur_end = slot_at(agent.daily_schedule, current_time)
+        nxt_slot, nxt_start, nxt_end = next_slot(agent.daily_schedule, current_time)
+
         ctx = {
-            "raw_persona": RAW_PERSONAS.get(agent.name, ""),
+            # Minimal context for observer: persona + time + last 5 memories + last action state + nearby schedule slots
             "persona": agent.personality,
-            "schedule": agent.daily_schedule,
-            "last_action_result": last_action_result,
-            "recent_history": memory_cache[-5:],  # ONLY NL summaries
             "current_datetime": sim_ts,
+            "recent_history": memory_cache[-5:],  # last 5 memory stream summaries
+            "last_action_result": last_action_result,
+            "current_slot": cur_slot,
+            "next_slot": nxt_slot,
         }
 
         # Run ORPDA
@@ -238,8 +275,31 @@ async def run_simulation(agent, steps=1):
             action_result["drift_type"] = drift.get("drift_type")
             action_result["drift_topic"] = drift.get("drift_topic")
 
-        # Ensure non-behavioral drift keeps the planned location/action
+        # On first tick (no prior action), force alignment to current schedule slot
+        if last_action_result is None and cur_slot:
+            slot = cur_slot
+            slot_topic = slot.get("notes") or slot.get("action")
+            for block in (obs, plan, action_result):
+                if isinstance(block, dict):
+                    block["location"] = slot.get("location", block.get("location"))
+                    block["action"] = slot.get("action", block.get("action"))
+                    block["topic"] = slot_topic or block.get("topic")
+
+        # Align to schedule unless we are already drifting
         drift_type = drift.get("drift_type", "none")
+        slot, slot_start, slot_end = cur_slot, cur_start, cur_end
+        if slot and drift_type in ("none", None, "internal", "attentional_leak"):
+            # stay in-slot until its end; do not advance early
+            if current_time < slot_end:
+                action_result["location"] = slot.get("location", action_result.get("location"))
+                action_result["action"] = slot.get("action", action_result.get("action"))
+                action_result["topic"] = slot.get("notes") or slot.get("action") or action_result.get("topic")
+                plan["location"] = action_result["location"]
+                plan["action"] = action_result["action"]
+                plan["topic"] = action_result["topic"]
+        # If no slot was found, keep LLM outputs as-is
+
+        # Ensure non-behavioral drift keeps the planned location/action
         if drift_type in ("none", "internal", "attentional_leak"):
             if plan.get("location"):
                 action_result["location"] = plan["location"]

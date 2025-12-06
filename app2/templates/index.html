@@ -55,7 +55,7 @@
     .section-body { padding:12px 14px; display:block; }
     .section-body.collapsed { display:none; }
     .section-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:12px; }
-    /* Match Driftville Town inner background */
+    /* Section cards inside Schedules/Bios/Feedback panels */
     .section-card { background: rgba(255,255,255,0.02); border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:12px; color:#e8f4ff; font-family: "Inter", -apple-system, sans-serif; }
     .section-card * { font-family: "Inter", -apple-system, sans-serif; }
     .section-card h4 { margin:0 0 8px 0; color:#6fffe9; font-size:14px; letter-spacing:0.4px; }
@@ -63,14 +63,35 @@
     .small-muted { color:#9fb3c8; font-size:11px; }
     .mono { font-family: "Inter", -apple-system, sans-serif; font-size:12px; }
     /* Current state row */
-    .state-row { margin-top:16px; border:1px solid rgba(111,255,233,0.3); border-radius:12px; background: rgba(255,255,255,0.02); padding:12px; }
-    .state-grid { display:flex; flex-direction:column; gap:10px; }
-    .row-grid { display:grid; grid-template-columns: repeat(4, minmax(240px, 1fr)); gap:6px; width:100%; }
-    .row-box { border:1px dashed rgba(111,255,233,0.3); border-radius:10px; padding:8px; color:#e8f4ff; background: rgba(255,255,255,0.01); min-height:110px; display:flex; flex-direction:column; gap:2px; }
-    .row-title { font-weight:700; color:#6fffe9; margin:0 0 4px 0; font-size:12px; letter-spacing:0.3px; }
-    .row-box .label { font-weight:700; color:#9fb3c8; font-size:11px; }
-    .row-box .line { margin:1px 0; font-size:12px; }
-    .row-box.distract .row-title { color:#ffd166; }
+    .state-row { margin-top:16px; border:1px solid #e6dcb5; border-radius:12px; background:#fdf6e3; padding:0; color:#1f2d3d; overflow:hidden; }
+    .state-row .section-header { padding:12px 14px; }
+    .state-grid { display:flex; flex-direction:column; gap:10px; padding:0 14px 12px 14px; }
+    .row-grid { display:grid; grid-template-columns: repeat(5, minmax(220px, 1fr)); gap:6px; width:100%; }
+    .row-box { position:relative; border:1px dashed #d8c9a2; border-radius:10px; padding:8px; color:#1f2d3d; background:#fffaf0; min-height:110px; display:flex; flex-direction:column; gap:2px; }
+    .row-title { font-weight:700; color:#0f172a; margin:0 0 4px 0; font-size:12px; letter-spacing:0.3px; }
+    .row-box .label { font-weight:700; color:#4b5563; font-size:11px; }
+    .row-box .line { margin:1px 0; font-size:12px; color:#1f2937; }
+    .row-box.distract .row-title { color:#2563eb; }
+    .action-badge { position:absolute; top:6px; right:6px; display:inline-flex; align-items:center; justify-content:center; font-size:36px; line-height:1; padding:8px 10px; background:#fdf6e3; color:#0f172a; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+    .orpa-cell { background:#eef2f7; border-color:#cbd5e1; }
+    .orpa-cell .line { color:#0f172a; }
+    .orpda-cell { background:#e7f4eb; border-color:#b6dec1; }
+    .orpda-cell .line { color:#0f172a; }
+    .header-cell { min-height:44px; padding:6px 8px; display:flex; align-items:center; justify-content:flex-start; background:transparent; border:none; border-radius:10px; color:#0f172a; font-weight:800; }
+    .header-cell.orpa-cell { background:transparent; border:none; color:#0f172a; }
+    .header-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:#2a3a52; color:#fdf6e3; font-size:12px; }
+    .header-badge.orpa-cell { background:#d9e2ec; color:#0f172a; }
+    .header-badge.orpda-cell { background:#cfe7d6; color:#0f172a; }
+    .no-data { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:#e5e7eb; color:#374151; font-weight:700; font-size:12px; }
+    .feedback-box textarea { background:#0d1f34; border:1px solid rgba(111,255,233,0.25); border-radius:8px; color:#e8f4ff; padding:6px; width:100%; min-height:70px; }
+    .feedback-box select { background:#0d1f34; border:1px solid rgba(111,255,233,0.25); border-radius:8px; color:#e8f4ff; padding:4px 6px; width:100%; }
+    .feedback-box .actions { display:flex; gap:6px; align-items:center; margin-top:6px; }
+    .yaml-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.65); display:none; align-items:center; justify-content:center; z-index:99; }
+    .yaml-dialog { background:#ffffff; border:1px solid #e5e7eb; border-radius:12px; width:90%; max-width:720px; max-height:80vh; display:flex; flex-direction:column; box-shadow:0 18px 36px rgba(0,0,0,0.12); }
+    .yaml-header { display:flex; justify-content:space-between; align-items:center; padding:10px 12px; border-bottom:1px solid #e5e7eb; color:#111827; }
+    .yaml-body { padding:10px 12px; overflow:auto; background:#f9fafb; font-family: "Inter"}
+    .yaml-body pre { white-space:pre-wrap; color:#111827; margin:0; font-size:12px; line-height:1.5; font-family: "Inter", -apple-system, sans-serif}
+    .yaml-close { background:#ffffff; color:#111827; border:1px solid #d1d5db; border-radius:8px; padding:4px 8px; cursor:pointer; }
   </style>
 </head>
 <body>
@@ -90,7 +111,7 @@
     <div id="floorplan">
       <div id="floor-top" class="centered" style="position:relative;">
         <button id="restart" title="Restart" style="position:absolute; left:0; top:-6px;">← RESTART</button>
-        <div class="muted arcade-label" id="town-label" style="margin-bottom:6px; text-align:center;">Select maximum 2 personas</div>
+        <div class="muted arcade-label" id="town-label" style="margin-bottom:6px; text-align:center;">Select one persona</div>
       </div>
       <div class="town" id="town"></div>
       <div id="floor-bottom" style="margin-top:10px; display:flex; justify-content:center;">
@@ -103,8 +124,7 @@
     </div>
 
     <div class="state-row" id="state-row" style="display:none;">
-      <div class="small-muted" style="margin-bottom:6px;">Current state at selected time</div>
-      <div class="state-grid" id="state-grid"></div>
+    <div class="state-grid" id="state-grid"></div>
     </div>
 
     <div class="section" id="schedules-section">
@@ -124,6 +144,29 @@
       </div>
       <div class="section-body" id="bios-body">
         <div id="bios-grid" class="section-grid"></div>
+      </div>
+    </div>
+
+    <div class="section" id="feedback-section">
+      <div class="section-header" data-target="feedback-body">
+        <div class="section-title">Layer Feedback</div>
+        <div class="section-toggle" id="feedback-toggle">Collapse</div>
+      </div>
+      <div class="section-body" id="feedback-body">
+        <div class="small-muted" id="feedback-status">Loading feedback...</div>
+        <div id="feedback-list" class="section-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="yaml-overlay" id="yaml-overlay">
+    <div class="yaml-dialog">
+      <div class="yaml-header">
+        <div>Layer YAML</div>
+        <button class="yaml-close" id="yaml-close">Close</button>
+      </div>
+      <div class="yaml-body">
+        <pre id="yaml-content">No data.</pre>
       </div>
     </div>
   </div>
@@ -146,6 +189,9 @@
     const emojiMap = {{ emoji_map | tojson | safe }};
     const faceMap = {{ face_map | tojson | safe }};
     const sessionData = {{ session_data | tojson | safe }};
+    const orpdaSessions = sessionData.orpda || {};
+    const orpaSessions = sessionData.orpa || {};
+    const showEval = {{ show_eval | tojson | safe }};
     const personaByName = Object.fromEntries(personas.map(p => [p.name, p]));
     const scheduleByName = Object.fromEntries(personas.map(p => [p.name, p.schedule || []]));
     const sessionsByName = sessionData || {};
@@ -179,6 +225,26 @@
       const d = new Date();
       return d.getHours() * 60 + d.getMinutes();
     };
+      const actionEmoji = (action) => {
+        if (!action) return "🔄";
+        const a = action.toLowerCase();
+        if (a.includes("eat") || a.includes("breakfast") || a.includes("lunch") || a.includes("dinner")) return "🍽️";
+      if (a.includes("commute") || a.includes("drive") || a.includes("travel")) return "🚗";
+      if (a.includes("morning") || a.includes("routine")) return "🚿";
+      if (a.includes("work") || a.includes("office")) return "💻";
+      if (a.includes("teach") || a.includes("class")) return "🎓";
+      if (a.includes("shop")) return "🛒";
+      if (a.includes("sleep") || a.includes("nap")) return "😴";
+      if (a.includes("meet")) return "🤝";
+      if (a.includes("exercise") || a.includes("run") || a.includes("gym")) return "🏃";
+      if (a.includes("read") || a.includes("book")) return "📖";
+      if (a.includes("cook") || a.includes("bake")) return "🍳";
+      if (a.includes("study")) return "📚";
+      if (a.includes("clean") || a.includes("tidy")) return "🧹";
+      if (a.includes("write")) return "✍️";
+      if (a.includes("social") || a.includes("chat") || a.includes("talk")) return "🗣️";
+      return "🔄";
+    };
     const clampMinute = (m) => Math.min(1439, Math.max(0, m));
     const fmtTime = (m) => {
       const hh = String(Math.floor(m / 60)).padStart(2, "0");
@@ -202,8 +268,43 @@
     const biosBody = document.getElementById("bios-body");
     const schedulesToggle = document.getElementById("schedules-toggle");
     const biosToggle = document.getElementById("bios-toggle");
+    const feedbackSection = document.getElementById("feedback-section");
+    const feedbackBody = document.getElementById("feedback-body");
+    const feedbackToggle = document.getElementById("feedback-toggle");
+    const feedbackList = document.getElementById("feedback-list");
+    const feedbackStatus = document.getElementById("feedback-status");
     const dateLabel = document.getElementById("date-label");
     const stateRow = document.getElementById("state-row");
+    const yamlOverlay = document.getElementById("yaml-overlay");
+    const yamlContent = document.getElementById("yaml-content");
+    const yamlClose = document.getElementById("yaml-close");
+    const layerDataByStage = {};
+    const isScalar = (v) => v === null || v === undefined || ["string", "number", "boolean"].includes(typeof v);
+    const toYAML = (val, indent = 0) => {
+      const pad = "  ".repeat(indent);
+      if (Array.isArray(val)) {
+        if (!val.length) return `${pad}[]`;
+        return val
+          .map(item => {
+            if (isScalar(item)) return `${pad}- ${item ?? ""}`;
+            const child = toYAML(item, indent + 1);
+            return `${pad}-\n${child}`;
+          })
+          .join("\n");
+      }
+      if (val && typeof val === "object") {
+        const entries = Object.entries(val);
+        if (!entries.length) return `${pad}{}`;
+        return entries
+          .map(([k, v]) => {
+            if (isScalar(v)) return `${pad}${k}: ${v ?? ""}`;
+            const child = toYAML(v, indent + 1);
+            return `${pad}${k}:\n${child}`;
+          })
+          .join("\n");
+      }
+      return `${pad}${val ?? ""}`;
+    };
     const setSectionState = (body, toggleEl, expand) => {
       if (!body) return;
       body.classList.toggle("collapsed", !expand);
@@ -365,8 +466,8 @@
         };
         town.appendChild(tile);
       });
-      // add empty placeholders up to 2 slots
-      for (let i = chosen.length; i < 2; i++) {
+      // add empty placeholders up to 1 slot
+      for (let i = chosen.length; i < 1; i++) {
         const ph = document.createElement("div");
         ph.className = "tile placeholder";
         ph.innerHTML = `<div style="font-size:12px;">Empty slot</div>`;
@@ -375,7 +476,7 @@
       if (message) {
         townLabel.textContent = message;
       } else {
-        townLabel.textContent = chosen.length < 2 ? "Select two personas" : "Ready to simulate";
+        townLabel.textContent = chosen.length < 1 ? "Select one persona" : "Ready to simulate";
       }
       rebuildMapFromSelection();
       renderSchedules();
@@ -415,8 +516,8 @@
       return sched.find(s => minute >= (s.start_time ?? 0) && minute < (s.end_time ?? 0));
     };
 
-    function actualStateFor(name, minute) {
-      const entries = sessionsByName[name] || [];
+    function actualStateFor(name, minute, dataset) {
+      const entries = (dataset && dataset[name]) || [];
       let best = null;
       let bestDelta = Infinity;
       entries.forEach(e => {
@@ -444,11 +545,14 @@
           };
         }
       });
+      // discard if too far from the requested minute (e.g., stale data)
+      if (!best || bestDelta > 15) return null; // >15 minutes away -> treat as no data
       return best;
     }
 
     function renderStateRow() {
       if (!stateGrid) return;
+      Object.keys(layerDataByStage).forEach(k => delete layerDataByStage[k]);
       const restartVisible = restartBtn && window.getComputedStyle(restartBtn).display !== "none";
       if (!restartVisible) {
         if (stateRow) stateRow.style.display = "none";
@@ -457,10 +561,23 @@
         stateGrid.innerHTML = `<div class="small-muted">Select personas to view their current state.</div>`;
         return;
       }
-      if (stateRow) stateRow.style.display = restartVisible ? "block" : "none";
+      if (stateRow) {
+        if (restartVisible && !prevRestartVisible) {
+          stateCollapsed = false; // expand by default when restart becomes visible
+        }
+        stateRow.style.display = restartVisible ? "block" : "none";
+        attachStateToggle();
+        const bodies = stateRow.querySelectorAll(".state-grid");
+        bodies.forEach(b => b.style.display = (restartVisible && !stateCollapsed) ? "flex" : "none");
+        stateToggle.style.display = restartVisible ? "flex" : "none";
+        const label = stateToggle.querySelector(".section-toggle");
+        if (label) label.textContent = stateCollapsed ? "Expand" : "Collapse";
+      }
+      prevRestartVisible = restartVisible;
       const rows = ["Scheduled", "Observe", "Reflect", "Plan", "Drift", "Action"];
-      const perPersona = chosen.map(name => {
-        const actual = actualStateFor(name, selectedMinute);
+      const hasData = (dataset, name) => Array.isArray(dataset?.[name]) && dataset[name].length > 0;
+      const buildPersona = (name, dataset, variantTitle = "ORPDA (with drift)", variantClass = "") => {
+        const actual = actualStateFor(name, selectedMinute, dataset);
         const slot = currentSlotFor(name, selectedMinute);
         const loc = (actual && actual.location) || slot?.location || "home";
         const action = (actual && actual.action) || slot?.action || "idle";
@@ -469,24 +586,85 @@
         const end = slot?.end_time ?? (start + (slot?.duration_min || 0));
         const pad = (n) => String(n).padStart(2, "0");
         const hhmm = (m) => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
-        const timeRange = (actual && actual.time) || `${hhmm(start)}-${hhmm(end)}`;
+        const scheduleRange = `${slot?.datetime_start || hhmm(start)}-${slot?.datetime_end || hhmm(end)}`;
+        const timeRange = (actual && actual.time) || scheduleRange;
         return {
           name,
           slot,
           loc,
           action,
           env,
+          scheduleRange,
           timeRange,
           obs: actual?.observation || {},
           ref: actual?.reflection || {},
           plan: actual?.plan || {},
           drift: actual?.drift || {},
           act: actual?.action_result || {},
+          variantTitle,
+          variantClass,
         };
+      };
+
+      const perPersona = [];
+      chosen.forEach(name => {
+        const hasOrpa = hasData(orpaSessions, name);
+        const hasOrpda = hasData(orpdaSessions, name);
+        if (chosen.length === 1) {
+          if (hasOrpa) perPersona.push(buildPersona(name, orpaSessions, "ORPA (baseline)", "orpa-cell"));
+          if (hasOrpda) perPersona.push(buildPersona(name, orpdaSessions, "ORPDA (with drift)", "orpda-cell"));
+          if (!hasOrpa && !hasOrpda) perPersona.push(buildPersona(name, {}, "No session data", ""));
+        } else {
+          if (hasOrpda) perPersona.push(buildPersona(name, orpdaSessions, "ORPDA (with drift)", "orpda-cell"));
+        }
       });
-      const makeCell = (title, lines, isDistract = false) => {
+      const colCount = perPersona.length * 2 + (showEval ? 1 : 0);
+      const isEmpty = (obj) => !obj || (Object.keys(obj).length === 0);
+      const hasContent = (obj) => {
+        if (!obj) return false;
+        return Object.keys(obj).some(k => {
+          const v = obj[k];
+          if (v === null || v === undefined) return false;
+          if (typeof v === "string") return v.trim() !== "";
+          return true;
+        });
+      };
+      const makeCell = (title, lines, isDistract = false, variantClass = "") => {
         const content = lines.map(l => `<div class="line">${l}</div>`).join("");
-        return `<div class="row-box ${isDistract ? "distract" : ""}"><div class="row-title ${isDistract ? "distract" : ""}">${title}</div>${content}</div>`;
+        return `<div class="row-box ${isDistract ? "distract" : ""} ${variantClass}"><div class="row-title ${isDistract ? "distract" : ""}">${title}</div>${content}</div>`;
+      };
+      let headerRow = "";
+      if (perPersona.length > 0) {
+        const headerCells = [];
+        perPersona.forEach((p, idx) => {
+          headerCells.push(`<div class="header-cell ${p.variantClass}"><span class="header-badge ${p.variantClass}">${p.variantTitle || ""}</span></div>`);
+          headerCells.push(`<div class="header-cell ${p.variantClass}"></div>`);
+          if (idx === 0 && showEval) headerCells.push(`<div class="header-cell"></div>`);
+        });
+        headerRow = `<div class="row-grid" style="grid-template-columns: repeat(${colCount}, minmax(220px, 1fr));">${headerCells.join("")}</div>`;
+      }
+      const actionLine = (act) => act ? `<span class="action-badge">${actionEmoji(act)}</span><span class="label">Action:</span> <strong>${act}</strong>` : "";
+      const feedbackCell = (stage) => {
+        return `<div class="row-box feedback-box" data-stage="${stage}">
+          <div class="row-title">Feedback</div>
+          <div class="line"><button class="view-yaml" data-stage="${stage}">View YAML</button></div>
+          <div class="line">
+            <span class="label">Verdict:</span>
+            <select class="feedback-verdict" data-stage="${stage}">
+              <option value="">Select</option>
+              <option value="pass">Pass</option>
+              <option value="fail">Fail</option>
+              <option value="uncertain">Uncertain</option>
+            </select>
+          </div>
+          <div class="line">
+            <textarea class="feedback-notes" data-stage="${stage}" placeholder="Add notes or reason codes..."></textarea>
+          </div>
+          <div class="actions">
+            <button class="save-feedback" data-stage="${stage}">Save</button>
+            <span class="small-muted" id="fb-status-${stage.replace(/\s+/g,'-')}"></span>
+          </div>
+        </div>`;
       };
       const cellsFor = (p, stage) => {
         switch (stage) {
@@ -495,28 +673,43 @@
               makeCell(
                 "Scheduled",
                 [
-                  `<span class="label">Time:</span> ${p.slot?.datetime_start || p.timeRange}`,
+                  `<span class="label">Time:</span> ${p.scheduleRange}`,
                   `<span class="label">Location:</span> ${p.slot?.location || p.loc}`,
-                  `<span class="label">Action:</span> ${p.slot?.action || p.action}`,
-                  `<span class="label">Topic:</span> ${p.slot?.topic || ""}`,
-                ]
+                  actionLine(p.slot?.action || p.action),
+                ],
+                false,
+                p.variantClass
               ),
-              makeCell("Scheduled — Distractions", [p.slot?.environment_description || p.env], true),
+              makeCell("Distractions", [p.slot?.environment_description || p.env], true, p.variantClass),
             ];
           case "Observe":
+            if (!hasContent(p.obs)) {
+              return [
+                makeCell("Observe", [`<span class="no-data">No data</span>`], false, p.variantClass),
+                makeCell("", [], true, p.variantClass),
+              ];
+            }
             return [
               makeCell(
                 "Observe",
                 [
                   `<span class="label">Time:</span> ${p.obs.datetime_start || p.timeRange}`,
                   `<span class="label">Location:</span> ${p.obs.location || p.loc}`,
-                  `<span class="label">Action:</span> ${p.obs.action || ""}`,
+                  actionLine(p.obs.action || ""),
                   `<span class="label">Summary:</span> ${p.obs.state_summary || ""}`,
-                ]
+                ],
+                false,
+                p.variantClass
               ),
-              makeCell("", [], true),
+              makeCell("", [], true, p.variantClass),
             ];
           case "Reflect":
+            if (!hasContent(p.ref)) {
+              return [
+                makeCell("Reflect", [`<span class="no-data">No data</span>`], false, p.variantClass),
+                makeCell("", [], true, p.variantClass),
+              ];
+            }
             return [
               makeCell(
                 "Reflect",
@@ -525,24 +718,42 @@
                   `<span class="label">Attention:</span> ${p.ref.attention_stability || ""}`,
                   `<span class="label">Meta:</span> ${p.ref.meta_rule || ""}`,
                   `<span class="label">Summary:</span> ${p.ref.state_summary || ""}`,
-                ]
+                ],
+                false,
+                p.variantClass
               ),
-              makeCell("", [], true),
+              makeCell("", [
+                  `${p.ref.plan_alignment || ""}, ${p.ref.attention_stability || ""}, ${p.ref.meta_rule || ""}`,
+              ], true, p.variantClass),
             ];
           case "Plan":
+            if (!hasContent(p.plan)) {
+              return [
+                makeCell("Plan", [`<span class="no-data">No data</span>`], false, p.variantClass),
+                makeCell("", [], true, p.variantClass),
+              ];
+            }
             return [
               makeCell(
                 "Plan",
                 [
                   `<span class="label">Time:</span> ${p.plan.datetime_start || ""}`,
                   `<span class="label">Location:</span> ${p.plan.location || ""}`,
-                  `<span class="label">Action:</span> ${p.plan.action || ""}`,
+                  actionLine(p.plan.action || ""),
                   `<span class="label">Topic:</span> ${p.plan.topic || ""}`,
-                ]
+                ],
+                false,
+                p.variantClass
               ),
-              makeCell("", [], true),
+              makeCell("", [], true, p.variantClass),
             ];
           case "Drift":
+            if (!hasContent(p.drift)) {
+              return [
+                makeCell("Drift", [`<span class="no-data">No data</span>`], false, p.variantClass),
+                makeCell("", [], true, p.variantClass),
+              ];
+            }
             return [
               makeCell(
                 "Drift",
@@ -550,31 +761,44 @@
                   `<span class="label">Should drift?</span> ${p.drift.should_drift ?? ""}`,
                   `<span class="label">Topic:</span> ${p.drift.drift_topic || ""}`,
                   `<span class="label">Justification:</span> ${p.drift.justification || ""}`,
-                ]
+                ],
+                false,
+                p.variantClass
               ),
               makeCell(
                 "",
                 [
                   ,
-                  `<span class="highlight">${p.drift.drift_type ? p.drift.drift_type : ""}</span>`,
-                ],
-                true
+                  `${p.drift.drift_type || ""}`,
+                  `${p.drift.drift_intensity ?? ""}`,
+
+                  ],
+                true,
+                p.variantClass
               ),
               
             ];
           case "Action":
+            if (!hasContent(p.act)) {
+              return [
+                makeCell("Action", [`<span class="no-data">No data</span>`], false, p.variantClass),
+                makeCell("Results", [`<span class="no-data">No data</span>`], true, p.variantClass),
+              ];
+            }
             return [
               makeCell(
                 "Action",
                 [
                   `<span class="label">Time:</span> ${p.act.datetime_start || p.timeRange}`,
                   `<span class="label">Location:</span> ${p.act.location || p.loc}`,
-                  `<span class="label">Action:</span> ${p.act.action || p.action}`,
+                  actionLine(p.act.action || p.action),
                   `<span class="label">Topic:</span> ${p.act.topic || ""}`,
                   `<span class="label">Summary:</span> ${p.act.state_summary || ""}`,
-                ]
+                ],
+                false,
+                p.variantClass
               ),
-              makeCell("Results", [p.env], true),
+              makeCell("Results", [p.env], true, p.variantClass),
             ];
           default:
             return [makeCell(stage, []), makeCell("Distractions", [], true)];
@@ -584,15 +808,94 @@
       const htmlRows = [];
       rows.forEach(stage => {
         const gridCells = [];
-        perPersona.forEach(p => {
+        const snapshot = perPersona.map(p => ({
+          name: p.name,
+          scheduleRange: p.scheduleRange,
+          timeRange: p.timeRange,
+          slot: p.slot,
+          observation: p.obs,
+          reflection: p.ref,
+          plan: p.plan,
+          drift_decision: p.drift,
+          action_result: p.act,
+        }));
+        layerDataByStage[stage] = {
+          stage,
+          minute: fmtTime(selectedMinute),
+          session_date: dateLabel ? dateLabel.textContent : "",
+          personas: snapshot,
+        };
+        perPersona.forEach((p, idx) => {
           const [info, distract] = cellsFor(p, stage);
           gridCells.push(info);
           gridCells.push(distract);
+          if (idx === 0 && showEval) {
+            gridCells.push(feedbackCell(stage));
+          }
         });
-        htmlRows.push(`<div class="row-grid">${gridCells.join("")}</div>`);
+        if (perPersona.length === 0 && showEval) {
+          gridCells.push(feedbackCell(stage));
+        }
+        htmlRows.push(`<div class="row-grid" style="grid-template-columns: repeat(${colCount}, minmax(220px, 1fr));">${gridCells.join("")}</div>`);
       });
 
-      stateGrid.innerHTML = htmlRows.join("");
+      stateGrid.innerHTML = `${headerRow}${htmlRows.join("")}`;
+      bindFeedbackHandlers();
+    }
+
+    function openYaml(stage) {
+      const data = layerDataByStage[stage];
+      if (!data) {
+        alert("No YAML available for this layer yet.");
+        return;
+      }
+      if (yamlContent) yamlContent.textContent = toYAML(data);
+      if (yamlOverlay) yamlOverlay.style.display = "flex";
+    }
+
+    function bindFeedbackHandlers() {
+      document.querySelectorAll(".view-yaml").forEach(btn => {
+        btn.onclick = () => openYaml(btn.dataset.stage);
+      });
+      document.querySelectorAll(".save-feedback").forEach(btn => {
+        btn.onclick = () => {
+          const stage = btn.dataset.stage;
+          const verdictEl = document.querySelector(`.feedback-verdict[data-stage="${stage}"]`);
+          const notesEl = document.querySelector(`.feedback-notes[data-stage="${stage}"]`);
+          const statusEl = document.getElementById(`fb-status-${stage.replace(/\s+/g,'-')}`);
+          const verdict = verdictEl ? verdictEl.value : "";
+          const comment = notesEl ? notesEl.value : "";
+          if (!verdict) {
+            if (statusEl) statusEl.textContent = "Select a verdict.";
+            return;
+          }
+          if (statusEl) statusEl.textContent = "Saving...";
+          const payload = {
+            stage,
+            verdict,
+            comment,
+            personas: chosen,
+            minute: fmtTime(selectedMinute),
+            session_date: dateLabel ? dateLabel.textContent : "",
+            schedule_range: (layerDataByStage[stage]?.personas || [])[0]?.scheduleRange || "",
+          };
+          fetch("/feedback", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          })
+            .then(r => r.json())
+            .then(data => {
+              if (data.error) throw new Error(data.error);
+              if (statusEl) statusEl.textContent = "Saved.";
+              loadFeedback();
+            })
+            .catch(err => {
+              console.error(err);
+              if (statusEl) statusEl.textContent = "Save failed.";
+            });
+        };
+      });
     }
 
     function renderBios() {
@@ -606,6 +909,42 @@
         const bio = persona.raw_persona || "No bio available.";
         return `<div class="section-card"><div class="chip">${emojiMap[name] || "🧩"} ${name} bio</div><div style="white-space:pre-wrap; line-height:1.5; margin-top:6px;">${bio}</div></div>`;
       }).join("");
+    }
+
+    function renderFeedbackList(rows) {
+      if (!feedbackList || !feedbackStatus) return;
+      if (!rows || rows.length === 0) {
+        feedbackStatus.textContent = "No feedback yet.";
+        feedbackList.innerHTML = "";
+        return;
+      }
+      feedbackStatus.textContent = `${rows.length} feedback item${rows.length === 1 ? "" : "s"}.`;
+      const cards = rows.map(r => {
+        const personas = (r.personas || []).join(", ");
+        return `
+          <div class="section-card">
+            <h4>${r.stage || "Unknown"} • ${r.verdict || ""}</h4>
+            <div class="small-muted">${r.ts_utc || ""}</div>
+            <div class="mono" style="margin:4px 0;">${personas || "No personas"}</div>
+            <div class="small-muted">Time: ${r.session_date || ""} ${r.minute || ""} ${r.schedule_range ? "(" + r.schedule_range + ")" : ""}</div>
+            <div style="margin:6px 0;">${r.comment || ""}</div>
+          </div>
+        `;
+      }).join("");
+      feedbackList.innerHTML = cards;
+    }
+
+    function loadFeedback() {
+      if (!feedbackStatus) return;
+      feedbackStatus.textContent = "Loading feedback...";
+      fetch("/eval")
+        .then(r => r.json())
+        .then(data => {
+          renderFeedbackList(data.feedback || []);
+        })
+        .catch(() => {
+          feedbackStatus.textContent = "Failed to load feedback.";
+        });
     }
 
     personas.forEach(p => {
@@ -622,12 +961,9 @@
         const idx = chosen.indexOf(p.name);
         if (idx >= 0) {
           chosen.splice(idx, 1);
-        } else if (chosen.length < 2) {
-          chosen.push(p.name);
         } else {
-          alert("Select maximum 2 personas.");
-          renderTown("Select maximum 2 personas (click a selected below to remove)");
-          return;
+          chosen.splice(0, chosen.length);
+          chosen.push(p.name);
         }
         renderTown();
       };
@@ -640,8 +976,28 @@
     // initial collapsed defaults
     setSectionState(schedulesBody, schedulesToggle, false);
     setSectionState(biosBody, biosToggle, true);
+    if (showEval) setSectionState(feedbackBody, feedbackToggle, true);
     if (schedulesSection) schedulesSection.style.display = "none";
     if (stateRow) stateRow.style.display = "none";
+    const stateToggle = document.createElement("div");
+    stateToggle.className = "section-header";
+    stateToggle.style.justifyContent = "space-between";
+    stateToggle.style.alignItems = "center";
+    stateToggle.style.margin = "0";
+    stateToggle.innerHTML = `<div class="section-title" style="color:#0f172a;">Current state</div><div class="section-toggle">Expand</div>`;
+    let stateCollapsed = true;
+    let prevRestartVisible = false;
+    const attachStateToggle = () => {
+      if (!stateRow || stateToggle.parentElement === stateRow) return;
+      stateRow.prepend(stateToggle);
+      stateToggle.onclick = () => {
+        stateCollapsed = !stateCollapsed;
+        const bodies = stateRow.querySelectorAll(".state-grid");
+        bodies.forEach(b => b.style.display = stateCollapsed ? "none" : "flex");
+        const label = stateToggle.querySelector(".section-toggle");
+        if (label) label.textContent = stateCollapsed ? "Expand" : "Collapse";
+      };
+    };
     renderStateRow();
     const syncSectionsVisibility = () => {
       const restartVisible = restartBtn && restartBtn.style.display !== "none";
@@ -649,11 +1005,13 @@
         schedulesSection.style.display = restartVisible ? "block" : "none";
         if (!restartVisible) setSectionState(schedulesBody, schedulesToggle, false);
       }
-      if (stateRow) stateRow.style.display = restartVisible ? "block" : "none";
       setSectionState(biosBody, biosToggle, !restartVisible ? true : false);
+      if (feedbackSection) feedbackSection.style.display = showEval ? "block" : "none";
+      if (showEval) setSectionState(feedbackBody, feedbackToggle, true);
       updateDateLabel();
     };
     syncSectionsVisibility();
+    if (showEval) loadFeedback();
     setInterval(refreshMap, 1000 * 30); // update positions every 30s
 
     // Collapsible sections
@@ -667,6 +1025,12 @@
         setSectionState(body, toggleLabel, expand);
       });
     });
+    if (yamlClose) yamlClose.onclick = () => { if (yamlOverlay) yamlOverlay.style.display = "none"; };
+    if (yamlOverlay) {
+      yamlOverlay.addEventListener("click", (e) => {
+        if (e.target === yamlOverlay) yamlOverlay.style.display = "none";
+      });
+    }
 
     // Time controls wiring
     if (timeSlider) {
@@ -683,12 +1047,12 @@
     if (timeMinus) timeMinus.onclick = () => shiftBy(-15);
     if (timePlus) timePlus.onclick = () => shiftBy(15);
 
-    simBtn.onclick = () => {
-      if (chosen.length < 2) {
-        alert("Add at least two personas to Driftville to simulate.");
-        return;
-      }
-      const [a, b] = chosen; // first two added
+      simBtn.onclick = () => {
+        if (chosen.length < 1) {
+          alert("Select a persona to simulate.");
+          return;
+        }
+      const [a] = chosen; // only one persona
       floorTop.classList.add("faded");
       floorBottom.classList.add("faded");
       grid.classList.add("hidden");
@@ -700,14 +1064,16 @@
       syncSectionsVisibility();
       setSectionState(schedulesBody, schedulesToggle, false);
       if (floorplanMap) floorplanMap.style.display = "block";
-      townLabel.textContent = "Welcome to Driftville!";
+      townLabel.textContent = "Observing persona";
       town.style.minHeight = "120px";
       town.style.maxHeight = "120px";
       simLocked = true;
+      stateCollapsed = false; // show current state when restart becomes visible
+      renderStateRow();
       fetch("/simulate_conversation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ agent1: a, agent2: b })
+        body: JSON.stringify({ agent1: a, agent2: a })
       })
       .then(r => r.json())
       .then(data => {
@@ -734,10 +1100,12 @@
       simBtn.style.display = "inline-block";
       floorTop.classList.remove("faded");
       floorBottom.classList.remove("faded");
-      townLabel.textContent = chosen.length < 2 ? "Select two personas" : "Ready to simulate";
+      townLabel.textContent = chosen.length < 1 ? "Select one persona" : "Ready to simulate";
       town.style.minHeight = "260px";
       town.style.maxHeight = "260px";
       simLocked = false;
+      stateCollapsed = true;
+      renderStateRow();
       syncSectionsVisibility();
     };
     } catch (err) { showError(err); }
