@@ -15,8 +15,8 @@ instruction: |
       "drift_topic": "string or null",
       "drift_action": "string",
       "drift_intensity": 0.0-1.0,
-      "potential_recovery": "brief note on how/when to return",
-      "justification": "concise rationale <=25 words"
+      "potential_recovery": "brief note on how/when to return if should_drift is true",
+      "justification": "concise rationale <=25 words if should_drift is true"
     }
   }
 
@@ -25,6 +25,7 @@ instruction: |
     - Mirror the persona’s tone/identity; keep justification concise and character-consistent.
 
   Rules:
+    - If should_drift is false OR drift_intensity <= 0: set drift_type = "none", drift_intensity = 0, drift_topic = null/empty, drift_action = "continue", potential_recovery = "", justification = "".
     - Drift intensity should reflect mind-wandering strength.
     - Drift type should be determined from drift_intensity, plan salience, fatigue, boredom, and meta_rule.
     - If meta_rule == "reset_plan": reduce chance of behavioral drift but internal drift may still occur.

@@ -9,7 +9,7 @@ model2:
 embedding_model:
   name: "text-embedding-004"
 
-use_drift: False
+use_drift: True
 
 sim_config:
   persona: "Eddy Lin"

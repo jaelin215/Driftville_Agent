@@ -247,22 +247,24 @@ async def run_simulation(agent, steps=1):
         drift = orpda_out.get("drift_decision", {}) or {}
         action_result = orpda_out.get("action_result", {}) or {}
 
-        # # Ablation toggle
-        # if not USE_DRIFT:
-        #     drift = {
-        #         "should_drift": False,
-        #         "drift_type": "none",
-        #         "drift_topic": None,
-        #         "drift_intensity": 0.0,
-        #         "drift_action": "continue",
-        #         "justification": "Drift disabled by ablation flag.",
-        #     }
-        #     orpda_out["drift_decision"] = drift
-
         # Cleanup next_datetime hallucinations
         for block in (obs, ref, plan, drift, action_result):
             if isinstance(block, dict):
                 block.pop("next_datetime", None)
+
+        # Normalize drift when it is effectively off
+        should_drift = bool(drift.get("should_drift"))
+        intensity = float(drift.get("drift_intensity") or 0)
+        if (not should_drift) or intensity <= 0:
+            drift["should_drift"] = False
+            drift["drift_type"] = "none"
+            drift["drift_topic"] = ""
+            drift["drift_intensity"] = 0
+            drift["drift_action"] = drift.get("drift_action") or "continue"
+            drift["potential_recovery"] = ""
+            drift["justification"] = ""
+            action_result["drift_type"] = "none"
+            action_result.pop("drift_topic", None)
 
         # Authoritative timestamps
         for block in (obs, plan, drift, action_result):
@@ -291,9 +293,17 @@ async def run_simulation(agent, steps=1):
         if slot and drift_type in ("none", None, "internal", "attentional_leak"):
             # stay in-slot until its end; do not advance early
             if current_time < slot_end:
-                action_result["location"] = slot.get("location", action_result.get("location"))
-                action_result["action"] = slot.get("action", action_result.get("action"))
-                action_result["topic"] = slot.get("notes") or slot.get("action") or action_result.get("topic")
+                action_result["location"] = slot.get(
+                    "location", action_result.get("location")
+                )
+                action_result["action"] = slot.get(
+                    "action", action_result.get("action")
+                )
+                action_result["topic"] = (
+                    slot.get("notes")
+                    or slot.get("action")
+                    or action_result.get("topic")
+                )
                 plan["location"] = action_result["location"]
                 plan["action"] = action_result["action"]
                 plan["topic"] = action_result["topic"]
@@ -307,6 +317,12 @@ async def run_simulation(agent, steps=1):
                 action_result["action"] = plan["action"]
             if plan.get("topic"):
                 action_result.setdefault("topic", plan["topic"])
+        if drift.get("drift_type") == "none":
+            action_result["state_summary"] = (
+                plan.get("state_summary")
+                or obs.get("state_summary")
+                or action_result.get("state_summary", "")
+            )
 
         # Compute next tick
         action_result["next_datetime"] = (
