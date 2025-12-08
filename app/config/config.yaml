@@ -12,7 +12,7 @@ embedding_model:
 use_drift: False
 
 sim_config:
-  persona: "Maria Lopez"
+  persona: "Adam Smith"
   start_time: "2023-02-13 06:00"
   num_ticks: 60
   

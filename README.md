@@ -74,6 +74,14 @@ Agent roles:
 - **Drifter**: injects cognitive drift decisions (`app/src/yaml/drifter.yaml`).
 - **Actor**: commits the executed action for the next loop (`app/src/yaml/actor_orpda.yaml`).
 
+### Current Status (Drift Layer)
+- **Achieved**: Added a dedicated Drift layer so mind-wandering is explicit, logged, and measurable (intensity/type). We now produce ORPA vs ORPDA logs and can quantify drift rates, types, and hourly patterns.
+- **Instrumentation**: Drift metrics scripts (e.g., `tools/drift_analysis.py`) compute drift % by type, hour, action, and allow thresholding (e.g., 0.3/0.5/0.7) for “effective drift.”
+- **Visualization**: Prompt generators (`tools/generate_scene_pairs.py`) and UI previews help align visuals with the current sim_time/location/action, including drift-aware scenes.
+- **Not Yet / Known Gaps**: Drift priors are still too permissive for some high-focus tasks; DMN-like patterns are not yet matched (e.g., writing/customer_service drifting too often). Label styling and UI are improving but not final. No longitudinal human baseline comparison yet.
+- **Meaningful Next Steps**: Tighten drifter gating (task-aware priors, boredom/fatigue thresholds), improve reflector pressure signals, align drift rates toward ~40–50% with realistic per-task variability, UI improvement, add automated ablation tests, and compare against human time-use/DMN literature.
+- **Help Wanted**: Contributions on drift priors/thresholding, evaluation design (DMN-aligned benchmarks), UI polish for ORPA/ORPDA labeling, and data/analysis to validate against human baselines.
+
 ## Quick Start
 Foundation: Python, Google ADK, Flask, Gemini model/embedding model
 
@@ -173,6 +181,5 @@ https://youtu.be/ikpDw2BMcZ0
 <p align="center">
   <img src="app/img/problem_statement.png" alt="Problem statement">
 </p>
-
 
 
