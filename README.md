@@ -34,6 +34,14 @@ Humans don’t think in straight lines. We drift, loop, ruminate, get distracted
 
 ORPDA addresses this gap by adding Drift as its own cognitive layer. It models the messy middle of human cognition: mind-wandering, topic leakage, emotional shifts, attention collapse, and recovery. This allows Driftville agents to behave less like perfect planners and more like believable human thinkers—making internal variability observable, measurable, and ready for study.
 
+<p align="center">
+  <img src="app/img/rpg_eddy_lin.png" alt="RPG NPC example">
+</p>
+
+<p align="center">
+  <img src="app/img/rpg_hailey_johnson.png" alt="RPG NPC example2">
+</p>
+
 **✅ What Driftville makes possible.**
 
 Driftville is a cognitive exploration environment — a place to study how minds think, drift, stabilize, and interact across different agent architectures and scenarios. It allows us to compare multiple models of cognition side-by-side and observe how inner lives evolve over time, alone or with others.
@@ -65,33 +73,6 @@ Agent roles:
 - **Planner**: generates the next 15-min plan block (`app/src/yaml/planner.yaml`).
 - **Drifter**: injects cognitive drift decisions (`app/src/yaml/drifter.yaml`).
 - **Actor**: commits the executed action for the next loop (`app/src/yaml/actor_orpda.yaml`).
-
-## Resemblance to neuroscience Default Mode Network (DMN)
-With ORPDA, it resembles human drift mind throughout the time. Without drift agent layer, drift tends to happened only at the beginning and topic of drift also looses diversity.
-- ORPDA (orange) shows frequent, distributed drift events throughout the 60 ticks.
-
-This pattern resembles human cognition: 
-humans don’t drift once; we drift repeatedly and intermittently over the day.
-
-- ORPA (blue) — the version without the drift agent — shows drift mostly:
-	- in the early ticks (startup instability),
-	- but becomes flat and stable for long stretches.
-
-➤ Interpretation:
-ORPDA produces cognitively realistic “micro-instabilities” over time, while ORPA locks into a rigid behavioral groove.
-
-<p align="center">
-	  <img src="app/img/drift_over_tick.png" alt="Drift intensity, Semantic drift score over loop" width="700">
-</p>
-
-**📊 Outcome**
-
-This bar chart shows the agent’s inherent probability of drifting away from its scheduled action. ORPDA’s drift layer increases baseline drift by ~4× compared to ORPA, producing internal variability that more closely resembles human attention patterns. ORPA, by contrast, remains largely stable and goal-locked.
-
-<p align="center">
-  <img src="app/img/drift_probability.png" alt="ORPDA vs ORPA" width="500">
-</p>
-
 
 ## Quick Start
 Foundation: Python, Google ADK, Flask, Gemini model/embedding model

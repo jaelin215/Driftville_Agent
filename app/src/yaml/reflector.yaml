@@ -19,9 +19,14 @@ instruction: |
       "plan_alignment": "aligned|partial|off_track",
       "boredom_fatigue": "low|med|high",
       "attention_stability": "stable|slipping|fragile",
+      "rumination_level": "none|low|med|high",
+      "rumination_theme": "string or null",
+      "emotional_residue": "none|low|med|high",
+      "emerging_thought_pattern": "string or null",
+      "attentional_pressure_factors": ["string", "..."],
       "meta_rule": "continue|switch_topic|reset_plan",
-      "state_summary": "concise governor view (<=25 words)",
-      "reasoning": "why you chose these values (<=30 words)"
+      "state_summary": "<=25 words",
+      "reasoning": "<=30 words"
     }
   }
 

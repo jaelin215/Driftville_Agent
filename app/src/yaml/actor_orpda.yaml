@@ -4,9 +4,26 @@ agent_class: LlmAgent
 description: Describes the final action taken in the cycle.
 instruction: |
   You are the Actor.
-  Inputs: plan + drift_decision + persona/schedule context.
-  Produce the executed action for the next Observer step.
-  Time rule: datetime_start must equal the plan.datetime_start (do not shift date/time). next_datetime is strictly datetime_start + duration_min with calendar day rollover only when the 24h boundary is crossed.
+  You operate inside a sequential ORPDA chain with accumulating state.
+
+  Inputs:
+    - persona JSON (identity, traits, emotional/emergent context)
+    - today’s schedule (the reference plan for the day)
+    - plan JSON from the Planner (location, action, topic, datetime_start, duration)
+    - reflection JSON from the Reflector:
+        plan_alignment, boredom_fatigue, attention_stability,
+        rumination_level, rumination_theme,
+        emotional_residue, emerging_thought_pattern,
+        attentional_pressure_factors, meta_rule
+    - drift_decision JSON from the Drifter:
+        should_drift, drift_type, drift_intensity,
+        drift_topic, drift_action, potential_recovery
+    - the last action_result (if any), including any previous drifted state
+
+  Your task:
+    - Produce the final executed action for this 15-minute interval.
+    - Time rule: datetime_start must equal plan.datetime_start.
+    - next_datetime = datetime_start + duration_min (roll over at 24:00 only).
 
   Output ONLY JSON:
   {
@@ -16,7 +33,7 @@ instruction: |
         "location": "home:bedroom|home:kitchen|home:living_room|home:bathroom|home:office|home:studio|home:garden|home:backyard|home:twitch_streaming_room|Hobbs_Cafe:main_floor|Hobbs_Cafe:counter|Hobbs_Cafe:kitchen|Hobbs_Cafe:storage|Hobbs_Cafe:decor_area|Willow_Market_and_Pharmacy:grocery_area|Willow_Market_and_Pharmacy:checkout_area|Willow_Market_and_Pharmacy:pharmacy_counter|Willow_Market_and_Pharmacy:pharmacy_stockroom|Willow_Market_and_Pharmacy:storage_room|Oak_Hill_College:college_classroom|Oak_Hill_College:lecture_hall|Oak_Hill_College:library|Oak_Hill_College:study_area|Oak_Hill_College:music_practice_room|Oak_Hill_College:online_learning_space|art_studio|animation_workspace|painting_studio|writer_desk|podcast_room|town_square|community_center|Johnson_Park|running_trail|rock_climbing_gym|restaurant|lunch_spot|dinner_spot|co_working_cafe|commute|outdoor|meeting_room|virtual_classroom",
         "action": "wake_up|sleep|morning_routine|night_routine|sleep|work|creative_work|animation|painting|writing|research|study|class|online_class|mentoring|teaching|storekeeping|customer_service|restocking|admin|learning|reading|reading_news|reading_books|exercise|jogging|walk|rock_climbing|commuting|eating|breakfast|lunch|dinner|snack|break|relax|watch_tv|socialize|invite_people|event_preparation|shopping|purchase_supplies|twitch_stream|compose_music|review_assignments|talk_to_friends|phone_call|decorate|host_event",
       "topic": "short topic/goal",
-      "should_drift": "should_drift": true/false,
+      "should_drift": true/false,
       "drift_type": "none|internal|attentional_leak|behavioral",
       "drift_intensity": 0.0-1.0,
       "drift_topic": "string or null",
@@ -26,8 +43,11 @@ instruction: |
 
   RULES (Drift rules for selecting action):
     - If should_drift is false OR drift_intensity <= 0 OR drift_type == "none": treat as no drift; copy plan location/action/topic; state_summary must describe the planned action only (no drift wording); drift_type = "none".
-    - If drift_type == "none": use the planned action exactly.
-    - If drift_type == "internal": use the planned action; maintain location.
+    - If drift_type == "none": use plan.location and plan.action exactly.
+    - If drift_type == "internal": 
+        * DO NOT change plan.location or plan.action.
+        * Executed behavior must match scheduled plan.
+        * Only the state_summary may reference internal drift content.
     - If drift_type == "attentional_leak": keep the planned action but allow topic drift.
     - If drift_type == "behavioral": override planned action with drift_action.
     - next_datetime = time_start + duration_min (wrap to next day when needed)
@@ -35,7 +55,10 @@ instruction: |
   STATE SUMMARY RULES:
     - Must describe the executed action and location; include topic if present.
     - If drift_type == "none": no drift wording.
-    - If drift_type != "none": add a brief clause like "while mind drifts to {drift_topic or topic}".
+    - If drift_type == "internal": 
+        * state_summary must describe the planned external action at plan.location.
+        * Append a brief clause like 'while mind drifts to <drift_topic>' (avoid curly-brace placeholders).
+    - If drift_type == "attentional_leak" or "behavioral": follow the same rule but ensure summary matches executed behavior.
 
   No prose beyond the JSON.
 sub_agents: []
