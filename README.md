@@ -35,11 +35,11 @@ Humans don’t think in straight lines. We drift, loop, ruminate, get distracted
 ORPDA addresses this gap by adding Drift as its own cognitive layer. It models the messy middle of human cognition: mind-wandering, topic leakage, emotional shifts, attention collapse, and recovery. This allows Driftville agents to behave less like perfect planners and more like believable human thinkers—making internal variability observable, measurable, and ready for study.
 
 <p align="center">
-  <img src="app/img/rpg_hailey_johnson.png" alt="RPG NPC example2">
+  <img src="app/img/rpg_adam_smith.png" alt="RPG NPC example">
 </p>
 
 <p align="center">
-  <img src="app/img/rpg_adam_smith.png" alt="RPG NPC example">
+  <img src="app/img/rpg_hailey_johnson.png" alt="RPG NPC example2">
 </p>
 
 **✅ What Driftville makes possible.**
