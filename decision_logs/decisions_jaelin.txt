@@ -1,0 +1,8 @@
+- Langfuse will be used for tracing and prompt mmanagement.
+- Testing Langfuse trace for both ORPA (2-loops) and ORPDA (3-loops).
+- added tags (ORPA, ORPDA) automatically to Google ADK Agent call.
+- Depends on USE_DRIFT flag in config, it automatically set root_agent as orpda_loop or orpa_loop.
+- YAML instruction is system_prompt.
+- reflector.yaml instruction is system_prompt for reflector LLM call.
+- Observer output becomes the user_prompt for Reflector.
+- Reflect user_prompt should include 1) persona JSON 2) next_slot schedule item 3) last 5 observations

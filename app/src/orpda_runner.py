@@ -24,6 +24,8 @@ from google.adk.runners import InMemoryRunner
 from google.adk.models.google_llm import Gemini
 from dotenv import load_dotenv
 
+from langfuse import get_client, propagate_attributes
+
 import sys
 
 # -------------------------
@@ -33,13 +35,30 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from app.config.config import MODEL_NAME, USE_DRIFT
+from app.config.config import (
+    MODEL_NAME,
+    USE_DRIFT,
+    PERSONA_NAME,
+    NUM_TICKS,
+    SIM_START_TIME,
+)
 # from app.src.observe_non_llm_agent import deterministic_observe
 
 load_dotenv()
 
 ROOT = Path(__file__).resolve().parent
 YAML_DIR = ROOT / "yaml"
+
+# -------------------------
+# Setup Langfuse
+# -------------------------
+# Assign tags automatically depends on USE_DRIFT config value
+if USE_DRIFT:
+    tags = ["ORPDA", PERSONA_NAME, NUM_TICKS, SIM_START_TIME]
+else:
+    tags = ["ORPA", PERSONA_NAME, NUM_TICKS, SIM_START_TIME]
+
+langfuse = get_client()
 
 
 # -------------------------
@@ -176,8 +195,16 @@ async def run_orpda_cycle(context: dict) -> dict:
 
     prompt = json.dumps(ctx_with_obs, ensure_ascii=False)
 
-    async with InMemoryRunner(agent=root_agent) as runner:
-        events = await runner.run_debug(prompt, verbose=False)
+    with langfuse.start_as_current_observation(as_type="span", name="my-trace") as span:
+        # Add tags to all observations created within this execution scope
+
+        with propagate_attributes(tags=tags):
+            # Google ADK runner call here
+            async with InMemoryRunner(agent=root_agent) as runner:
+                events = await runner.run_debug(prompt, verbose=False)
+
+    # async with InMemoryRunner(agent=root_agent) as runner:
+    #     events = await runner.run_debug(prompt, verbose=False)
 
     # 3) Seed merged with the symbolic observation
     merged = {
