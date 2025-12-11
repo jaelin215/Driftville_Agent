@@ -54,9 +54,9 @@ YAML_DIR = ROOT / "yaml"
 # -------------------------
 # Assign tags automatically depends on USE_DRIFT config value
 if USE_DRIFT:
-    tags = ["ORPDA", PERSONA_NAME, NUM_TICKS, SIM_START_TIME]
+    tags = ["ORPDA", PERSONA_NAME, f"num_ticks={NUM_TICKS}"]
 else:
-    tags = ["ORPA", PERSONA_NAME, NUM_TICKS, SIM_START_TIME]
+    tags = ["ORPA", PERSONA_NAME, f"num_ticks={NUM_TICKS}"]
 
 langfuse = get_client()
 

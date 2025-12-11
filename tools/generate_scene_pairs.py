@@ -4,7 +4,7 @@ Create Nano Banana-ready art prompts by pairing ORPA and ORPDA logs
 for the same agent and sim_time.
 
 Example:
-    python tools/generate_scene_pairs.py --dir app/logs --limit 4 --text-only
+    python tools/generate_scene_pairs.py --text-only --agent Isabella --time 11:00
 """
 
 from __future__ import annotations
@@ -25,12 +25,12 @@ def parse_args() -> argparse.Namespace:
         help="Directory with session log files (default: app/logs)",
     )
     parser.add_argument(
-        "--orpa-pattern",
+        "--orpa",
         default="session_orpa_*.log",
         help="Glob for ORPA logs (default: session_orpa_*.log)",
     )
     parser.add_argument(
-        "--orpda-pattern",
+        "--orpda",
         default="session_orpda_*.log",
         help="Glob for ORPDA logs (default: session_orpda_*.log)",
     )
@@ -95,9 +95,13 @@ def base_instructions() -> str:
     )
 
 
-def drift_instructions(drift_type: str | None, drift_topic: str | None, drift_intensity) -> str:
+def drift_instructions(
+    drift_type: str | None, drift_topic: str | None, drift_intensity
+) -> str:
     if not drift_type or drift_type == "none":
-        return "Standard mode: the character performs the action calmly and competently."
+        return (
+            "Standard mode: the character performs the action calmly and competently."
+        )
     detail = drift_topic or "a distracting thought"
     intensity = f" (intensity {drift_intensity})" if drift_intensity is not None else ""
     if drift_type == "behavioral":
@@ -140,12 +144,16 @@ def build_prompt(entry: dict, source: str) -> str:
     return " ".join(lines)
 
 
-def gather_entries(log_dir: Path, pattern: str, label: str) -> Dict[Tuple[str, str], List[dict]]:
+def gather_entries(
+    log_dir: Path, pattern: str, label: str
+) -> Dict[Tuple[str, str], List[dict]]:
     grouped: Dict[Tuple[str, str], List[dict]] = {}
     for path in iter_logs(log_dir, pattern):
         for entry in load_lines(path):
             key = (entry.get("agent", ""), entry.get("sim_time", ""))
-            grouped.setdefault(key, []).append({"entry": entry, "label": label, "log": str(path)})
+            grouped.setdefault(key, []).append(
+                {"entry": entry, "label": label, "log": str(path)}
+            )
     return grouped
 
 
@@ -176,7 +184,16 @@ def main() -> None:
                 if args.text_only:
                     print(prompt)
                 else:
-                    print(json.dumps({"agent": agent, "sim_time": sim_time, "mode": "ORPA", "prompt": prompt}))
+                    print(
+                        json.dumps(
+                            {
+                                "agent": agent,
+                                "sim_time": sim_time,
+                                "mode": "ORPA",
+                                "prompt": prompt,
+                            }
+                        )
+                    )
                 emitted += 1
                 if args.limit is not None and emitted >= args.limit:
                     return
@@ -188,7 +205,16 @@ def main() -> None:
                 if args.text_only:
                     print(prompt)
                 else:
-                    print(json.dumps({"agent": agent, "sim_time": sim_time, "mode": "ORPDA", "prompt": prompt}))
+                    print(
+                        json.dumps(
+                            {
+                                "agent": agent,
+                                "sim_time": sim_time,
+                                "mode": "ORPDA",
+                                "prompt": prompt,
+                            }
+                        )
+                    )
                 emitted += 1
                 if args.limit is not None and emitted >= args.limit:
                     return

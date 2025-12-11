@@ -1,8 +1,21 @@
-- Langfuse will be used for tracing and prompt mmanagement.
+- Langfuse will be used for tracing and prompt management.
 - Testing Langfuse trace for both ORPA (2-loops) and ORPDA (3-loops).
 - added tags (ORPA, ORPDA) automatically to Google ADK Agent call.
 - Depends on USE_DRIFT flag in config, it automatically set root_agent as orpda_loop or orpa_loop.
 - YAML instruction is system_prompt.
 - reflector.yaml instruction is system_prompt for reflector LLM call.
 - Observer output becomes the user_prompt for Reflector.
-- Reflect user_prompt should include 1) persona JSON 2) next_slot schedule item 3) last 5 observations
+- Reflect user_prompt should include 
+    1) persona JSON 
+    2) current_datetime
+    3) recent_history: []
+    4) last_action_result
+    5) current_slot (as per persona schedule)
+    6) next_slot (as per persona schedule)
+    7) observation (latest prior persona schedule)
+- If no prior observations exist, use the latest prior shedule from persona's schedule instead.
+- latency for LLM call is incorrect (i.e. showing 16min 23s instead of 4.3s)
+- next steps:
+    1) set up scores (for call_llm)
+    2) set up prompt versioning (insert to system instruction)
+    3) fix latency calculation (for call_llm)

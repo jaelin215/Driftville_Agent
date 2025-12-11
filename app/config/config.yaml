@@ -13,8 +13,8 @@ use_drift: False
 
 sim_config:
   persona: "Eddy Lin"
-  start_time: "2023-02-13 11:00"
-  num_ticks: 1
+  start_time: "2023-02-13 06:00"
+  num_ticks: 60
 
 
   
