@@ -2,6 +2,7 @@ name: actor_orpda
 model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: Describes the final action taken in the cycle.
+include_contents: none
 instruction: |
   You are the Actor.
   You operate inside a sequential ORPDA chain with accumulating state.

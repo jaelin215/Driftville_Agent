@@ -276,16 +276,15 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
 
     langfuse = Langfuse()
 
-    reflector_prompt_path = "ORPDA/Reflector/instruction"
-    planner_prompt_path = "ORPDA/Planner/instruction"
-    drifter_prompt_path = "ORPDA/Drifter/instruction"
-    actor_prompt_path = (
-        "ORPDA/Actor/instruction" if USE_DRIFT else "ORPA/Actor/instruction"
-    )
+    reflector_prompt_path = "reflector"
+    planner_prompt_path = "planner"
+    drifter_prompt_path = "drifter"
+    actor_prompt_path = "actor_orpda" if USE_DRIFT else "actor_orpa"
 
     reflector_agent = LlmAgent(
         name="reflector",
         model=Gemini(model=MODEL_NAME),
+        include_contents="none",
         instruction=create_dynamic_instruction(
             langfuse, reflector_prompt_path, label="latest"
         ),
@@ -319,10 +318,19 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
         tools=[],
     )
 
+    # Non-LLM tool agent
+    observer_agent = FunctionAgent(name="observer", fn=deterministic_observe)
+
     # If sub-agents exist, wrap in sequential
     return SequentialAgent(
         name=f"{cfg}_sequence",
-        sub_agents=[reflector_agent, planner_agent, drifter_agent, actor_agent],
+        sub_agents=[
+            observer_agent,
+            reflector_agent,
+            planner_agent,
+            drifter_agent,
+            actor_agent,
+        ],
     )
 
 
@@ -396,7 +404,13 @@ async def run_orpda_cycle(context: dict) -> dict:
                 continue
 
             # merge only known ORPDA keys
-            for key in ("observation", "reflection", "plan", "drift_decision", "action_result"):
+            for key in (
+                "observation",
+                "reflection",
+                "plan",
+                "drift_decision",
+                "action_result",
+            ):
                 if key in data:
                     merged[key] = data[key]
 
