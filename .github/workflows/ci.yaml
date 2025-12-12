@@ -36,7 +36,7 @@ jobs:
 
       - name: Install dependencies (Poetry)
         run: |
-          poetry install --no-root
+          poetry install --no-root --with dev
 
       - name: Check import sorting (isort)
         run: |
