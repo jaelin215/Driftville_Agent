@@ -12,20 +12,19 @@ Minimal ORPDA engine:
 """
 
 import json
+import sys
 from pathlib import Path
+
 import yaml
-from google.adk.agents import LlmAgent, SequentialAgent, ParallelAgent, LoopAgent
+from dotenv import load_dotenv
+from google.adk.agents import LlmAgent, LoopAgent, ParallelAgent, SequentialAgent
 from google.adk.agents.base_agent import BaseAgent
 from google.adk.events import Event, EventActions
-from google.adk.runners import InMemoryRunner
 from google.adk.models.google_llm import Gemini
-from dotenv import load_dotenv
-
-from langfuse import get_client, propagate_attributes, Langfuse
-from opentelemetry import trace
+from google.adk.runners import InMemoryRunner
 from google.genai.types import Content, Part
-
-import sys
+from langfuse import Langfuse, get_client, propagate_attributes
+from opentelemetry import trace
 
 # -------------------------
 # Load environment & paths
@@ -33,15 +32,16 @@ import sys
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
-from app.src.observe_non_llm_agent import deterministic_observe
 from app.config.config import (
-    MODEL_NAME,
-    USE_DRIFT,
-    PERSONA_NAME,
-    NUM_TICKS,
-    SIM_START_TIME,
     LOAD_PROMPT_FROM_LANGFUSE,
+    MODEL_NAME,
+    NUM_TICKS,
+    PERSONA_NAME,
+    SIM_START_TIME,
+    USE_DRIFT,
 )
+from app.src.observe_non_llm_agent import deterministic_observe
+
 # from app.src.observe_non_llm_agent import deterministic_observe
 
 load_dotenv()

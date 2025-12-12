@@ -4,6 +4,7 @@
 # Description: Resize/pad an image to ensure at least 640x360 resolution.
 # --------------------------------------
 from pathlib import Path
+
 from PIL import Image, ImageOps
 
 INPUT_PATH = Path("app/img/drift_over_tick.png")

@@ -4,9 +4,9 @@
 # Description: Lightweight Agent class representing persona state and memory.
 # --------------------------------------
 
+import datetime
 import json
 from pathlib import Path
-import datetime
 
 ROOT = Path.cwd()
 

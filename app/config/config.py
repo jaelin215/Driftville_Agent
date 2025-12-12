@@ -3,9 +3,9 @@
 # Author: Jaelin Lee
 # Description: Loads configuration from YAML and exposes model/drift flags.
 # --------------------------------------
-import yaml
 from pathlib import Path
 
+import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = ROOT / "app/config/config.yaml"

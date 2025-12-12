@@ -5,18 +5,17 @@
 # --------------------------------------
 import asyncio
 import json
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
-import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from app.src.agents import Agent
-from app.src.orpda_runner import run_orpda_cycle, build_agent
-from app.config.config import USE_DRIFT, PERSONA_NAME, SIM_START_TIME, NUM_TICKS
-
 import tools.langfuse_setup as langfuse_setup  # This imports and runs the initialization
+from app.config.config import NUM_TICKS, PERSONA_NAME, SIM_START_TIME, USE_DRIFT
+from app.src.agents import Agent
+from app.src.orpda_runner import build_agent, run_orpda_cycle
 
 # -------------------------
 # CONFIG & PATHS

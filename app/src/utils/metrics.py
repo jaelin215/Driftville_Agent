@@ -31,21 +31,22 @@ Each run is a JSON-lines log file where each line is:
 }
 """
 
-import os, sys
 import json
-from pathlib import Path
-from typing import List, Dict, Tuple, Any
-from datetime import datetime
-import numpy as np
-import matplotlib.pyplot as plt
-from dotenv import load_dotenv
 import math
+import os
+import sys
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Tuple
 
+import matplotlib.pyplot as plt
+import numpy as np
+from dotenv import load_dotenv
 
 ROOT = Path.cwd()
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from app.src.utils.embedding_utils import embed_texts, embed_text
+from app.src.utils.embedding_utils import embed_text, embed_texts
 
 load_dotenv()
 

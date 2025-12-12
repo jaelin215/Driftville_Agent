@@ -3,14 +3,15 @@
 # Author: Jaelin Lee
 # Description: Gemini client wrapper with rate limiting for agent calls.
 # --------------------------------------
-from google import genai
 import asyncio
+import os
+import sys
 import time
 from collections import deque
-
-import os, sys
-from dotenv import load_dotenv
 from pathlib import Path
+
+from dotenv import load_dotenv
+from google import genai
 
 # Paths
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,7 +19,6 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from app.config.config import MODEL_NAME
-
 
 load_dotenv()
 # Prefer GEMINI_API_KEY; fall back to GOOGLE_API_KEY.

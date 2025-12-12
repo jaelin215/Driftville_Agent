@@ -4,11 +4,12 @@
 # Description: Flask-based UI preview for Driftville personas and schedule viewer.
 # --------------------------------------
 
-from flask import Flask, render_template, request, jsonify
-import json
 import csv
-from pathlib import Path
+import json
 from datetime import datetime
+from pathlib import Path
+
+from flask import Flask, jsonify, render_template, request
 
 TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
 APP = Flask(__name__, template_folder=str(TEMPLATE_DIR))
@@ -83,6 +84,7 @@ FEEDBACK_CSV = EVAL_DIR / "layer_feedback.csv"
 
 def load_session_data():
     """Load ORPDA/ORPA session logs and group entries by agent."""
+
     def load_variant(prefix: str):
         if not SESSION_LOGS_DIR.exists():
             return {}
@@ -112,6 +114,7 @@ def load_session_data():
         return by_agent
 
     return {"orpda": load_variant("orpda"), "orpa": load_variant("orpa")}
+
 
 EMOJI_MAP = {
     "Isabella Rodriguez": "☕️",
@@ -234,7 +237,10 @@ def save_feedback():
 def list_feedback():
     """Return feedback rows as JSON (default) or HTML when requested."""
     if not FEEDBACK_CSV.exists():
-        if request.accept_mimetypes.accept_html and not request.accept_mimetypes.accept_json:
+        if (
+            request.accept_mimetypes.accept_html
+            and not request.accept_mimetypes.accept_json
+        ):
             return render_template("eval.html", feedback=[])
         return jsonify({"feedback": []})
     rows = []
@@ -242,13 +248,16 @@ def list_feedback():
         with FEEDBACK_CSV.open() as f:
             reader = csv.DictReader(f)
             for row in reader:
-                row["personas"] = row.get("personas", "").split("|") if row.get("personas") else []
+                row["personas"] = (
+                    row.get("personas", "").split("|") if row.get("personas") else []
+                )
                 rows.append(row)
     except Exception as exc:  # pragma: no cover
         return jsonify({"error": f"Failed to read feedback: {exc}"}), 500
 
     wants_html = request.args.get("format") == "html" or (
-        request.accept_mimetypes.accept_html and not request.accept_mimetypes.accept_json
+        request.accept_mimetypes.accept_html
+        and not request.accept_mimetypes.accept_json
     )
     if wants_html:
         return render_template("eval.html", feedback=rows)

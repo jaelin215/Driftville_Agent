@@ -1,7 +1,7 @@
 import argparse
 import json
 from pathlib import Path
-from typing import List, Dict, Any, Iterable
+from typing import Any, Dict, Iterable, List
 
 import pandas as pd
 
