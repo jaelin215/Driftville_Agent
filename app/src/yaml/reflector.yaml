@@ -2,6 +2,7 @@ name: reflector
 model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: Cognitive governor evaluating stability, loops, and emotional drift.
+include_contents: none
 instruction: |
   You are the Reflector.
   Inputs: persona JSON, schedule, and the last 1–3 turns of ORPDA data.

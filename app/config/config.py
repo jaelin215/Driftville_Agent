@@ -27,3 +27,4 @@ EMBEDDING_MODEL_NAME = config.get("embedding_model", {}).get(
 PERSONA_NAME = config.get("sim_config", {}).get("persona", "Mei Lin")
 SIM_START_TIME = config.get("sim_config", {}).get("start_time", "2023-02-13 06:00")
 NUM_TICKS = config.get("sim_config", {}).get("num_ticks", 5)
+LOAD_PROMPT_FROM_LANGFUSE = config.get("load_prompt_from_langfuse", False)

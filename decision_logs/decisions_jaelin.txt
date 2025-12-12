@@ -17,5 +17,10 @@
 - latency for LLM call is incorrect (i.e. showing 16min 23s instead of 4.3s)
 - next steps:
     1) set up scores (for call_llm)
-    2) set up prompt versioning (insert to system instruction)
-    3) fix latency calculation (for call_llm)
+    2) fix latency calculation (for call_llm)
+- set up prompt versioning (insert to system instruction)
+- created langfuse_read_prompt.py to test whether Langfuse managed prompt in the cloud can be called from local.
+- added option to load prompt from langfuse.
+- added observer_symbolic to orpda_loop cycle.
+
+

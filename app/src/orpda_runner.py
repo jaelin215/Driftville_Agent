@@ -4,7 +4,7 @@
 # Description: Builds the YAML-defined agent graph and runs a single ORPDA cycle.
 # --------------------------------------
 """
-orpda_runner.py — cleaned (Option A)
+orpda_runner.py
 Minimal ORPDA engine:
 - Loads root_agent from YAML
 - Runs ORPDA loop via InMemoryRunner
@@ -14,17 +14,16 @@ Minimal ORPDA engine:
 import json
 from pathlib import Path
 import yaml
-from google.adk.agents import (
-    LlmAgent,
-    SequentialAgent,
-    ParallelAgent,
-    LoopAgent,
-)
+from google.adk.agents import LlmAgent, SequentialAgent, ParallelAgent, LoopAgent
+from google.adk.agents.base_agent import BaseAgent
+from google.adk.events import Event, EventActions
 from google.adk.runners import InMemoryRunner
 from google.adk.models.google_llm import Gemini
 from dotenv import load_dotenv
 
-from langfuse import get_client, propagate_attributes
+from langfuse import get_client, propagate_attributes, Langfuse
+from opentelemetry import trace
+from google.genai.types import Content, Part
 
 import sys
 
@@ -34,13 +33,14 @@ import sys
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
-
+from app.src.observe_non_llm_agent import deterministic_observe
 from app.config.config import (
     MODEL_NAME,
     USE_DRIFT,
     PERSONA_NAME,
     NUM_TICKS,
     SIM_START_TIME,
+    LOAD_PROMPT_FROM_LANGFUSE,
 )
 # from app.src.observe_non_llm_agent import deterministic_observe
 
@@ -54,62 +54,94 @@ YAML_DIR = ROOT / "yaml"
 # -------------------------
 # Assign tags automatically depends on USE_DRIFT config value
 if USE_DRIFT:
-    tags = ["ORPDA", PERSONA_NAME, f"num_ticks={NUM_TICKS}"]
+    tags = [
+        "ORPDA",
+        PERSONA_NAME,
+        f"num_ticks={NUM_TICKS}",
+        f"start={SIM_START_TIME.split(' ')[-1]}",
+    ]
 else:
-    tags = ["ORPA", PERSONA_NAME, f"num_ticks={NUM_TICKS}"]
+    tags = [
+        "ORPA",
+        PERSONA_NAME,
+        f"num_ticks={NUM_TICKS}",
+        f"start={SIM_START_TIME.split(' ')[-1]}",
+    ]
 
 langfuse = get_client()
 
 
 # -------------------------
-# YAML → ADK Agent Builder
+# Build Observation Agent (non-LLM)
 # -------------------------
-def build_agent(cfg_path: Path):
-    """Recursively construct ADK agents from YAML configs."""
-    cfg_text = cfg_path.read_text().strip()
-    if not cfg_text:
-        raise ValueError(f"YAML config is empty: {cfg_path}")
+class FunctionAgent(BaseAgent):
+    """Initializes a FunctionAgent with a name and a function to execute.
 
-    cfg = yaml.safe_load(cfg_text)
-    if not isinstance(cfg, dict):
-        raise ValueError(
-            f"Malformed YAML in {cfg_path}: must load into a dict, got {type(cfg)}"
+    Sets up the agent with the provided name and stores the function for later execution.
+
+    Args:
+        name: The name of the agent.
+        fn: A callable that processes the agent's context and returns a dictionary.
+    """
+
+    def __init__(self, name, fn):
+        super().__init__(name=name)
+        # Agent inherits from a Pydantic model; use object.__setattr__ to bypass field checks
+        object.__setattr__(self, "_fn", fn)
+
+    async def arun(self, ctx, *, send):
+        """Runs the agent asynchronously and emits the function's output as JSON.
+
+        Converts the input context to a dictionary if needed, applies the agent's function, and sends the result as a JSON-formatted message.
+
+        Args:
+            ctx: The input context, either as a string or dictionary.
+            send: A coroutine for sending output messages.
+
+        Returns:
+            The output dictionary produced by the agent's function.
+        """
+        # ctx arrives as a string; load it if needed
+        if isinstance(ctx, str):
+            try:
+                ctx_obj = json.loads(ctx)
+            except Exception:
+                ctx_obj = {"raw": ctx}
+        else:
+            ctx_obj = ctx
+
+        output = self._fn(ctx_obj)  # -> {"observation": ...}
+        # emit as JSON text so your downstream merge loop picks it up
+        try:
+            await send(json.dumps(output))
+        except Exception:
+            # Fallback: some runtimes may not support sending raw strings here
+            pass
+        return output
+
+    async def _run_async_impl(self, ctx):
+        """Emit deterministic observation as a synthetic Event (no LLM call)."""
+        text = ""
+        if ctx.user_content and getattr(ctx.user_content, "parts", None):
+            for part in ctx.user_content.parts:
+                if getattr(part, "text", None):
+                    text += part.text or ""
+
+        try:
+            ctx_obj = json.loads(text) if text else {}
+        except Exception:
+            ctx_obj = {"raw": text}
+
+        output = self._fn(ctx_obj)
+        content = Content(role=self.name, parts=[Part(text=json.dumps(output))])
+        event = Event(
+            invocation_id=ctx.invocation_id,
+            author=self.name,
+            branch=ctx.branch,
+            content=content,
+            actions=EventActions(end_of_agent=True),
         )
-
-    sub_agents = []
-    for s in cfg.get("sub_agents", []):
-        sub_cfg_path = (cfg_path.parent / s["config_path"]).resolve()
-        sub_agents.append(build_agent(sub_cfg_path))
-
-    cls = cfg.get("agent_class", "LlmAgent")
-
-    if cls == "SequentialAgent":
-        return SequentialAgent(name=cfg["name"], sub_agents=sub_agents)
-
-    if cls == "ParallelAgent":
-        return ParallelAgent(name=cfg["name"], sub_agents=sub_agents)
-
-    if cls == "LoopAgent":
-        return LoopAgent(
-            name=cfg["name"],
-            sub_agents=sub_agents,
-            max_iterations=cfg.get("max_iterations", 15),  # avoid runaway loops
-        )
-
-    # Default: LlmAgent
-    llm = LlmAgent(
-        name=cfg["name"],
-        model=Gemini(model=MODEL_NAME),
-        instruction=cfg.get("instruction", ""),
-        tools=[],
-    )
-
-    # If sub-agents exist, wrap in sequential
-    return (
-        SequentialAgent(name=f"{cfg['name']}_seq", sub_agents=[llm] + sub_agents)
-        if sub_agents
-        else llm
-    )
+        yield event
 
 
 def build_observation(ctx: dict) -> dict:
@@ -161,6 +193,140 @@ def build_observation(ctx: dict) -> dict:
 
 
 # -------------------------
+# Build Agent from YAML
+# -------------------------
+def build_agent(cfg_path: Path):
+    """Recursively construct ADK agents from YAML configs."""
+    cfg_text = cfg_path.read_text().strip()
+    if not cfg_text:
+        raise ValueError(f"YAML config is empty: {cfg_path}")
+
+    cfg = yaml.safe_load(cfg_text)
+    if not isinstance(cfg, dict):
+        raise ValueError(
+            f"Malformed YAML in {cfg_path}: must load into a dict, got {type(cfg)}"
+        )
+
+    sub_agents = []
+    for s in cfg.get("sub_agents", []):
+        sub_cfg_path = (cfg_path.parent / s["config_path"]).resolve()
+        sub_agents.append(build_agent(sub_cfg_path))
+
+    cls = cfg.get("agent_class", "LlmAgent")
+
+    if cls == "SequentialAgent":
+        return SequentialAgent(name=cfg["name"], sub_agents=sub_agents)
+
+    if cls == "ParallelAgent":
+        return ParallelAgent(name=cfg["name"], sub_agents=sub_agents)
+
+    if cls == "LoopAgent":
+        return LoopAgent(
+            name=cfg["name"],
+            sub_agents=sub_agents,
+            max_iterations=cfg.get("max_iterations", 15),  # avoid runaway loops
+        )
+
+    # Non-LLM tool agent
+    if cls == "ToolAgent":
+        tool = cfg.get("tool_name")
+        if tool == "deterministic_observer":
+            return FunctionAgent(name=cfg["name"], fn=deterministic_observe)
+        raise ValueError(f"Unknown tool_name: {tool}")
+
+    # Default: LlmAgent
+    llm = LlmAgent(
+        name=cfg["name"],
+        model=Gemini(model=MODEL_NAME),
+        instruction=cfg.get("instruction", ""),
+        tools=[],
+    )
+
+    # If sub-agents exist, wrap in sequential
+    return (
+        SequentialAgent(name=f"{cfg['name']}_seq", sub_agents=[llm] + sub_agents)
+        if sub_agents
+        else llm
+    )
+
+
+# -------------------------
+# Build Agent from Langfuse Prompt
+# -------------------------
+def create_dynamic_instruction(langfuse, prompt_name: str, label: str = "latest"):
+    def get_instruction(ctx):
+        prompt = langfuse.get_prompt(prompt_name, label=label)
+        print(prompt.prompt)
+
+        current_span = trace.get_current_span()
+        current_span.set_attribute("langfuse.observation.prompt.name", prompt.name)
+        current_span.set_attribute(
+            "langfuse.observation.prompt.version", prompt.version
+        )
+
+        return prompt.compile()
+
+    return get_instruction
+
+
+def build_agent_from_langfuse_prompt(cfg_path: Path):
+    """Recursively construct ADK agents from YAML configs."""
+    cfg = str(cfg_path).split("/")[-1].split(".yaml")[0]
+    print(cfg)  # ORPDA | ORPA
+
+    langfuse = Langfuse()
+
+    reflector_prompt_path = "ORPDA/Reflector/instruction"
+    planner_prompt_path = "ORPDA/Planner/instruction"
+    drifter_prompt_path = "ORPDA/Drifter/instruction"
+    actor_prompt_path = (
+        "ORPDA/Actor/instruction" if USE_DRIFT else "ORPA/Actor/instruction"
+    )
+
+    reflector_agent = LlmAgent(
+        name="reflector",
+        model=Gemini(model=MODEL_NAME),
+        instruction=create_dynamic_instruction(
+            langfuse, reflector_prompt_path, label="latest"
+        ),
+        tools=[],
+    )
+
+    planner_agent = LlmAgent(
+        name="planner",
+        model=Gemini(model=MODEL_NAME),
+        instruction=create_dynamic_instruction(
+            langfuse, planner_prompt_path, label="latest"
+        ),
+        tools=[],
+    )
+
+    drifter_agent = LlmAgent(
+        name="drifter",
+        model=Gemini(model=MODEL_NAME),
+        instruction=create_dynamic_instruction(
+            langfuse, drifter_prompt_path, label="latest"
+        ),
+        tools=[],
+    )
+
+    actor_agent = LlmAgent(
+        name="actor",
+        model=Gemini(model=MODEL_NAME),
+        instruction=create_dynamic_instruction(
+            langfuse, actor_prompt_path, label="latest"
+        ),
+        tools=[],
+    )
+
+    # If sub-agents exist, wrap in sequential
+    return SequentialAgent(
+        name=f"{cfg}_sequence",
+        sub_agents=[reflector_agent, planner_agent, drifter_agent, actor_agent],
+    )
+
+
+# -------------------------
 # Extract JSON in ```json blocks
 # -------------------------
 def extract_json_from_markdown(text: str):
@@ -174,7 +340,12 @@ def extract_json_from_markdown(text: str):
 
 # Build root agent (ONLY one used in Option A)
 cfg_path = "orpda_sequence.yaml" if USE_DRIFT else "orpa_sequence.yaml"
-root_agent = build_agent(YAML_DIR / cfg_path)
+
+root_agent = (
+    build_agent_from_langfuse_prompt(YAML_DIR / cfg_path)
+    if LOAD_PROMPT_FROM_LANGFUSE
+    else build_agent(YAML_DIR / cfg_path)
+)
 
 
 # -------------------------
@@ -187,15 +358,10 @@ async def run_orpda_cycle(context: dict) -> dict:
       - Observation is computed symbolically in Python (non-LLM).
       - LLM agents only handle reflection/plan/drift/action.
     """
-    # 1) Build deterministic observation
-    obs_block = build_observation(context)
-
-    # 2) Inject into context so Reflector/Planner see it
-    ctx_with_obs = {**context, **obs_block}
-
-    prompt = json.dumps(ctx_with_obs, ensure_ascii=False)
-
     with langfuse.start_as_current_observation(as_type="span", name="my-trace") as span:
+        # Let the observer ToolAgent run first; start with raw context
+        prompt = json.dumps(context, ensure_ascii=False)
+
         # Add tags to all observations created within this execution scope
 
         with propagate_attributes(tags=tags):
@@ -203,12 +369,9 @@ async def run_orpda_cycle(context: dict) -> dict:
             async with InMemoryRunner(agent=root_agent) as runner:
                 events = await runner.run_debug(prompt, verbose=False)
 
-    # async with InMemoryRunner(agent=root_agent) as runner:
-    #     events = await runner.run_debug(prompt, verbose=False)
-
-    # 3) Seed merged with the symbolic observation
+    # 3) Seed merged values; observation will be filled from ToolAgent or fallback
     merged = {
-        "observation": obs_block["observation"],
+        "observation": None,
         "reflection": None,
         "plan": None,
         "drift_decision": None,
@@ -232,10 +395,14 @@ async def run_orpda_cycle(context: dict) -> dict:
             except Exception:
                 continue
 
-            # merge only known ORPDA keys (observation already set)
-            for key in ("reflection", "plan", "drift_decision", "action_result"):
+            # merge only known ORPDA keys
+            for key in ("observation", "reflection", "plan", "drift_decision", "action_result"):
                 if key in data:
                     merged[key] = data[key]
+
+    # If observer output didn't arrive, fall back to local deterministic version
+    if merged["observation"] is None:
+        merged["observation"] = build_observation(context)["observation"]
 
     # Remove None keys
     return {k: v for k, v in merged.items() if v is not None}
@@ -247,4 +414,6 @@ async def run_orpda_cycle(context: dict) -> dict:
 
 if __name__ == "__main__":
     print("orpda_runner loaded (clean mode).")
-    run_orpda_cycle("hello")
+
+    async def run():
+        await run_orpda_cycle("hello")
