@@ -69,7 +69,7 @@ ORPDA is a cognitive simulation loop designed to model and evaluate human-like v
 
 Agent roles:
 - **Observer**: emits structured state snapshots (`app/src/yaml/observer.yaml`).
-- **Reflector**: assesses alignment/stability (`app/src/yaml/reflector.yaml`).
+- **Reflector**: cross-tick executive governor; reviews what just happened, surfaces competing stimuli, and sets guardrails/meta-rules for the next 15 minutes (`app/src/yaml/reflector.yaml`).
 - **Planner**: generates the next 15-min plan block (`app/src/yaml/planner.yaml`).
 - **Drifter**: injects cognitive drift decisions (`app/src/yaml/drifter.yaml`).
 - **Actor**: commits the executed action for the next loop (`app/src/yaml/actor_orpda.yaml`).

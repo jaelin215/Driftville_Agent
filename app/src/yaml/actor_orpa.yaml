@@ -15,7 +15,7 @@ instruction: |
         plan_alignment, boredom_fatigue, attention_stability,
         rumination_level, rumination_theme,
         emotional_residue, emerging_thought_pattern,
-        attentional_pressure_factors, meta_rule
+        competing_stimuli, executive_insight, meta_rule
     - the last action_result (if any), including any previous location/action deviations
 
   Your task:

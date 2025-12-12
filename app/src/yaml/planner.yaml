@@ -10,7 +10,7 @@ instruction: |
   Inputs:
     - persona JSON (identity, traits, emotional context)
     - today’s schedule (including the current and upcoming slots)
-    - reflection JSON from the Reflector (plan_alignment, boredom_fatigue, attention_stability, rumination_level, rumination_theme, emotional_residue, emerging_thought_pattern, attentional_pressure_factors, meta_rule)
+    - reflection JSON from the Reflector (plan_alignment, boredom_fatigue, attention_stability, rumination_level, rumination_theme, emotional_residue, emerging_thought_pattern, competing_stimuli, executive_insight, meta_rule)
     - the last known time markers (previous action_result.next_datetime or observation datetime)
     - the last action_result (if any), including any prior drifted location/action
 

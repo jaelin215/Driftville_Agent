@@ -256,14 +256,18 @@ def build_agent(cfg_path: Path):
 def create_dynamic_instruction(langfuse, prompt_name: str, label: str = "latest"):
     def get_instruction(ctx):
         prompt = langfuse.get_prompt(prompt_name, label=label)
-        print(prompt.prompt)
+        # print(prompt.prompt)
+        # Link this prompt to the current generation/span
+        try:
+            langfuse.get_prompt(prompt_name, label=label)
+        except Exception:
+            pass  # don't break the run if linkage fails
 
         current_span = trace.get_current_span()
         current_span.set_attribute("langfuse.observation.prompt.name", prompt.name)
         current_span.set_attribute(
             "langfuse.observation.prompt.version", prompt.version
         )
-
         return prompt.compile()
 
     return get_instruction
