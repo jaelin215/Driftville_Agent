@@ -97,7 +97,8 @@ Prereqs: Python 3.12+
    `curl -sSL https://install.python-poetry.org | python3 -`
   
    (or `pipx install poetry`)
-3) **Install deps** (no packaging): `poetry install --no-root`
+3) **Install deps** (no packaging): `poetry install --no-root --with dev
+`
 4) **Set config**: in `app/config/config.yaml`
   - set `model_name` to be used by agents (default: `gemini-2.5-flash-lite`).
   - set `embedding_model_name` to be used to create inherent drift flag (default: `text-embedding-004`).
@@ -194,10 +195,6 @@ Alves, P. N., Foulon, C., Karolis, V., Bzdok, D., Margulies, D. S., Volle, E., &
 3) Article about wandering mind stats being 47%:
   
 https://news.harvard.edu/gazette/story/2010/11/wandering-mind-not-a-happy-mind/
-
-# YouTube (Demo): 
-
-https://youtu.be/ikpDw2BMcZ0
 
 <p align="center">
   <img src="app/img/problem_statement.png" alt="Problem statement">
