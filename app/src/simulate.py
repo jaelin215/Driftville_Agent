@@ -287,7 +287,7 @@ async def run_simulation(agent, steps=1):
 
         # Align to schedule unless we are already drifting
         drift_type = drift.get("drift_type", "none")
-        slot, slot_start, slot_end = cur_slot, cur_start, cur_end
+        slot, _, slot_end = cur_slot, cur_start, cur_end
         if slot and drift_type in ("none", None, "internal", "attentional_leak"):
             # stay in-slot until its end; do not advance early
             if current_time < slot_end:

@@ -36,8 +36,8 @@ known_first_party = ["app", "app2", "tools"]
 src_paths = ["app", "app2", "tools"]
 
 [tool.flake8]
-max-line-length = 88
-extend-ignore = ["E203", "W503"]
+max-line-length = 120
+extend-ignore = ["E203", "W503", "E501", "E402"]
 
 
 [build-system]

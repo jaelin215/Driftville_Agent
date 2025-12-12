@@ -369,7 +369,7 @@ async def run_orpda_cycle(context: dict) -> dict:
       - Observation is computed symbolically in Python (non-LLM).
       - LLM agents only handle reflection/plan/drift/action.
     """
-    with langfuse.start_as_current_observation(as_type="span", name="my-trace") as span:
+    with langfuse.start_as_current_observation(as_type="span", name="my-trace") as _:
         # Let the observer ToolAgent run first; start with raw context
         prompt = json.dumps(context, ensure_ascii=False)
 
