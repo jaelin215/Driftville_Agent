@@ -18,36 +18,43 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache pip
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.8.3
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+
+      - name: Cache Poetry virtualenv
         uses: actions/cache@v4
         with:
-          path: ~/.cache/pip
-          key: pip-${{ runner.os }}-py312-${{ hashFiles('requirements.txt') }}
+          path: .venv
+          key: venv-${{ runner.os }}-py312-${{ hashFiles('poetry.lock') }}
           restore-keys: |
-            pip-${{ runner.os }}-py312-
+            venv-${{ runner.os }}-py312-
 
-      - name: Install dependencies
+      - name: Install dependencies (Poetry)
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
+          poetry install --no-root
 
       - name: Check import sorting (isort)
         run: |
-          isort --check-only app/src app2 tools || {
+          poetry run isort --check-only app/src app2 tools || {
             echo "isort failed. Run: isort app/src app2 tools";
             exit 1;
           }
 
       - name: Check formatting (black)
         run: |
-          black --check app/src app2 tools || {
+          poetry run black --check app/src app2 tools || {
             echo "black failed. Run: black app/src app2 tools";
             exit 1;
           }
 
       - name: Lint (flake8)
         run: |
-          flake8 app/src app2 tools || {
+          poetry run flake8 app/src app2 tools || {
             echo "flake8 failed. Run: flake8 app/src app2 tools";
             exit 1;
           }
@@ -55,7 +62,7 @@ jobs:
       - name: Run pytest (if present)
         run: |
           if ls **/test_*.py **/*_test.py 2>/dev/null; then
-            python -m pytest -q || ec=$?
+            poetry run pytest -q || ec=$?
             if [ "${ec:-0}" -eq 5 ]; then
               echo "pytest: no tests collected -> treating as success."
               exit 0
