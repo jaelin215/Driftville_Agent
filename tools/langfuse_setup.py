@@ -1,11 +1,8 @@
-import os
-
 from dotenv import load_dotenv
-
-load_dotenv()
-
 from langfuse import get_client
 from openinference.instrumentation.google_adk import GoogleADKInstrumentor
+
+load_dotenv()
 
 langfuse = get_client()
 

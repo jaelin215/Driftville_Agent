@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ runner.os }}-py312-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            pip-${{ runner.os }}-py312-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Check import sorting (isort)
+        run: |
+          isort --check-only app/src app2 tools || {
+            echo "isort failed. Run: isort app/src app2 tools";
+            exit 1;
+          }
+
+      - name: Check formatting (black)
+        run: |
+          black --check app/src app2 tools || {
+            echo "black failed. Run: black app/src app2 tools";
+            exit 1;
+          }
+
+      - name: Lint (flake8)
+        run: |
+          flake8 app/src app2 tools || {
+            echo "flake8 failed. Run: flake8 app/src app2 tools";
+            exit 1;
+          }
+
+      - name: Run pytest (if present)
+        run: |
+          if ls **/test_*.py **/*_test.py 2>/dev/null; then
+            python -m pytest -q || ec=$?
+            if [ "${ec:-0}" -eq 5 ]; then
+              echo "pytest: no tests collected -> treating as success."
+              exit 0
+            elif [ "${ec:-0}" -ne 0 ]; then
+              echo "pytest failed with exit code ${ec}"
+              exit "${ec}"
+            fi
+          else
+            echo "No tests found; skipping pytest."
+          fi

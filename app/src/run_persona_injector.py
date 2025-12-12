@@ -20,7 +20,6 @@ import sys
 from pathlib import Path
 
 import yaml
-from google import genai
 
 try:
     from dotenv import load_dotenv

@@ -83,22 +83,35 @@ Agent roles:
 - **Help Wanted**: Contributions on drift priors/thresholding, evaluation design (DMN-aligned benchmarks), UI polish for ORPA/ORPDA labeling, and data/analysis to validate against human baselines.
 
 ## Quick Start
-Foundation: Python, Google ADK, Flask, Gemini model/embedding model
+Foundation: Python, Google ADK, Flask, Gemini model/embedding model, Langfuse
+Package management: Poetry
 
 <p align="center">
   <img src="app/img/driftville_stats_ui_small.png" alt="Drift tendency per character">
 </p>
 
-1) **Env vars**: create .env with your `GOOGLE_API_KEY`.
-2) **Install deps**: `pip install -r requirements.txt`
-3) **Set config**: in `app/config/config.yaml`
+Prereqs: Python 3.12+
+
+1) **Env vars**: create .env with your `GOOGLE_API_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_BASE_URL`.
+2) **Install Poetry** (if needed):
+   `curl -sSL https://install.python-poetry.org | python3 -`
+  
+   (or `pipx install poetry`)
+3) **Install deps** (no packaging): `poetry install --no-root`
+4) **Set config**: in `app/config/config.yaml`
   - set `model_name` to be used by agents (default: `gemini-2.5-flash-lite`).
   - set `embedding_model_name` to be used to create inherent drift flag (default: `text-embedding-004`).
   - set `use_drift` to **True** (to run ORPDA loop).
   - set `use_drift` to **False** (to run ORPA loop).	
-4) **Run main simulation**: `python app/src/simulate.py` (it generates logs to `app/logs/`).
-5) **UI preview** (visual only; no ORPDA execution yet):
-   `python app2/app2.py`
+  - `persona`: which persona to simulate
+  - `num_ticks`, `sim_start_time`: simulation length/start
+  - `load_prompt_from_langfuse`: set to `True` to load agent instructions from Langfuse; `False` uses local YAML.
+  - Ensure `.env` has your Langfuse credentials if you set `load_prompt_from_langfuse=True`.
+
+5) **Run main simulation**: `poetry run python app/src/simulate.py` (it generates logs to `app/logs/`).
+
+6) **UI preview** (visual only; no ORPDA execution yet):
+   `poetry run python app2/app2.py`
    Then open the printed URL (default: http://127.0.0.1:5000)
 
 
@@ -106,9 +119,17 @@ Foundation: Python, Google ADK, Flask, Gemini model/embedding model
 	<img src="app/img/drift_dream.png" alt="Driftville UI">
 </p>
 
-## YAML
-- YAML agent configs live in `app/src/yaml/` (`root_agent.yaml`, `observer.yaml`, etc.).
-- Programmatic runner: `app/src/orpda_runner.py` exposes `run_orpda_cycle(ctx)`; call with a context dict (raw persona, last_action_result, recent_history, current_datetime).
+## YAML vs Langfuse prompts
+- Agent graph YAML lives in `app/src/yaml/` 
+- When `LOAD_PROMPT_FROM_LANGFUSE=false`: YAML `instruction` fields are used.
+- When `LOAD_PROMPT_FROM_LANGFUSE=true`: LLM instructions are pulled from Langfuse (latest label) using these prompt IDs:
+  - reflector_prompt_path: "reflector"
+  - planner_prompt_path: "planner"
+  - drifter_prompt_path: "drifter"
+  - actor_prompt_path: "actor_orpda" (or "actor_orpa" when drift is off)
+- Ensure your Langfuse project has those prompts and `.env` contains your Langfuse credentials.
+- Sequence remains `observer_symbolic` → reflector → planner → drifter → actor as defined in `orpda_sequence.yaml`.
+
 
 ## Logs
 - Session logs (raw ORPDA loop output): `app/logs/session_*.log`
@@ -116,7 +137,7 @@ Foundation: Python, Google ADK, Flask, Gemini model/embedding model
 
 ## Metrics & Ablation
 - The effecitve ness of "D" (drift) layer is tested by ablation. 
-- `app/src/viz_metrics.ipynb` compares ORPDA (with drift) vs ORPA (no drift).
+- `app/src/utils/viz_metrics.ipynb` compares ORPDA (with drift) vs ORPA (no drift).
 - Outputs: Plots saved to `app/img/`.
 
 ## Personas
@@ -183,3 +204,4 @@ https://youtu.be/ikpDw2BMcZ0
 </p>
 
 
+``

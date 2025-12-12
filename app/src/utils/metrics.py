@@ -33,7 +33,6 @@ Each run is a JSON-lines log file where each line is:
 
 import json
 import math
-import os
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -46,7 +45,7 @@ from dotenv import load_dotenv
 ROOT = Path.cwd()
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from app.src.utils.embedding_utils import embed_text, embed_texts
+from app.src.utils.embedding_utils import embed_texts
 
 load_dotenv()
 
@@ -86,9 +85,9 @@ def detect_inherent_drift(row: Dict[str, Any]) -> Dict[str, Any]:
     orpda = row.get("orpda", {})
 
     obs = orpda.get("observation", {}) or {}
-    ref = orpda.get("reflection", {}) or {}
+    # ref = orpda.get("reflection", {}) or {}
     plan = orpda.get("plan", {}) or {}
-    drift = orpda.get("drift_decision", {}) or {}
+    # drift = orpda.get("drift_decision", {}) or {}
     action = orpda.get("action_result", {}) or {}
 
     plan_topic = plan.get("topic")

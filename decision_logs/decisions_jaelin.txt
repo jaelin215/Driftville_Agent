@@ -29,6 +29,7 @@
 - drifter: context added
 - action: context removed
 - reflector: attentional_pressure_factors - rename to environment_description? or environment_disruptor?
+- added poetry for package management
 
 
 

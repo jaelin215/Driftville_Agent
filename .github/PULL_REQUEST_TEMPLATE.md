@@ -23,6 +23,16 @@ Fixes # (issue)
 
 - [ ] Make sure you have self-reviewed the code. A decent size PR without self-review might be rejected.
 
+## How I Tested
+<!-- What you ran and what you verified. Mention datasets/fixtures and outcomes. -->
+- Unit tests: `poetry run pytest -q`
+- Lint/format: `poetry run isort . && poetry run black .`
+- Manual checks / screenshots noted below.
+
+## Screenshots / Artifacts (optional)
+<!-- Paste images or link logs/artifacts when useful -->
+
+
 ## Checklist
 
 <!-- Remove bullet points below that don't apply to you -->

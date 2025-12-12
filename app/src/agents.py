@@ -5,7 +5,6 @@
 # --------------------------------------
 
 import datetime
-import json
 from pathlib import Path
 
 ROOT = Path.cwd()
