@@ -35,6 +35,7 @@ def deterministic_observe(context: dict) -> dict:
     }
 
     # Return the full context plus the computed observation so downstream agents see everything.
-    merged = dict(context)
+    # merged = dict(context)
+    merged = dict()
     merged["observation"] = observation
     return merged

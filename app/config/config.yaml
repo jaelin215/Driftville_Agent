@@ -14,7 +14,7 @@ use_drift: True
 sim_config:
   persona: "Eddy Lin"
   start_time: "2023-02-13 11:00"
-  num_ticks: 3
+  num_ticks: 20
 
 load_prompt_from_langfuse: True
 

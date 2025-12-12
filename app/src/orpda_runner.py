@@ -284,7 +284,7 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
     reflector_agent = LlmAgent(
         name="reflector",
         model=Gemini(model=MODEL_NAME),
-        include_contents="none",
+        include_contents="none",  # default | none
         instruction=create_dynamic_instruction(
             langfuse, reflector_prompt_path, label="latest"
         ),
@@ -294,6 +294,7 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
     planner_agent = LlmAgent(
         name="planner",
         model=Gemini(model=MODEL_NAME),
+        include_contents="none",  # default | none
         instruction=create_dynamic_instruction(
             langfuse, planner_prompt_path, label="latest"
         ),
@@ -303,6 +304,7 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
     drifter_agent = LlmAgent(
         name="drifter",
         model=Gemini(model=MODEL_NAME),
+        include_contents="default",  # default | none
         instruction=create_dynamic_instruction(
             langfuse, drifter_prompt_path, label="latest"
         ),
@@ -312,6 +314,7 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
     actor_agent = LlmAgent(
         name="actor",
         model=Gemini(model=MODEL_NAME),
+        include_contents="none",  # default | none
         instruction=create_dynamic_instruction(
             langfuse, actor_prompt_path, label="latest"
         ),
