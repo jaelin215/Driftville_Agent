@@ -185,19 +185,18 @@ By providing drift-aware reasoning, memory streams, and structured ablation metr
 
 1) Smallville
 
-Joon Sung Park, Joseph C. O’Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. Generative Agents: Interactive Simulacra of Human Behavior. In The 36th Annual ACM Symposium on User Interface Software and Technology (UIST ’23), October 29-November 1, 2023, San Francisco, CA, USA. ACM, New York, NY, USA, 22 pages. https://doi.org/10.1145/3586183.3606763
+Joon Sung Park, Joseph O'Brien, Carrie Jun Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. Generative Agents: Interactive Simulacra of Human Behavior. In Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology (UIST '23). Association for Computing Machinery, New York, NY, USA, Article 2, 1–22. https://doi.org/10.1145/3586183.3606763]
 
 2) Neuroscience paper about Default Mode Network (DMN):
   
-Alves, P. N., Foulon, C., Karolis, V., Bzdok, D., Margulies, D. S., Volle, E., & Thiebaut de Schotten, M. (2019). An improved neuroanatomical model of the default-mode network reconciles previous neuroimaging and neuropathological findings. Communications Biology, 2, 370. https://doi.org/10.1038/s42003-019-0552-8
+Alves, P.N., Foulon, C., Karolis, V. et al. An improved neuroanatomical model of the default-mode network reconciles previous neuroimaging and neuropathological findings. Commun Biol 2, 370 (2019). https://doi.org/10.1038/s42003-019-0611-3
+
 
 3) Article about wandering mind stats being 47%:
   
 https://news.harvard.edu/gazette/story/2010/11/wandering-mind-not-a-happy-mind/
 
-# YouTube (Demo): 
-
-https://youtu.be/ikpDw2BMcZ0
+Matthew A. Killingsworth, Daniel T. Gilbert ,A Wandering Mind Is an Unhappy Mind.Science330,932-932(2010).[DOI:10.1126/science.1192439](https://doi.org/10.1126/science.1192439)
 
 <p align="center">
   <img src="app/img/problem_statement.png" alt="Problem statement">
