@@ -12,9 +12,9 @@ Minimal ORPDA engine:
 """
 
 import json
+import logging
 import sys
 from pathlib import Path
-import logging
 
 import yaml
 from dotenv import load_dotenv
@@ -279,7 +279,7 @@ def create_dynamic_instruction(
             current_span.set_attribute(
                 "langfuse.observation.prompt.version", prompt.version
             )
-        except Exception as exc:
+        except Exception:
             # If we can't fetch/link, log and fall back to local text
             logger.warning(
                 f"failed to fetch/link Langfuse prompt (label={label}); "
