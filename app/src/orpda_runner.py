@@ -14,6 +14,7 @@ Minimal ORPDA engine:
 import json
 import sys
 from pathlib import Path
+import logging
 
 import yaml
 from dotenv import load_dotenv
@@ -45,6 +46,8 @@ from app.src.observe_non_llm_agent import deterministic_observe
 # from app.src.observe_non_llm_agent import deterministic_observe
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent
 YAML_DIR = ROOT / "yaml"
@@ -262,21 +265,34 @@ def build_agent(cfg_path: Path):
 # -------------------------
 # Build Agent from Langfuse Prompt
 # -------------------------
-def create_dynamic_instruction(langfuse, prompt_name: str, label: str = "latest"):
+def create_dynamic_instruction(
+    langfuse, prompt_name: str, label: str = "latest", fallback: str = ""
+):
     def get_instruction(ctx):
-        prompt = langfuse.get_prompt(prompt_name, label=label)
+        prompt = None
         # Link this prompt to the current generation/span
         try:
+            prompt = langfuse.get_prompt(prompt_name, label=label)
             langfuse.update_current_generation(prompt=prompt)
-        except Exception:
+            current_span = trace.get_current_span()
+            current_span.set_attribute("langfuse.observation.prompt.name", prompt.name)
+            current_span.set_attribute(
+                "langfuse.observation.prompt.version", prompt.version
+            )
+        except Exception as exc:
+            # If we can't fetch/link, log and fall back to local text
+            logger.warning(
+                f"failed to fetch/link Langfuse prompt (label={label}); "
+                "falling back to local instruction",
+                prompt_name,
+                label,
+                exc_info=True,
+            )
             pass  # don't break the run if linkage fails
 
-        current_span = trace.get_current_span()
-        current_span.set_attribute("langfuse.observation.prompt.name", prompt.name)
-        current_span.set_attribute(
-            "langfuse.observation.prompt.version", prompt.version
-        )
-        return prompt.compile()
+        if prompt:
+            return prompt.compile()
+        return fallback
 
     return get_instruction
 

@@ -11,6 +11,7 @@ import os
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
+import logging
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
@@ -547,10 +548,14 @@ async def run_simulation(agent, steps=1):
 # -------------------------
 # ENTRY
 # -------------------------
-ROOT = Path(__file__).resolve().parent
-YAML_DIR = ROOT / "yaml"
 
 if __name__ == "__main__":
+    # ROOT and YAML_DIR are defined once earlier in this module.
+    # Do not redefine them here to avoid mixing Path.cwd() and module directory semantics.
+    logging.basicConfig(
+        level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s"
+    )
+
     # Sync prompts before building the agent graph
     prompt_sync_log = sync_prompts()
     if prompt_sync_log:
