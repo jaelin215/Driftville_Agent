@@ -4,7 +4,11 @@
 # Description: ORPDA simulation loop, persona loading, logging, and memory streaming.
 # --------------------------------------
 import asyncio
+import hashlib
+import importlib
 import json
+import logging
+import os
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -12,9 +16,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from app.config.config import NUM_TICKS, PERSONA_NAME, SIM_START_TIME, USE_DRIFT
+import yaml
+from dotenv import load_dotenv
+from langfuse import Langfuse
+
+from app.config.config import (
+    LOAD_PROMPT_FROM_LANGFUSE,
+    NUM_TICKS,
+    PERSONA_NAME,
+    SIM_START_TIME,
+    USE_DRIFT,
+)
 from app.src.agents import Agent
-from app.src.orpda_runner import build_agent, run_orpda_cycle
 
 # -------------------------
 # CONFIG & PATHS
@@ -23,9 +36,155 @@ from app.src.orpda_runner import build_agent, run_orpda_cycle
 ROOT = Path.cwd()
 DEFAULT_START = datetime(2023, 2, 13, 14, 0)
 
+load_dotenv()
+
 DRIFTVILLE_PERSONA_PATH = ROOT / "app/src/driftville_personas.json"
 SMALLVILLE_PERSONA_PATH = ROOT / "app/src/smallville_personas.json"
 DATE_FMT = "%Y-%m-%d %H:%M"
+
+YAML_DIR = (Path(__file__).resolve().parent) / "yaml"
+
+
+# -------------------------
+# PROMPT SYNC (Langfuse ↔ local YAML)
+# -------------------------
+
+
+def _sha(text: str) -> str:
+    return hashlib.sha256((text or "").encode("utf-8")).hexdigest()
+
+
+def _read_instruction(path: Path):
+    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    instr = data.get("instruction", "") if isinstance(data, dict) else ""
+    return data, instr or ""
+
+
+def _write_instruction(path: Path, data: dict, instruction: str):
+    data = data or {}
+    data["instruction"] = instruction
+    path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+
+
+def sync_prompts():
+    """Ensure local YAML and Langfuse prompt versions are aligned at runtime."""
+    public_key = os.getenv("LANGFUSE_PUBLIC_KEY")
+    secret_key = os.getenv("LANGFUSE_SECRET_KEY")
+
+    if LOAD_PROMPT_FROM_LANGFUSE and not (public_key and secret_key):
+        return [
+            {
+                "prompt": "all",
+                "action": "skip_no_langfuse_credentials",
+                "load_prompt_from_langfuse": LOAD_PROMPT_FROM_LANGFUSE,
+            }
+        ]
+
+    try:
+        lf = Langfuse()
+    except Exception as e:  # noqa: BLE001
+        return [
+            {
+                "prompt": "all",
+                "action": "langfuse_init_failed",
+                "error": str(e),
+                "load_prompt_from_langfuse": LOAD_PROMPT_FROM_LANGFUSE,
+            }
+        ]
+
+    actor_prompt_id = "actor_orpda" if USE_DRIFT else "actor_orpa"
+    prompt_specs = [
+        ("reflector", YAML_DIR / "reflector.yaml"),
+        ("planner", YAML_DIR / "planner.yaml"),
+        ("drifter", YAML_DIR / "drifter.yaml"),
+        (actor_prompt_id, YAML_DIR / f"{actor_prompt_id}.yaml"),
+    ]
+
+    sync_log = []
+
+    for prompt_id, path in prompt_specs:
+        if not path.exists():
+            sync_log.append(
+                {"prompt": prompt_id, "action": "skip_no_local_file", "path": str(path)}
+            )
+            continue
+
+        local_data, local_instr = _read_instruction(path)
+        local_hash = _sha(local_instr)
+
+        try:
+            remote_prompt = lf.get_prompt(prompt_id, label="latest")
+            remote_instr = remote_prompt.compile()
+            remote_hash = _sha(remote_instr)
+            remote_version = getattr(remote_prompt, "version", None)
+        except Exception as e:  # noqa: BLE001
+            sync_log.append(
+                {
+                    "prompt": prompt_id,
+                    "action": "langfuse_fetch_failed",
+                    "error": str(e),
+                    "path": str(path),
+                }
+            )
+            continue
+
+        if LOAD_PROMPT_FROM_LANGFUSE:
+            if remote_hash != local_hash:
+                _write_instruction(path, local_data, remote_instr)
+                sync_log.append(
+                    {
+                        "prompt": prompt_id,
+                        "action": "pulled_from_langfuse",
+                        "remote_version": remote_version,
+                        "local_hash": local_hash,
+                        "remote_hash": remote_hash,
+                    }
+                )
+            else:
+                sync_log.append(
+                    {
+                        "prompt": prompt_id,
+                        "action": "already_in_sync_langfuse_source",
+                        "remote_version": remote_version,
+                        "hash": local_hash,
+                    }
+                )
+        else:
+            if remote_hash != local_hash:
+                try:
+                    lf.create_prompt(
+                        name=prompt_id, prompt=local_instr, labels=["latest"]
+                    )
+                    sync_log.append(
+                        {
+                            "prompt": prompt_id,
+                            "action": "pushed_new_version_to_langfuse",
+                            "remote_version_prior": remote_version,
+                            "local_hash": local_hash,
+                            "remote_hash": remote_hash,
+                        }
+                    )
+                except Exception as e:  # noqa: BLE001
+                    sync_log.append(
+                        {
+                            "prompt": prompt_id,
+                            "action": "langfuse_push_failed",
+                            "error": str(e),
+                            "local_hash": local_hash,
+                            "remote_hash": remote_hash,
+                        }
+                    )
+            else:
+                sync_log.append(
+                    {
+                        "prompt": prompt_id,
+                        "action": "already_in_sync_local_source",
+                        "remote_version": remote_version,
+                        "hash": local_hash,
+                    }
+                )
+
+    return sync_log
 
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -124,6 +283,20 @@ def log_memory_stream(agent_name: str, summary: str, sim_ts: str):
         f.write(json.dumps(entry) + "\n")
 
 
+def log_prompt_sync(sync_log):
+    """Persist prompt sync decisions to the session log for traceability."""
+    SESSION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    entry = {
+        "ts_created": datetime.now().astimezone().isoformat(),
+        "event": "prompt_sync",
+        "load_prompt_from_langfuse": LOAD_PROMPT_FROM_LANGFUSE,
+        "use_drift": USE_DRIFT,
+        "details": sync_log,
+    }
+    with SESSION_LOG_PATH.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry) + "\n")
+
+
 # -------------------------
 # SUMMARY BUILDER
 # -------------------------
@@ -205,6 +378,12 @@ def next_slot(schedule, dt: datetime):
 async def run_simulation(agent, steps=1):
     """Run the ORPDA loop for a given agent over a number of 15-minute ticks."""
     print(f"Running single-agent simulation for: {agent.name}")
+
+    # Lazy-load runner if not already imported (e.g., when run_simulation is called directly)
+    global run_orpda_cycle
+    if "run_orpda_cycle" not in globals():
+        _orpda_runner = importlib.import_module("app.src.orpda_runner")
+        run_orpda_cycle = _orpda_runner.run_orpda_cycle
 
     MINUTES_PER_STEP = 15
     current_time = datetime.strptime(agent.current_time, "%Y-%m-%d %H:%M")
@@ -369,14 +548,26 @@ async def run_simulation(agent, steps=1):
 # -------------------------
 # ENTRY
 # -------------------------
-ROOT = Path(__file__).resolve().parent
-YAML_DIR = ROOT / "yaml"
-# Build root agent (ONLY one used in Option A)
-cfg_path = "orpda_sequence.yaml" if USE_DRIFT else "orpa_sequence.yaml"
-root_agent = build_agent(YAML_DIR / cfg_path)
-
 
 if __name__ == "__main__":
+    # ROOT and YAML_DIR are defined once earlier in this module.
+    # Do not redefine them here to avoid mixing Path.cwd() and module directory semantics.
+    logging.basicConfig(
+        level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s"
+    )
+
+    # Sync prompts before building the agent graph
+    prompt_sync_log = sync_prompts()
+    if prompt_sync_log:
+        print("Prompt sync summary:")
+        for item in prompt_sync_log:
+            print(f" - {item}")
+        log_prompt_sync(prompt_sync_log)
+
+    # Import the runner AFTER syncing prompts so it builds agents with the latest instructions
+    _orpda_runner = importlib.import_module("app.src.orpda_runner")
+    run_orpda_cycle = _orpda_runner.run_orpda_cycle
+
     steps = NUM_TICKS  # 60 ticks = 06:00 → 21:00
     print(
         f"USE_DRIFT = {USE_DRIFT}  (ORPDA enabled)"

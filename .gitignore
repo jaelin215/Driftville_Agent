@@ -2,6 +2,8 @@
 **/archive/
 .env
 __pycache__
+app/logs/
+
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
@@ -212,7 +214,6 @@ __marimo__/
 .hf_cache
 
 # Large files
-*.h5
 *.npz
 *.pt
 
@@ -250,7 +251,6 @@ Thumbs.db
 
 # Logs
 .venv_old/
-NDVI/
 
 # Local secrets and environment
 .env

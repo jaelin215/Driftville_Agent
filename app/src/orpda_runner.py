@@ -12,6 +12,7 @@ Minimal ORPDA engine:
 """
 
 import json
+import logging
 import sys
 from pathlib import Path
 
@@ -45,6 +46,8 @@ from app.src.observe_non_llm_agent import deterministic_observe
 # from app.src.observe_non_llm_agent import deterministic_observe
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent
 YAML_DIR = ROOT / "yaml"
@@ -235,10 +238,19 @@ def build_agent(cfg_path: Path):
         raise ValueError(f"Unknown tool_name: {tool}")
 
     # Default: LlmAgent
+    instruction_text = cfg.get("instruction", "")
+    instruction_field = instruction_text
+
+    # If Langfuse client is available, link prompts even when using local YAML
+    if langfuse and not LOAD_PROMPT_FROM_LANGFUSE:
+        instruction_field = create_local_instruction_with_link(
+            langfuse, cfg["name"], instruction_text
+        )
+
     llm = LlmAgent(
         name=cfg["name"],
         model=Gemini(model=MODEL_NAME),
-        instruction=cfg.get("instruction", ""),
+        instruction=instruction_field,
         tools=[],
     )
 
@@ -253,18 +265,56 @@ def build_agent(cfg_path: Path):
 # -------------------------
 # Build Agent from Langfuse Prompt
 # -------------------------
-def create_dynamic_instruction(langfuse, prompt_name: str, label: str = "latest"):
+def create_dynamic_instruction(
+    langfuse, prompt_name: str, label: str = "latest", fallback: str = ""
+):
     def get_instruction(ctx):
-        prompt = langfuse.get_prompt(prompt_name, label=label)
-        print(prompt.prompt)
+        prompt = None
+        # Link this prompt to the current generation/span
+        try:
+            prompt = langfuse.get_prompt(prompt_name, label=label)
+            langfuse.update_current_generation(prompt=prompt)
+            current_span = trace.get_current_span()
+            current_span.set_attribute("langfuse.observation.prompt.name", prompt.name)
+            current_span.set_attribute(
+                "langfuse.observation.prompt.version", prompt.version
+            )
+        except Exception:
+            # If we can't fetch/link, log and fall back to local text
+            logger.warning(
+                f"failed to fetch/link Langfuse prompt (label={label}); "
+                "falling back to local instruction",
+                prompt_name,
+                label,
+                exc_info=True,
+            )
+            pass  # don't break the run if linkage fails
 
-        current_span = trace.get_current_span()
-        current_span.set_attribute("langfuse.observation.prompt.name", prompt.name)
-        current_span.set_attribute(
-            "langfuse.observation.prompt.version", prompt.version
-        )
+        if prompt:
+            return prompt.compile()
+        return fallback
 
-        return prompt.compile()
+    return get_instruction
+
+
+def create_local_instruction_with_link(
+    langfuse_client, prompt_name: str, local_instruction: str, label: str = "latest"
+):
+    """Return a callable that links a Langfuse prompt but returns the local instruction text."""
+
+    def get_instruction(ctx):
+        try:
+            prompt = langfuse_client.get_prompt(prompt_name, label=label)
+            langfuse_client.update_current_generation(prompt=prompt)
+            current_span = trace.get_current_span()
+            current_span.set_attribute("langfuse.observation.prompt.name", prompt.name)
+            current_span.set_attribute(
+                "langfuse.observation.prompt.version", prompt.version
+            )
+        except Exception:
+            # If we can't fetch/link, fall back silently to local text
+            pass
+        return local_instruction
 
     return get_instruction
 
