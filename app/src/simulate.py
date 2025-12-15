@@ -17,7 +17,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 import yaml
 from dotenv import load_dotenv
-from langfuse import Langfuse, observe
+from langfuse import Langfuse
 
 from app.config.config import (
     LOAD_PROMPT_FROM_LANGFUSE,

@@ -235,10 +235,19 @@ def build_agent(cfg_path: Path):
         raise ValueError(f"Unknown tool_name: {tool}")
 
     # Default: LlmAgent
+    instruction_text = cfg.get("instruction", "")
+    instruction_field = instruction_text
+
+    # If Langfuse client is available, link prompts even when using local YAML
+    if langfuse and not LOAD_PROMPT_FROM_LANGFUSE:
+        instruction_field = create_local_instruction_with_link(
+            langfuse, cfg["name"], instruction_text
+        )
+
     llm = LlmAgent(
         name=cfg["name"],
         model=Gemini(model=MODEL_NAME),
-        instruction=cfg.get("instruction", ""),
+        instruction=instruction_field,
         tools=[],
     )
 
@@ -256,10 +265,9 @@ def build_agent(cfg_path: Path):
 def create_dynamic_instruction(langfuse, prompt_name: str, label: str = "latest"):
     def get_instruction(ctx):
         prompt = langfuse.get_prompt(prompt_name, label=label)
-        # print(prompt.prompt)
         # Link this prompt to the current generation/span
         try:
-            langfuse.get_prompt(prompt_name, label=label)
+            langfuse.update_current_generation(prompt=prompt)
         except Exception:
             pass  # don't break the run if linkage fails
 
@@ -269,6 +277,28 @@ def create_dynamic_instruction(langfuse, prompt_name: str, label: str = "latest"
             "langfuse.observation.prompt.version", prompt.version
         )
         return prompt.compile()
+
+    return get_instruction
+
+
+def create_local_instruction_with_link(
+    langfuse_client, prompt_name: str, local_instruction: str, label: str = "latest"
+):
+    """Return a callable that links a Langfuse prompt but returns the local instruction text."""
+
+    def get_instruction(ctx):
+        try:
+            prompt = langfuse_client.get_prompt(prompt_name, label=label)
+            langfuse_client.update_current_generation(prompt=prompt)
+            current_span = trace.get_current_span()
+            current_span.set_attribute("langfuse.observation.prompt.name", prompt.name)
+            current_span.set_attribute(
+                "langfuse.observation.prompt.version", prompt.version
+            )
+        except Exception:
+            # If we can't fetch/link, fall back silently to local text
+            pass
+        return local_instruction
 
     return get_instruction
 
