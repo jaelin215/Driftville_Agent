@@ -161,8 +161,9 @@ def main() -> None:
     args = parse_args()
     log_dir = Path(args.dir)
 
-    orpa = gather_entries(log_dir, args.orpa_pattern, "ORPA")
-    orpda = gather_entries(log_dir, args.orpda_pattern, "ORPDA")
+    # The script always gathers both ORPA and ORPDA logs; no explicit --both flag needed.
+    orpa = gather_entries(log_dir, args.orpa, "ORPA")
+    orpda = gather_entries(log_dir, args.orpda, "ORPDA")
 
     keys = sorted(set(orpa.keys()) | set(orpda.keys()))
 

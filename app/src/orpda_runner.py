@@ -375,16 +375,27 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
     observer_agent = FunctionAgent(name="observer", fn=deterministic_observe)
 
     # If sub-agents exist, wrap in sequential
-    return SequentialAgent(
-        name=f"{cfg}_sequence",
-        sub_agents=[
-            observer_agent,
-            reflector_agent,
-            planner_agent,
-            drifter_agent,
-            actor_agent,
-        ],
-    )
+    if USE_DRIFT:
+        return SequentialAgent(
+            name=f"{cfg}_sequence",
+            sub_agents=[
+                observer_agent,
+                reflector_agent,
+                planner_agent,
+                drifter_agent,
+                actor_agent,
+            ],
+        )
+    else:
+        return SequentialAgent(
+            name=f"{cfg}_sequence",
+            sub_agents=[
+                observer_agent,
+                reflector_agent,
+                planner_agent,
+                actor_agent,
+            ],
+        )
 
 
 # -------------------------
