@@ -813,8 +813,6 @@
                   `<span class="label">Competing stimuli:</span> ${p.ref.competing_stimuli || "none"}`,
                   `<span class="label">Emotional residue:</span> ${p.ref.emotional_residue || "none"}`,
                   `<span class="label">Exec insight:</span> ${p.ref.executive_insight || "none"}`,
-                  `<span class="label">Summary:</span> ${p.ref.state_summary || ""}`,
-                  `<span class="label">Reasoning:</span> ${p.ref.reasoning || ""}`,
                 ],
                 false,
                 p.variantClass
@@ -822,6 +820,9 @@
               makeCell("", [
                   `${p.ref.plan_alignment || ""}, ${p.ref.attention_stability || ""}, ${p.ref.meta_rule || ""}`,
                   `<div style="height:6px;"></div>`,
+                  `${p.ref.state_summary ?? ""}`,
+                  `<div style="height:6px;"></div>`,
+                  `<span class="label">Reasoning: </span>${p.ref.reasoning ?? ""}`,
                   
                   ], true, p.variantClass),
             ];
@@ -877,9 +878,9 @@
                 "",
                 [
                   <!-- `<span class="label">DMN mode: ${p.drift.dmn_mode || ""}</span>`, -->
+                  `<span class="label">[</span>${p.drift.drift_topic ?? ""}<span class="label">]</span>`,
                   `${p.drift.drift_type || ""}`,
                   `${p.drift.drift_intensity ?? ""}`,
-                  `<span class="label">[</span>${p.drift.drift_topic ?? ""}<span class="label">]</span>`,
                   `<div style="height:6px;"></div>`,
                   `${p.drift.justification ?? ""}`,
 

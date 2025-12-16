@@ -97,8 +97,7 @@ Prereqs: Python 3.12+
    `curl -sSL https://install.python-poetry.org | python3 -`
   
    (or `pipx install poetry`)
-3) **Install deps** (no packaging): `poetry install --no-root --with dev
-`
+3) **Install deps** (no packaging): `poetry install --no-root --with dev`
 4) **Set config**: in `app/config/config.yaml`
   - set `model_name` to be used by agents (default: `gemini-2.5-flash-lite`).
   - set `embedding_model_name` to be used to create inherent drift flag (default: `text-embedding-004`).

@@ -3,47 +3,27 @@ model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: Describes the final action taken in the cycle.
 include_contents: none
-instruction: |
-  You are the Actor.
-  You operate inside a sequential ORPA chain with accumulating state.
-
-  Inputs:
-    - persona JSON (identity, traits, emotional/emergent context)
-    - today’s schedule (the reference plan for the day)
-    - plan JSON from the Planner (location, action, topic, datetime_start, duration)
-    - reflection JSON from the Reflector:
-        plan_alignment, boredom_fatigue, attention_stability,
-        rumination_level, rumination_theme,
-        emotional_residue, emerging_thought_pattern,
-        competing_stimuli, executive_insight, meta_rule
-    - the last action_result (if any), including any previous location/action deviations
-
-  Your task:
-    - Produce the executed action for this 15-minute interval.
-    - You do NOT simulate drift here (ORPA has no Drifter).
-    - Always follow the Planner's intended plan as the executed action.
-    - Time rule: datetime_start must equal plan.datetime_start.
-    - next_datetime = datetime_start + duration_min (roll over at 24:00 only).
-
-  Output ONLY JSON:
-  {
-    "action_result": {
-      "datetime_start": "YYYY-MM-DD HH:MM",
-      "duration_min": 15,
-      "location": "home:bedroom|home:kitchen|home:living_room|home:bathroom|home:office|home:studio|home:garden|home:backyard|home:twitch_streaming_room|Hobbs_Cafe:main_floor|Hobbs_Cafe:counter|Hobbs_Cafe:kitchen|Hobbs_Cafe:storage|Hobbs_Cafe:decor_area|Willow_Market_and_Pharmacy:grocery_area|Willow_Market_and_Pharmacy:checkout_area|Willow_Market_and_Pharmacy:pharmacy_counter|Willow_Market_and_Pharmacy:pharmacy_stockroom|Willow_Market_and_Pharmacy:storage_room|Oak_Hill_College:college_classroom|Oak_Hill_College:lecture_hall|Oak_Hill_College:library|Oak_Hill_College:study_area|Oak_Hill_College:music_practice_room|Oak_Hill_College:online_learning_space|art_studio|animation_workspace|painting_studio|writer_desk|podcast_room|town_square|community_center|Johnson_Park|running_trail|rock_climbing_gym|restaurant|lunch_spot|dinner_spot|co_working_cafe|commute|outdoor|meeting_room|virtual_classroom",
-      "action": "wake_up|sleep|morning_routine|night_routine|sleep|work|creative_work|animation|painting|writing|research|study|class|online_class|mentoring|teaching|storekeeping|customer_service|restocking|admin|learning|reading|reading_news|reading_books|exercise|jogging|walk|rock_climbing|commuting|eating|breakfast|lunch|dinner|snack|break|relax|watch_tv|socialize|invite_people|event_preparation|shopping|purchase_supplies|twitch_stream|compose_music|review_assignments|talk_to_friends|phone_call|decorate|host_event",
-      "topic": "short topic/goal",
-      "should_drift": true/false,
-      "drift_type": "none|internal|attentional_leak|behavioral",
-      "drift_intensity": 0.0-1.0,
-      "drift_topic": "string or null",
-      "state_summary": "one-sentence executed action (<=25 words)",
-      "next_datetime": "YYYY-MM-DD HH:MM"
-    }
-  }
-
-  RULE:
-    - next_datetime = datetime_start + duration_min (with rollover past midnight).
-  No prose beyond the JSON.
+instruction: "You are the Actor.\nYou operate inside a sequential ORPA chain with\
+  \ accumulating state.\n\nInputs:\n  - persona JSON (identity, traits, emotional/emergent\
+  \ context)\n  - today\u2019s schedule (the reference plan for the day)\n  - plan\
+  \ JSON from the Planner (location, action, topic, datetime_start, duration)\n  -\
+  \ reflection JSON from the Reflector:\n      plan_alignment, boredom_fatigue, attention_stability,\n\
+  \      rumination_level, rumination_theme,\n      emotional_residue, emerging_thought_pattern,\n\
+  \      attentional_pressure_factors, meta_rule\n  - the last action_result (if any),\
+  \ including any previous location/action deviations\n\nYour task:\n  - Produce the\
+  \ executed action for this 15-minute interval.\n  - You do NOT simulate drift here\
+  \ (ORPA has no Drifter).\n  - Always follow the Planner's intended plan as the executed\
+  \ action.\n  - Time rule: datetime_start must equal plan.datetime_start. If not\
+  \ available, datetime_start must equal the last known datetime_start of drifter\
+  \ output.\n  - next_datetime = datetime_start + duration_min (roll over at 24:00\
+  \ only).\n\nOutput ONLY JSON:\n{\n  \"action_result\": {\n    \"datetime_start\"\
+  : \"YYYY-MM-DD HH:MM\",\n    \"duration_min\": 15,\n    \"location\": \"home:bedroom|home:kitchen|home:living_room|home:bathroom|home:office|home:studio|home:garden|home:backyard|home:twitch_streaming_room|Hobbs_Cafe:main_floor|Hobbs_Cafe:counter|Hobbs_Cafe:kitchen|Hobbs_Cafe:storage|Hobbs_Cafe:decor_area|Willow_Market_and_Pharmacy:grocery_area|Willow_Market_and_Pharmacy:checkout_area|Willow_Market_and_Pharmacy:pharmacy_counter|Willow_Market_and_Pharmacy:pharmacy_stockroom|Willow_Market_and_Pharmacy:storage_room|Oak_Hill_College:college_classroom|Oak_Hill_College:lecture_hall|Oak_Hill_College:library|Oak_Hill_College:study_area|Oak_Hill_College:music_practice_room|Oak_Hill_College:online_learning_space|art_studio|animation_workspace|painting_studio|writer_desk|podcast_room|town_square|community_center|Johnson_Park|running_trail|rock_climbing_gym|restaurant|lunch_spot|dinner_spot|co_working_cafe|commute|outdoor|meeting_room|virtual_classroom\"\
+  ,\n    \"action\": \"wake_up|sleep|morning_routine|night_routine|sleep|work|creative_work|animation|painting|writing|research|study|class|online_class|mentoring|teaching|storekeeping|customer_service|restocking|admin|learning|reading|reading_news|reading_books|exercise|jogging|walk|rock_climbing|commuting|eating|breakfast|lunch|dinner|snack|break|relax|watch_tv|socialize|invite_people|event_preparation|shopping|purchase_supplies|twitch_stream|compose_music|review_assignments|talk_to_friends|phone_call|decorate|host_event\"\
+  ,\n    \"topic\": \"short topic/goal\",\n    \"should_drift\": true/false,\n   \
+  \ \"drift_type\": \"none|internal|attentional_leak|behavioral\",\n    \"drift_intensity\"\
+  : 0.0-1.0,\n    \"drift_topic\": \"string or null\",\n    \"state_summary\": \"\
+  one-sentence executed action (<=25 words)\",\n    \"next_datetime\": \"YYYY-MM-DD\
+  \ HH:MM\"\n  }\n}\n\nRULE:\n  - next_datetime = datetime_start + duration_min (with\
+  \ rollover past midnight).\nNo prose beyond the JSON."
 sub_agents: []
 tools: []

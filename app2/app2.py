@@ -265,4 +265,4 @@ def list_feedback():
 
 
 if __name__ == "__main__":
-    APP.run(debug=True)
+    APP.run(debug=False, use_reloader=False)

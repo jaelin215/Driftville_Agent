@@ -9,12 +9,12 @@ model2:
 embedding_model:
   name: "text-embedding-004"
 
-use_drift: True
+use_drift: False
 
 sim_config:
-  persona: "Eddy Lin"
-  start_time: "2023-02-13 11:00"
-  num_ticks: 2
+  persona: "Tom Moreno"
+  start_time: "2023-02-13 06:00"
+  num_ticks: 60
 
 load_prompt_from_langfuse: True
 
