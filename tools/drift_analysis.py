@@ -26,7 +26,9 @@ def _threshold_tag(th: float) -> str:
     return str(th).replace(".", "_")
 
 
-def plot_drift_types(by_type, intensity_sum, intensity_count, total, th, out_path: Path):
+def plot_drift_types(
+    by_type, intensity_sum, intensity_count, total, th, out_path: Path
+):
     """Bar chart of drift counts and average intensity by type."""
     if not by_type:
         return
