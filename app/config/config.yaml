@@ -12,9 +12,9 @@ embedding_model:
 use_drift: True
 
 sim_config:
-  persona: "Eddy Lin"
-  start_time: "2023-02-13 11:00"
-  num_ticks: 5
+  persona: "Isabella Rodriguez"
+  start_time: "2023-02-13 06:00"
+  num_ticks: 68
 
 load_prompt_from_langfuse: True
 

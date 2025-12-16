@@ -2,7 +2,7 @@
 **/archive/
 .env
 __pycache__
-app/logs/
+# app/logs/
 
 
 # Byte-compiled / optimized / DLL files

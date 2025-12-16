@@ -192,6 +192,7 @@ prefix = "session_orpda" if USE_DRIFT else "session_orpa"
 
 SESSION_LOG_PATH = ROOT / f"app/logs/{prefix}_{timestamp}.log"
 MEMORY_STREAM_PATH = ROOT / f"app/logs/memory_streams_{prefix}_{timestamp}.log"
+PROMPT_SYNC_LOG_PATH = ROOT / "app/logs/prompt_sync.log"
 
 
 # -------------------------
@@ -284,8 +285,8 @@ def log_memory_stream(agent_name: str, summary: str, sim_ts: str):
 
 
 def log_prompt_sync(sync_log):
-    """Persist prompt sync decisions to the session log for traceability."""
-    SESSION_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    """Persist prompt sync decisions to a dedicated prompt_sync log."""
+    PROMPT_SYNC_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     entry = {
         "ts_created": datetime.now().astimezone().isoformat(),
         "event": "prompt_sync",
@@ -293,7 +294,7 @@ def log_prompt_sync(sync_log):
         "use_drift": USE_DRIFT,
         "details": sync_log,
     }
-    with SESSION_LOG_PATH.open("a", encoding="utf-8") as f:
+    with PROMPT_SYNC_LOG_PATH.open("a", encoding="utf-8") as f:
         f.write(json.dumps(entry) + "\n")
 
 
