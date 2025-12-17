@@ -7,12 +7,14 @@ model2:
   name: "gemini-2.0-flash"
 
 embedding_model:
-  name: "text-embedding-004"
+  name: "gemini-embedding-001"
 
-use_drift: True
+embed_cost_per_1k_tokens: 0.00015
+
+use_drift: False
 
 sim_config:
-  persona: "Isabella Rodriguez"
+  persona: "Hailey Johnson"
   start_time: "2023-02-13 06:00"
   num_ticks: 68
 

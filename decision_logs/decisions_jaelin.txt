@@ -30,6 +30,16 @@
 - action: context removed
 - reflector: attentional_pressure_factors - rename to environment_description? or environment_disruptor?
 - added poetry for package management
-
-
+- trace embedding usage in Langfuse
+- from google import genai: this imports Gemini API (= Google Gen AI SDK, which uses Google AI Studio and Vertext AI).
+- by default, this SDK is designed to work with Google AI Studio (the developer platform) using an API key.
+- the embedding model is imported from Gemini API.
+- text-embedding-005 produces 768-dimensional vectors.
+- gemini-embedding-001 produces 3072-dimensional vectors.
+- Gemini API embeddings handles token counting internally. So, it's not exposed to usage_metadata.
+- There is no usage_metadata flag for text-embedding-005 model response.
+- Since most Gemini family models share the same tokenizer,
+- we will use 'gemini-2.5-flash-lite' model to calculate tokens.
+- text-embedding-004 is depricated in Jan 14 2026. Therefore, we've switched to gemini-embedding-001.
+- updated config with gemini-embedding-001 pricing ($0.15/1M tokens)
 

@@ -24,6 +24,7 @@ USE_DRIFT = config.get("use_drift", True)
 EMBEDDING_MODEL_NAME = config.get("embedding_model", {}).get(
     "name", "text-embedding-004"
 )
+EMBED_COST_PER_1K_TOKENS = config.get("embed_cost_per_1k_tokens", 0.00015)
 PERSONA_NAME = config.get("sim_config", {}).get("persona", "Mei Lin")
 SIM_START_TIME = config.get("sim_config", {}).get("start_time", "2023-02-13 06:00")
 NUM_TICKS = config.get("sim_config", {}).get("num_ticks", 5)

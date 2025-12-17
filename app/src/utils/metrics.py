@@ -49,7 +49,6 @@ from app.src.utils.embedding_utils import embed_texts
 
 load_dotenv()
 
-
 # ============================================
 # INDEPENDENT DRIFT DETECTOR (WORKS FOR ORPA)
 # ============================================
