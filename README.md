@@ -140,6 +140,10 @@ Prereqs: Python 3.12+
 - `app/src/utils/viz_metrics.ipynb` compares ORPDA (with drift) vs ORPA (no drift).
 - Outputs: Plots saved to `app/img/`.
 
+<p align="center">
+  <img src="app/img/inherent_drift_ORPA_ORPDA.png" alt="Inherent Drift comparison ORPA vs ORPDA">
+</p>
+
 ## Personas
 - Raw bios: `app/src/smallville_personas.json` (Copied from `https://reverie.herokuapp.com/UIST_Demo/`. Used as SEED personality for Driftville. )
 - Driftville personas and schedules: `app/src/driftville_personas.json`

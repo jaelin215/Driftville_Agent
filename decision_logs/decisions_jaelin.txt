@@ -42,4 +42,5 @@
 - we will use 'gemini-2.5-flash-lite' model to calculate tokens.
 - text-embedding-004 is depricated in Jan 14 2026. Therefore, we've switched to gemini-embedding-001.
 - updated config with gemini-embedding-001 pricing ($0.15/1M tokens)
+- took 4min to detect inherent_drift from both ORPA/ORPDA session logs for 8 agents.
 

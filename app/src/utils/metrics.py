@@ -41,6 +41,7 @@ from typing import Any, Dict, List, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
 from dotenv import load_dotenv
+from langfuse import observe
 
 ROOT = Path.cwd()
 if str(ROOT) not in sys.path:
@@ -63,6 +64,7 @@ def cosine_sim(a, b):
     return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-8))
 
 
+@observe(as_type="span", name="text-cosine-sim")
 def text_cosine_sim(text_a: str, text_b: str) -> float:
     """Compute cosine similarity for two text strings via embeddings."""
     texts = [text_a or "", text_b or ""]
@@ -74,6 +76,7 @@ def text_cosine_sim(text_a: str, text_b: str) -> float:
     return cosine_sim(vecs[0], vecs[1])
 
 
+@observe(as_type="span", name="detect-inherent-drift")
 def detect_inherent_drift(row: Dict[str, Any]) -> Dict[str, Any]:
     """
     Detects semantic drift even when drift operator is disabled.
@@ -442,6 +445,7 @@ def compute_drift_type_distribution(rows: List[Dict]) -> Dict[str, float]:
 # ============================
 
 
+@observe(as_type="span", name="attention-stability-ratio")
 def compute_attention_stability_ratio(rows: List[Dict]) -> float:
     """
     Proportion of ticks labeled 'stable' in reflection.attention_stability.
@@ -467,6 +471,7 @@ def _safe_embed(texts: List[str]):
     return embed_texts(texts)
 
 
+@observe(as_type="span", name="drift-topic-coherence")
 def compute_drift_topic_coherence(rows: List[Dict]) -> float:
     """
     Average cosine similarity between consecutive drift topics.
@@ -494,6 +499,7 @@ def compute_drift_topic_coherence(rows: List[Dict]) -> float:
     return sum(sims) / len(sims)
 
 
+@observe(as_type="span", name="drift-justification-consistency")
 def compute_justification_consistency(rows: List[Dict]) -> float:
     """
     Average cosine similarity between consecutive drift justifications.
@@ -521,6 +527,7 @@ def compute_justification_consistency(rows: List[Dict]) -> float:
     return sum(sims) / len(sims)
 
 
+@observe(as_type="span", name="semantic-plan-deviation")
 def compute_semantic_plan_deviation(rows: List[Dict]) -> float:
     """
     Average 1 - cosine_similarity between plan.topic and drift_topic
@@ -575,6 +582,7 @@ def compute_semantic_plan_deviation(rows: List[Dict]) -> float:
 # ============================
 
 
+@observe(as_type="span", name="task-switches")
 def compute_task_switches(rows: List[Dict]) -> int:
     """
     Number of times the agent changes its action between ticks.
@@ -591,6 +599,7 @@ def compute_task_switches(rows: List[Dict]) -> int:
     return switches
 
 
+@observe(as_type="span", name="plan-adherence")
 def compute_plan_adherence(rows: List[Dict]) -> float:
     """
     Fraction of ticks where executed action matches planned action.
@@ -604,6 +613,7 @@ def compute_plan_adherence(rows: List[Dict]) -> float:
     return aligned / max(1, len(rows))
 
 
+@observe(as_type="span", name="action-diversity")
 def compute_action_diversity(rows: List[Dict]) -> float:
     """Count unique actions taken across the run."""
     actions = set()
