@@ -1,3 +1,7 @@
+[![License](https://img.shields.io/github/license/jaelin215/Driftville_Agent)](LICENSE)
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![Status](https://img.shields.io/badge/status-research--prototype-orange)
+
 <p align="center">
   <img src="app/img/hero.png" alt="Problem Statement">
 </p>
