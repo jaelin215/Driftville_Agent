@@ -13,7 +13,7 @@ try:
 except ImportError:
     genai = None
 from dotenv import load_dotenv
-from langfuse import propagate_attributes, observe, get_client
+from langfuse import get_client, observe, propagate_attributes
 
 ROOT = Path.cwd()
 if str(ROOT) not in sys.path:
