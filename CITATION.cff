@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+authors:
+- family-names: Lee
+  given-names: Jaelin
+title: "Driftville: Human Mind Simulation with Drift-Aware LLM Agents"
+url: "https://github.com/jaelin215/Driftville_Agent"
+license: Apache-2.0
+keywords:
+  - AI evaluation
+  - agent evaluation
+  - multi-agent systems
+  - cognitive modeling
+  - human-aligned AI
+  - agent architectures
+  - mind wandering
