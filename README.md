@@ -114,7 +114,7 @@ Prereqs: Python 3.12+
 
 5) **Run main simulation**: `poetry run python app/src/simulate.py` (it generates logs to `app/logs/`).
 
-6) **UI preview** (visual only; no ORPDA execution yet):
+6) **UI preview**:
    `poetry run python app2/app2.py`
    Then open the printed URL (default: http://127.0.0.1:5000)
 
