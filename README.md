@@ -104,7 +104,7 @@ Prereqs: Python 3.12+
 3) **Install deps** (no packaging): `poetry install --no-root --with dev`
 4) **Set config**: in `app/config/config.yaml`
   - set `model_name` to be used by agents (default: `gemini-2.5-flash-lite`).
-  - set `embedding_model_name` to be used to create inherent drift flag (default: `text-embedding-004`).
+  - set `embedding_model` to be used to create inherent drift flag (default: `gemini-embedding-001`).
   - set `use_drift` to **True** (to run ORPDA loop).
   - set `use_drift` to **False** (to run ORPA loop).	
   - `persona`: which persona to simulate
@@ -125,8 +125,8 @@ Prereqs: Python 3.12+
 
 ## YAML vs Langfuse prompts
 - Agent graph YAML lives in `app/src/yaml/` 
-- When `LOAD_PROMPT_FROM_LANGFUSE=false`: YAML `instruction` fields are used.
-- When `LOAD_PROMPT_FROM_LANGFUSE=true`: LLM instructions are pulled from Langfuse (latest label) using these prompt IDs:
+- When `load_prompt_from_langfuse=False`: YAML `instruction` fields are used.
+- When `load_prompt_from_langfuse=True`: LLM instructions are pulled from Langfuse (latest label) using these prompt IDs:
   - reflector_prompt_path: "reflector"
   - planner_prompt_path: "planner"
   - drifter_prompt_path: "drifter"

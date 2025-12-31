@@ -16,9 +16,9 @@ use_drift: False
 sim_config:
   persona: "Hailey Johnson"
   start_time: "2023-02-13 06:00"
-  num_ticks: 68
+  num_ticks: 2
 
-load_prompt_from_langfuse: True
+load_prompt_from_langfuse: False
 
 
 
