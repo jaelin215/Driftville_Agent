@@ -8,7 +8,7 @@ import csv
 import json
 from datetime import datetime
 from pathlib import Path
-import os
+
 from flask import Flask, jsonify, render_template, request
 
 TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
@@ -265,5 +265,4 @@ def list_feedback():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    APP.run(port=port, debug=False, use_reloader=False)
+    APP.run(debug=False, use_reloader=False)
