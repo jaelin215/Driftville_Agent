@@ -162,7 +162,7 @@ Installation on Windows environment:
    `(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -`
   
    (or `pipx install poetry`)
-   1) Restart Powershell or IDE after installation.
+   1) Restart PowerShell or IDE after installation.
    2) Verify by: `poetry --version`
    3) Configure your interpreter `poetry env info --path` probably your interpreter path is: <path>\Scripts\python.exe 
 
