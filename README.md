@@ -96,6 +96,8 @@ Package management: Poetry
 
 Prereqs: Python 3.12+
 
+Installation on Ubuntu environment:
+
 1) **Env vars**: create .env with your `GOOGLE_API_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_BASE_URL`.
 2) **Install Poetry** (if needed):
    `curl -sSL https://install.python-poetry.org | python3 -`
@@ -115,9 +117,76 @@ Prereqs: Python 3.12+
 5) **Run main simulation**: `poetry run python app/src/simulate.py` (it generates logs to `app/logs/`).
 
 6) **UI preview**:
-   `poetry run python app2/app2.py`
-   Then open the printed URL (default: http://127.0.0.1:5000)
+   `poetry run python app2/app2.py` or `PORT=5000 poetry run python app2/app2.py`
+   Then open the printed URL (default: http://127.0.0.1:5000) to see and compare the results in two or more
+    runs you can have another run like this
+    `PORT=5001 poetry run python app2/app2.py`
+    Then open the printed URL (http://127.0.0.1:5001)
 
+Installation on Mac environment:
+
+1) **Env vars**: create .env with your `GOOGLE_API_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_BASE_URL`.
+2) **Install Poetry** (if needed):
+   `curl -sSL https://install.python-poetry.org | python3 -`
+  
+   (or `pipx install poetry`)
+   1) Also, make sure Poetry is on PATH:
+   2) `echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc`
+   3) Then `source ~/.zshrc`
+   4) Configure your interpreter `poetry env info --path` probably your interpreter path is: <path>/bin/python
+   
+3) **Install deps** (no packaging): `poetry install --no-root --with dev`
+4) **Set config**: in `app/config/config.yaml`
+  - set `model_name` to be used by agents (default: `gemini-2.5-flash-lite`).
+  - set `embedding_model` to be used to create inherent drift flag (default: `gemini-embedding-001`).
+  - set `use_drift` to **True** (to run ORPDA loop).
+  - set `use_drift` to **False** (to run ORPA loop).	
+  - `persona`: which persona to simulate
+  - `num_ticks`, `sim_start_time`: simulation length/start
+  - `load_prompt_from_langfuse`: set to `True` to load agent instructions from Langfuse; `False` uses local YAML.
+  - Ensure `.env` has your Langfuse credentials if you set `load_prompt_from_langfuse=True`.
+
+5) **Run main simulation**: `poetry run python app/src/simulate.py` (it generates logs to `app/logs/`).
+
+6) **UI preview**:
+   `poetry run python app2/app2.py` or `PORT=5000 poetry run python app2/app2.py`
+   Then open the printed URL (default: http://127.0.0.1:5000) to see and compare the results in two or more
+    runs you can have another run like this
+    `PORT=5001 poetry run python app2/app2.py`
+    Then open the printed URL (http://127.0.0.1:5001)
+
+Installation on Windows environment:
+
+1) **Env vars**: create .env with your `GOOGLE_API_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_BASE_URL`.
+2) **Install Poetry** (if needed):
+   `(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -`
+  
+   (or `pipx install poetry`)
+   1) Restart PowerShell or IDE after installation.
+   2) Verify by: `poetry --version`
+   3) Configure your interpreter `poetry env info --path` probably your interpreter path is: <path>\Scripts\python.exe 
+
+3) **Install deps** (no packaging): `poetry install --no-root --with dev`
+4) **Set config**: in `app/config/config.yaml`
+  - set `model_name` to be used by agents (default: `gemini-2.5-flash-lite`).
+  - set `embedding_model` to be used to create inherent drift flag (default: `gemini-embedding-001`).
+  - set `use_drift` to **True** (to run ORPDA loop).
+  - set `use_drift` to **False** (to run ORPA loop).	
+  - `persona`: which persona to simulate
+  - `num_ticks`, `sim_start_time`: simulation length/start
+  - `load_prompt_from_langfuse`: set to `True` to load agent instructions from Langfuse; `False` uses local YAML.
+  - Ensure `.env` has your Langfuse credentials if you set `load_prompt_from_langfuse=True`.
+
+5) **Run main simulation**: `poetry run python app/src/simulate.py` (it generates logs to `app/logs/`).
+
+6) **UI preview**:
+   1) For Ubuntu and Mac environment you can do this:
+   `poetry run python app2/app2.py` or `PORT=5000 poetry run python app2/app2.py`
+   Then open the printed URL (default: http://127.0.0.1:5000) to see and compare the results in two or more
+    runs you can have another run like this
+    `PORT=5001 poetry run python app2/app2.py`
+    Then open the printed URL (http://127.0.0.1:5001)
+   2) For Windows environment if you use PowerShell you can do similar to this: `$env:PORT=5001; poetry run python app2/app2.py`
 
 <p align="center">
 	<img src="app/img/drift_dream.png" alt="Driftville UI">
