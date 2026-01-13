@@ -53,14 +53,14 @@ def ensure_api_key_env() -> None:
 
 async def call_llm(instruction: str, persona_text: str, model_name: str) -> str:
     """Invoke the Gemini-backed persona injector with provided instruction and text."""
-    from app.src.gemini_api import call_gemini  # late import to honor env setup
+    from app.src.llm_api import call_llm as call_llm_api # late import to honor env setup
 
     print(model_name)
     # print(persona_text)
     # print(instruction)
 
     prompt = f"{instruction.strip()}\n\nUser Input:\n{persona_text.strip()}\n"
-    resp = await call_gemini(prompt, model_name)
+    resp = await call_llm_api(prompt, model_name)
     if not resp or not str(resp).strip():
         raise RuntimeError("LLM returned empty response")
     return str(resp).strip()

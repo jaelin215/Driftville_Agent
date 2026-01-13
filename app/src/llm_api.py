@@ -9,7 +9,7 @@ import sys
 import time
 from collections import deque
 from pathlib import Path
-
+import litellm
 from dotenv import load_dotenv
 from google import genai
 
@@ -21,13 +21,22 @@ if str(ROOT) not in sys.path:
 from app.config.config import MODEL_NAME
 
 load_dotenv()
-# Prefer GEMINI_API_KEY; fall back to GOOGLE_API_KEY.
-API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
-if not API_KEY:
-    raise RuntimeError(
-        "Missing API key: set GEMINI_API_KEY or GOOGLE_API_KEY in your environment/.env"
-    )
-client = genai.Client(api_key=API_KEY)
+
+# Set keys for the providers from .env.
+litellm.openai_api_key = os.getenv("OPENAI_API_KEY")
+litellm.anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
+litellm.google_api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+
+# Optional: To disable verbose logging from litellm
+litellm.set_verbose = False
+
+# # Prefer GEMINI_API_KEY; fall back to GOOGLE_API_KEY.
+# API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+# if not API_KEY:
+#     raise RuntimeError(
+#         "Missing API key: set GEMINI_API_KEY or GOOGLE_API_KEY in your environment/.env"
+#     )
+# client = genai.Client(api_key=API_KEY)
 
 
 class RateLimiter:
@@ -54,18 +63,19 @@ class RateLimiter:
 rate_limiter = RateLimiter(calls_per_minute=15)
 
 
-async def call_gemini(prompt, model=None, timeout_sec: float = 30):
-    """Call Gemini with rate limiting; if model is None, uses MODEL_NAME."""
+async def call_llm(prompt, model=None, timeout_sec: float = 30):
+    """Call any LLM using litellm with rate limiting."""
     await rate_limiter.acquire()
 
     try:
-        # Note: some client versions don't accept request_options. To avoid breaking,
-        # we pass only required params.
-        response = client.models.generate_content(
+        # Use litellm's async completion function.
+        messages = [{"content": prompt, "role": "user" }]
+        response = await litellm.acompletion(
             model=model or MODEL_NAME,
-            contents=prompt,
+            messages=messages,
+            timeout=timeout_sec,
         )
-        return response.text
+        return response.choices[0].messages.content
     except Exception as e:
-        print(f"  [Gemini API error: {e}]")
+        print(f"  [LLM API error: {e}]")
         return "Error generating response"

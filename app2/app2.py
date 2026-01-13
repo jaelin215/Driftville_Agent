@@ -11,6 +11,9 @@ from datetime import datetime
 from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
+from dotenv import load_dotenv
+
+load_dotenv()
 
 TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
 APP = Flask(__name__, template_folder=str(TEMPLATE_DIR))
@@ -266,7 +269,8 @@ def list_feedback():
 
 
 if __name__ == "__main__":
-    port_str = int(os.environ.get("PORT"))
+    port_str = os.environ.get("PORT")
+
     try:
         port = int(port_str)
     except ValueError:
