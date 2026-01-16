@@ -18,8 +18,13 @@ def load_config():
 
 
 config = load_config()
-MODEL_NAME = config.get("model", {}).get("name", "gemini-2.5-flash-lite")
-MODEL_NAME_2 = config.get("model2", {}).get("name", "gemini-2.5-flash")
+
+MODELS_CONFIG = config.get("models", {})
+
+DEFAULT_MODEL_CONFIG = MODELS_CONFIG.get("default", {})
+MODEL_NAME = DEFAULT_MODEL_CONFIG.get("name", "gemini-2.5-flash-lite")
+MODEL_TEMPERATURE = DEFAULT_MODEL_CONFIG.get("temperature", 0.5)
+
 USE_DRIFT = config.get("use_drift", True)
 EMBEDDING_MODEL_NAME = config.get("embedding_model", {}).get(
     "name", "text-embedding-004"
