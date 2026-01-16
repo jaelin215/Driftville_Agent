@@ -9,6 +9,7 @@ import sys
 import time
 from collections import deque
 from pathlib import Path
+
 import litellm
 from dotenv import load_dotenv
 from google import genai
@@ -18,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # print(ROOT)
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from app.config.config import MODEL_NAME
+from app.config.config import MODELS_CONFIG, MODEL_NAME, MODEL_TEMPERATURE
 
 load_dotenv()
 
@@ -63,17 +64,30 @@ class RateLimiter:
 rate_limiter = RateLimiter(calls_per_minute=15)
 
 
-async def call_llm(prompt, model=None, timeout_sec: float = 30):
+async def call_llm(prompt, model=None, timeout_sec: float = 30, temperature=None):
     """Call any LLM using litellm with rate limiting."""
     await rate_limiter.acquire()
 
+    # Look up model configuration by logical name (e.g. 'default' or 'gemini')
+    model_key = model or 'default'
+    model_config = MODELS_CONFIG.get(model_key, {})
+
+    # Get model name and temperature from config, with fallbacks
+    final_model_name = model_config.get("name", model or MODEL_NAME)
+    final_temperature = model_config.get(
+        temperature
+        if temperature is not None
+        else model_config.get("temperature", MODEL_TEMPERATURE)
+    )
+
     try:
         # Use litellm's async completion function.
-        messages = [{"content": prompt, "role": "user" }]
+        messages = [{"content": prompt, "role": "user"}]
         response = await litellm.acompletion(
-            model=model or MODEL_NAME,
+            model=final_model_name,
             messages=messages,
             timeout=timeout_sec,
+            temperature=final_temperature,
         )
         return response.choices[0].messages.content
     except Exception as e:

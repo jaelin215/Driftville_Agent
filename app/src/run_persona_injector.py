@@ -18,7 +18,7 @@ import json
 import os
 import sys
 from pathlib import Path
-
+from app.config.config import MODELS_CONFIG
 import yaml
 
 try:
@@ -34,8 +34,9 @@ ROOT_DIR = BASE_DIR.parent  # app
 REPO_ROOT = ROOT_DIR.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
+
 YAML_PATH = ROOT_DIR / "src/yaml/persona_injector.yaml"
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "default"
 
 
 def load_prompt_config(path: Path) -> dict:
@@ -51,19 +52,34 @@ def ensure_api_key_env() -> None:
     load_dotenv()
 
 
-async def call_llm(instruction: str, persona_text: str, model_name: str) -> str:
+async def call_llm(instruction: str, persona_text: str, model_name: str, temperature: float = None) -> str:
     """Invoke the Gemini-backed persona injector with provided instruction and text."""
-    from app.src.llm_api import call_llm as call_llm_api # late import to honor env setup
+    from app.src.llm_api import (
+        call_llm as call_llm_api,  # late import to honor env setup
+    )
 
     print(model_name)
     # print(persona_text)
     # print(instruction)
 
     prompt = f"{instruction.strip()}\n\nUser Input:\n{persona_text.strip()}\n"
-    resp = await call_llm_api(prompt, model_name)
+    resp = await call_llm_api(prompt, model_name, temperature=temperature)
     if not resp or not str(resp).strip():
         raise RuntimeError("LLM returned empty response")
     return str(resp).strip()
+
+async def run_all_models(
+        instruction: str, persona_text: str, models_to_run: dict) -> list[tuple[str, str]]:
+    """Run persona generation for all specified models concurrently."""
+    tasks = []
+    for model_key in models_to_run.keys():
+        tasks.append(call_llm(instruction, persona_text, model_key, models_to_run[model_key].get("temperature")))
+
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+
+    # pair model keys with their results for easy identitication
+
+    return list(zip(models_to_run.keys(), results))
 
 
 def main() -> None:
@@ -91,34 +107,71 @@ def main() -> None:
 
     cfg = load_prompt_config(YAML_PATH)
     instruction = cfg.get("instruction", "")
-    model_name = args.model or cfg.get("model") or DEFAULT_MODEL
-    os.environ["MODEL_NAME"] = model_name  # hint for gemini_api config
+
+    models_to_run = {}
+    if args.model:
+        if args.model in MODELS_CONFIG:
+            models_to_run[args.model] = MODELS_CONFIG[args.model]
+        else:
+            raise SystemExit(
+                f"Error: Model key '{args.model}' not found in config.yaml. Available "
+                f"keys: {list(MODELS_CONFIG.keys())}"
+            )
+    else:
+        models_to_run = MODELS_CONFIG
+
+    # model_name = args.model or cfg.get("model") or DEFAULT_MODEL
+    # os.environ["MODEL_NAME"] = model_name  # hint for gemini_api config
 
     persona_text = args.input.read_text(encoding="utf-8")
     try:
-        raw = asyncio.run(
-            asyncio.wait_for(
-                call_llm(instruction, persona_text, model_name), timeout=60
-            )
+        # raw = asyncio.run(
+        #     asyncio.wait_for(
+        #         call_llm(instruction, persona_text, model_name), timeout=60
+        #     )
+        # )
+        model_results = asyncio.run(
+            run_all_models(instruction, persona_text, models_to_run)
         )
-    except asyncio.TimeoutError:
-        raise SystemExit("LLM call timed out. Try a smaller input or increase timeout.")
+    except Exception as e:
+        raise SystemExit(f"An unexpected error occurred: {e}")
+    # except asyncio.TimeoutError:
+    #     raise SystemExit("LLM call timed out. Try a smaller input or increase timeout.")
 
-    # Try to pretty-format JSON if possible
-    cleaned = raw
-    try:
-        parsed = json.loads(raw)
-        cleaned = json.dumps(parsed, indent=2)
-    except Exception:
-        pass
+    args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    if args.output:
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(cleaned, encoding="utf-8")
-        print(f"Wrote output to {args.output}")
-    else:
-        print(cleaned)
+    # # Try to pretty-format JSON if possible
+    # cleaned = raw
+    # try:
+    #     parsed = json.loads(raw)
+    #     cleaned = json.dumps(parsed, indent=2)
+    # except Exception:
+    #     pass
+    #
+    # if args.output:
+    #     args.output.parent.mkdir(parents=True, exist_ok=True)
+    #     args.output.write_text(cleaned, encoding="utf-8")
+    #     print(f"Wrote output to {args.output}")
+    # else:
+    #     print(cleaned)
 
+    for model_key, result in model_results:
+        if isinstance(result, Exception):
+            print(f"Failed to generate persona for '{model_key}': {result}")
+            continue
+
+        # Try to pretty-format JSON if possible
+        cleaned_output = result
+        try:
+            parsed = json.loads(result)
+            cleaned_output = json.dumps(parsed, indent=2)
+        except json.JSONDecodeError:
+            print(f"Warning: Output for '{model_key}' is not a valid JSON.")
+            pass
+
+        output_file = args.output_dir / f"driftville_personas_{model_key}.json"
+        output_file.write_text(cleaned_output, encoding="utf-8")
+        print(f"Successfully wrote output for '{model_key}' to {output_file}")
 
 if __name__ == "__main__":
     main()
