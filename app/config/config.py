@@ -16,14 +16,39 @@ def load_config():
     with CONFIG_PATH.open() as f:
         return yaml.safe_load(f)
 
+def normalize_model_id(raw: str, default_provider: str | None = None) -> tuple[str, str]:
+    raw = raw.strip()
+
+    if "/" in raw:
+        provider, model = raw.split("/", 1)
+    else:
+        provider, model = (default_provider or ""), raw
+
+    # If someone redundantly wrote "gemini/gemini-2.5.flash", don't "double-prefix" later.
+
+    if provider and model.startswith(provider + "-"):
+        normalized_model = model
+    else:
+        normalized_model = model
+
+    return provider, normalized_model
 
 config = load_config()
 
-MODELS_CONFIG = config.get("models", {})
+MODELS_CONFIG = config.get("models_to_run", {})
+
 
 DEFAULT_MODEL_CONFIG = MODELS_CONFIG.get("default", {})
-MODEL_NAME = DEFAULT_MODEL_CONFIG.get("name", "gemini-2.5-flash-lite")
+MODEL_NAME = DEFAULT_MODEL_CONFIG.get("name", "gemini/gemini-2.5-flash-lite")
+PROVIDER, MODEL_NAME = normalize_model_id(MODEL_NAME)
+# These are the latest Gemini apis to change to - older models are not available
+# gemini-2.5-flash
+# gemini-2.5-flash-lite
+# gemini-2.5-pro
+# gemini-2.5-flash-image
+
 MODEL_TEMPERATURE = DEFAULT_MODEL_CONFIG.get("temperature", 0.5)
+
 
 USE_DRIFT = config.get("use_drift", True)
 EMBEDDING_MODEL_NAME = config.get("embedding_model", {}).get(

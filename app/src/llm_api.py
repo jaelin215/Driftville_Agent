@@ -1,4 +1,4 @@
-# app/src/gemini_api.py
+# app/src/llm_api.py
 # --------------------------------------
 # Author: Jaelin Lee
 # Description: Gemini client wrapper with rate limiting for agent calls.
@@ -13,13 +13,14 @@ from pathlib import Path
 import litellm
 from dotenv import load_dotenv
 from google import genai
+from app.config.config import MODELS_CONFIG, MODEL_NAME, MODEL_TEMPERATURE, PROVIDER, normalize_model_id
 
 # Paths
 ROOT = Path(__file__).resolve().parents[1]
 # print(ROOT)
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from app.config.config import MODELS_CONFIG, MODEL_NAME, MODEL_TEMPERATURE
+
 
 load_dotenv()
 
@@ -62,6 +63,8 @@ class RateLimiter:
 
 
 rate_limiter = RateLimiter(calls_per_minute=15)
+
+
 
 
 async def call_llm(prompt, model=None, timeout_sec: float = 30, temperature=None):

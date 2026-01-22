@@ -18,7 +18,7 @@ import json
 import os
 import sys
 from pathlib import Path
-from app.config.config import MODELS_CONFIG
+from app.config.config import load_config
 import yaml
 
 try:
@@ -36,7 +36,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 YAML_PATH = ROOT_DIR / "src/yaml/persona_injector.yaml"
-DEFAULT_MODEL = "default"
+# DEFAULT_MODEL = "default"
 
 
 def load_prompt_config(path: Path) -> dict:
@@ -72,8 +72,8 @@ async def run_all_models(
         instruction: str, persona_text: str, models_to_run: dict) -> list[tuple[str, str]]:
     """Run persona generation for all specified models concurrently."""
     tasks = []
-    for model_key in models_to_run.keys():
-        tasks.append(call_llm(instruction, persona_text, model_key, models_to_run[model_key].get("temperature")))
+    for model_key, model_config in models_to_run.items():
+        tasks.append(call_llm(instruction, persona_text, model_key, model_config.get("temperature")))
 
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
@@ -101,24 +101,34 @@ def main() -> None:
     parser.add_argument(
         "--model",
         default=None,
-        help=f"Override model name (default: value in persona_injector.yaml, fallback {DEFAULT_MODEL})",
+        # help=f"Override model name (default: value in persona_injector.yaml, fallback {DEFAULT_MODEL})",
+        help="Run for a single specific model key from config.yaml (e.g., gemini-1.5-pro"
     )
     args = parser.parse_args()
 
     cfg = load_prompt_config(YAML_PATH)
     instruction = cfg.get("instruction", "")
 
+    # Load models from the main config file
+    app_config = load_config()
+    all_models = app_config.get("models_to_run", {})
+
+    if not all_models:
+        raise SystemExit(
+            "Error: No models found under 'models_to_run' in your config.yaml."
+        )
+
     models_to_run = {}
     if args.model:
-        if args.model in MODELS_CONFIG:
-            models_to_run[args.model] = MODELS_CONFIG[args.model]
+        if args.model in all_models:
+            models_to_run[args.model] = all_models[args.model]
         else:
             raise SystemExit(
-                f"Error: Model key '{args.model}' not found in config.yaml. Available "
-                f"keys: {list(MODELS_CONFIG.keys())}"
+                f"Error: Model key '{args.model}' not found in config.yaml under 'models_to_run'."
+                f"Available keys: {list(all_models.keys())}"
             )
     else:
-        models_to_run = MODELS_CONFIG
+        models_to_run = all_models
 
     # model_name = args.model or cfg.get("model") or DEFAULT_MODEL
     # os.environ["MODEL_NAME"] = model_name  # hint for gemini_api config
@@ -160,13 +170,19 @@ def main() -> None:
             print(f"Failed to generate persona for '{model_key}': {result}")
             continue
 
+        if result == "Error generating response":
+            print(f"Failed to generate persona for '{model_key}': LLM API error")
+            continue
+
         # Try to pretty-format JSON if possible
         cleaned_output = result
         try:
-            parsed = json.loads(result)
+            if "```json" in cleaned_output:
+                cleaned_output = cleaned_output.split("```json")[1].split("```")[0]
+            parsed = json.loads(cleaned_output)
             cleaned_output = json.dumps(parsed, indent=2)
         except json.JSONDecodeError:
-            print(f"Warning: Output for '{model_key}' is not a valid JSON.")
+            print(f"Warning: Output for '{model_key}' is not a valid JSON. Saving raw output.")
             pass
 
         output_file = args.output_dir / f"driftville_personas_{model_key}.json"

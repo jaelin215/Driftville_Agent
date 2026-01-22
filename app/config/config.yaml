@@ -1,19 +1,30 @@
 # config.yaml
 
-model:
-  name: "gemini-2.5-flash-lite"
-  temperature: 0.7
+#model:
+#  name: "gemini-2.5-flash-lite"
+#  temperature: 0.7
+#
+#model2:
+#  name: "gemini-2.0-flash"
+#  temperature: 0.2
 
-model2:
-  name: "gemini-2.0-flash"
-  temperature: 0.2
+models_to_run:
+  default: # It only works with default model. At this time only gemini models are available.
+    name: "gemini/gemini-2.5-flash"
+    temperature: 0.7
+  gemini-2.5-pro:
+    name: "gemini/gemini-2.5-pro"
+    temperature: 0.5
+  llama_scout:
+    name: "openrouter/meta-llama/llama-4-scout-17b-16e-instruct"
+    temperature: 0.3
 
 embedding_model:
   name: "gemini-embedding-001"
 
 embed_cost_per_1k_tokens: 0.00015
 
-use_drift: True  # False: no drift, True: drift
+use_drift: False  # False: no drift, True: drift
 
 sim_config:
   persona: "Isabella Rodriguez"    # get the names from driftville_personas.json file
