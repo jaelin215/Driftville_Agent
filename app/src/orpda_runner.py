@@ -26,7 +26,6 @@ from dotenv import load_dotenv
 from google.adk.agents import LlmAgent, LoopAgent, ParallelAgent, SequentialAgent
 from google.adk.agents.base_agent import BaseAgent
 from google.adk.events import Event, EventActions
-
 from google.adk.models.lite_llm import LiteLlm
 from google.adk.runners import InMemoryRunner
 from google.genai.types import Content, Part
@@ -40,10 +39,9 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 print(REPO_ROOT)
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
-from app.config.config import (
+from app.config.config import (  # MODEL_TEMPERATURE,
     LOAD_PROMPT_FROM_LANGFUSE,
     MODEL_NAME,
-    # MODEL_TEMPERATURE,
     NUM_TICKS,
     PERSONA_NAME,
     SIM_START_TIME,

@@ -23,10 +23,9 @@ import yaml
 from dotenv import load_dotenv
 from langfuse import Langfuse
 
-from app.config.config import (
+from app.config.config import (  # MODEL_TEMPERATURE,
     LOAD_PROMPT_FROM_LANGFUSE,
     MODEL_NAME,
-    # MODEL_TEMPERATURE,
     NUM_TICKS,
     PERSONA_NAME,
     SIM_START_TIME,
