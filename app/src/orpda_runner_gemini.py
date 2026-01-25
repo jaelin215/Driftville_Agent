@@ -291,7 +291,6 @@ def create_dynamic_instruction(
                 label,
                 exc_info=True,
             )
-            pass  # don't break the run if linkage fails
 
         if prompt:
             return prompt.compile()

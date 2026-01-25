@@ -99,14 +99,12 @@ def main() -> None:
 
     cfg = load_prompt_config(YAML_PATH)
     instruction = cfg.get("instruction", "")
-    # model_name = args.model or cfg.get("model") or MODEL_NAME
-    # os.environ["MODEL_NAME"] = model_name  # hint for gemini_api config
 
     persona_text = args.input.read_text(encoding="utf-8")
     try:
         raw = asyncio.run(
             asyncio.wait_for(
-                call_llm(instruction, persona_text, MODEL_NAME), timeout=60
+                call_llm(instruction, persona_text, MODEL_NAME), timeout=180
             )
         )
     except asyncio.TimeoutError:

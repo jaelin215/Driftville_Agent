@@ -54,8 +54,8 @@ try:
     my_local_model = LiteLlm(model=f"ollama/{MODEL_NAME}")
     print("Successfully loaded a model via LiteLLM")
 except Exception as e:
-    print(f"Error: {type(e).__name__}: e")
-    print("Failed to load model vis LiteLLM")
+    print(f"Error: {type(e).__name__}: {e}")
+    print("Failed to load model via LiteLLM")
 print("import complete")
 
 load_dotenv()
