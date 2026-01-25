@@ -1,7 +1,8 @@
-# app/src/orpda_runner.py
+# app/src/orpda_runner_gemini.py
 # --------------------------------------
 # Author: Jaelin Lee
 # Description: Builds the YAML-defined agent graph and runs a single ORPDA cycle.
+# This file uses Gemini API [paid]
 # --------------------------------------
 """
 orpda_runner.py

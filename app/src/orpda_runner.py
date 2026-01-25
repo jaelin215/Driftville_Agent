@@ -2,6 +2,7 @@
 # --------------------------------------
 # Author: Jaelin Lee
 # Description: Builds the YAML-defined agent graph and runs a single ORPDA cycle.
+# This file uses Ollama/LiteLLM API [Free]
 # --------------------------------------
 """
 orpda_runner.py
@@ -26,7 +27,6 @@ from google.adk.agents import LlmAgent, LoopAgent, ParallelAgent, SequentialAgen
 from google.adk.agents.base_agent import BaseAgent
 from google.adk.events import Event, EventActions
 
-# from google.adk.models.google_llm import Gemini
 from google.adk.models.lite_llm import LiteLlm
 from google.adk.runners import InMemoryRunner
 from google.genai.types import Content, Part

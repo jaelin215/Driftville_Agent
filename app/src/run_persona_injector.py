@@ -7,9 +7,10 @@
 Run the persona_injector LLM agent to generate a persona+schedules JSON block.
 
 Usage:
-  python app/src/run_persona_injector.py --input raw_persona.txt --output app/src/driftville_personas.json
-
-By default prints the LLM JSON to stdout. If --output is provided, writes there.
+  1. for custom input/output path
+    python app/src/run_persona_injector.py --input raw_persona.txt --output app/src/driftville_personas.json
+  2. for default input/output path
+    python app/src/run_persona_injector.py
 """
 
 import argparse
