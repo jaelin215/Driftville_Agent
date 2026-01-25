@@ -19,13 +19,13 @@ matplotlib = "^3.10.8"
 google-adk = "^1.21.0"
 flask = "^3.1.2"
 ollama = "^0.6.1"
+litellm = ">=1.45.0"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.13.2"
 black = "^24.10.0"
 flake8 = "^7.1.1"
 pytest = "^8.3.3"
-litellm = {version = "<1.81.1", extras = ["proxy"]}
 
 [tool.black]
 line-length = 88

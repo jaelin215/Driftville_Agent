@@ -4,6 +4,7 @@
 # Description: Ollama client wrapper with rate limiting for agent calls.
 # --------------------------------------
 import asyncio
+import os
 import sys
 import time
 from collections import deque
@@ -54,7 +55,10 @@ async def call_ollama(prompt, model=None, temperature=None, use_stream=False):
     final_model_name = model or MODEL_NAME
     final_temperature = temperature or MODEL_TEMPERATURE
     start_time = time.time()
-    client = Client()
+    api_key = os.getenv("OLLAMA_API_KEY")
+    # For Ollama cloud service, embed API key in the host URL
+    host = f"https://ollama-api:{api_key}@api.ollama.com"
+    client = Client(host=host)
 
     try:
         messages = [

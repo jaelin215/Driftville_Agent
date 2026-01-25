@@ -178,7 +178,45 @@
 - to see if langfuse records MODEL_NAME tag correctly. -- OK
 - to see if log files have MODEL_NAME suffix correctly. -- OK
 - deepseek model doesn't seem to show much variation in drift content and rationale.
-
+- having issues with local environemnt and macos finder.
+- moving to github codespace
+- pipx install poetry
+- poetry install
+- poetry lock
+- creating .env file
+- python -m pip install ollama==0.6.1
+- curl -fsSL https://ollama.com/install.sh | sh
+- ollama serve > /tmp/ollama.log 2>&1 &
+- ollama pull deepseek-v3.2:cloud
+- I had an issue installing ollama. 
+- although, I have ollama installed through poetry, from CLI, I was not able to acces the ollama command.
+- so, I had to run ollama demon to pull models from ollama cloud.
+- now, it worked.
+- ollama pull gpt-oss:20b-cloud
+- ollama pull gpt-oss:120b-cloud
+- ollama pull gpt-oss:20b
+- this is 13GB. This affects github codespace monthly 20GB space. Cancelled it.
+- only cloud models are okay. these don't take up codespace 20GB space.
+- now, I still get 401 error when trying to run ollama sample code.
+- ollama signin is required.
+- ollama signin
+- You need to be signed in to Ollama to run Cloud models.
+- To sign in, navigate to: xxx URL was provided. Clicked to connect this codespace to my ollama account.
+- now it's working with ollama sample code
+- poetry run python app/src/utils/run_ollama_sample.py
+- let's try litellm sample file
+- poetry run python app/src/utils/run_litellm_sample.py
+- both are working now. good.
+- now, let's try simulator with gemini-3-flash-preview:cloud
+- poetry show litellm
+- currently litellm 1.9.4 is installed (2023 version)
+- let's reinstall depedencies
+- poetry install --no-root
+- poetry lock --no-update
+- poetry lock
+- refer to ollama cloud documentation
+https://docs.ollama.com/cloud#python
+- 
 
 
 
