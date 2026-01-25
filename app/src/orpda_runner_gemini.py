@@ -36,7 +36,7 @@ if str(REPO_ROOT) not in sys.path:
 from app.config.config import (
     LOAD_PROMPT_FROM_LANGFUSE,
     MODEL_NAME,
-    MODEL_TEMPERATURE,
+    # MODEL_TEMPERATURE,
     NUM_TICKS,
     PERSONA_NAME,
     SIM_START_TIME,

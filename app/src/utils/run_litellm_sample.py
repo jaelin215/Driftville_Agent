@@ -4,11 +4,10 @@
 ###
 
 
-import os
 import time
+
 from dotenv import load_dotenv
 from litellm import completion
-import litellm
 
 # set callbacks
 # log input/output to langfuse

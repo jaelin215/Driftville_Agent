@@ -9,8 +9,8 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request
 
 load_dotenv()

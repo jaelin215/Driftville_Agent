@@ -1,17 +1,15 @@
-# app/src/llm_api.py
+# app/src/ollama_api.py
 # --------------------------------------
 # Author: Jaelin Lee
 # Description: Ollama client wrapper with rate limiting for agent calls.
 # --------------------------------------
-import warnings
 import asyncio
-import os
 import sys
 import time
 from collections import deque
 from pathlib import Path
+
 from dotenv import load_dotenv
-from google import genai
 from ollama import Client
 
 # Paths

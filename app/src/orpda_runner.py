@@ -11,11 +11,11 @@ Minimal ORPDA engine:
 - Extracts structured JSON from model output
 """
 
-import warnings
+import asyncio
 import json
 import logging
 import sys
-import asyncio
+import warnings
 from pathlib import Path
 
 warnings.filterwarnings("ignore", message=".*Pydantic serializer warnings.*")
@@ -42,15 +42,14 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 from app.config.config import (
     LOAD_PROMPT_FROM_LANGFUSE,
-    MODEL_TEMPERATURE,
     MODEL_NAME,
+    # MODEL_TEMPERATURE,
     NUM_TICKS,
     PERSONA_NAME,
     SIM_START_TIME,
     USE_DRIFT,
 )
 from app.src.observe_non_llm_agent import deterministic_observe
-from app.src.ollama_api import call_ollama
 
 # Initialize local/cloud Ollama model via LiteLLM
 try:

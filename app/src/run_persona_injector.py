@@ -15,7 +15,6 @@ By default prints the LLM JSON to stdout. If --output is provided, writes there.
 import argparse
 import asyncio
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -24,8 +23,9 @@ ROOT = Path(__file__).resolve().parents[2]
 # print(ROOT)
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from app.config.config import MODEL_NAME, MODEL_TEMPERATURE
 import yaml
+
+from app.config.config import MODEL_NAME, MODEL_TEMPERATURE
 
 try:
     from dotenv import load_dotenv
