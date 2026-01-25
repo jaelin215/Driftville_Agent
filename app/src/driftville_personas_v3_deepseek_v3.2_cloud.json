@@ -1,0 +1,1230 @@
+[
+  {
+    "persona": {
+      "name": "Isabella Rodriguez",
+      "occupation": "Cafe owner",
+      "relationship": null,
+      "innate_tendency": ["friendly", "outgoing", "hospitable"],
+      "learned_tendency": "Isabella Rodriguez is a cafe owner of Hobbs Cafe who loves to make people feel welcome. She is always looking for ways to make the cafe a place where people can come to relax and enjoy themselves.",
+      "current_situation": "Isabella Rodriguez is planning on having a Valentine's Day party at Hobbs Cafe with her customers on February 14th, 2023 at 5pm. She is gathering party material, and is telling everyone she meets to join the party at Hobbs Cafe on February 14th, 2023, from 5pm to 7pm.",
+      "lifestyle": "Isabella Rodriguez goes to bed around 11pm, awakes up around 6am."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 360,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "steady hum of a ceiling fan, faint glow of a digital alarm clock showing 12:00, distant occasional car passing on the street, soft rustle of bedsheets with movement, low rhythmic breathing",
+        "notes": "Deep sleep cycle"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 120,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "sound of running shower water, electric toothbrush buzzing, scent of mint toothpaste, steam fogging the mirror, phone on counter screen glowing with a notification",
+        "notes": "Waking up for a busy day"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 240,
+        "location": "Hobbs_Cafe:counter",
+        "action": "work",
+        "environment_description": "espresso machine steam hissing, coffee grinder whirring, morning customer chatter, cash register beeping, phone on cafe counter vibrating with a text",
+        "notes": "Opening the cafe and serving morning rush"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 120,
+        "location": "restaurant",
+        "action": "lunch",
+        "environment_description": "clattering of plates and cutlery, background music with a soft jazz tune, sizzle from the kitchen, multiple conversations overlapping, waiter calling out order numbers",
+        "notes": "Lunch with friends to relax"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 240,
+        "location": "Hobbs_Cafe:decor_area",
+        "action": "decorate",
+        "environment_description": "rustling of paper and plastic decorations, tape dispenser clicking, ladder being adjusted, phone on table buzzing repeatedly with email alerts, distant coffee machine sounds",
+        "notes": "Preparing the cafe for tomorrow's party"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "sizzle of food in a pan, microwave beeping, refrigerator motor humming, TV news playing in the next room, knife chopping on a cutting board",
+        "notes": "Quick dinner after a long day"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 240,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV drama dialogue and soundtrack, clicking of a remote control, ceiling fan whirring, neighbor's dog barking outside, phone screen lighting up on the coffee table",
+        "notes": "Unwinding before bed"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "sound of water running in the bathroom sink, soft footsteps on carpet, clock ticking on the wall, rustle of pajamas, phone charger being plugged in with a click",
+        "notes": "Getting ready for sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Tom Moreno",
+      "occupation": "Grocery shop keeper",
+      "relationship": {"name": "Jane Moreno", "relation_type": "partner"},
+      "innate_tendency": ["rude", "aggressive", "energetic"],
+      "learned_tendency": "Tom Moreno is a grocery shop keeper at The Willow Market and Pharmacy who loves interacting with customers. He is always willing to help out and make sure everyone is taken care of.",
+      "current_situation": "Tom Moreno is living with his wife, Jane Moreno, and is managing the day to day operations at the store and helping out customers with their orders. Tom is also really interested in the local mayor election that is coming up next month. You don't like Sam Moore.",
+      "lifestyle": "Tom Moreno goes to bed around 11pm, awakes up around 7am, eats dinner around 5pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 420,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "deep snoring rhythm, faint streetlight glow through blinds, house settling creaks, distant train horn, blanket shifting",
+        "notes": "Resting for an energetic day"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "shower water drumming on tub, razor electric hum, faucet dripping, radio news broadcast from another room, phone vibrating on the sink edge",
+        "notes": "Morning energy boost"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 240,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "customer_service",
+        "environment_description": "shopping cart wheels squeaking, produce scale beeping, intercom announcements, cooler fans humming, phone in pocket buzzing with notifications",
+        "notes": "Helping morning customers"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "lunch_spot",
+        "action": "lunch",
+        "environment_description": "kitchen exhaust fan roaring, sandwich wrapper crinkling, soda can fizz opening, nearby construction jackhammering, phone on table screen flashing",
+        "notes": "Quick lunch break"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 180,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "customer_service",
+        "environment_description": "cash register drawer slamming, bag rustling, customer children crying, door chime ringing, phone vibrating in apron pocket",
+        "notes": "Afternoon shift with customers"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "snack",
+        "environment_description": "refrigerator door opening, chip bag tearing, kettle whistling, TV game show in living room, phone screen glowing with news alerts",
+        "notes": "After-work snack"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "stove burner clicking, frying pan sizzling, plates clattering, faucet running, phone on counter buzzing with a call",
+        "notes": "Dinner with wife"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 180,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV political commentary loud, recliner mechanism creaking, ice cubes clinking in glass, heater vent blowing, phone screen constantly updating with news",
+        "notes": "Watching election news"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 120,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "toothbrush buzzing, water splashing in sink, closet door sliding, bed sheets being straightened, phone charging on nightstand with screen dimly lit",
+        "notes": "Winding down after a loud day"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "ceiling fan whirring unevenly, distant ambulance siren, dog barking a few houses away, partner's steady breathing, digital clock numbers changing",
+        "notes": "Falling asleep with thoughts of the election"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Giorgio Rossi",
+      "occupation": "Mathematician",
+      "relationship": null,
+      "innate_tendency": ["analytical", "logical", "eccentric"],
+      "learned_tendency": "Giorgio Rossi is a mathematician who loves to solve challenging problems. He is always looking for ways to apply his analytical skills.",
+      "current_situation": "Giorgio Rossi is working on a research project to explore mathematical patterns in nature. He is also taking classes to stay up to date on new mathematical theories. Giorgio is also curious about who will be running for the local mayor election next month and he talks about it a lot with others.",
+      "lifestyle": "Giorgio Rossi goes to bed around midnight, awakes up around 7am, eats dinner around 4pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 420,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "quiet hum of a computer in sleep mode, occasional car headlights sweeping across the ceiling, rustle of academic papers on the floor, distant owl hooting, digital clock displaying 12:00",
+        "notes": "Sleeping after late-night research"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 120,
+        "location": "home:office",
+        "action": "morning_routine",
+        "environment_description": "kettle boiling whistle, keyboard clacking as he checks email, pen scratching on notepad, heater vent humming, phone on desk vibrating with a calendar reminder",
+        "notes": "Morning starts with checking research notes"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 180,
+        "location": "home:office",
+        "action": "research",
+        "environment_description": "multiple computer fans whirring, pages of a textbook turning, calculator button beeps, chair squeaking with movement, phone screen lighting up with a news alert",
+        "notes": "Deep focus on mathematical patterns"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "restaurant",
+        "action": "lunch",
+        "environment_description": "clatter of dishes in a busy diner, multiple conversations about politics, fryer oil bubbling, door chime constantly ringing, phone on table buzzing with messages",
+        "notes": "Lunch with friends discussing election"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:online_learning_space",
+        "action": "online_class",
+        "environment_description": "computer speaker emitting lecturer's voice, keyboard typing as he takes notes, notification ping from the learning platform, air conditioner humming, phone vibrating on the desk",
+        "notes": "Taking an online math theory class"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 120,
+        "location": "home:office",
+        "action": "research",
+        "environment_description": "printer printing pages rhythmically, mouse clicking rapidly, whiteboard marker squeaking, desk lamp buzzing faintly, phone screen flashing with email notifications",
+        "notes": "Continuing research project"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "microwave beeping, fork clinking on a plate, refrigerator compressor kicking on, TV news playing in background, phone on counter showing election updates",
+        "notes": "Early dinner while reading news"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 300,
+        "location": "home:office",
+        "action": "research",
+        "environment_description": "computer fan running at high speed, papers being shuffled, pencil tapping on desk, distant traffic sounds, phone buzzing intermittently with social media alerts",
+        "notes": "Evening deep work session"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 120,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV documentary narration, couch cushions compressing, clock ticking on the wall, heater blowing warm air, phone charging on side table with screen occasionally lighting up",
+        "notes": "Watching a documentary before bed"
+      },
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "faucet dripping, toothbrush electric hum, floorboards creaking, window blinds rattling slightly, phone on charger with a final notification glow",
+        "notes": "Late night routine after long work"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Adam Smith",
+      "occupation": "Philosopher",
+      "relationship": null,
+      "innate_tendency": ["thoughtful", "reflective", "intellectual"],
+      "learned_tendency": "Adam Smith is a philosopher who loves to explore different ideas. He is always looking for ways to challenge people’s preconceptions.",
+      "current_situation": "Adam Smith is writing a book about the importance of creativity and how it can shape the world. Adam is also curious about who will be running for the local mayor election next month.",
+      "lifestyle": "Adam Smith goes to bed around 8pm, awakes up around 4am, eats dinner around 5pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 240,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "complete darkness with only moonlight through curtains, occasional house settling pops, distant train whistle, soft rustle of blankets, digital clock glowing 12:00",
+        "notes": "Early sleep for early rise"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "quiet splash of water in sink, electric razor buzzing, soft footsteps on wooden floor, kettle beginning to whistle in kitchen, phone screen lighting up with a news alert",
+        "notes": "Very early morning start"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "running_trail",
+        "action": "jogging",
+        "environment_description": "footsteps crunching on gravel, own heavy breathing, birds beginning to chirp, distant highway hum, phone in armband vibrating with a fitness update",
+        "notes": "Morning jog to clear mind"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 120,
+        "location": "home:kitchen",
+        "action": "breakfast",
+        "environment_description": "coffee maker gurgling, spoon clinking in ceramic bowl, toast popping from toaster, refrigerator humming, phone on table showing morning news headlines",
+        "notes": "Breakfast while reading"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 120,
+        "location": "home:office",
+        "action": "reading_books",
+        "environment_description": "pages turning softly, chair creaking, clock ticking on wall, heater vent blowing, phone screen dimly lit with notification icons",
+        "notes": "Reading philosophical texts"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 120,
+        "location": "co_working_cafe",
+        "action": "meeting",
+        "environment_description": "espresso machine hissing, low murmur of other conversations, laptop keys tapping, chair scraping on floor, phone buzzing on table during discussion",
+        "notes": "Meeting with colleagues about ideas"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:office",
+        "action": "work",
+        "environment_description": "keyboard clacking steadily, mouse clicking, printer whirring to life, desk fan oscillating, phone vibrating with a text message",
+        "notes": "Writing book chapter"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "lunch",
+        "environment_description": "sandwich being assembled, knife chopping vegetables, water running from tap, radio playing classical music, phone screen showing election news",
+        "notes": "Quick lunch while thinking"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 120,
+        "location": "home:office",
+        "action": "work",
+        "environment_description": "pen scratching on paper, books being opened and closed, computer fan humming, clock chiming the hour, phone buzzing with a reminder",
+        "notes": "Continuing book writing"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "Johnson_Park",
+        "action": "walk",
+        "environment_description": "leaves rustling underfoot, distant children playing, breeze through trees, dog barking in the distance, phone in pocket vibrating with a call",
+        "notes": "Afternoon walk for reflection"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "pan sizzling on stove, plate being set on table, water boiling, cutlery clinking, phone on counter showing news notifications",
+        "notes": "Early dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, closet door opening, bed sheets being arranged, phone placed on charger with screen off",
+        "notes": "Preparing for very early bedtime"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 300,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "deep silence of early night, occasional car passing outside, house heater turning on and off, own steady breathing, digital clock glowing 19:00",
+        "notes": "Unusually early sleep time"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Sam Moore",
+      "occupation": "Retired navy officer",
+      "relationship": {"name": "Jennifer Moore", "relation_type": "partner"},
+      "innate_tendency": ["wise", "resourceful", "humorous"],
+      "learned_tendency": "Sam Moore is a retired navy officer who loves to share stories from his time in the military. He is always full of interesting stories and advice.",
+      "current_situation": "Sam Moore lives with his wife of 40 years, Jennifer Moore, and spends his free time tending the park and is an avid reader. Sam is planning on running for local mayor in the upcoming election and he is telling his neighbors about it.",
+      "lifestyle": "Sam Moore goes to bed around 9pm, awakes up around 5am, eats dinner around 5pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 300,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "steady tick of an analog clock, soft snoring, moonlight through window, distant owl call, blanket shifting",
+        "notes": "Restful sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "faucet running, electric shaver buzzing, toilet flushing, floorboards creaking, phone on counter lighting up with a news alert",
+        "notes": "Early riser routine"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 120,
+        "location": "home:garden",
+        "action": "relax",
+        "environment_description": "birds chirping loudly, watering can sprinkling, soil being turned with a trowel, distant rooster crowing, phone in pocket vibrating with a message",
+        "notes": "Morning gardening"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "Johnson_Park",
+        "action": "walk",
+        "environment_description": "footsteps on gravel path, squirrels rustling in leaves, breeze through tree branches, distant traffic sounds, phone buzzing with a call",
+        "notes": "Morning walk in the park"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "socialize",
+        "environment_description": "coffee cup clinking on saucer, espresso machine steaming, multiple conversations about local politics, chair scraping, phone on table screen glowing with notifications",
+        "notes": "Telling cafe patrons about mayoral run"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 120,
+        "location": "home:living_room",
+        "action": "reading_books",
+        "environment_description": "pages turning, clock ticking on mantle, heater vent blowing, occasional cough, phone vibrating on side table",
+        "notes": "Reading a historical book"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "lunch",
+        "environment_description": "sandwich being cut, soup simmering on stove, radio talk show playing, chair being pulled out, phone screen showing election updates",
+        "notes": "Lunch with wife"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "community_center",
+        "action": "socialize",
+        "environment_description": "multiple overlapping conversations, folding chair clattering, coffee percolator bubbling, door opening and closing, phone buzzing in pocket repeatedly",
+        "notes": "Community center chat about election"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 90,
+        "location": "home:living_room",
+        "action": "phone_call",
+        "environment_description": "own voice echoing slightly on the call, clock ticking, dog barking outside, computer keyboard typing in background, phone pressed to ear with call static",
+        "notes": "Calling friends about campaign"
+      },
+      {
+        "datetime_start": "2023-02-13 15:30",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "reading_news",
+        "environment_description": "newspaper pages rustling, glasses being adjusted, tea cup clinking, heater turning on, phone on table buzzing with texts",
+        "notes": "Reading the afternoon newspaper"
+      },
+      {
+        "datetime_start": "2023-02-13 16:30",
+        "duration_min": 30,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "pot boiling on stove, plates being set, cutlery clattering, exhaust fan humming, phone screen showing campaign messages",
+        "notes": "Early dinner preparation"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "conversation with wife, chewing sounds, water glass being set down, refrigerator door opening, phone vibrating on table",
+        "notes": "Dinner with Jennifer"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV news broadcast, recliner mechanism creaking, ice cubes in a glass, heater blowing, phone charging on side table",
+        "notes": "Watching evening news"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, pajamas being put on, bed sheets being straightened, phone placed on nightstand charger",
+        "notes": "Getting ready for bed"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "quiet house sounds, partner's breathing, distant train horn, clock ticking, occasional car passing outside",
+        "notes": "Early bedtime"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Maria Lopez",
+      "occupation": "Student and Twitch streamer",
+      "relationship": null,
+      "innate_tendency": ["energetic", "enthusiastic", "inquisitive"],
+      "learned_tendency": "Maria Lopez is a student at Oak Hill College studying physics and a part time Twitch game streamer who loves to connect with people and explore new ideas.",
+      "current_situation": "Maria Lopez is working on her physics degree and streaming games on Twitch to make some extra money. She visits Hobbs Cafe for studying and eating just about everyday.",
+      "lifestyle": "Maria Lopez goes to bed around midnight, awakes up around 10am, eats dinner around 7pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 600,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "computer monitor in sleep mode with faint power light, streetlight glow through blinds, occasional motorcycle revving outside, soft breathing, phone charging with screen off",
+        "notes": "Late night sleeper"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "shower water running, hair dryer blowing, toothpaste cap clicking, sink draining, phone on counter buzzing with notifications",
+        "notes": "Waking up late"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "study",
+        "environment_description": "keyboard clacking, pages flipping in textbook, other students whispering, chair squeaking, phone vibrating on table with messages",
+        "notes": "Studying physics"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "lunch",
+        "environment_description": "espresso machine hissing, cafe chatter, laptop keys tapping, plate clattering, phone screen glowing with social media updates",
+        "notes": "Lunch and study at cafe"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "rock_climbing_gym",
+        "action": "rock_climbing",
+        "environment_description": "chalk bag rustling, climbing holds being gripped, other climbers grunting, safety carabiners clinking, phone in locker buzzing",
+        "notes": "Rock climbing workout"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 240,
+        "location": "home:twitch_streaming_room",
+        "action": "twitch_stream",
+        "environment_description": "computer fans whirring loudly, keyboard mechanical clicks, game sound effects and music, microphone pop filter rustling, phone screen constantly lighting up with stream alerts",
+        "notes": "Twitch streaming session"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "microwave beeping, fork clinking on plate, refrigerator humming, TV playing in background, phone on counter buzzing with stream follower notifications",
+        "notes": "Quick dinner after stream"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 120,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV show dialogue and laugh track, couch cushions compressing, snack bag crinkling, heater blowing, phone screen scrolling through social media",
+        "notes": "Watching TV to unwind"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 180,
+        "location": "home:twitch_streaming_room",
+        "action": "study",
+        "environment_description": "computer fan humming, textbook pages turning, calculator buttons beeping, chair adjusting, phone vibrating with messages from classmates",
+        "notes": "Evening physics study"
+      },
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, pajamas being pulled on, bed sheets rustling, phone placed on charger with final notifications",
+        "notes": "Late night routine"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Mei Lin",
+      "occupation": "College professor and mom",
+      "relationship": {"name": "John Lin", "relation_type": "partner"},
+      "innate_tendency": ["nurturing", "kind", "patient"],
+      "learned_tendency": "Mei Lin is a college professor and a mom who loves to help people reach their goals. She is always looking for ways to support her students and her family.",
+      "current_situation": "Mei Lin is living with her husband, John Lin, and son, Eddy Lin, and is teaching a course on philosophy and working on her research paper. She also is helping her two kids with their schoolwork.",
+      "lifestyle": "Mei Lin goes to bed around 11pm, awakes up around 7am, eats dinner around 5pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 420,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "quiet hum of a white noise machine, partner's steady breathing, distant refrigerator cycling, moonlight through curtains, clock ticking softly",
+        "notes": "Restful sleep before busy day"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "shower water running, hairbrush pulling through hair, toothpaste cap clicking, sink draining, phone on counter buzzing with a calendar alert",
+        "notes": "Getting ready for the day"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "breakfast",
+        "environment_description": "toaster popping, cereal being poured into bowl, milk carton opening, son talking about his day, phone vibrating with email notifications",
+        "notes": "Breakfast with son"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "commute",
+        "action": "commuting",
+        "environment_description": "car engine humming, radio news broadcast, turn signal clicking, other car horns occasionally, phone in cup holder buzzing with a text",
+        "notes": "Driving to college"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 240,
+        "location": "Oak_Hill_College:college_classroom",
+        "action": "teaching",
+        "environment_description": "student chatter before class, projector fan humming, chalk writing on board, chairs scraping, phone in bag vibrating during lecture",
+        "notes": "Teaching philosophy class"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:library",
+        "action": "research",
+        "environment_description": "pages turning quietly, keyboard typing, library printer whirring, distant coughs, phone on silent but screen lighting up",
+        "notes": "Working on research paper"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "commute",
+        "action": "commuting",
+        "environment_description": "car engine starting, traffic sounds, radio playing soft music, windshield wipers swishing (if rain), phone buzzing with a call",
+        "notes": "Driving home from college"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 30,
+        "location": "home:office",
+        "action": "mentoring",
+        "environment_description": "computer keyboard typing, video call voices from speaker, chair rolling, clock ticking, phone vibrating with a text from son",
+        "notes": "Helping son with homework"
+      },
+      {
+        "datetime_start": "2023-02-13 16:30",
+        "duration_min": 30,
+        "location": "home:kitchen",
+        "action": "cook",
+        "environment_description": "knife chopping on cutting board, stove burner clicking on, water boiling, refrigerator door opening, phone on counter screen glowing",
+        "notes": "Preparing dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "family conversation, plates clinking, glasses being set down, oven timer beeping, phone buzzing with a work email",
+        "notes": "Family dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 180,
+        "location": "home:office",
+        "action": "research",
+        "environment_description": "keyboard clacking, papers shuffling, desk lamp humming, heater vent blowing, phone screen showing multiple notification icons",
+        "notes": "Evening work on research paper"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 120,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV drama soundtrack, couch cushions compressing, tea cup clinking, clock chiming, phone charging on side table",
+        "notes": "Watching TV with husband"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, pajamas being put on, bed sheets being straightened, phone placed on charger",
+        "notes": "Getting ready for bed"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Jennifer Moore",
+      "occupation": "Watercolor painter",
+      "relationship": {"name": "Sam Moore", "relation_type": "partner"},
+      "innate_tendency": ["wise", "experienced", "warm"],
+      "learned_tendency": "Jennifer Moore is a watercolor painter who has been painting for over fifty years. She is wise and experienced, and her work is full of warmth.",
+      "current_situation": "Jennifer Moore lives with her husband of 40 years, Sam Moore, and is preparing for an exhibition of her work. She is also mentoring younger artists to help them find their own creative voice.",
+      "lifestyle": "Jennifer Moore goes to bed around 9pm, awakes up around 5am, eats dinner around 5pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 300,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft snoring from partner, clock ticking on wall, moonlight through window, house settling creaks, blanket shifting",
+        "notes": "Peaceful sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "faucet dripping, toothbrush buzzing, water splashing, floorboards creaking, phone on counter lighting up with a news alert",
+        "notes": "Early morning routine"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 120,
+        "location": "home:garden",
+        "action": "relax",
+        "environment_description": "birds chirping, watering can sprinkling, soil being turned, distant rooster crowing, phone in pocket vibrating with a message",
+        "notes": "Morning gardening with husband"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 240,
+        "location": "painting_studio",
+        "action": "painting",
+        "environment_description": "brush swishing on paper, water cup being dipped into, palette knife scraping, chair scraping on floor, phone on easel shelf buzzing",
+        "notes": "Painting for exhibition"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "lunch",
+        "environment_description": "sandwich being assembled, kettle whistling, chair being pulled out, radio playing classical music, phone screen showing texts",
+        "notes": "Lunch with husband"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 180,
+        "location": "art_studio",
+        "action": "mentoring",
+        "environment_description": "student's brush strokes on canvas, gentle critique being given, studio ventilation humming, other artists chatting, phone vibrating in apron pocket",
+        "notes": "Mentoring a young artist"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "pot boiling on stove, plates being set, cutlery clattering, conversation with husband, phone on counter buzzing",
+        "notes": "Preparing dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "eating sounds, glasses clinking, conversation about the day, refrigerator humming, phone screen showing exhibition updates",
+        "notes": "Dinner with Sam"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV news broadcast, recliner creaking, knitting needles clicking, heater blowing, phone charging on side table",
+        "notes": "Watching news with husband"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 120,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, pajamas being put on, bed sheets being straightened, phone placed on nightstand",
+        "notes": "Early bedtime routine"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 180,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "quiet house, partner's breathing, clock ticking, occasional car passing, moonlight through window",
+        "notes": "Sleeping early"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Hailey Johnson",
+      "occupation": "Writer",
+      "relationship": null,
+      "innate_tendency": ["imaginative", "energetic", "resourceful"],
+      "learned_tendency": "Hailey Johnson is a writer who is always looking for new ways to tell stories. She loves to immerse herself in different cultures and explore their literature.",
+      "current_situation": "Hailey Johnson is writing a novel about a group of artists living in a co-living space. She is also planning to start a podcast.",
+      "lifestyle": "Hailey Johnson goes to bed around 2am, awakes up around 10am, eats dinner around 6pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 600,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "computer monitor standby light glowing, street noise filtering through window, occasional siren in distance, soft breathing, phone charging with screen off",
+        "notes": "Late night sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 120,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "shower water running, hair dryer blowing, makeup containers clinking, sink draining, phone on counter buzzing with notifications",
+        "notes": "Waking up late"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "co_working_cafe",
+        "action": "lunch",
+        "environment_description": "espresso machine steaming, cafe chatter, laptop keys tapping, plate clattering, phone screen glowing with social media",
+        "notes": "Lunch at a cafe"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 240,
+        "location": "writer_desk",
+        "action": "writing",
+        "environment_description": "keyboard mechanical clicks, chair squeaking, pages being printed, desk fan whirring, phone vibrating constantly with messages",
+        "notes": "Writing novel chapter"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "running_trail",
+        "action": "walk",
+        "environment_description": "footsteps on gravel, birds chirping, breeze through trees, distant traffic, phone in armband vibrating with a call",
+        "notes": "Evening walk for inspiration"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "pan sizzling, plate being set, microwave beeping, TV playing in background, phone on counter buzzing with notifications",
+        "notes": "Cooking dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV show dialogue and soundtrack, couch cushions compressing, snack bag crinkling, heater blowing, phone screen scrolling through apps",
+        "notes": "Watching TV to relax"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 240,
+        "location": "writer_desk",
+        "action": "writing",
+        "environment_description": "keyboard clacking rapidly, mouse clicking, desk lamp buzzing, clock ticking, phone screen lighting up with email alerts",
+        "notes": "Late night writing session"
+      },
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 120,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, pajamas being put on, bed sheets rustling, phone placed on charger with final notifications",
+        "notes": "Very late night routine"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Eddy Lin",
+      "occupation": "Music theory student",
+      "relationship": null,
+      "innate_tendency": ["curious", "analytical", "musical"],
+      "learned_tendency": "Eddy Lin is a student at Oak Hill College studying music theory and composition. He loves to explore different musical styles and is always looking for ways to expand his knowledge.",
+      "current_situation": "Eddy Lin is working on a composition project for his college class. He is also taking classes to learn more about music theory.",
+      "lifestyle": "Eddy Lin goes to bed around 11pm, awakes up around 7am, eats dinner around 5pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 420,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "quiet hum of a computer in sleep mode, streetlight glow through blinds, occasional car passing, soft breathing, phone charging with screen off",
+        "notes": "Resting for classes"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "shower water running, toothbrush buzzing, faucet dripping, floorboards creaking, phone on counter buzzing with an alarm",
+        "notes": "Morning routine"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 30,
+        "location": "home:kitchen",
+        "action": "breakfast",
+        "environment_description": "cereal being poured, milk carton opening, toaster popping, mom talking, phone screen showing class schedule",
+        "notes": "Quick breakfast"
+      },
+      {
+        "datetime_start": "2023-02-13 08:30",
+        "duration_min": 90,
+        "location": "commute",
+        "action": "commuting",
+        "environment_description": "bus engine rumbling, other passengers chatting, bus door opening and closing, traffic sounds, phone in hand buzzing with messages",
+        "notes": "Commuting to college"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 105,
+        "location": "Oak_Hill_College:college_classroom",
+        "action": "class",
+        "environment_description": "professor lecturing, student whispers, projector fan humming, chairs scraping, phone in bag vibrating",
+        "notes": "Music theory class"
+      },
+      {
+        "datetime_start": "2023-02-13 11:45",
+        "duration_min": 75,
+        "location": "Oak_Hill_College:study_area",
+        "action": "lunch",
+        "environment_description": "cafeteria chatter, tray sliding, fork clinking on plate, vending machine humming, phone screen glowing with notifications",
+        "notes": "Lunch on campus"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:music_practice_room",
+        "action": "class",
+        "environment_description": "piano keys being played, instructor giving feedback, metronome ticking, other instruments in adjacent rooms, phone on piano buzzing",
+        "notes": "Composition class"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 210,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "study",
+        "environment_description": "espresso machine hissing, cafe chatter, laptop keys tapping, chair scraping, phone screen showing music theory apps",
+        "notes": "Studying at cafe"
+      },
+      {
+        "datetime_start": "2023-02-13 17:30",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "family conversation, plates clinking, glasses being set, oven timer beeping, phone buzzing with a message from friend",
+        "notes": "Family dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 18:30",
+        "duration_min": 90,
+        "location": "home:office",
+        "action": "review_assignments",
+        "environment_description": "keyboard typing, pages turning, desk lamp humming, clock ticking, phone vibrating with class notifications",
+        "notes": "Reviewing assignments"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 180,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV show soundtrack, couch cushions compressing, video game controller clicks, heater blowing, phone screen scrolling through social media",
+        "notes": "Relaxing after studying"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, pajamas being put on, bed sheets rustling, phone placed on charger",
+        "notes": "Getting ready for bed"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "John Lin",
+      "occupation": "Pharmacy shop keeper",
+      "relationship": {"name": "Mei Lin", "relation_type": "partner"},
+      "innate_tendency": ["patient", "kind", "organized"],
+      "learned_tendency": "John Lin is a pharmacy shop keeper at the Willow Market and Pharmacy who loves to help people. He is always looking for ways to make the process of getting medication easier for his customers.",
+      "current_situation": "John Lin is living with his wife, Mei Lin, and son, Eddy Lin, and is shop keeping a pharmacy at the Willow Market and Pharmacy. He is also taking online classes to stay up to date on new medications and treatments. John is also curious about who will be running for the local mayor election next month and he is asking everyone he meets about who will be running in the election.",
+      "lifestyle": "John Lin goes to bed around 10pm, awakes up around 6am, eats dinner around 5pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 360,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "quiet hum of a ceiling fan, partner's steady breathing, distant refrigerator cycling, moonlight through curtains, clock ticking softly",
+        "notes": "Restful sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "shower water running, electric shaver buzzing, toothpaste cap clicking, sink draining, phone on counter buzzing with a news alert",
+        "notes": "Morning routine"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 120,
+        "location": "home:kitchen",
+        "action": "breakfast",
+        "environment_description": "coffee maker gurgling, cereal being poured, toaster popping, son talking about his day, phone screen showing election news",
+        "notes": "Breakfast with family"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "commute",
+        "action": "commuting",
+        "environment_description": "car engine humming, radio news broadcast, turn signal clicking, traffic sounds, phone in cup holder buzzing with a text",
+        "notes": "Driving to work"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 120,
+        "location": "Willow_Market_and_Pharmacy:pharmacy_counter",
+        "action": "customer_service",
+        "environment_description": "prescription bottle shaking, printer printing labels, customer questions, phone ringing at counter, phone in pocket vibrating",
+        "notes": "Handling customer queries"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "lunch_spot",
+        "action": "lunch",
+        "environment_description": "kitchen exhaust fan, sandwich wrapper crinkling, soda can fizz opening, conversations about politics, phone on table buzzing with news",
+        "notes": "Lunch break discussing election"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:pharmacy_stockroom",
+        "action": "restocking",
+        "environment_description": "boxes being opened, pill bottles rattling, shelf labels being printed, inventory scanner beeping, phone vibrating in pocket",
+        "notes": "Restocking pharmacy shelves"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 180,
+        "location": "Willow_Market_and_Pharmacy:pharmacy_counter",
+        "action": "customer_service",
+        "environment_description": "cash register beeping, customer conversations, phone ringing, computer keyboard typing, phone screen showing multiple notifications",
+        "notes": "Afternoon customer service"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "commute",
+        "action": "commuting",
+        "environment_description": "car engine starting, traffic sounds, radio playing, windshield wipers swishing, phone buzzing with a call from wife",
+        "notes": "Driving home"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "family conversation, plates clinking, glasses being set, oven timer beeping, phone on counter buzzing with work email",
+        "notes": "Family dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:office",
+        "action": "online_class",
+        "environment_description": "computer speaker with lecturer's voice, keyboard typing as he takes notes, notification ping from learning platform, desk fan humming, phone vibrating on desk",
+        "notes": "Online medication class"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 120,
+        "location": "home:living_room",
+        "action": "relax",
+        "environment_description": "TV news broadcast, couch cushions compressing, tea cup clinking, heater blowing, phone screen showing election updates",
+        "notes": "Watching news with family"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, pajamas being put on, bed sheets being straightened, phone placed on charger",
+        "notes": "Getting ready for bed"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Abigail Chen",
+      "occupation": "Digital artist and animator",
+      "relationship": null,
+      "innate_tendency": ["open-minded", "curious", "determined"],
+      "learned_tendency": "Abigail Chen is a digital artist and animator who loves to explore how technology can be used to express ideas. She is always looking for new ways to combine art and technology.",
+      "current_situation": "Abigail Chen is working on an animation project for a client. She is also experimenting with different tools and techniques to create interactive art.",
+      "lifestyle": "Abigail Chen goes to bed around midnight, awakes up around 8am, eats dinner around 6pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 480,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "computer monitor standby light glowing, street noise filtering through window, occasional siren in distance, soft breathing, phone charging with screen off",
+        "notes": "Sleeping after late work"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 30,
+        "location": "home:bathroom",
+        "action": "morning_routine",
+        "environment_description": "shower water running, toothbrush buzzing, makeup containers clinking, sink draining, phone on counter buzzing with notifications",
+        "notes": "Morning routine"
+      },
+      {
+        "datetime_start": "2023-02-13 08:30",
+        "duration_min": 210,
+        "location": "animation_workspace",
+        "action": "animation",
+        "environment_description": "graphics tablet pen tapping, computer fans whirring, animation software sound effects, chair rolling, phone vibrating constantly with client emails",
+        "notes": "Working on animation project"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "lunch",
+        "environment_description": "microwave beeping, fork clinking on plate, refrigerator humming, TV playing in background, phone screen showing social media",
+        "notes": "Quick lunch break"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 270,
+        "location": "animation_workspace",
+        "action": "animation",
+        "environment_description": "keyboard mechanical clicks, mouse scrolling, rendering progress bar beeping, desk fan oscillating, phone screen lighting up with notification banners",
+        "notes": "Continuing animation work"
+      },
+      {
+        "datetime_start": "2023-02-13 17:30",
+        "duration_min": 60,
+        "location": "running_trail",
+        "action": "jogging",
+        "environment_description": "footsteps on pavement, own heavy breathing, birds chirping, distant traffic, phone in armband vibrating with fitness app updates",
+        "notes": "Evening jog to clear mind"
+      },
+      {
+        "datetime_start": "2023-02-13 18:30",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "dinner",
+        "environment_description": "pan sizzling, plate being set, microwave beeping, TV playing, phone on counter buzzing with messages",
+        "notes": "Cooking dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 19:30",
+        "duration_min": 90,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV show dialogue and soundtrack, couch cushions compressing, snack bag crinkling, heater blowing, phone screen scrolling through apps",
+        "notes": "Watching TV to relax"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 180,
+        "location": "animation_workspace",
+        "action": "animation",
+        "environment_description": "graphics tablet pen swiping, computer fans running high, music playing through headphones, clock ticking, phone vibrating with final client emails",
+        "notes": "Late night work session"
+      },
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "water running in bathroom, toothbrush buzzing, pajamas being put on, bed sheets rustling, phone placed on charger with final notifications",
+        "notes": "Late night routine"
+      }
+    ]
+  }
+]

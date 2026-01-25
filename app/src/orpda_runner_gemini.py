@@ -1,8 +1,8 @@
-# app/src/orpda_runner.py
+# app/src/orpda_runner_gemini.py
 # --------------------------------------
 # Author: Jaelin Lee
 # Description: Builds the YAML-defined agent graph and runs a single ORPDA cycle.
-# This file uses Ollama/LiteLLM API [Free]
+# This file uses Gemini API [paid]
 # --------------------------------------
 """
 orpda_runner.py
@@ -12,21 +12,17 @@ Minimal ORPDA engine:
 - Extracts structured JSON from model output
 """
 
-import asyncio
 import json
 import logging
 import sys
-import warnings
 from pathlib import Path
-
-warnings.filterwarnings("ignore", message=".*Pydantic serializer warnings.*")
 
 import yaml
 from dotenv import load_dotenv
 from google.adk.agents import LlmAgent, LoopAgent, ParallelAgent, SequentialAgent
 from google.adk.agents.base_agent import BaseAgent
 from google.adk.events import Event, EventActions
-from google.adk.models.lite_llm import LiteLlm
+from google.adk.models.google_llm import Gemini
 from google.adk.runners import InMemoryRunner
 from google.genai.types import Content, Part
 from langfuse import Langfuse, get_client, propagate_attributes
@@ -36,7 +32,6 @@ from opentelemetry import trace
 # Load environment & paths
 # -------------------------
 REPO_ROOT = Path(__file__).resolve().parents[2]
-print(REPO_ROOT)
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 from app.config.config import (  # MODEL_TEMPERATURE,
@@ -49,14 +44,7 @@ from app.config.config import (  # MODEL_TEMPERATURE,
 )
 from app.src.observe_non_llm_agent import deterministic_observe
 
-# Initialize local/cloud Ollama model via LiteLLM
-try:
-    my_local_model = LiteLlm(model=f"ollama/{MODEL_NAME}")
-    print("Successfully loaded a model via LiteLLM")
-except Exception as e:
-    print(f"Error: {type(e).__name__}: {e}")
-    print("Failed to load model via LiteLLM")
-print("import complete")
+# from app.src.observe_non_llm_agent import deterministic_observe
 
 load_dotenv()
 
@@ -195,7 +183,7 @@ def build_observation(ctx: dict) -> dict:
     slot_duration = current_slot.get("duration_min", 15) or 15
     duration_min = min(slot_duration, 15)
 
-    # 3) Simple factual summary (can be refined later)
+    # 3) Simple factual summary (you can refine later)
     state_summary = f"{name} is at {location} doing {action}."
     state_summary = state_summary[:160]  # keep it short
 
@@ -245,7 +233,7 @@ def build_agent(cfg_path: Path):
             max_iterations=cfg.get("max_iterations", 15),  # avoid runaway loops
         )
 
-    # Non-LLM tool agent (for Symbolic Observer)
+    # Non-LLM tool agent
     if cls == "ToolAgent":
         tool = cfg.get("tool_name")
         if tool == "deterministic_observer":
@@ -264,7 +252,7 @@ def build_agent(cfg_path: Path):
 
     llm = LlmAgent(
         name=cfg["name"],
-        model=my_local_model,
+        model=Gemini(model=MODEL_NAME),
         instruction=instruction_field,
         tools=[],
     )
@@ -303,7 +291,6 @@ def create_dynamic_instruction(
                 label,
                 exc_info=True,
             )
-            pass  # don't break the run if linkage fails
 
         if prompt:
             return prompt.compile()
@@ -348,7 +335,7 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
 
     reflector_agent = LlmAgent(
         name="reflector",
-        model=my_local_model,
+        model=Gemini(model=MODEL_NAME),
         include_contents="none",  # default | none
         instruction=create_dynamic_instruction(
             langfuse, reflector_prompt_path, label="latest"
@@ -358,7 +345,7 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
 
     planner_agent = LlmAgent(
         name="planner",
-        model=my_local_model,
+        model=Gemini(model=MODEL_NAME),
         include_contents="none",  # default | none
         instruction=create_dynamic_instruction(
             langfuse, planner_prompt_path, label="latest"
@@ -368,7 +355,7 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
 
     drifter_agent = LlmAgent(
         name="drifter",
-        model=my_local_model,
+        model=Gemini(model=MODEL_NAME),
         include_contents="default",  # default | none
         instruction=create_dynamic_instruction(
             langfuse, drifter_prompt_path, label="latest"
@@ -378,7 +365,7 @@ def build_agent_from_langfuse_prompt(cfg_path: Path):
 
     actor_agent = LlmAgent(
         name="actor",
-        model=my_local_model,
+        model=Gemini(model=MODEL_NAME),
         include_contents="none",  # default | none
         instruction=create_dynamic_instruction(
             langfuse, actor_prompt_path, label="latest"
@@ -508,39 +495,6 @@ async def run_orpda_cycle(context: dict) -> dict:
 
 if __name__ == "__main__":
     print("orpda_runner loaded (clean mode).")
-    context = {
-        "persona": {
-            "name": "Isabella Rodriguez",
-            "occupation": "Cafe Owner",
-            "relationship": {"name": "", "relation_type": "family"},
-            "innate_tendency": ["friendly", "outgoing", "hospitable"],
-            "learned_tendency": "Isabella Rodriguez is a cafe owner who loves to make people feel welcome.",
-            "current_situation": "Planning a Valentine's Day party.",
-            "lifestyle": "goes to bed around 11pm, wakes around 6am.",
-        },
-        "schedule": [
-            {
-                "datetime_start": "2023-02-13 06:00",
-                "duration_min": 15,
-                "location": "home:bedroom",
-                "action": "morning_routine",
-                "environment_description": "alarm clock ringing, coffee machine whirring, sunlight filtering",
-                "notes": "morning routine",
-            },
-            {
-                "datetime_start": "2023-02-13 08:00",
-                "duration_min": 15,
-                "location": "Hobbs_Cafe:main_floor",
-                "action": "work",
-                "environment_description": "espresso machine whirring, customers ordering, music playing",
-                "notes": "opening cafe",
-            },
-        ],
-    }
 
     async def run():
-        response = await run_orpda_cycle(context=context)
-        print("Response:", response)
-        return response
-
-    asyncio.run(run())
+        await run_orpda_cycle("hello")

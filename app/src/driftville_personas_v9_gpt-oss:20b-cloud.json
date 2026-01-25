@@ -1,0 +1,2546 @@
+[
+  {
+    "persona": {
+      "name": "Isabella Rodriguez",
+      "occupation": "Cafe Owner",
+      "relationship": {
+        "name": "N/A",
+        "relation_type": "family"
+      },
+      "innate_tendency": [
+        "friendly",
+        "outgoing",
+        "hospitable"
+      ],
+      "learned_tendency": "Isabella Rodriguez is a cafe owner of Hobbs Cafe who loves to make people feel welcome.",
+      "current_situation": "Planning a Valentine's Day party at Hobbs Cafe on February 14th, 2023 from 5pm to 7pm.",
+      "lifestyle": "Wakes at 6am, goes to bed at 11pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "morning_routine",
+        "environment_description": "stove preheating, kettle boiling, phone notifications, morning news on TV, neighbor's cat meowing",
+        "notes": "preparing breakfast"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "work",
+        "environment_description": "espresso machine steaming, chatter of customers, phone notifications, email pings, background music, doorbell rings",
+        "notes": "busy opening hours"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "work",
+        "environment_description": "espresso machine steaming, chatter of customers, phone notifications, email pings, background music, doorbell rings",
+        "notes": "busy opening hours"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "work",
+        "environment_description": "espresso machine steaming, chatter of customers, phone notifications, email pings, background music, doorbell rings",
+        "notes": "busy opening hours"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "work",
+        "environment_description": "espresso machine steaming, chatter of customers, phone notifications, email pings, background music, doorbell rings",
+        "notes": "busy opening hours"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "lunch",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "catching up with friends"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "lunch",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "catching up with friends"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "prepare_for_party",
+        "environment_description": "decorating sounds, tape measure, phone notifications, email pings, background music, customers chatting",
+        "notes": "gathering supplies"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "prepare_for_party",
+        "environment_description": "decorating sounds, tape measure, phone notifications, email pings, background music, customers chatting",
+        "notes": "gathering supplies"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "prepare_for_party",
+        "environment_description": "decorating sounds, tape measure, phone notifications, email pings, background music, customers chatting",
+        "notes": "gathering supplies"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "party",
+        "environment_description": "music playing, laughter, clinking glasses, phone notifications, email pings, lights dimming, customers chatting",
+        "notes": "Valentine's celebration"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:main_floor",
+        "action": "party",
+        "environment_description": "music playing, laughter, clinking glasses, phone notifications, email pings, lights dimming, customers chatting",
+        "notes": "Valentine's celebration"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "free_time",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "relaxing after party"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "free_time",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "relaxing after party"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "free_time",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "relaxing after party"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Tom Moreno",
+      "occupation": "Grocery Shop Keeper",
+      "relationship": {
+        "name": "Jane Moreno",
+        "relation_type": "partner"
+      },
+      "innate_tendency": [
+        "rude",
+        "aggressive",
+        "energetic"
+      ],
+      "learned_tendency": "Tom Moreno is a grocery shop keeper at The Willow Market and Pharmacy who loves interacting with customers. He is always willing to help out and make sure everyone is taken care of.",
+      "current_situation": "Managing day to day operations at the store and helping out customers with their orders.",
+      "lifestyle": "Wakes at 7am, goes to bed at 11pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:kitchen",
+        "action": "morning_routine",
+        "environment_description": "stove preheating, kettle boiling, phone notifications, morning news on TV, neighbor's cat meowing",
+        "notes": "preparing breakfast"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "open",
+        "environment_description": "cash register chime, customers chatting, phone notifications, email pings, background music, doorbell rings",
+        "notes": "opening store"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "open",
+        "environment_description": "cash register chime, customers chatting, phone notifications, email pings, background music, doorbell rings",
+        "notes": "opening store"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "open",
+        "environment_description": "cash register chime, customers chatting, phone notifications, email pings, background music, doorbell rings",
+        "notes": "opening store"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "open",
+        "environment_description": "cash register chime, customers chatting, phone notifications, email pings, background music, doorbell rings",
+        "notes": "opening store"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "lunch",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "lunch break"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "lunch",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "lunch break"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "help_customers",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "assisting shoppers"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "help_customers",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "assisting shoppers"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "help_customers",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "assisting shoppers"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "help_customers",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "assisting shoppers"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "close",
+        "environment_description": "closing checks, phone notifications, email pings, background music, cashier humming",
+        "notes": "closing store"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "snack",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "snacking"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "dinner_with_wife",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "dinner time"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "free_time",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Giorgio Rossi",
+      "occupation": "Mathematician",
+      "relationship": {
+        "name": "N/A",
+        "relation_type": "family"
+      },
+      "innate_tendency": [
+        "analytical",
+        "logical",
+        "eccentric"
+      ],
+      "learned_tendency": "Giorgio Rossi is a mathematician who loves to solve challenging problems. He is always looking for ways to apply his analytical skills.",
+      "current_situation": "Working on a research project to explore mathematical patterns in nature and taking classes to stay up to date on new mathematical theories.",
+      "lifestyle": "Wakes at 7am, goes to bed at midnight."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "research",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "research work"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "research",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "research work"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "research",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "research work"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "research",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "research work"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "lunch",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "lunch break"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "lunch",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "lunch break"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:online_learning_space",
+        "action": "online_class",
+        "environment_description": "screen glow, audio hum, phone notifications, email pings, quiet hum",
+        "notes": "online learning"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "research",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "research work"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "research",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "research work"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:library",
+        "action": "read_news",
+        "environment_description": "pages turning, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reading news"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "dinner",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "dinner time"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV playing, remote click, phone notifications, email pings, quiet hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "free_time",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "free_time",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Adam Smith",
+      "occupation": "Philosopher",
+      "relationship": {
+        "name": "N/A",
+        "relation_type": "family"
+      },
+      "innate_tendency": [
+        "thoughtful",
+        "reflective",
+        "intellectual"
+      ],
+      "learned_tendency": "Adam Smith is a philosopher who loves to explore different ideas. He is always looking for ways to challenge people\u2019s preconceptions.",
+      "current_situation": "Writing a book about the importance of creativity and how it can shape the world.",
+      "lifestyle": "Wakes at 4am, goes to bed at 8pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "read_books",
+        "environment_description": "pages turning, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reading"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "read_books",
+        "environment_description": "pages turning, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reading"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "home:meeting_room",
+        "action": "meeting",
+        "environment_description": "chairs squeaking, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "meeting"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "home:meeting_room",
+        "action": "meeting",
+        "environment_description": "chairs squeaking, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "meeting"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "work_on_book",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "writing"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "work_on_book",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "writing"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "lunch",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "lunch time"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "lunch",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "lunch time"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "walk",
+        "environment_description": "birds chirping, traffic hum, phone notifications, email pings, streetlight glow",
+        "notes": "walk"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "walk",
+        "environment_description": "birds chirping, traffic hum, phone notifications, email pings, streetlight glow",
+        "notes": "walk"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "dinner",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "dinner time"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV playing, remote click, phone notifications, email pings, quiet hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Sam Moore",
+      "occupation": "Retired Navy Officer",
+      "relationship": {
+        "name": "Jennifer Moore",
+        "relation_type": "partner"
+      },
+      "innate_tendency": [
+        "wise",
+        "resourceful",
+        "humorous"
+      ],
+      "learned_tendency": "Sam Moore is a retired navy officer who loves to share stories from his time in the military. He is always full of interesting stories and advice.",
+      "current_situation": "Spends free time tending the park and is an avid reader. Planning to run for local mayor.",
+      "lifestyle": "Wakes at 5am, goes to bed at 9pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "Johnson_Park",
+        "action": "walk",
+        "environment_description": "birds chirping, traffic hum, phone notifications, email pings, streetlight glow",
+        "notes": "morning walk"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "visit",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "visiting cafe"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "read_book",
+        "environment_description": "pages turning, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reading"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "read_book",
+        "environment_description": "pages turning, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reading"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "lunch",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "lunch time"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "lunch",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "lunch time"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "phone_call",
+        "environment_description": "phone ringing, background chatter, coffee aroma, quiet hum",
+        "notes": "calling friends"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "phone_call",
+        "environment_description": "phone ringing, background chatter, coffee aroma, quiet hum",
+        "notes": "calling friends"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "read_newspaper",
+        "environment_description": "pages turning, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reading news"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "read_newspaper",
+        "environment_description": "pages turning, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reading news"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "dinner",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "dinner time"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV playing, remote click, phone notifications, email pings, quiet hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Maria Lopez",
+      "occupation": "Student & Twitch Streamer",
+      "relationship": {
+        "name": "N/A",
+        "relation_type": "family"
+      },
+      "innate_tendency": [
+        "energetic",
+        "enthusiastic",
+        "inquisitive"
+      ],
+      "learned_tendency": "Maria Lopez is a student at Oak Hill College studying physics and a part time Twitch game streamer who loves to connect with people and explore new ideas.",
+      "current_situation": "Working on her physics degree and streaming games on Twitch to make some extra money. Visits Hobbs Cafe for studying and eating just about everyday.",
+      "lifestyle": "Wakes at 10am, goes to bed at midnight."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "study",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "studying physics"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "lunch",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "lunch break"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "study",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "studying physics"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "study",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "studying physics"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "study",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "studying physics"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "study",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "studying physics"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "study",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "studying physics"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "study",
+        "environment_description": "calculator clicking, notes, phone notifications, email pings, quiet hum",
+        "notes": "studying physics"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "twitch_stream",
+        "environment_description": "screen glow, audio hum, phone notifications, email pings, quiet hum",
+        "notes": "streaming games"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "twitch_stream",
+        "environment_description": "screen glow, audio hum, phone notifications, email pings, quiet hum",
+        "notes": "streaming games"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "twitch_stream",
+        "environment_description": "screen glow, audio hum, phone notifications, email pings, quiet hum",
+        "notes": "streaming games"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "twitch_stream",
+        "environment_description": "screen glow, audio hum, phone notifications, email pings, quiet hum",
+        "notes": "streaming games"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "dinner",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "dinner time"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Mei Lin",
+      "occupation": "College Professor & Mom",
+      "relationship": {
+        "name": "John Lin",
+        "relation_type": "partner"
+      },
+      "innate_tendency": [
+        "nurturing",
+        "kind",
+        "patient"
+      ],
+      "learned_tendency": "Mei Lin is a college professor and a mom who loves to help people reach their goals. She is always looking for ways to support her students and her family.",
+      "current_situation": "Teaching a course on philosophy, working on research paper, helping two kids with schoolwork.",
+      "lifestyle": "Wakes at 7am, goes to bed at 11pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "breakfast_with_son",
+        "environment_description": "kitchen hum, phone notifications, coffee aroma, quiet hum",
+        "notes": "breakfast with son"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "commute",
+        "environment_description": "traffic hum, car engine, phone notifications, email pings, city hum",
+        "notes": "commuting to college"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:lecture_hall",
+        "action": "teach",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "teaching class"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:lecture_hall",
+        "action": "teach",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "teaching class"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:lecture_hall",
+        "action": "teach",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "teaching class"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "lunch",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "lunch time"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "research_paper",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "working on paper"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "research_paper",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "working on paper"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "coach_eddy",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "helping son"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "cook_dinner",
+        "environment_description": "stove hissing, chopping, phone notifications, email pings, kitchen hum",
+        "notes": "cooking dinner"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Jennifer Moore",
+      "occupation": "Watercolor Painter",
+      "relationship": {
+        "name": "Sam Moore",
+        "relation_type": "partner"
+      },
+      "innate_tendency": [
+        "wise",
+        "experienced",
+        "warm"
+      ],
+      "learned_tendency": "Jennifer Moore is a watercolor painter who has been painting for over fifty years. She is wise and experienced, and her work is full of warmth.",
+      "current_situation": "Preparing for an exhibition of her work and mentoring younger artists.",
+      "lifestyle": "Wakes at 5am, goes to bed at 9pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "art_studio",
+        "action": "practice_painting",
+        "environment_description": "brush strokes, watercolor splashes, phone notifications, email pings, studio hum",
+        "notes": "painting session"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "art_studio",
+        "action": "practice_painting",
+        "environment_description": "brush strokes, watercolor splashes, phone notifications, email pings, studio hum",
+        "notes": "painting session"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "art_studio",
+        "action": "practice_painting",
+        "environment_description": "brush strokes, watercolor splashes, phone notifications, email pings, studio hum",
+        "notes": "painting session"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "art_studio",
+        "action": "practice_painting",
+        "environment_description": "brush strokes, watercolor splashes, phone notifications, email pings, studio hum",
+        "notes": "painting session"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "art_studio",
+        "action": "mentor",
+        "environment_description": "studio hum, brush strokes, phone notifications, email pings, quiet hum",
+        "notes": "mentoring artist"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "art_studio",
+        "action": "mentor",
+        "environment_description": "studio hum, brush strokes, phone notifications, email pings, quiet hum",
+        "notes": "mentoring artist"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "dinner",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "dinner time"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV playing, remote click, phone notifications, email pings, quiet hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV playing, remote click, phone notifications, email pings, quiet hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV playing, remote click, phone notifications, email pings, quiet hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "watch_tv",
+        "environment_description": "TV playing, remote click, phone notifications, email pings, quiet hum",
+        "notes": "relaxing"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Hailey Johnson",
+      "occupation": "Writer",
+      "relationship": {
+        "name": "N/A",
+        "relation_type": "family"
+      },
+      "innate_tendency": [
+        "imaginative",
+        "energetic",
+        "resourceful"
+      ],
+      "learned_tendency": "Hailey Johnson is a writer who is always looking for new ways to tell stories. She loves to immerse herself in different cultures and explore their literature.",
+      "current_situation": "Writing a novel about a group of artists living in a co-living space. Planning to start a podcast.",
+      "lifestyle": "Wakes at 10am, goes to bed at 2am."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "lunch",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "lunch time"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "lunch",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "lunch time"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "home:writing_desk",
+        "action": "write_novel",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "writing novel"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "home:writing_desk",
+        "action": "write_novel",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "writing novel"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "home:writing_desk",
+        "action": "write_novel",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "writing novel"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:writing_desk",
+        "action": "write_novel",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "writing novel"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:writing_desk",
+        "action": "write_novel",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "writing novel"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "walk",
+        "environment_description": "birds chirping, traffic hum, phone notifications, email pings, streetlight glow",
+        "notes": "walk"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "walk",
+        "environment_description": "birds chirping, traffic hum, phone notifications, email pings, streetlight glow",
+        "notes": "walk"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "walk",
+        "environment_description": "birds chirping, traffic hum, phone notifications, email pings, streetlight glow",
+        "notes": "walk"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "walk",
+        "environment_description": "birds chirping, traffic hum, phone notifications, email pings, streetlight glow",
+        "notes": "walk"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "dinner",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "dinner time"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Eddy Lin",
+      "occupation": "Music Theory Student",
+      "relationship": {
+        "name": "Mei Lin",
+        "relation_type": "parent"
+      },
+      "innate_tendency": [
+        "curious",
+        "analytical",
+        "musical"
+      ],
+      "learned_tendency": "Eddy Lin is a student at Oak Hill College studying music theory and composition. He loves to explore different musical styles and is always looking for ways to expand his knowledge.",
+      "current_situation": "Working on a composition project for his college class and taking classes to learn more about music theory.",
+      "lifestyle": "Wakes at 7am, goes to bed at 11pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "breakfast",
+        "environment_description": "kitchen hum, phone notifications, coffee aroma, quiet hum",
+        "notes": "breakfast"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "commute",
+        "environment_description": "traffic hum, car engine, phone notifications, email pings, city hum",
+        "notes": "commuting to college"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:lecture_hall",
+        "action": "classes",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "attending class"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:lecture_hall",
+        "action": "classes",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "attending class"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:lecture_hall",
+        "action": "lunch",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "lunch break"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:lecture_hall",
+        "action": "classes",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "attending class"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:lecture_hall",
+        "action": "classes",
+        "environment_description": "students chatting, projector hum, phone notifications, email pings, quiet hum",
+        "notes": "attending class"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "visit",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "visiting cafe"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "visit",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "visiting cafe"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "visit",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "visiting cafe"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "Hobbs_Cafe:counter",
+        "action": "visit",
+        "environment_description": "lunch crowd, clinking cutlery, phone notifications, email pings, kitchen hum, barista calling orders",
+        "notes": "visiting cafe"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "review_assignments",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reviewing work"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "review_assignments",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reviewing work"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "Oak_Hill_College:study_area",
+        "action": "review_assignments",
+        "environment_description": "keyboard clacking, coffee aroma, phone notifications, email pings, quiet hum",
+        "notes": "reviewing work"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "John Lin",
+      "occupation": "Pharmacy Shop Keeper",
+      "relationship": {
+        "name": "Mei Lin",
+        "relation_type": "partner"
+      },
+      "innate_tendency": [
+        "patient",
+        "kind",
+        "organized"
+      ],
+      "learned_tendency": "John Lin is a pharmacy shop keeper at the Willow Market and Pharmacy who loves to help people. He is always looking for ways to make the process of getting medication easier for his customers.",
+      "current_situation": "Managing the day to day operations at the store and helping out customers with their orders.",
+      "lifestyle": "Wakes at 6am, goes to bed at 10pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "open",
+        "environment_description": "cash register chime, customers chatting, phone notifications, email pings, background music, doorbell rings",
+        "notes": "opening store"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "open",
+        "environment_description": "cash register chime, customers chatting, phone notifications, email pings, background music, doorbell rings",
+        "notes": "opening store"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "special_tasks",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "special tasks"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "special_tasks",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "special tasks"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "lunch",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "lunch time"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:storage_room",
+        "action": "restock",
+        "environment_description": "shelves moving, phone notifications, email pings, background music, cashier humming",
+        "notes": "restocking shelves"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "customer_service",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "customer service"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "customer_service",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "customer service"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "customer_service",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "customer service"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "customer_service",
+        "environment_description": "customers asking questions, phone notifications, email pings, background music, cashier humming",
+        "notes": "customer service"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "Willow_Market_and_Pharmacy:grocery_area",
+        "action": "close",
+        "environment_description": "closing checks, phone notifications, email pings, background music, cashier humming",
+        "notes": "closing store"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "home",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "home time"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "home",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "home time"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "home",
+        "environment_description": "TV playing, phone notifications, email pings, neighbor's dog barking, kitchen hum",
+        "notes": "home time"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      }
+    ]
+  },
+  {
+    "persona": {
+      "name": "Abigail Chen",
+      "occupation": "Digital Artist & Animator",
+      "relationship": {
+        "name": "N/A",
+        "relation_type": "family"
+      },
+      "innate_tendency": [
+        "open-minded",
+        "curious",
+        "determined"
+      ],
+      "learned_tendency": "Abigail Chen is a digital artist and animator who loves to explore how technology can be used to express ideas. She is always looking for new ways to combine art and technology.",
+      "current_situation": "Working on an animation project for a client and experimenting with different tools and techniques to create interactive art.",
+      "lifestyle": "Wakes at 8am, goes to bed at 6pm."
+    },
+    "schedule": [
+      {
+        "datetime_start": "2023-02-13 00:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "preparing for day"
+      },
+      {
+        "datetime_start": "2023-02-13 01:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 02:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 03:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 04:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 05:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "sleep",
+        "environment_description": "soft hum of refrigerator, distant traffic, faint music from neighbor's apartment, phone on nightstand screen glowing, occasional email ding",
+        "notes": "deep sleep"
+      },
+      {
+        "datetime_start": "2023-02-13 06:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 07:00",
+        "duration_min": 60,
+        "location": "home:living_room",
+        "action": "morning_routine",
+        "environment_description": "coffee machine whirring, sunlight filtering through blinds, phone notifications, kitchen timer, neighbor's dog barking",
+        "notes": "energy building"
+      },
+      {
+        "datetime_start": "2023-02-13 08:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 09:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 10:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 11:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 12:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 13:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 14:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 15:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 16:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 17:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 18:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 19:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 20:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 21:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 22:00",
+        "duration_min": 60,
+        "location": "home:studio",
+        "action": "animation",
+        "environment_description": "mouse clicking, screen glow, phone notifications, email pings, studio hum",
+        "notes": "working on animation"
+      },
+      {
+        "datetime_start": "2023-02-13 23:00",
+        "duration_min": 60,
+        "location": "home:bedroom",
+        "action": "night_routine",
+        "environment_description": "soft music, phone notifications, email pings, nightlight glow, quiet hum",
+        "notes": "preparing for sleep"
+      }
+    ]
+  }
+]

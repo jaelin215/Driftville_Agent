@@ -1,0 +1,108 @@
+{
+  "persona": {
+    "name": "Isabella Rodriguez",
+    "occupation": "Cafe Owner",
+    "relationship": {
+      "name": "Tom Moreno",
+      "relation_type": "neighbor"
+    },
+    "innate_tendency": [
+      "friendly",
+      "outgoing",
+      "hospitable"
+    ],
+    "learned_tendency": "Isabella Rodriguez is a cafe owner of Hobbs Cafe who loves to make people feel welcome. She is always looking for ways to make the cafe a place where people can come to relax and enjoy themselves.",
+    "current_situation": "Isabella is currently planning a Valentine's Day party at Hobbs Cafe for February 14th, gathering supplies and inviting the community.",
+    "lifestyle": "Isabella Rodriguez goes to bed around 11pm and wakes up around 6am."
+  },
+  "schedule": [
+    {
+      "datetime_start": "2023-02-13 00:00",
+      "duration_min": 360,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "soft hum of the heater, distant wind against the window, phone on nightstand screen glowing with a silent notification",
+      "notes": "Deep sleep before a busy day of party planning."
+    },
+    {
+      "datetime_start": "2023-02-13 06:00",
+      "duration_min": 120,
+      "location": "home:bathroom",
+      "action": "morning_routine",
+      "environment_description": "water splashing in the sink, buzzing phone notifications on the counter, electric toothbrush hum, scent of lavender soap",
+      "notes": "Starting the day early to prepare for cafe opening."
+    },
+    {
+      "datetime_start": "2023-02-13 08:00",
+      "duration_min": 240,
+      "location": "Hobbs_Cafe:counter",
+      "action": "storekeeping",
+      "environment_description": "hiss of the espresso machine, background chatter of morning patrons, constant email pings from the tablet, bell chiming at the door",
+      "notes": "Managing the morning rush and greeting regulars."
+    },
+    {
+      "datetime_start": "2023-02-13 12:00",
+      "duration_min": 120,
+      "location": "lunch_spot",
+      "action": "lunch",
+      "environment_description": "clinking of silverware, loud laughter from a nearby table, phone vibrating in pocket with new messages, aroma of grilled paninis",
+      "notes": "Socializing with friends and mentioning the upcoming party."
+    },
+    {
+      "datetime_start": "2023-02-13 14:00",
+      "duration_min": 90,
+      "location": "Hobbs_Cafe:decor_area",
+      "action": "event_preparation",
+      "environment_description": "crinkle of tissue paper, buzzing phone notifications on the table, distant grinder noise from the kitchen, email pings regarding catering",
+      "notes": "Assessing party supplies and making a shopping list."
+    },
+    {
+      "datetime_start": "2023-02-13 15:30",
+      "duration_min": 90,
+      "location": "Willow_Market_and_Pharmacy:grocery_area",
+      "action": "purchase_supplies",
+      "environment_description": "rattle of shopping cart wheels, checkout scanner beeps, background chatter in the aisles, phone pinging with reminders",
+      "notes": "Buying decorations and materials for the Valentine's event."
+    },
+    {
+      "datetime_start": "2023-02-13 17:00",
+      "duration_min": 60,
+      "location": "Hobbs_Cafe:decor_area",
+      "action": "decorate",
+      "environment_description": "tape dispenser clicking, phone buzzing with social media alerts, soft background music, scent of fresh flowers",
+      "notes": "Finalizing the cafe's festive look for tomorrow."
+    },
+    {
+      "datetime_start": "2023-02-13 18:00",
+      "duration_min": 60,
+      "location": "home:kitchen",
+      "action": "dinner",
+      "environment_description": "sizzling of a pan, refrigerator hum, phone screen lighting up with email pings on the table, steam rising from a plate",
+      "notes": "Quick dinner at home after a long day at the cafe."
+    },
+    {
+      "datetime_start": "2023-02-13 19:00",
+      "duration_min": 210,
+      "location": "home:living_room",
+      "action": "relax",
+      "environment_description": "soft glow of the TV, buzzing phone notifications on the sofa, distant sirens outside, muffled chatter from neighbors",
+      "notes": "Winding down while checking the guest list."
+    },
+    {
+      "datetime_start": "2023-02-13 22:30",
+      "duration_min": 30,
+      "location": "home:bathroom",
+      "action": "night_routine",
+      "environment_description": "running water, clicking of the light switch, phone pinging one last time on the vanity, scent of mint toothpaste",
+      "notes": "Getting ready for bed to ensure a 6am wake-up."
+    },
+    {
+      "datetime_start": "2023-02-13 23:00",
+      "duration_min": 60,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "silence of the room, soft texture of linen sheets, phone charging on the nightstand with screen dark",
+      "notes": "Resting before the Valentine's Day party tomorrow."
+    }
+  ]
+}

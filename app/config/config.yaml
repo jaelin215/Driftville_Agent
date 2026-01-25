@@ -1,10 +1,18 @@
 # config.yaml
 
+ollama_models:
+  default: "deepseek-v3.2:cloud" # default model is used in ollama_api.py
+  llama: "llama2:latest" # 7b
+  mistral: "mistral:latest" # 7b
+  qwen: "qwen3-next:80b-cloud" # qwen3:8b
+  gpt-oss: "gpt-oss:20b-cloud" 
+  deepseek: "deepseek-v3.2:cloud" # deepseek-r1:8b
+  glm: "glm-4.7:cloud" 
+  gemini: "gemini-3-flash-preview:cloud"
+  gemma: "gemma3:27b-cloud"
+
 model:
   name: "gemini-2.5-flash-lite"
-
-model2:
-  name: "gemini-2.0-flash"
 
 embedding_model:
   name: "gemini-embedding-001"
@@ -15,9 +23,9 @@ use_drift: True  # False: no drift, True: drift
 
 sim_config:
   persona: "Isabella Rodriguez"    # get the names from driftville_personas.json file
-  start_time: "2023-02-13 06:15"   # keep it at quarters of an hour
+  start_time: "2023-02-13 06:00"   # keep it at quarters of an hour
   num_ticks: 2   # keep it at 2 for this example, as the simulation is very short
 
 load_prompt_from_langfuse: False   # False: loading the prompt from the local .yaml file, True: loading the prompt from LangFuse
 
-  
+temperature: 0.3
