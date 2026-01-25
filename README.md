@@ -87,7 +87,8 @@ Agent roles:
 - **Help Wanted**: Contributions on drift priors/thresholding, evaluation design (DMN-aligned benchmarks), UI polish for ORPA/ORPDA labeling, and data/analysis to validate against human baselines.
 
 ## Quick Start
-Foundation: Python, Google ADK, Flask, Gemini model/embedding model, Langfuse
+Foundation: Python, Google ADK, LiteLLM, Ollama, Flask, Langfuse
+
 Package management: Poetry
 
 <p align="center">
