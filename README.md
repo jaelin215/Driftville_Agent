@@ -103,8 +103,8 @@ Prereqs: Python 3.12+
    (or `pipx install poetry`)
 3) **Install deps** (no packaging): `poetry install --no-root --with dev`
 4) **Set config**: in `app/config/config.yaml`
-  - set `ollama_models:default` to be used to generate personas/ and to run simulations.
-  - set `embedding_model` to be used to create inherent drift flag.
+  - set `ollama_models:default` to a model name to be used to generate personas and run simulations.
+  - set `embedding_model` to a model name to be used to create inherent drift flag.
   - set `use_drift` to **True** (to run ORPDA loop).
   - set `use_drift` to **False** (to run ORPA loop).	
   - `persona`: which persona to simulate
