@@ -1,0 +1,116 @@
+{
+  "persona": {
+    "name": "Isabella Rodriguez",
+    "occupation": "cafe owner",
+    "relationship": {
+      "name": "customers",
+      "relation_type": "friend"
+    },
+    "innate_tendency": [
+      "friendly",
+      "outgoing",
+      "hospitable"
+    ],
+    "learned_tendency": "Isabella Rodriguez is a cafe owner of Hobbs Cafe who loves to make people feel welcome. She is always looking for ways to make the cafe a place where people can come to relax and enjoy themselves.",
+    "current_situation": "Currently Isabella Rodriguez is planning on having a Valentine's Day party at Hobbs Cafe with her customers on February 14th, 2023 at 5pm. She is gathering party material, and is telling everyone she meets to join the party at Hobbs Cafe on February 14th, 2023, from 5pm to 7pm.",
+    "lifestyle": "Isabella Rodriguez goes to bed around 11pm, awakes up around 6am."
+  },
+  "schedule": [
+    {
+      "datetime_start": "2023-02-13 06:00",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "wake_up",
+      "environment_description": "alarm clock beep, phone on nightstand screen glowing, soft sunlight through curtains, distant traffic noise",
+      "notes": "early morning energy"
+    },
+    {
+      "datetime_start": "2023-02-13 06:15",
+      "duration_min": 30,
+      "location": "home:bathroom",
+      "action": "morning_routine",
+      "environment_description": "sink running water, toothbrushing sounds, shower water, phone on counter vibrating with notifications",
+      "notes": "quick shower to start the day"
+    },
+    {
+      "datetime_start": "2023-02-13 06:45",
+      "duration_min": 75,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine noise, traffic sounds, radio playing, phone notifications buzzing",
+      "notes": "traffic is light this morning"
+    },
+    {
+      "datetime_start": "2023-02-13 08:00",
+      "duration_min": 240,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "coffee grinder noise, customers chatting, keyboard typing, AC hum, phone notifications buzzing",
+      "notes": "busy morning rush at cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 12:00",
+      "duration_min": 60,
+      "location": "restaurant",
+      "action": "lunch",
+      "environment_description": "restaurant chatter, clinking dishes, background music, phone vibrating with messages",
+      "notes": "meeting friends for lunch"
+    },
+    {
+      "datetime_start": "2023-02-13 13:00",
+      "duration_min": 60,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine noise, traffic sounds, radio playing, phone notifications buzzing",
+      "notes": "returning to cafe after lunch"
+    },
+    {
+      "datetime_start": "2023-02-13 14:00",
+      "duration_min": 240,
+      "location": "Hobbs_Cafe:decor_area",
+      "action": "event_preparation",
+      "environment_description": "paintbrush sounds, tape peeling, music playing softly, phone notifications buzzing",
+      "notes": "preparing for Valentine's Day party"
+    },
+    {
+      "datetime_start": "2023-02-13 18:00",
+      "duration_min": 60,
+      "location": "home:kitchen",
+      "action": "dinner",
+      "environment_description": "kitchen sounds of cooking, refrigerator hum, phone on table buzzing, family conversation",
+      "notes": "quick dinner with family"
+    },
+    {
+      "datetime_start": "2023-02-13 19:00",
+      "duration_min": 120,
+      "location": "home:living_room",
+      "action": "relax",
+      "environment_description": "TV sounds, soft music, phone notifications buzzing, family conversation",
+      "notes": "relaxing after work"
+    },
+    {
+      "datetime_start": "2023-02-13 21:00",
+      "duration_min": 60,
+      "location": "home:bathroom",
+      "action": "night_routine",
+      "environment_description": "bathroom sink running, toothbrushing sounds, shower water, phone on counter vibrating with notifications",
+      "notes": "preparing for bed"
+    },
+    {
+      "datetime_start": "2023-02-13 22:00",
+      "duration_min": 60,
+      "location": "home:living_room",
+      "action": "relax",
+      "environment_description": "TV sounds, soft music, phone notifications buzzing, family conversation",
+      "notes": "wind down before sleep"
+    },
+    {
+      "datetime_start": "2023-02-13 23:00",
+      "duration_min": 420,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "bedroom quiet except for distant traffic, phone on nightstand with muted notifications, soft hum of fan, occasional car horn",
+      "notes": "restful sleep before next day"
+    }
+  ]
+}

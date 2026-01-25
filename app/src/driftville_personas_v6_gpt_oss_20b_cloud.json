@@ -1,0 +1,796 @@
+{
+  "persona": {
+    "name": "Isabella Rodriguez",
+    "occupation": "cafe owner",
+    "relationship": {
+      "name": "unknown",
+      "relation_type": "family"
+    },
+    "innate_tendency": [
+      "friendly",
+      "outgoing",
+      "hospitable"
+    ],
+    "learned_tendency": "Isabella Rodriguez is a cafe owner of Hobbs Cafe who loves to make people feel welcome. She is always looking for ways to make the cafe a place where people can come to relax and enjoy themselves.",
+    "current_situation": "Planning a Valentine's Day party at Hobbs Cafe on February 14th, 2023 from 5pm to 7pm, gathering party material, telling customers to join.",
+    "lifestyle": "goes to bed around 11pm, wakes around 6am"
+  },
+  "schedule": [
+    {
+      "datetime_start": "2023-02-13 00:00",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 00:15",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 00:30",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 00:45",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 01:00",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 01:15",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 01:30",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 01:45",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 02:00",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 02:15",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 02:30",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 02:45",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 03:00",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 03:15",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 03:30",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 03:45",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 04:00",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 04:15",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 04:30",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 04:45",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 05:00",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 05:15",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 05:30",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 05:45",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    },
+    {
+      "datetime_start": "2023-02-13 06:00",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "morning_routine",
+      "environment_description": "phone buzzing, email ding, kitchen timer ticking, coffee machine hiss, morning sunlight",
+      "notes": "morning routine"
+    },
+    {
+      "datetime_start": "2023-02-13 06:15",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 06:30",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 06:45",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 07:00",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 07:15",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 07:30",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 07:45",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 08:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "opening cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 08:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 08:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 08:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 09:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 09:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 09:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 09:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 10:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 10:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 10:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 10:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 11:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 11:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 11:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 11:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "serving customers"
+    },
+    {
+      "datetime_start": "2023-02-13 12:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:counter",
+      "action": "eating",
+      "environment_description": "plate clink, conversation, coffee steam, phone buzz, background chatter",
+      "notes": "lunch with friends"
+    },
+    {
+      "datetime_start": "2023-02-13 12:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:counter",
+      "action": "eating",
+      "environment_description": "plate clink, conversation, coffee steam, phone buzz, background chatter",
+      "notes": "lunch with friends"
+    },
+    {
+      "datetime_start": "2023-02-13 12:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:counter",
+      "action": "eating",
+      "environment_description": "plate clink, conversation, coffee steam, phone buzz, background chatter",
+      "notes": "lunch with friends"
+    },
+    {
+      "datetime_start": "2023-02-13 12:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:counter",
+      "action": "eating",
+      "environment_description": "plate clink, conversation, coffee steam, phone buzz, background chatter",
+      "notes": "lunch with friends"
+    },
+    {
+      "datetime_start": "2023-02-13 13:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "back to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 13:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "back to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 13:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "back to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 13:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "back to cafe"
+    },
+    {
+      "datetime_start": "2023-02-13 14:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "preparing for party"
+    },
+    {
+      "datetime_start": "2023-02-13 14:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "preparing for party"
+    },
+    {
+      "datetime_start": "2023-02-13 14:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "preparing for party"
+    },
+    {
+      "datetime_start": "2023-02-13 14:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "preparing for party"
+    },
+    {
+      "datetime_start": "2023-02-13 15:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "preparing for party"
+    },
+    {
+      "datetime_start": "2023-02-13 15:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "preparing for party"
+    },
+    {
+      "datetime_start": "2023-02-13 15:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "preparing for party"
+    },
+    {
+      "datetime_start": "2023-02-13 15:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "preparing for party"
+    },
+    {
+      "datetime_start": "2023-02-13 16:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "gathering party material"
+    },
+    {
+      "datetime_start": "2023-02-13 16:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "gathering party material"
+    },
+    {
+      "datetime_start": "2023-02-13 16:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "gathering party material"
+    },
+    {
+      "datetime_start": "2023-02-13 16:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "gathering party material"
+    },
+    {
+      "datetime_start": "2023-02-13 17:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:counter",
+      "action": "purchase",
+      "environment_description": "cash register ding, shopkeeper chatter, phone buzz, stock inventory, background music",
+      "notes": "purchasing supplies"
+    },
+    {
+      "datetime_start": "2023-02-13 17:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:counter",
+      "action": "purchase",
+      "environment_description": "cash register ding, shopkeeper chatter, phone buzz, stock inventory, background music",
+      "notes": "purchasing supplies"
+    },
+    {
+      "datetime_start": "2023-02-13 17:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:counter",
+      "action": "purchase",
+      "environment_description": "cash register ding, shopkeeper chatter, phone buzz, stock inventory, background music",
+      "notes": "purchasing supplies"
+    },
+    {
+      "datetime_start": "2023-02-13 17:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:counter",
+      "action": "purchase",
+      "environment_description": "cash register ding, shopkeeper chatter, phone buzz, stock inventory, background music",
+      "notes": "purchasing supplies"
+    },
+    {
+      "datetime_start": "2023-02-13 18:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "finishing decorating"
+    },
+    {
+      "datetime_start": "2023-02-13 18:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "finishing decorating"
+    },
+    {
+      "datetime_start": "2023-02-13 18:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "finishing decorating"
+    },
+    {
+      "datetime_start": "2023-02-13 18:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "work",
+      "environment_description": "espresso machine hiss, customer chatter, phone notifications, clinking cups, kitchen timer",
+      "notes": "finishing decorating"
+    },
+    {
+      "datetime_start": "2023-02-13 19:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party start"
+    },
+    {
+      "datetime_start": "2023-02-13 19:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 19:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 19:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 20:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 20:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 20:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 20:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 21:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 21:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 21:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 21:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 22:00",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 22:15",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 22:30",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 22:45",
+      "duration_min": 15,
+      "location": "Hobbs_Cafe:main_floor",
+      "action": "event_preparation",
+      "environment_description": "music playing, laughter, clinking glasses, phone buzz, espresso machine hum",
+      "notes": "party ongoing"
+    },
+    {
+      "datetime_start": "2023-02-13 23:00",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting home"
+    },
+    {
+      "datetime_start": "2023-02-13 23:15",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting home"
+    },
+    {
+      "datetime_start": "2023-02-13 23:30",
+      "duration_min": 15,
+      "location": "commute",
+      "action": "commuting",
+      "environment_description": "car engine revving, traffic noise, radio chatter, phone buzz, city sirens",
+      "notes": "commuting home"
+    },
+    {
+      "datetime_start": "2023-02-13 23:45",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "night_routine",
+      "environment_description": "soft music, phone glow, hallway chatter, AC hum, night light",
+      "notes": "preparing for sleep"
+    },
+    {
+      "datetime_start": "2023-02-13 23:45",
+      "duration_min": 15,
+      "location": "home:bedroom",
+      "action": "sleep",
+      "environment_description": "phone on nightstand screen glowing, distant traffic hum, soft AC hum, faint music, quiet hallway chatter",
+      "notes": "sleeping"
+    }
+  ]
+}

@@ -24,6 +24,8 @@ from dotenv import load_dotenv
 from langfuse import Langfuse
 
 from app.config.config import (
+    MODEL_NAME,
+    MODEL_TEMPERATURE,
     LOAD_PROMPT_FROM_LANGFUSE,
     NUM_TICKS,
     PERSONA_NAME,
@@ -193,8 +195,10 @@ def sync_prompts():
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 prefix = "session_orpda" if USE_DRIFT else "session_orpa"
 
-SESSION_LOG_PATH = ROOT / f"app/logs/{prefix}_{timestamp}.log"
-MEMORY_STREAM_PATH = ROOT / f"app/logs/memory_streams_{prefix}_{timestamp}.log"
+SESSION_LOG_PATH = ROOT / f"app/logs/{prefix}_{timestamp}_{MODEL_NAME}.log"
+MEMORY_STREAM_PATH = (
+    ROOT / f"app/logs/memory_streams_{prefix}_{timestamp}_{MODEL_NAME}.log"
+)
 PROMPT_SYNC_LOG_PATH = ROOT / "app/logs/prompt_sync.log"
 
 
@@ -278,6 +282,8 @@ def log_memory_stream(agent_name: str, summary: str, sim_ts: str):
     """Append a natural-language memory summary for the agent at a timestamp."""
     MEMORY_STREAM_PATH.parent.mkdir(parents=True, exist_ok=True)
     entry = {
+        "llm_model": MODEL_NAME,
+        # "llm_temperature": MODEL_TEMPERATURE,
         "ts_created": datetime.now().astimezone().isoformat(),
         "sim_time": sim_ts,
         "agent": agent_name,
@@ -533,6 +539,8 @@ async def run_simulation(agent, steps=1):
             f.write(
                 json.dumps(
                     {
+                        "llm_model": MODEL_NAME,
+                        # "llm_temperature": MODEL_TEMPERATURE,
                         "ts_created": datetime.now().astimezone().isoformat(),
                         "tick": tick,
                         "sim_time": sim_ts,

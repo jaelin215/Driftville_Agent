@@ -256,3 +256,18 @@ Thumbs.db
 .env
 .venv
 .env
+
+# Node dependencies
+node_modules/
+node_modules/**
+package.json
+package-lock.json
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# decision logs
+decision_logs/
+decision_logs/**

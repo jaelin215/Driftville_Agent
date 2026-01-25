@@ -43,4 +43,225 @@
 - text-embedding-004 is depricated in Jan 14 2026. Therefore, we've switched to gemini-embedding-001.
 - updated config with gemini-embedding-001 pricing ($0.15/1M tokens)
 - took 4min to detect inherent_drift from both ORPA/ORPDA session logs for 8 agents.
+## Installed Ollama
+- installed ollama v0.14.3 via ollama.dmg file
+## Downloaded models via Ollama
+- dwnloaded deepseek-r1:8b (128k context window; taining data cutoff ~2023; release early 2024)
+- (trainsformer-based; like GPT)
+- (extremely long context window; 128K; may still struggle with massive context)
+- (efficient to run; with 4-bit or 1-bit quantization; for edge device)
+- (fast inference; not multimodel)
+- (dialogue systems; tutoring; essay writing)
+- (explanation of complex topics; summarizing long documents)
+--> This makes it sutiable for drift content generation
+- deepseek-r1:8b is equivalent to Qwen1.5-7B-chat
+- qwen3:4b (2.3GB)
+## Installled LiteLLM[proxy]
+- added litellm[proxy] < v1.81.1 to avoid uvicorn dependency conflix with google-adk
+- pip install "litellm[proxy]<1.81.1"
+- let's test running litellm from ollama
+- curl http://localhost:11434/api/tags
+--> This is working. http://localhost:11434/ is accessible from browser. "ollama is running" is displayed.
+--> This returned available models list [quen3:8b, gpt-oss:20b-cloud, qwen3:4b, llama2:latest]
+- poetry run litellm --model ollama/deepseek-r1:8b --drop_params --telemetry False
+--> no response... (was slow. but no issue, I think)
+### LiteLLM / OpenRouter / Ollama
+- [FREE] litellm + openai (gpt-3.5-turbo) --> it took 1.46 ~ 1.81 seconds to get response
+- [FREE] litellm + ollama/mistral:latest --> 1.53 seconds for "hello, how are you?"
+- [FREE] litellm + ollama/mistral:latest --> 7.93 seconds for "tell me what's written in your model card"
+- ollama/mistral:latest --> unable to provide model card content. It says it doesn't have access to the internet.
+- [FREE] litellm + ollama/llama2:latest --> 12.27 seconds for "tell me what's written in your model card"
+- ollama/llama2:latest --> provided incorrect model card content. responded with the details of a different model.
+- [FREE] litellm + ollama/llama2:latest --> 8.84 seconds for "tell me what's written in your model card"
+- [FREE] litellm + ollama/llama2:latest --> 12.33 seconds for "what is DMN inneuroscience?"
+- [FREE] litellm + ollama/deepseek-r1:8b --> 57.04 seconds for "what is DMN inneuroscience?"
+- [FREE] litellm + ollama/deepseek-r1:8b --> 39.01 seconds for "what is DMN inneuroscience?"
+- [Paid] Need to creat my own HuggingFace inference endpoint to be able to access all available huggingface models
+- https://huggingface.co/learn/cookbook/enterprise_dedicated_endpoints
+- [FREE] litellm + openrouter/deepseek/deepseek-r1-0528:free --> 25.99 seconds for "hello, how are you?"
+- [FREE] litellm + openrouter/deepseek/deepseek-r1-0528:free --> 61.56 seconds for "what is DMN inneuroscience?
+- [FREE] litellm + openrouter/deepseek/deepseek-r1-0528:free --> 61.56 seconds for "what is DMN inneuroscience?
+- [FREE] openrouter + google/gemma-3-4b-it:free --> 22.17 seconds for "what is the meaning of life?"
+- [FREE] openrouter + google/gemma-3-4b-it:free --> 17.67 seconds for "what is DMN neuroscience?"
+- [FREE] openrouter + deepseek/deepseek-r1-0528:free --> 61.47 seconds for "what is DMN neuroscience?"
+- [FREE] openrouter + meta-llama/llama-3.3-70b-instruct:free --> 19.23 seconds for "what is DMN neuroscience?"
+- [FREE] openrouter + mistralai/mistral-small-3.1-24b-instruct:free --> 19.23 seconds for "what is DMN neuroscience?"
+- [FREE] litellm + gemini/gemma-3-27b-it --> 2.07 seconds for "hello, how are you?"
+- [FREE] litellm + gemini/gemma-3-27b-it --> 28.38 seconds for "what is DMN inneuroscience?"
+- [FREE] ollama + qwen3:8b --> 53.92 seconds for "what is DMN neuroscience?"
+- [FREE] ollama + gpt-oss:120b-cloud --> 16.19 seconds for "what is DMN neuroscience?"
+- [FREE] ollama + gpt-oss:120b-cloud --> 25.92 seconds for "what is DMN neuroscience?"
+- [FREE] ollama + gpt-oss:120b-cloud --> 19.16 seconds for "what is DMN neuroscience?"
+- [FREE] litellm + ollama/gpt-oss:120b-cloud --> 13.10 seconds for "what is DMN neuroscience?"
+- [FREE] ollama + llama2:latest --> 15.68 seconds for "what is DMN neuroscience?"
+- [FREE] ollama + llama2:latest --> 2.75 seconds for "hello. how are you?"
+- [FREE] ollama + mistral:latest --> 4.24 seconds for "hello. how are you?"
+- [FREE] ollama + mistral:latest --> 44.16 seconds for run_persona_injector.py
+- [FREE] ollama + gpt-oss:20b-cloud --> 93.18 seconds for run_persona_injector.py 
+- [FREE] ollama + deepseek-r1:8b --> xx seconds for run_persona_injector.py
+- [FREE] ollama + deepseek-v3.2:cloud --> 287.52 seconds for run_persona_injector.py
+- [FREE] ollama + qwen3:8b --> xx seconds for run_persona_injector.py
+- [FREE] ollama + glm-4.7:cloud --> 163.23 seconds for run_persona_injector.py
+- [FREE] ollama + gpt-oss:20b-cloud --> 76.63 seconds for run_persona_injector.py
+- [FREE] ollama + gemini-3-flash-preview:cloud --> 38.23 seconds for run_persona_injector.py
+- [FREE] ollama + gemini-3-flash-preview:cloud --> 163.09 seconds for run_persona_injector.py
+- [FREE] ollama + gpt-oss:20b-cloud --> 288.16 seconds for run_persona_injector.py
+- [FREE] ollama + qwen3-next:80b-cloud --> 200.37 seconds for run_persona_injector.py
+- [FREE] ollama + deepseek-v3.2:cloud --> 263.81 seconds for run_persona_injector.py
+- [FREE] ollama + deepseek-v3.2:cloud --> 262.55 seconds for run_persona_injector.py
+- gpt-oss:20b-cloud was GREAT to generate appropriate JSON format for personas/schedules
+- mistral:latest was unable to generate appropriate JSON format for personas/schedules
+- deepseek-r1:8b [despite 37B of 671B working parmas] was unable to generate appropriate JSON format for personas/schedules
+- llama2:latest was unable to generate appropriate JSON format for personas/schedules
+- qwen3:8b was unable to generate appropriate JSON format for personas/schedules
+- it seems like 8B papameters are not sufficient to generate appropriate JSON format output for long text outputs like persons/schedules
+- Let's try other larger cloud models from Ollama
+- ollama pull deepseek-v3.2:cloud 
+- gpt-oss:20b-cloud was able to output 15min interval schedule. while the other models were not.
+- deepseek-v3.2:cloud was GOOD to generate appropriate JSON format for personas/schedules
+- deepseek-v3.2:cloud was not able to output 15min interval schedule. The interval varied.
+- Let's try another larger cloud models from Ollama
+- ollama pull qwen3-next:80b-cloud
+- this one only output 1-persona and its schedule.
+- ollama pull glm-4.7:cloud
+- this is a coding optimized model comparable with Claude Code, etc.
+- glm-4.7:cloud was not able to map relationships correctly. OK to generate appropriate JSON format for personas/schedules
+- ollama + gpt-oss:20b-cloud again it generated only 1-persona and its schedule.
+- let's try another model:
+- ollama pull gemini-3-flash-preview:cloud
+- this only generated 1-persona and schedule. 
+- but, the relationship mapping was GREAT. It detected "neighbour" relationship.
+- [Persona YAML updated] After tweaking the YAML file for persona injection, the large models are correctly outputting JSON for all personas.
+- gemini-3-flash-preview:cloud was EXCELLENT and relation mapping included neighbour, family, partner.
+- with updated YAML, gpt-oss:20b-cloud didn't perform well for persona/schedule generation.
+- After 107.26 seconds, it returned "I’m sorry, but I can’t comply with that request."
+- tried one more time with gpt-oss:20b-cloud
+- this time, gpt-oss:20b-cloud returned correct last_action_result
+- but, it included N/A for some names for "family" relationship.
+- Re-ran qwen3-next:80b-cloud with the updated YAML.
+- qwen3-next:80b-cloud generated all 12-personas, but the relationship mapping was OFF.
+- It included non-person names in relationship names.
+- Re-ran deepseek-v3.2:cloud
+- deepseek-v3.2:cloud generated fake names that didn't exist in the input context.
+- Updated YAML file to only include names from input context.
+- deepseek-v3.2:cloud not fixed. It didn't hallucinate names of relationships.
+- let's try another model
+- gemma3:27b-cloud  [LLM API error: prompt too long, limit is 131072 tokens (status code: 400)]
+- successfully updated orpda_runner.py with Ollama cloud model via LiteLLM wrapper provided by Google ADK.
+- was able to use GoogleADK LlmAgent by replacing gemini model name with LiteLLM model name `my_local_model`.
+- this `my_local_model` is internally calling Ollama.
+- so, this process didn't require a separate setup of LiteLLM as it was a part of GoogleADK offering.
+- now, let's update simulate.py
+- LiteLLM completion() model= gemini-3-flash-preview:cloud; provider = ollama
+- confirmed that it logged the traces to langfuse.
+- however, input/output field is missing in langfuse.
+- litellm and langfuse version mismatch was found.
+- so, file path not found error occured when setting up litellm_config.yaml
+- checking documentation
+- https://langfuse.com/integrations/gateways/litellm
+- added LANGFUSE_OTEL_HOST="https://us.cloud.langfuse.com" to .env
+- http://0.0.0.0:4000 LiteLLM Proxy API server is running
+- pip install --upgrade litellm langfuse
+- this fixed it.
+- let's now try deepseek model for simulation.
+- let's see if input/output is captured in langfuse.
+- LiteLLM completion() model= deepseek-v3.2:cloud; provider = ollama
+- deepseek model is working as well.
+- now, it's ready to compare different models.
+- let's try a locally downloaded model.
+- llama2, mixtral - both works. Fails to output in JSON at times. Instead, verbose text output is generated with some artifacts.
+- also, let's add a model name tag to langfuse trace
+- added MODEL_NAME tag to langfuse, memory_streams.log file as suffix. session_logs.log file as suffix.
+- [TO-DO] need to update embedding model to ollama as well
+- now, let's try running 68 ticks with deepseek model.
+- to see if rate limit is OK. -- OK, but very slow. Need to speed up.
+- to see if langfuse records MODEL_NAME tag correctly. -- OK
+- to see if log files have MODEL_NAME suffix correctly. -- OK
+- deepseek model doesn't seem to show much variation in drift content and rationale.
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------
+### Questions to ask
+- How are we validating that the drift patterns resemble real human cognitive patterns (beyond the 47% baseline)?
+- Does the current implementation support studying how drift patterns interact between agents?
+- What are the most promising immediate applications we're exploring?
+
+### Ollama cloud free tier models
+pip install ollama
+ollama signin
+ollama pull gpt-oss:120b-cloud
+- 100 requests/hour; 50 tokens/second [for cloud models]
+- 16,384 tokens (input+output)
+- free tier only supports smaller models (7B typically; e.g, Mistral 7B)
+- By default, Ollama listens on 127.0.0.1:11434 (localhost), meaning it is only accessible from your own computer. If you manually change this setting to 0.0.0.0 or open that port on your router without proper security, anyone on the internet or your local network could potentially access your server and see your logs.
+- ollama pull cloud models
+https://docs.ollama.com/cloud#python
+
+### LiteLLM free tier Models
+- 20 requests/minute
+- 200 requests per day
+
+### OpenRouter
+- how to run openrouter in python after adding OPENROUTER_API_KEY to .env
+https://openrouter.ai/docs/quickstart
+- OpenRouter - what is rate limit of openrouter? 
+- (20 requests/minute; 1 request/ 5 seconds)
+- (50 requests/day; for free models; free tier)
+- (1,000 requests/day; for >$10 credit paid users)
+- TO-DO: We can setup 6 seconds delay between each call if using openrouter.
+- How to install OpenRouter?
+- npm install @openrouter/sdk
+- openrouter_models: [
+"openrouter/meta-llama/llama-3.3-70b-instruct:free"
+]
+
+
+#####################################################
+# OpenRouter - Free Models
+#####################################################
+- What free models are available in OpenRouter?
+- Are they popular ones?
+- tngtech/deepseek-r1t2-chimera:free
+- tngtech/deepseek-r1t-chimera:free
+- z-ai/glm-4.5-air:free
+- deepseek/deepseek-r1-0528:free
+- tngtech/tng-r1t-chimera:free
+- qwen/qwen3-coder:free
+- meta-llama/llama-3.3-70b-instruct:free
+- nvidia/nemotron-3-nano-30b-a3b:free
+- google/gemma-3-27b-it:free
+- openai/gpt-oss-120b:free
+- google/gemini-2.0-flash-exp:free
+- openai/gpt-oss-20b:free
+- qwen/qwen3-next-80b-a3b-instruct:free
+- arcee-ai/trinity-mini:free
+- cognitivecomputations/dolphin-mistral-24b-venice-edition:free
+- nvidia/nemotron-nano-9b-v2:free
+- nousresearch/hermes-3-llama-3.1-405b:free
+- nvidia/nemotron-nano-12b-v2-vl:free
+- allenai/molmo-2-8b:free
+- qwen/qwen-2.5-vl-7b-instruct:free
+- mistralai/mistral-small-3.1-24b-instruct:free
+- liquid/lfm-2.5-1.2b-thinking:free
+- liquid/lfm-2.5-1.2b-instruct:free
+- meta-llama/llama-3.2-3b-instruct:free
+- google/gemma-3-4b-it:free
+- google/gemma-3n-e2b-it:free
+- google/gemma-3-12b-it:free
+- qwen/qwen3-4b:free
+- google/gemma-3n-e4b-it:free
+- moonshotai/kimi-k2:free
+- meta-llama/llama-3.1-405b-instruct:free
+
+
+
+
+
+
 

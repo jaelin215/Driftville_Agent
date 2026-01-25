@@ -19,6 +19,12 @@ import os
 import sys
 from pathlib import Path
 
+# Paths
+ROOT = Path(__file__).resolve().parents[2]
+# print(ROOT)
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from app.config.config import MODEL_NAME, MODEL_TEMPERATURE
 import yaml
 
 try:
@@ -35,7 +41,6 @@ REPO_ROOT = ROOT_DIR.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 YAML_PATH = ROOT_DIR / "src/yaml/persona_injector.yaml"
-DEFAULT_MODEL = "gemini-2.5-flash"
 
 
 def load_prompt_config(path: Path) -> dict:
@@ -47,20 +52,22 @@ def load_prompt_config(path: Path) -> dict:
 
 
 def ensure_api_key_env() -> None:
-    """Load environment variables to expose Gemini keys."""
+    """Load environment variables to expose API keys."""
     load_dotenv()
 
 
 async def call_llm(instruction: str, persona_text: str, model_name: str) -> str:
-    """Invoke the Gemini-backed persona injector with provided instruction and text."""
-    from app.src.gemini_api import call_gemini  # late import to honor env setup
+    """Invoke the persona injector with provided instruction and text."""
+    from app.src.ollama_api import call_ollama  # late import to honor env setup
 
-    print(model_name)
+    print("here!!", model_name)
     # print(persona_text)
     # print(instruction)
 
     prompt = f"{instruction.strip()}\n\nUser Input:\n{persona_text.strip()}\n"
-    resp = await call_gemini(prompt, model_name)
+    resp = await call_ollama(
+        prompt, model_name, use_stream=True, temperature=MODEL_TEMPERATURE
+    )
     if not resp or not str(resp).strip():
         raise RuntimeError("LLM returned empty response")
     return str(resp).strip()
@@ -85,20 +92,20 @@ def main() -> None:
     parser.add_argument(
         "--model",
         default=None,
-        help=f"Override model name (default: value in persona_injector.yaml, fallback {DEFAULT_MODEL})",
+        help=f"Override model name (default: value in persona_injector.yaml, fallback {MODEL_NAME})",
     )
     args = parser.parse_args()
 
     cfg = load_prompt_config(YAML_PATH)
     instruction = cfg.get("instruction", "")
-    model_name = args.model or cfg.get("model") or DEFAULT_MODEL
-    os.environ["MODEL_NAME"] = model_name  # hint for gemini_api config
+    # model_name = args.model or cfg.get("model") or MODEL_NAME
+    # os.environ["MODEL_NAME"] = model_name  # hint for gemini_api config
 
     persona_text = args.input.read_text(encoding="utf-8")
     try:
         raw = asyncio.run(
             asyncio.wait_for(
-                call_llm(instruction, persona_text, model_name), timeout=60
+                call_llm(instruction, persona_text, MODEL_NAME), timeout=60
             )
         )
     except asyncio.TimeoutError:
