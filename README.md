@@ -104,24 +104,24 @@ Ollama provides free, local or cloud-based LLM inference via LiteLLM. Here's how
 **Option 1: Local Ollama (Recommended for development)**
 1. Install Ollama: https://ollama.ai
 2. Start the Ollama service:
-   ```bash
-   ollama serve
-   ```
+  ```bash
+  ollama serve
+  ```
 3. In another terminal, download a model (e.g., Gemini):
   Browse available models:
   - All models: https://ollama.com/library
   - Cloud-supported models: https://ollama.com/search?c=cloud
-   ```bash
-   ollama pull gemini-3-flash-preview:cloud
-   # or
-   ollama pull gpt-oss:20b-cloud
-   ollama pull deepseek-v3.2:cloud
-   ollama pull llama2:latest
-   ```
+  ```bash
+  ollama pull gemini-3-flash-preview:cloud
+  # or
+  ollama pull gpt-oss:20b-cloud
+  ollama pull deepseek-v3.2:cloud
+  ollama pull llama2:latest
+  ```
 4. Verify it's running:
-   ```bash
-   curl http://localhost:11434/api/tags
-   ```
+  ```bash
+  curl http://localhost:11434/api/tags
+  ```
 
 **Option 2: Cloud models via local Ollama (signin required)**
 Cloud models run through your local Ollama but offload to Ollama's cloud.

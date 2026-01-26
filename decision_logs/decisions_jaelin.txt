@@ -109,6 +109,9 @@
 - [FREE] ollama + qwen3-next:80b-cloud --> 200.37 seconds for run_persona_injector.py
 - [FREE] ollama + deepseek-v3.2:cloud --> 263.81 seconds for run_persona_injector.py
 - [FREE] ollama + deepseek-v3.2:cloud --> 262.55 seconds for run_persona_injector.py
+- [FREE] ollama + gemma3:12b --> 187.66 seconds for "what is DMN neuroscience?"
+
+
 - gpt-oss:20b-cloud was GREAT to generate appropriate JSON format for personas/schedules
 - mistral:latest was unable to generate appropriate JSON format for personas/schedules
 - deepseek-r1:8b [despite 37B of 671B working parmas] was unable to generate appropriate JSON format for personas/schedules
@@ -218,8 +221,10 @@
 https://docs.ollama.com/cloud#python
 - ollama pull gemini-3-flash-preview:cloud
 - poetry run python app/src/simulate.py
-- 
-
+- response = client.chat("ollama/gemma3:12b", messages=messages, stream=use_stream)
+- this failed to run due to ollama/ prefix, which is used only for Ollama's cloud service models.
+- response = client.chat("gemma3:12b", messages=messages, stream=use_stream)
+- poetry run python app/src/utils/run_ollama_sample.py
 
 
 

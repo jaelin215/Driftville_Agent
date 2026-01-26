@@ -53,8 +53,9 @@ from app.src.observe_non_llm_agent import deterministic_observe
 
 # Initialize local/cloud Ollama model via LiteLLM
 try:
-    my_local_model = LiteLlm(model=f"ollama/{MODEL_NAME}",
-                             temperature=MODEL_TEMPERATURE)
+    my_local_model = LiteLlm(
+        model=f"ollama/{MODEL_NAME}", temperature=MODEL_TEMPERATURE
+    )
     print("Successfully loaded a model via LiteLLM")
 except Exception as e:
     print(f"Error: {type(e).__name__}: {e}")
@@ -68,13 +69,14 @@ logger = logging.getLogger(__name__)
 ROOT = Path(__file__).resolve().parent
 YAML_DIR = ROOT / "yaml"
 
+
 # -------------------------
 # Get Git user for trace identification
 # -------------------------
 def get_git_user() -> str:
     """Extract GitHub user/email from git config, or fall back to system user."""
     import os
-    
+
     try:
         # Try to get git user name first
         result = subprocess.run(
@@ -85,7 +87,7 @@ def get_git_user() -> str:
         )
         if result.returncode == 0 and result.stdout.strip():
             return result.stdout.strip()
-        
+
         # Fall back to git user email
         result = subprocess.run(
             ["git", "config", "user.email"],
@@ -99,13 +101,14 @@ def get_git_user() -> str:
             return email.split("@")[0]
     except Exception:
         pass
-    
+
     # Fall back to system user
     user = os.getenv("USER") or os.getenv("USERNAME")
     if user:
         return user
-    
+
     return "unknown"
+
 
 git_user = get_git_user()
 
@@ -120,7 +123,7 @@ if USE_DRIFT:
         f"num_ticks={NUM_TICKS}",
         f"start={SIM_START_TIME.split(' ')[-1]}",
         MODEL_NAME,
-        MODEL_TEMPERATURE,
+        f"{MODEL_TEMPERATURE}_temp",
     ]
 else:
     tags = [
@@ -129,7 +132,7 @@ else:
         f"num_ticks={NUM_TICKS}",
         f"start={SIM_START_TIME.split(' ')[-1]}",
         MODEL_NAME,
-        MODEL_TEMPERATURE,
+        f"{MODEL_TEMPERATURE}_temp",
     ]
 
 langfuse = get_client()

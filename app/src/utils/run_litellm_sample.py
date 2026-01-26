@@ -21,7 +21,7 @@ start_time = time.time()
 # OPTION 1: via Ollama (100% free)
 #####################################
 response = completion(
-    model="ollama/gpt-oss:120b-cloud",
+    model="ollama/gemma3:12b",
     messages=[
         {
             "content": "What is DMN in neuroscience?",

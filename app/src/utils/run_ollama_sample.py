@@ -9,10 +9,12 @@ load_dotenv()
 
 start_time = time.time()
 
-api_key = os.getenv("OLLAMA_API_KEY")
-# For Ollama cloud service, embed API key in the host URL
-host = f"https://ollama-api:{api_key}@api.ollama.com"
-client = Client(host=host)
+# api_key = os.getenv("OLLAMA_API_KEY")
+# # For Ollama cloud service, embed API key in the host URL
+# host = f"https://ollama-api:{api_key}@api.ollama.com"
+# client = Client(host=host)
+
+client = Client()
 messages = [
     {
         "role": "user",
@@ -21,10 +23,10 @@ messages = [
 ]
 
 if use_stream:
-    for part in client.chat("deepseek-v3.2:cloud", messages=messages, stream=use_stream):
+    for part in client.chat("gemma3:12b", messages=messages, stream=use_stream):
         print(part["message"]["content"], end="", flush=True)
 else:
-    response = client.chat("deepseek-v3.2:cloud", messages=messages, stream=use_stream)
+    response = client.chat("gemma3:12b", messages=messages, stream=use_stream)
     print(response["message"]["content"])
 
 end_time = time.time()

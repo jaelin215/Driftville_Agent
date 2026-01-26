@@ -1,15 +1,19 @@
 # config.yaml
 
 ollama_models:
-  default: "gemini-3-flash-preview:cloud" # default model is used in ollama_api.py
+  default: "cogito-2.1:671b-cloud" # default model is used in ollama_api.py
   llama: "llama2:latest" # 7b
-  mistral: "mistral:latest" # 7b
+  mistral: "mistral-large-3:675b-cloud" # "mistral:latest" # 7b
   qwen: "qwen3-next:80b-cloud" # qwen3:8b
-  gpt-oss: "gpt-oss:20b-cloud" 
+  gpt-oss: "gpt-oss:20b-cloud" # gpt-oss:20b 
   deepseek: "deepseek-v3.2:cloud" # deepseek-r1:8b
   glm: "glm-4.7:cloud" 
   gemini: "gemini-3-flash-preview:cloud"
-  gemma: "gemma3:27b-cloud"
+  gemma: "gemma3:27b-cloud" # gemma3:12b (sparse)
+  deepseek-coder: "deepseek-coder-v2:16b" # MoE (comparable to GPT4-turbo for coding specific tasks)
+  nemotron: "nemotron-3-nano:30b-cloud" # MoE very fast
+  cogito: "cogito-2.1:671b-cloud"
+  
 
 model:
   name: "gemini-2.5-flash-lite"
@@ -28,4 +32,4 @@ sim_config:
 
 load_prompt_from_langfuse: True   # False: loading the prompt from the local .yaml file, True: loading the prompt from LangFuse
 
-temperature: 0.3
+temperature: 0.8
