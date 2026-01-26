@@ -97,7 +97,57 @@ Package management: Poetry
 
 Prereqs: Python 3.12+
 
+### Setting up Ollama
+
+Ollama provides free, local or cloud-based LLM inference via LiteLLM. Here's how to get it working:
+
+**Option 1: Local Ollama (Recommended for development)**
+1. Install Ollama: https://ollama.ai
+2. Start the Ollama service:
+   ```bash
+   ollama serve
+   ```
+3. In another terminal, download a model (e.g., Gemini):
+   ```bash
+   ollama pull gemini-3-flash-preview:cloud
+   # or
+   ollama pull gpt-oss:20b-cloud
+   ollama pull deepseek-v3.2:cloud
+   ```
+4. Verify it's running:
+   ```bash
+   curl http://localhost:11434/api/tags
+   ```
+
+**Option 2: Cloud Ollama (if you have API credentials)**
+1. Get your Ollama cloud API key from https://api.ollama.com
+2. Add to `.env`:
+   ```bash
+   OLLAMA_API_KEY=your_api_key_here
+   ```
+3. In `app/config/config.yaml`, set models to cloud variants:
+   ```yaml
+   ollama_models:
+     default: "gemini-3-flash-preview:cloud"
+   ```
+
+**Troubleshooting:**
+- If you get "connection refused" → Make sure `ollama serve` is running in another terminal
+- If model not found → Run `ollama pull <model-name>` first
+- If using cloud → Verify `OLLAMA_API_KEY` is set in `.env`
+- Check LiteLLM is properly configured in `app/config/litellm_config.yaml`
+
+**Temperature control:**
+Adjust model creativity in `app/config/config.yaml`:
+```yaml
+temperature: 0.3  # Lower = more deterministic, Higher = more creative
+```
+The temperature is automatically passed to the model via LiteLLM.
+
+### Quick Start Steps
+
 1) **Env vars**: create .env with your `GOOGLE_API_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_BASE_URL`, `LANGFUSE_OTEL_HOST`.
+   - (Optional) Add `OLLAMA_API_KEY` if using cloud Ollama
 2) **Install Poetry** (if needed):
    `curl -sSL https://install.python-poetry.org | python3 -`
   
