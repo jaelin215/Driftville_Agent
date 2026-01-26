@@ -39,7 +39,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 print(REPO_ROOT)
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
-from app.config.config import (  # MODEL_TEMPERATURE,
+from app.config.config import (
+    MODEL_TEMPERATURE,
     LOAD_PROMPT_FROM_LANGFUSE,
     MODEL_NAME,
     NUM_TICKS,
@@ -51,7 +52,8 @@ from app.src.observe_non_llm_agent import deterministic_observe
 
 # Initialize local/cloud Ollama model via LiteLLM
 try:
-    my_local_model = LiteLlm(model=f"ollama/{MODEL_NAME}")
+    my_local_model = LiteLlm(model=f"ollama/{MODEL_NAME}",
+                             temperature=MODEL_TEMPERATURE)
     print("Successfully loaded a model via LiteLLM")
 except Exception as e:
     print(f"Error: {type(e).__name__}: {e}")
@@ -76,6 +78,7 @@ if USE_DRIFT:
         f"num_ticks={NUM_TICKS}",
         f"start={SIM_START_TIME.split(' ')[-1]}",
         MODEL_NAME,
+        MODEL_TEMPERATURE,
     ]
 else:
     tags = [
@@ -84,6 +87,7 @@ else:
         f"num_ticks={NUM_TICKS}",
         f"start={SIM_START_TIME.split(' ')[-1]}",
         MODEL_NAME,
+        MODEL_TEMPERATURE,
     ]
 
 langfuse = get_client()
@@ -450,9 +454,14 @@ async def run_orpda_cycle(context: dict) -> dict:
         # Let the observer ToolAgent run first; start with raw context
         prompt = json.dumps(context, ensure_ascii=False)
 
-        # Add tags to all observations created within this execution scope
+        # Extract simulation time from context and add to tags
+        sim_time = context.get("current_datetime", "unknown")
+        if sim_time == "unknown" and "schedule" in context:
+            sim_time = context.get("schedule", [{}])[0].get("datetime_start", "unknown")
+        cycle_tags = tags + [f"{sim_time}_sim_time"]
 
-        with propagate_attributes(tags=tags):
+        # Add tags to all observations created within this execution scope
+        with propagate_attributes(tags=cycle_tags):
             # Google ADK runner call here
             async with InMemoryRunner(agent=root_agent) as runner:
                 events = await runner.run_debug(prompt, verbose=False)
@@ -497,6 +506,13 @@ async def run_orpda_cycle(context: dict) -> dict:
     # If observer output didn't arrive, fall back to local deterministic version
     if merged["observation"] is None:
         merged["observation"] = build_observation(context)["observation"]
+
+    # Extract the actual datetime_start from the plan and update the trace span
+    if merged.get("plan") and isinstance(merged["plan"], dict):
+        plan_datetime = merged["plan"].get("datetime_start", "unknown")
+        if plan_datetime != "unknown":
+            current_span = trace.get_current_span()
+            current_span.set_attribute("simulation.datetime_start", plan_datetime)
 
     # Remove None keys
     return {k: v for k, v in merged.items() if v is not None}

@@ -26,6 +26,7 @@ from langfuse import Langfuse
 from app.config.config import (  # MODEL_TEMPERATURE,
     LOAD_PROMPT_FROM_LANGFUSE,
     MODEL_NAME,
+    MODEL_TEMPERATURE,
     NUM_TICKS,
     PERSONA_NAME,
     SIM_START_TIME,
@@ -194,9 +195,9 @@ def sync_prompts():
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 prefix = "session_orpda" if USE_DRIFT else "session_orpa"
 
-SESSION_LOG_PATH = ROOT / f"app/logs/{prefix}_{timestamp}_{MODEL_NAME}.log"
+SESSION_LOG_PATH = ROOT / f"app/logs/{prefix}_{timestamp}_{MODEL_NAME}_{MODEL_TEMPERATURE}.log"
 MEMORY_STREAM_PATH = (
-    ROOT / f"app/logs/memory_streams_{prefix}_{timestamp}_{MODEL_NAME}.log"
+    ROOT / f"app/logs/memory_streams_{prefix}_{timestamp}_{MODEL_NAME}_{MODEL_TEMPERATURE}.log"
 )
 PROMPT_SYNC_LOG_PATH = ROOT / "app/logs/prompt_sync.log"
 
@@ -282,7 +283,7 @@ def log_memory_stream(agent_name: str, summary: str, sim_ts: str):
     MEMORY_STREAM_PATH.parent.mkdir(parents=True, exist_ok=True)
     entry = {
         "llm_model": MODEL_NAME,
-        # "llm_temperature": MODEL_TEMPERATURE,
+        "llm_temperature": MODEL_TEMPERATURE,
         "ts_created": datetime.now().astimezone().isoformat(),
         "sim_time": sim_ts,
         "agent": agent_name,
@@ -539,7 +540,7 @@ async def run_simulation(agent, steps=1):
                 json.dumps(
                     {
                         "llm_model": MODEL_NAME,
-                        # "llm_temperature": MODEL_TEMPERATURE,
+                        "llm_temperature": MODEL_TEMPERATURE,
                         "ts_created": datetime.now().astimezone().isoformat(),
                         "tick": tick,
                         "sim_time": sim_ts,

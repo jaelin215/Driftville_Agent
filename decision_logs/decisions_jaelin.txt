@@ -216,6 +216,8 @@
 - poetry lock
 - refer to ollama cloud documentation
 https://docs.ollama.com/cloud#python
+- ollama pull gemini-3-flash-preview:cloud
+- poetry run python app/src/simulate.py
 - 
 
 
