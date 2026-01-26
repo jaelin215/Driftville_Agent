@@ -15,6 +15,7 @@ Minimal ORPDA engine:
 import asyncio
 import json
 import logging
+import subprocess
 import sys
 import warnings
 from pathlib import Path
@@ -66,6 +67,47 @@ logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent
 YAML_DIR = ROOT / "yaml"
+
+# -------------------------
+# Get Git user for trace identification
+# -------------------------
+def get_git_user() -> str:
+    """Extract GitHub user/email from git config, or fall back to system user."""
+    import os
+    
+    try:
+        # Try to get git user name first
+        result = subprocess.run(
+            ["git", "config", "user.name"],
+            capture_output=True,
+            text=True,
+            timeout=2,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            return result.stdout.strip()
+        
+        # Fall back to git user email
+        result = subprocess.run(
+            ["git", "config", "user.email"],
+            capture_output=True,
+            text=True,
+            timeout=2,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            # Extract username from email (before @)
+            email = result.stdout.strip()
+            return email.split("@")[0]
+    except Exception:
+        pass
+    
+    # Fall back to system user
+    user = os.getenv("USER") or os.getenv("USERNAME")
+    if user:
+        return user
+    
+    return "unknown"
+
+git_user = get_git_user()
 
 # -------------------------
 # Setup Langfuse
@@ -450,7 +492,7 @@ async def run_orpda_cycle(context: dict) -> dict:
       - Observation is computed symbolically in Python (non-LLM).
       - LLM agents only handle reflection/plan/drift/action.
     """
-    with langfuse.start_as_current_observation(as_type="span", name="my-trace") as _:
+    with langfuse.start_as_current_observation(as_type="span", name=f"{git_user}") as _:
         # Let the observer ToolAgent run first; start with raw context
         prompt = json.dumps(context, ensure_ascii=False)
 
