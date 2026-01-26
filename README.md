@@ -108,33 +108,59 @@ Ollama provides free, local or cloud-based LLM inference via LiteLLM. Here's how
    ollama serve
    ```
 3. In another terminal, download a model (e.g., Gemini):
+  Browse available models:
+  - All models: https://ollama.com/library
+  - Cloud-supported models: https://ollama.com/search?c=cloud
    ```bash
    ollama pull gemini-3-flash-preview:cloud
    # or
    ollama pull gpt-oss:20b-cloud
    ollama pull deepseek-v3.2:cloud
+   ollama pull llama2:latest
    ```
 4. Verify it's running:
    ```bash
    curl http://localhost:11434/api/tags
    ```
 
-**Option 2: Cloud Ollama (if you have API credentials)**
-1. Get your Ollama cloud API key from https://api.ollama.com
+**Option 2: Cloud models via local Ollama (signin required)**
+Cloud models run through your local Ollama but offload to Ollama's cloud.
+1. Sign in (once) to your Ollama account:
+  ```bash
+  ollama signin
+  ```
+2. Pull a cloud model:
+  ```bash
+  ollama pull gpt-oss:120b-cloud
+  ```
+3. Run a cloud model locally:
+  ```bash
+  ollama run gpt-oss:120b-cloud
+  ```
+4. In `app/config/config.yaml`, set the default to a `:cloud` model when desired:
+  ```yaml
+  ollama_models:
+    default: "gemini-3-flash-preview:cloud"
+  ```
+
+**Option 3: Direct Cloud API (remote host, API key required)**
+Access cloud models directly via ollama.com's API without the local host.
+1. Create an API key: https://ollama.com/settings/keys
 2. Add to `.env`:
-   ```bash
-   OLLAMA_API_KEY=your_api_key_here
-   ```
-3. In `app/config/config.yaml`, set models to cloud variants:
-   ```yaml
-   ollama_models:
-     default: "gemini-3-flash-preview:cloud"
-   ```
+  ```bash
+  OLLAMA_API_KEY=your_api_key
+  ```
+3. List available models via API:
+  ```bash
+  curl https://ollama.com/api/tags
+  ```
+4. Configure your client to use host `https://ollama.com` and `Authorization: Bearer $OLLAMA_API_KEY`.
 
 **Troubleshooting:**
 - If you get "connection refused" → Make sure `ollama serve` is running in another terminal
-- If model not found → Run `ollama pull <model-name>` first
-- If using cloud → Verify `OLLAMA_API_KEY` is set in `.env`
+- If model not found → Run `ollama pull <model-name>` first; browse models at https://ollama.com/library (cloud: https://ollama.com/search?c=cloud)
+- If using cloud models via local host → Run `ollama signin` first
+- If using direct cloud API → Verify `OLLAMA_API_KEY` is set in `.env`
 - Check LiteLLM is properly configured in `app/config/litellm_config.yaml`
 
 **Temperature control:**
