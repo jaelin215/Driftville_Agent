@@ -1,7 +1,7 @@
 # config.yaml
 
 ollama_models:
-  default: "cogito-2.1:671b-cloud" # default model is used in ollama_api.py
+  default: "gemini-3-flash-preview:cloud" # default model is used in ollama_api.py
   llama: "llama2:latest" # 7b
   mistral: "mistral-large-3:675b-cloud" # "mistral:latest" # 7b
   qwen: "qwen3-next:80b-cloud" # qwen3:8b
@@ -26,10 +26,10 @@ embed_cost_per_1k_tokens: 0.00015
 use_drift: True  # False: no drift, True: drift
 
 sim_config:
-  persona: "Isabella Rodriguez"    # get the names from driftville_personas.json file
-  start_time: "2023-02-13 06:00"   # keep it at quarters of an hour
-  num_ticks: 68   # keep it at 2 for this example, as the simulation is very short
+  persona: "Hailey Johnson"    # get the names from driftville_personas.json file
+  start_time: "2023-02-13 10:00"   # keep it at quarters of an hour
+  num_ticks: 65   # keep it at 2 for this example, as the simulation is very short
 
 load_prompt_from_langfuse: True   # False: loading the prompt from the local .yaml file, True: loading the prompt from LangFuse
 
-temperature: 0.8
+temperature: 0.3

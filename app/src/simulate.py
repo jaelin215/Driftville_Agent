@@ -195,9 +195,13 @@ def sync_prompts():
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 prefix = "session_orpda" if USE_DRIFT else "session_orpa"
 
-SESSION_LOG_PATH = ROOT / f"app/logs/{prefix}_{timestamp}_{MODEL_NAME}_{MODEL_TEMPERATURE}.log"
+SESSION_LOG_PATH = (
+    ROOT
+    / f"app/logs/{prefix}_{timestamp}_{MODEL_NAME}_{MODEL_TEMPERATURE}_{PERSONA_NAME.split(' ')[0].lower()}.log"
+)
 MEMORY_STREAM_PATH = (
-    ROOT / f"app/logs/memory_streams_{prefix}_{timestamp}_{MODEL_NAME}_{MODEL_TEMPERATURE}.log"
+    ROOT
+    / f"app/logs/memory_streams_{prefix}_{timestamp}_{MODEL_NAME}_{MODEL_TEMPERATURE}_{PERSONA_NAME.split(' ')[0].lower()}.log"
 )
 PROMPT_SYNC_LOG_PATH = ROOT / "app/logs/prompt_sync.log"
 
