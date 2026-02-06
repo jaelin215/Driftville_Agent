@@ -41,9 +41,9 @@ print(REPO_ROOT)
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 from app.config.config import (
-    MODEL_TEMPERATURE,
     LOAD_PROMPT_FROM_LANGFUSE,
     MODEL_NAME,
+    MODEL_TEMPERATURE,
     NUM_TICKS,
     PERSONA_NAME,
     SIM_START_TIME,

@@ -30,6 +30,6 @@ sim_config:
   start_time: "2023-02-13 10:00"   # keep it at quarters of an hour
   num_ticks: 65   # keep it at 2 for this example, as the simulation is very short
 
-load_prompt_from_langfuse: True   # False: loading the prompt from the local .yaml file, True: loading the prompt from LangFuse
+load_prompt_from_langfuse: False   # False: loading the prompt from the local .yaml file, True: loading the prompt from LangFuse
 
 temperature: 0.3
