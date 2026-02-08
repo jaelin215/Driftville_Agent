@@ -1,7 +1,9 @@
 ###########################################################
 # Author: Jaelin Lee
 # Date: Feb 7, 2026
-# Description: Creates cleaned session logs and saves to `app/logs/cleaned` folder as .csv
+# Description: Creates cleaned session logs and saves to app/logs/cleaned folder
+# input: FOLDER_PATH
+# output: `app/logs/cleaned` folder as .csv
 ###########################################################
 
 import os
