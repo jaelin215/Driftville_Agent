@@ -6,12 +6,10 @@
 # output: `app/logs/cleaned` folder as .csv
 ###########################################################
 
-import os
 from pathlib import Path
-from pprint import pprint
+from warnings import filterwarnings
 
 import pandas as pd
-from warnings import filterwarnings
 
 filterwarnings("ignore")
 audit_log = []
@@ -26,7 +24,6 @@ def load_session_log(f_path):
     df.rename(columns={"llm_temperature": "temp"}, inplace=True)
     df.drop(columns=["ts_created"], inplace=True)
 
-    keys = df["orpda"][0].keys()
     df_final = pd.concat(
         [df.drop("orpda", axis=1), df["orpda"].apply(pd.Series)], axis=1
     )
@@ -71,7 +68,7 @@ for session_path in log_files:
 
     try:
         df_session = load_session_log(session_path).dropna(subset=["llm_model"])
-        print(f"  ✓ Loaded {len(df_session)} rows")
+        print(f"Loaded {len(df_session)} rows")
 
         # Extract ORPDA layer to each dataframe
         df_observe = df_session["observation"].apply(pd.Series)
@@ -238,7 +235,7 @@ for session_path in log_files:
         all_same = all((tmp2[cols[0]] == tmp2[col]).all() for col in cols[1:])
 
         if all_same:
-            print("✓ All datetime_start columns are identical")
+            print("All datetime_start columns are identical")
         else:
             print("✗ Differences found:")
             for col in cols[1:]:
@@ -280,7 +277,7 @@ for session_path in log_files:
 
         try:
             first_datetime = pd.to_datetime(first_datetime, format="%Y-%m-%d %H:%M")
-        except:
+        except (ValueError, TypeError):
             first_datetime = pd.to_datetime(first_datetime)
 
         if pd.isna(first_datetime):
@@ -324,7 +321,7 @@ for session_path in log_files:
 
             try:
                 first_datetime = pd.to_datetime(first_datetime, format="%Y-%m-%d %H:%M")
-            except:
+            except (ValueError, TypeError):
                 first_datetime = pd.to_datetime(first_datetime)
 
             if pd.isna(first_datetime):
@@ -447,15 +444,16 @@ for session_path in log_files:
         #     ")",
         # )
         # print(session_path)
-    except:
-        print("ERROR")
+    except (KeyError, ValueError, FileNotFoundError) as e:
+        print("ERROR:", e)
+        continue
 
 # create audit report
 audit_df = pd.DataFrame(audit_log)
 audit_path = Path(ROOT, "app/logs/cleaned", "audit_cleaning.csv")
 audit_df.to_csv(str(audit_path), index=False)
 
-print(f"\n✓ Processed {len(audit_log)} files")
-print(f"✓ Audit report saved to {audit_path}")
-print(f"\nAudit Summary:")
+print(f"\nProcessed {len(audit_log)} files")
+print(f"Audit report saved to {audit_path}")
+print("\nAudit Summary:")
 print(audit_df[["filename", "rows_loaded", "datetime_mismatches", "status"]])

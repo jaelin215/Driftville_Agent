@@ -779,6 +779,6 @@ if __name__ == "__main__":
     save_metrics(metrics, out_metrics)
     plot_metrics(metrics, out_plot)
 
-    print("✓ Metrics computed and saved")
+    print("Metrics computed and saved")
     print(f"- JSON: {out_metrics}")
     print(f"- Plot: {out_plot}")

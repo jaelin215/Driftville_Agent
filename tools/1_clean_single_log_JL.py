@@ -1,14 +1,11 @@
 # %% [markdown]
 # ## 0. Import
-
-# %%
-import os
 from pathlib import Path
 from pprint import pprint
 from random import random
+from warnings import filterwarnings
 
 import pandas as pd
-from warnings import filterwarnings
 
 filterwarnings("ignore")
 
@@ -49,9 +46,7 @@ else:
         mode = (
             "orpda"
             if "orpda" in sessions[0]
-            else "orpa"
-            if "orpa" in sessions[0]
-            else None
+            else "orpa" if "orpa" in sessions[0] else None
         )
 
 # Select the latest file
@@ -286,9 +281,9 @@ tmp2 = pd.concat([df_session[["llm_model", "temp", "agent"]], tmp], axis=1)
 #             (tmp2["datetime_start_p"] == tmp2["datetime_start_a"]).all()
 
 # if result:
-#     print("✓ All datetime_start columns are the same")
+#     print("All datetime_start columns are the same")
 # else:
-#     print("✗ Some datetime_start columns differ")
+#     print("Some datetime_start columns differ")
 
 
 if mode == "orpda":
@@ -311,9 +306,9 @@ elif mode == "orpa":
 all_same = all((tmp2[cols[0]] == tmp2[col]).all() for col in cols[1:])
 
 if all_same:
-    print("✓ All datetime_start columns are identical")
+    print("All datetime_start columns are identical")
 else:
-    print("✗ Differences found:")
+    print("Differences found:")
     for col in cols[1:]:
         mismatches = tmp2[tmp2[cols[0]] != tmp2[col]]
         if len(mismatches) > 0:
@@ -334,7 +329,7 @@ first_datetime = tmp2[best_col].dropna().iloc[0]
 # Convert to datetime if string
 try:
     first_datetime = pd.to_datetime(first_datetime, format="%Y-%m-%d %H:%M")
-except:
+except (ValueError, TypeError):
     first_datetime = pd.to_datetime(first_datetime)
 
 # Handle NaT
@@ -379,7 +374,6 @@ actions = tmp2.filter(regex="(time|action)")
 if mode == "orpda":
     drifts = tmp2.filter(regex="(time|_d)")
 
-import random
 
 random.seed(42)
 seed = random.randint(0, 10000)
