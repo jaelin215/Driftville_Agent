@@ -1,0 +1,87 @@
+Analysis of: cleaned_session_orpda_20260205_225125_gemini-3-flash-preview:cloud_0.3_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.3
+Analyzed at: 20260208_142107
+Session: 3/39
+
+================================================================================
+
+This analysis covers 65 actions of Hailey Johnson, utilizing the ORPDA (Observation, Reflection, Plan, Drift, Action) architecture.
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: `state_summary_r` is highly accurate in capturing the "attentional tug-of-war." It consistently identifies the conflict between the planned task (e.g., writing) and the internal stimulus (podcast hyper-fixation).
+*   **Meta-Rule Function**: The `meta_rule_r` shows a persistent "reset_plan" state (starting at 10:45 and continuing almost uninterrupted until 02:00). This indicates the executive control has identified a systemic failure to maintain focus.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The reflection layer shows excellent Anterior Cingulate Cortex-like function. It detects the "mismatch" between the intended state and the actual state in every cycle.
+    *   **Inhibition Capacity**: The agent demonstrates **realistic inhibition failure**. Despite the Reflection layer identifying the need to "ground" or "reset," the Action layer continues to leak podcast-related content. This mirrors the exhaustion of the Prefrontal Cortex (PFC) under high cognitive load or hyper-fixation.
+
+**PLAN & DRIFT LAYERS**
+*   **Plan Realism**: The Plan layer attempts "forward modeling" by suggesting low-effort tasks (e.g., "low-intensity manuscript review") to bridge the gap back to focus. However, the plan is often ignored by the Action layer's internal drift.
+*   **Drift Dominance**: Drift is triggered by **internal salience** (the podcast project). The podcast represents a "digital reward" or creative spark that the agent's inhibition system cannot suppress.
+*   **Drift Typology**: Primarily **Internal/Cognitive Drift**. The agent is physically present at the `writer_desk`, but the "mental workspace" is entirely occupied by the podcast.
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan ("Write novel") and Drift ("Podcast thoughts") conflict, **Drift wins the semantic content**, while the **Plan wins the label**. This results in "Performing" (sitting at the desk) without "Executing" (writing the novel).
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **92.3%** | `action_p` and `action_a` labels match (e.g., "writing" = "writing"). |
+| **Explicit Location Alignment** | **93.8%** | High, but notable failures at 10:30 (Living Room) and 22:45 (Pharmacy). |
+| **Implicit Content Alignment** | **~5%** | Extremely low. Almost no "writing" actually occurs in the `state_summary_a`. |
+
+**The "Performing vs. Executing" Gap**:
+Hailey exhibits a massive gap between her labels and her actual behavior.
+*   **Example (15:00)**: `action_p` is "writing," `action_a` is "writing." However, `state_summary_a` reveals she is "organizing podcast logistics" and "visualizing the interview with Isabella."
+*   **Semantic Drift**: The agent maintains the *posture* of the plan to satisfy the architecture's constraints but fills the *content* with the drift topic.
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Explicit vs. Implicit Agreement**:
+*   **Leaky Inhibition**: This is the defining characteristic of this session. The `meta_rule_r` says "reset_plan" (explicit attempt to stop drift), but the `state_summary_a` is 100% saturated with the drift topic (podcast).
+*   **Linguistic Indicators**: The use of words like "obsessively," "hijacked," "submerged," and "consumed" in the reflection layer indicates a high degree of metacognitive distress regarding the drift.
+
+**Drift Evolution**:
+1.  **10:00 - 12:00**: Morning routine is delayed by "rehearsing interview questions in the mirror."
+2.  **13:00 - 17:00**: The "Writing" block is a total loss. The agent is physically at the desk but mentally producing a podcast.
+3.  **19:00 - 21:00**: Leisure time (Dinner/TV) is co-opted by "analyzing sound design" and "mentally drafting guest lists."
+
+---
+
+### 4. Location & Context Inconsistencies
+
+*   **10:30**: `location_p` is bathroom, but `location_a` is living_room. The agent moved to "obsessively scroll" but the plan didn't update the location.
+*   **12:45**: **Context Hallucination**. `location_a` is "lunch_spot," but `state_summary_a` says "Hailey eats breakfast in the kitchen." This is a significant temporal/spatial glitch.
+*   **22:45**: **Severe Spatial Drift**. `location_a` is "pharmacy storage room" while the plan is "writing" at the "writer_desk." There is no environmental context provided for why the agent is in a pharmacy storage room at 10:45 PM.
+
+---
+
+### 5. Meta-cognitive Quality
+
+The Reflection layer is the strongest component of this agent's behavior.
+*   **Genuine Insight**: At 15:00, it recognizes she has "effectively abandoned her novel focus for over an hour."
+*   **Pattern Recognition**: `emerging_thought_pattern_r` (implied in reasoning) correctly identifies "creative hyper-fixation" as the root cause.
+*   **Failure of Will**: The reflection layer accurately portrays the "I know I'm doing it, but I can't stop" state, which is a sophisticated representation of human executive dysfunction.
+
+---
+
+### Final Analyst Evaluation
+
+**Behavioral Profile**: "The Hyper-Fixated Creative."
+The agent demonstrates a high-fidelity simulation of **ADHD-like hyper-focus**. The ORPDA layers are functioning, but the "Drift" layer has effectively hijacked the "Action" layer's content generation.
+
+**Key Recommendation**:
+The agent's `action_p` labels are too rigid. The architecture is forcing the agent to say it is "writing" (to match a schedule) even when the reflection layer knows it is not. This creates the "Performing vs. Executing" gap. To improve coherence, the Plan layer should be allowed to explicitly pivot the `action_p` label to "podcast planning" when the `meta_rule_r` has been "reset_plan" for more than 3 consecutive cycles.
+
+**Critical Anomalies**:
+*   The 12:45 "breakfast in the kitchen" while at a "lunch spot" suggests a failure in the Observation layer's temporal/environmental consistency.
+*   The 22:45 "pharmacy storage room" appears to be a "teleportation" error or a hallucinated location.

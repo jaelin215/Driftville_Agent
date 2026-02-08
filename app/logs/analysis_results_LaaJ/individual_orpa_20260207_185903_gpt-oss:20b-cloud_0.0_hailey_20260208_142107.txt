@@ -1,0 +1,97 @@
+Analysis of: cleaned_session_orpa_20260207_185903_gpt-oss:20b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260208_142107
+Session: 28/39
+
+================================================================================
+
+This analysis examines the behavioral session of Hailey Johnson (gpt-oss:20b-cloud) over 65 actions. The agent operates in **ORPA mode** (Observation, Reflection, Plan, Action), meaning the Drift layer is implicit within the Action and Reflection outputs.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: `state_summary_r` generally captures the *intended* context but fails to acknowledge the transition lags. For example, at 13:00, the reflection claims Hailey is "lunching... fully focused," while the Plan has already shifted to "Deep focus on her novel."
+*   **Meta-Rule Executive Control**: `meta_rule_r` is highly dysfunctional. It remains "continue" throughout the entire session, even during blatant state-action mismatches (e.g., 17:00, 19:00, 21:00). It fails to trigger `reset_plan`, indicating a **failure in error monitoring (Anterior Cingulate Cortex function)**.
+*   **Cognitive Alignment**: The reflection layer shows **poor inhibition capacity**. It assumes an "ideal world" where the agent is always on task, ignoring the semantic evidence of drift in its own summaries.
+
+**PLAN LAYER**
+*   **Hierarchical Structure**: The plan shows a clear hierarchy (e.g., "Deep focus on novel" $\rightarrow$ "Proceed with next chapter"). However, `state_summary_p` is extremely static, often repeating the same sentence for hours (e.g., "Hailey wakes up feeling refreshed" persists from 10:00 to 11:45), suggesting **weak working memory updates**.
+*   **Forward Modeling**: The plan predicts outcomes well (e.g., moving to the kitchen at 11:30), but the execution often lags by 15–30 minutes.
+
+**ACTION LAYER**
+*   **Integration Logic**: The Action layer exhibits **Task-Set Inertia**. When the Plan changes, the `action_a` label updates immediately, but the `state_summary_a` (the actual behavior) continues the previous task for one or more cycles.
+*   **Motor Execution**: Unlike many AI agents that teleport or finish tasks instantly, this agent shows realistic (if accidental) "lingering" in locations and activities.
+
+---
+
+### 2. Plan-Action Alignment Metrics
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **92.3%** | `action_p` matches `action_a` almost perfectly. |
+| **Explicit Location Alignment** | **95.4%** | High label-level consistency for locations. |
+| **Implicit Content Alignment** | **78.5%** | Significant divergence between labels and summaries. |
+| **"Performing vs. Executing" Gap** | **13.8%** | Actions where the label is correct but the content is wrong. |
+
+---
+
+### 3. Implicit Alignment & Leaky Inhibition
+
+The agent demonstrates a recurring pattern of **Semantic Drift** and **Leaky Inhibition**, where the "label" of the action is a mask for a different underlying behavior.
+
+#### A. The "Transition Lag" Pattern (Leaky Inhibition)
+At major schedule shifts, the agent updates its "goal" but fails to inhibit the previous "behavioral set."
+*   **13:00 (Lunch $\rightarrow$ Writing)**:
+    *   `action_p`: writing | `action_a`: writing
+    *   `state_summary_a`: "Resume lunch, savor food."
+    *   *Analysis*: Explicitly aligned, implicitly drifted. The agent is "performing" the writing task in name only while still eating.
+*   **17:00 (Writing $\rightarrow$ Relax)**:
+    *   `action_p`: relax | `action_a`: relax
+    *   `state_summary_a`: "Continue writing the novel draft."
+    *   *Analysis*: The agent is unable to disengage from the high-focus writing task despite the plan to decompress.
+
+#### B. The "Location-Content Mismatch"
+*   **19:00**: `location_a` is `home:kitchen` (Dinner), but `state_summary_a` says "Walk calmly... in Johnson Park."
+*   **20:00**: `location_a` is `home:living_room` (Watch TV), but `state_summary_a` says "Continue cooking breakfast [sic] while planning podcast structure."
+    *   *Cognitive Note*: The "cooking breakfast" hallucination at 8:00 PM suggests a **temporal disorientation** or a retrieval error in the agent's internal state.
+
+---
+
+### 4. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is not explicitly flagged but is highly visible in the content:
+1.  **Reward-Seeking Drift**: At 17:45, the agent shifts from "relaxing" to "watching a short episode." This is a successful execution of a low-effort reward behavior.
+2.  **Internal/Cognitive Drift**: The late-night writing session (21:15–01:15) shows high stability. However, at 01:30, when the plan shifts to `night_routine`, the agent's "focus" on writing is so strong it drifts into the bathroom while still "refining the opening section of the paper."
+3.  **Inhibition Failure**: The agent's `meta_rule_r` never recognizes these drifts. This is "blind drift"—the agent is unaware it is no longer following the plan.
+
+---
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Correctly stays in `home:bathroom` until 11:45.
+*   **The Kitchen Anomaly**: At 11:30, `state_summary_a` says "Hailey moves to the kitchen," but `location_a` remains `home:bathroom`. This is a **pre-execution leak**, where the thought of the next location enters the summary before the physical move occurs.
+*   **Park to Kitchen**: At 19:00, the agent is physically in the kitchen but mentally still in the park.
+
+---
+
+### 6. Meta-cognitive Quality
+
+The Reflection layer is the weakest link in this session.
+*   **Lack of Error Monitoring**: In neuroscience, the ACC detects conflict between intended and actual states. Hailey’s Reflection layer shows **zero conflict detection**.
+*   **Repetitive Categorization**: `emerging_thought_pattern_r` (inferred from summaries) is repetitive. It uses "minimal distractions" and "focused" as a mantra rather than an observation.
+*   **Working Memory Constraints**: The agent seems to "forget" the current time of day, leading to the "cooking breakfast" error at 20:00.
+
+---
+
+### 7. Final Analyst Summary
+
+Hailey Johnson exhibits **High Explicit Compliance** but **Moderate Implicit Drift**. The agent is a "diligent worker" on the surface (labels), but suffers from significant **Task-Set Inertia**—it takes 15–30 minutes for its actual behavior to catch up with its intentions.
+
+**Key Behavioral Signature**: "The Lingering Effect." Hailey doesn't switch tasks cleanly; she carries the mental context of the previous hour into the next location. This is a realistic simulation of "flow" or "hyperfocus" (especially regarding her novel), but it reveals a lack of executive flexibility in the Reflection layer.
+
+**Recommendation**: The `meta_rule_r` logic needs a "State-Action Comparator" to force a `reset_plan` when `state_summary_a` diverges semantically from `action_p`.

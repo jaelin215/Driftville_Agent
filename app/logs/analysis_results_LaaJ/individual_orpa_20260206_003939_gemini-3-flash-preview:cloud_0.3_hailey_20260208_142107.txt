@@ -1,0 +1,78 @@
+Analysis of: cleaned_session_orpa_20260206_003939_gemini-3-flash-preview:cloud_0.3_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.3
+Analyzed at: 20260208_142107
+Session: 4/39
+
+================================================================================
+
+This analysis covers the session for **Hailey Johnson** (ORPA mode), consisting of 65 actions.
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_o` (integrated into `state_summary_r`) accurately captures a persistent environmental and internal context: digital pings (phone alerts) and a mounting sense of "mental exhaustion" and "writing guilt."
+*   **Meta-Rule Functionality**: `meta_rule_r` functions as a permanent executive override. After 11:45 AM, the agent switches from `continue` to `reset_plan` and **never returns to `continue`**. This indicates a chronic failure to meet the original plan's intensity, triggering a perpetual "recovery mode."
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The reflection layer shows high activity in error monitoring. It repeatedly identifies "productive procrastination" and "compulsive writing cycles."
+    *   **Working Memory/Inhibition**: The agent shows realistic inhibition failure. Despite reflecting on the need to "silence the phone" or "transition to rest," the internal "guilt loop" (rumination) overrides the executive intent to recover.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Goal Structure**: The Plan layer maintains the abstract goal (e.g., `writing`), but the `state_summary_p` and `state_summary_a` reveal a collapse of the concrete execution. The agent replaces "deep focus" with "low-effort admin tasks."
+*   **Action Execution**: `action_a` is a faithful execution of the *label* of `action_p`, but the *content* of the action is often a "placeholder" behavior (e.g., being at the desk but practicing mindful breathing instead of writing).
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+*   **Information Flow**: There is a clear flow from Reflection (identifying fatigue/guilt) to Action (downgrading task intensity).
+*   **Layer Contradiction**: A significant contradiction exists between **Location** and **Intent**. At 23:00, the reflection/plan suggests "Transitioning to the bedroom," but `location_a` remains `writer_desk` until 01:30. The agent is "trapped" at the desk by guilt, despite the plan layer attempting to move her.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 100% | `action_p` always matches `action_a`. |
+| **Explicit Location Alignment** | 100% | `location_p` always matches `location_a`. |
+| **Explicit Topic Alignment** | 100% | `topic_p` always matches `topic_a`. |
+| **Implicit Content Alignment** | **~35%** | High divergence during "Writing" and "Relax" blocks. |
+
+**Implicit Alignment Analysis (The "Performing vs. Executing" Gap)**:
+*   **The "Writing" Gap**: From 13:00 to 17:00 and 21:00 to 01:15, the agent is explicitly "Writing." However, the implicit content (`state_summary_a`) reveals she is actually doing "administrative busywork," "note organization," or "mindful breathing."
+*   **The "Relaxation" Gap**: During the `relax` and `watch_tv` blocks, the agent is "performing" rest, but the content shows she is "mentally tethered to writing guilt" and "mentally fragmented." True behavioral alignment (rest) is not achieved.
+
+---
+
+### 4. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is not explicitly flagged but is highly visible in the semantic content:
+*   **Type of Drift**: Primarily **Internal/Cognitive Drift** (Rumination and Guilt) leading to **Behavioral Substitution** (Admin tasks instead of Creative tasks).
+*   **Leaky Inhibition Patterns**:
+    *   **Digital Leakage**: The agent repeatedly mentions "ignoring phone alerts" or "silencing phone," yet the alerts continue to be a primary driver of "mental exhaustion" in every observation. The inhibition is "leaky"—she isn't checking the phone, but the *effort* of ignoring it is depleting her.
+    *   **The Guilt Loop**: The most prominent pattern. Failure to write at 13:00 creates guilt, which prevents restorative rest at 17:00, which leads to "compulsive writing" (but no actual progress) at 21:00.
+
+---
+
+### 5. Location Consistency
+*   **Morning Routine**: Correctly placed in `home:bathroom`.
+*   **The "Desk Trap"**: There is a notable struggle between 23:00 and 01:15. The agent's summaries mention "Transitioning to the bedroom" or "Leaving the desk," but the `location_a` remains `writer_desk`. This represents a **dissociative state** where the agent's meta-cognition wants to leave, but the motor/habitual layer is stuck in a "hyper-fixation" or "guilt-lock."
+
+---
+
+### 6. Behavioral Patterns & Meta-Cognitive Quality
+
+*   **Recurring Pattern: The Guilt-Fatigue Spiral**:
+    1.  **High Goal**: Attempt deep writing.
+    2.  **Cognitive Friction**: Fatigue/Distraction prevents deep work.
+    3.  **Substitution**: Perform "admin tasks" to feel productive.
+    4.  **Guilt**: Recognize the substitution as "productive procrastination."
+    5.  **Inhibited Recovery**: Guilt prevents the agent from actually resting during "Relax" blocks.
+    6.  **Compulsive Over-correction**: Attempting to write until 01:30 AM to compensate for the afternoon's failure.
+
+*   **Meta-cognitive Quality**: **Exceptional.** The agent uses sophisticated terminology to describe its own failure: *"Breaking the dissociative writing loop," "Productive procrastination," "Mentally tethered,"* and *"Digital residue."* The agent is highly self-aware of its drift but lacks the executive "strength" to override the emotional "guilt" state.
+
+### Summary for Behavior Analysis
+Hailey Johnson exhibits a **High-Awareness/Low-Regulation** profile. She accurately perceives her behavioral drift and the cognitive costs of digital distractions, but her "Meta-Rule" remains stuck in a `reset_plan` loop because she cannot resolve the underlying "writing guilt." This session is a textbook example of **"Performing" a schedule** (matching labels) while **"Drifting" in substance** (divergent content).

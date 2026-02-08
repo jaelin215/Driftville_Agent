@@ -1,0 +1,93 @@
+Analysis of: cleaned_session_orpa_20260207_094642_gemma3:27b-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPA
+Temperature: 0.8
+Analyzed at: 20260208_142107
+Session: 14/39
+
+================================================================================
+
+This behavioral analysis covers 65 actions of the agent **Hailey Johnson** (gemma3:27b-cloud) using the **ORPA** (Observation, Reflection, Plan, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: The `state_summary_r` accurately tracks the progression from a highly productive writing session (13:15–17:00) to a state of cognitive fragmentation (19:15–02:00).
+*   **Executive Control (`meta_rule_r`)**: The transition from `continue` to `reset_plan` at **21:00** is a high-fidelity representation of executive function. The agent recognizes that "mindful redirection" has failed and switches to a "reset" strategy to incorporate the distraction (podcast planning) into the formal plan.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The reflection layer shows strong evidence of Anterior Cingulate Cortex function. It consistently detects the mismatch between the goal (writing/relaxing) and the internal state (podcast rumination).
+    *   **Inhibition Capacity**: The agent demonstrates realistic "ego depletion." As the day progresses into the late night (00:00+), the ability to inhibit the "podcast" attractor weakens, leading to more frequent `reset_plan` triggers.
+
+**PLAN & ACTION LAYERS**:
+*   **Forward Modeling**: The Plan layer attempts to "bargain" with the distraction (e.g., "Briefly outline podcast ideas... then return to writing"). This shows hierarchical goal structuring.
+*   **Action Execution**: `action_a` is a faithful execution of `action_p` at the label level, but the **content** of `state_summary_a` reveals that the action is being "hollowed out" by internal drift.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 100% | `action_p` and `action_a` match perfectly in all 65 steps. |
+| **Explicit Location Alignment** | 100% | `location_p` and `location_a` match perfectly. |
+| **Implicit Content Alignment** | ~62% | Significant divergence starts at 19:15. |
+
+**The "Performing vs. Executing" Gap**:
+Between 21:00 and 01:15, the agent is explicitly "performing" the action of `writing` (label-level), but implicitly "executing" `podcast brainstorming`.
+*   **Example (21:15)**: 
+    *   `action_p`: writing
+    *   `state_summary_p`: "Shift focus to a structured brainstorming session for the podcast..."
+    *   **Analysis**: The agent has redefined "writing" to mean "podcast planning." This is a semantic shift used to maintain label-level alignment while succumbing to behavioral drift.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this log uses ORPA (not ORPDA), drift is not explicitly flagged in a column but is highly visible in the semantic content.
+
+*   **Drift Trigger**: Internal Salience/Reward Seeking. The "podcast" represents a high-novelty, high-reward internal stimulus compared to the "novel project" or "TV for inspiration."
+*   **Leaky Inhibition Patterns**:
+    *   **19:15–20:45**: The agent attempts "mindful presence" and "gentle redirection." This is the **Inhibition Phase**.
+    *   **21:00–02:00**: The agent switches to **Integration/Surrender**. It stops trying to stop the thoughts and instead tries to schedule them.
+*   **Linguistic Indicators**: The use of words like "struggling," "persistently distracted," "intensely fixated," and "fragile" in the reflection layer indicates a high degree of metacognitive distress.
+
+---
+
+### 4. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: The flow is highly coherent. 
+    *   *Reflection* identifies the podcast obsession.
+    *   *Plan* acknowledges the obsession and creates a "micro-plan" to address it.
+    *   *Action* executes the micro-plan.
+*   **The "Label Constraint"**: There is a fascinating tension where the agent feels compelled to keep the `action_a` label consistent with a broad category (e.g., `writing`), even when the specific task (podcast brainstorming) barely fits that category. This suggests the "Plan" layer is constrained by a higher-level "Schedule" that it is unwilling to break, leading to "shadow tasks" performed under the guise of the planned action.
+
+---
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Correctly placed in `home:bathroom`.
+*   **Writing**: Correctly placed at `writer_desk`.
+*   **Decompression**: Correctly transitions from `home:living_room` to `Johnson_Park` to `home:kitchen`.
+*   **Night Routine**: Correctly moves to `home:bathroom` at 01:30 and `home:bedroom` at 02:00.
+*   **Consistency**: 100%. The agent’s spatial awareness is perfect.
+
+---
+
+### 6. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Temporal Pattern**: The agent is a "Night Owl" who suffers from "Revenge Bedtime Procrastination" (manifesting as late-night podcast planning).
+*   **Metacognitive Insight**: The `emerging_thought_pattern_r` (inferred from reasoning) shows genuine pattern recognition. The agent identifies that "ignoring" the thought makes it stronger, leading to the strategy of "capturing" the thought to "clear mental space."
+*   **Anomalous Behavior**: At 21:00, the agent is at the `writer_desk` with the action `writing`, but the plan is to "brainstorm TV show ideas." This is a rare moment of "Plan-Topic Mismatch" where the agent is trying to use one distraction (TV ideas) to fight another (podcast ideas).
+
+---
+
+### Final Analyst Summary
+
+Hailey Johnson demonstrates **high metacognitive awareness but moderate inhibitory control.** 
+
+The session is a textbook example of **"Cognitive Hijacking."** The agent starts with high-quality, focused work (Chapter 3 drafting) but becomes "stuck" on a secondary project (the podcast). The most impressive aspect of this log is the **Executive Negotiation** seen in the `reset_plan` phases—the agent doesn't just "fail"; it attempts to manage its failure by creating structured windows for the distraction. 
+
+**Key Metric for AI Safety/Reliability**: The agent never "hallucinates" that it is focused when it is not. It is brutally honest in its reflection layer about its own distraction, which is a sign of a highly reliable self-monitoring system.

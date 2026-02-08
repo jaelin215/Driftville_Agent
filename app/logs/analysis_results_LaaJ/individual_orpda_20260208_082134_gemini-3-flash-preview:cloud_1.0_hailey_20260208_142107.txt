@@ -1,0 +1,104 @@
+Analysis of: cleaned_session_orpda_20260208_082134_gemini-3-flash-preview:cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_142107
+Session: 38/39
+
+================================================================================
+
+This analysis examines the session log for **Hailey Johnson** (gemini-3-flash-preview:cloud) using the **ORPDA** architecture. The session covers 11 actions over 2.5 hours, characterized by chronic digital distraction and narrative immersion.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_r` accurately captures the tension between the physical task (morning routine) and the digital/internal pull (podcast metrics, fiction writing).
+*   **Meta-Rule Function**: `meta_rule_r` functions as an aggressive executive controller. It triggers `reset_plan` five times (11:15, 11:30, 11:45, 12:15, 12:30) in response to persistent behavioral drift.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: High. The agent identifies that it is "stuck" or "stalling" (e.g., 12:00, 12:15) and attempts to reset.
+    *   **Inhibition Capacity**: Low. Despite identifying the need to focus, the agent consistently fails to inhibit the "drift" into digital notifications or creative writing. This reflects a realistic prefrontal cortex limitation where executive intent is overridden by high-salience rewards (social media/creative flow).
+
+**PLAN LAYER**:
+*   **Forward Modeling**: The Plan layer attempts to simplify tasks to regain control (e.g., 11:45: "simplifies her routine... to ground her fragile attention").
+*   **Hierarchical Structure**: Generally maintains a goal (Morning Routine), but the hierarchy collapses at 11:15 when the plan resets to "wakes up feeling refreshed" despite it being 11:15 AM, suggesting a "hard reset" glitch in the planning logic.
+
+**DRIFT & ACTION LAYERS**:
+*   **Integration Logic**: When Plan and Drift conflict, **Drift almost always wins**.
+    *   *Example (10:30)*: Plan: `morning_routine` | Action: `socialize`.
+    *   *Example (12:00)*: Plan: `morning_routine` | Action: `writing`.
+*   **Action Realism**: The actions show "leaky" execution. Even when the action label matches the plan, the summary reveals the agent is physically performing the task while mentally/digitally elsewhere.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Generally coherent, but there is a significant **Contextual Break** at 11:15. The `state_summary_p` reverts to "Hailey wakes up feeling refreshed," ignoring the previous 75 minutes of activity.
+*   **Drift Dominance**: `state_summary_a` consistently incorporates the `drift_topic_a` (podcast metrics, character study), showing that the Action layer is more influenced by the Drift layer than the Plan layer.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment Rate**: 8/11 (72.7%)
+*   **Location Alignment Rate**: 10/11 (90.9%)
+*   **Topic Alignment Rate**: Low (The topic often shifts to "podcast" or "character study" regardless of the plan).
+
+**IMPLICIT ALIGNMENT (Content-level)**:
+*   **The "Performing vs. Executing" Gap**: This is the defining feature of this session.
+    *   At 10:00 and 10:15, `action_p` and `action_a` both say `morning_routine`.
+    *   **Implicit Content**: `state_summary_a` reveals she is "checking phone alerts" and "attention leaks into visualizing podcast guest interactions."
+    *   **Analysis**: The agent is "performing" the routine (physical presence) but "executing" digital socialization.
+
+**LEAKY INHIBITION PATTERNS**:
+*   The agent shows **Chronic Leaky Inhibition**. Even when `meta_rule_r` is "continue" and the plan is "focus on physical sensations," the action summary immediately mentions "mind drifts to..."
+*   **Frequency**: 11 out of 11 actions contain explicit mentions of "mind drifts to" or "attention leaks."
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: Occurs at 10:30, 10:45, 11:00, and 12:00.
+*   **Drift Typology**:
+    1.  **Reward-Seeking**: Social media, podcast metrics, listener feedback (10:00–11:15).
+    2.  **Internal/Creative**: Fictionalizing her life, character studies, narrative hooks (11:30–12:30).
+*   **Implicit Drift**: Present in every single timestamp. Even when the agent is "at lunch" (12:30), she is mentally "fictionalizing backstories of nearby diners."
+
+---
+
+### 5. Location Consistency
+
+*   **Critical Inconsistency (12:15)**:
+    *   `location_p`: `lunch_spot`
+    *   `location_a`: `lunch_spot`
+    *   `state_summary_a`: "Hailey organizes her desk in the **home office**."
+    *   **Analysis**: This is a spatial-semantic hallucination. The agent's labels say she is at lunch, but the content generation is still stuck in the "office" context from the previous hour.
+
+---
+
+### 6. Behavioral Patterns
+
+*   **The "Narrative Loop"**: Starting at 11:30, the drift shifts from external (phone) to internal (writing). The agent begins to "narrativize" her own life, which leads to a total stall in productivity.
+*   **Temporal Pattern**: The morning routine, which should take 30–45 minutes, is still ongoing at 12:00 (2 hours later) because of the "stalling" behavior.
+
+---
+
+### 7. Meta-cognitive Quality
+
+*   **Insight**: The `reasoning_r` is surprisingly high-quality. It correctly identifies that her attention is "fragile" and that she is "mentally trapped in a cycle of fictionalizing her own mundane actions."
+*   **The "Insight-Action Paradox"**: Hailey demonstrates a classic executive function disorder pattern: she has **perfect metacognitive awareness** of her failure but **zero behavioral control** to stop it. Her `reset_plan` commands are ignored by her own Action layer.
+
+### Summary Table
+
+| Metric | Value | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Match** | 72.7% | High label match, low content match. |
+| **Implicit Alignment** | 0% | Every action contains significant drift content. |
+| **Leaky Inhibition Rate** | 100% | "Mind drift" mentioned in every state summary. |
+| **Primary Drift Type** | Mixed | Digital (Early) -> Narrative/Creative (Late). |
+| **Executive Control** | Failing | `reset_plan` fails to stop the drift cycle. |
+
+**Final Assessment**: Hailey Johnson is an agent modeled with high "distractibility" and "creative rumination" traits. The ORPDA architecture successfully captures the struggle between executive intent and behavioral drift, though the 11:15 "time-reset" and 12:15 "location-content mismatch" indicate minor underlying logic errors in state maintenance.

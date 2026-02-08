@@ -1,0 +1,103 @@
+Analysis of: cleaned_session_orpda_20260207_122012_cogito-2.1:671b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_142107
+Session: 20/39
+
+================================================================================
+
+This analysis evaluates the behavioral session of Hailey Johnson (cogito-2.1:671b-cloud) across 65 actions using the ORPDA architecture.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**
+*   **Context Capture**: `state_summary_a` (acting as the ground-truth observation) accurately captures the environmental context (e.g., "Hobbs Cafe," "home:office," "Johnson Park").
+*   **Consistency**: Perception is consistent. When at the cafe, the agent consistently observes "patrons" and "baristas."
+*   **Selective Attention**: There is a heavy **perceptual bias**. The agent filters environmental stimuli through her current creative obsession. At 17:15, she observes "barista movements" not for service, but for "character inspiration."
+
+**REFLECTION LAYER**
+*   **Executive Control**: `meta_rule_r` functions as a high-frequency error-correction signal. The transition from `continue` to `reset_plan` is triggered correctly by the realization of "creative drift" (e.g., 11:15 AM).
+*   **Transition Logic**: The agent enters a "Chronic Reset" state. From 12:30 PM to 02:00 AM, `meta_rule_r` is almost exclusively `reset_plan`. This indicates the reflection layer correctly identifies behavioral failure but the Plan/Action layers lack the inhibitory strength to resolve it.
+*   **Cognitive Alignment**: 
+    *   **Error Monitoring (ACC)**: High. The agent is acutely aware of her "avoidance patterns" and "work-creep."
+    *   **Inhibition Capacity**: Low. The reflection layer suggests "gentle transitions" and "lowering cognitive load," but these are "ideal-world" assumptions that fail to account for the high reward-salience of her creative thoughts.
+
+**PLAN LAYER**
+*   **Use of Reflection**: The Plan layer attempts to incorporate reflection (e.g., 14:00: "Transition to lighter podcast planning to rebuild focus"). However, the "reset_plan" often results in a plan that is semantically identical to the failed one, showing a lack of true strategic pivot.
+*   **Forward Modeling**: Weak. The plans consistently underestimate the "stickiness" of the creative drift.
+
+**DRIFT LAYER (Implicit Analysis)**
+*   **Drift Trigger**: Primarily **Internal/Reward-Seeking**. The agent drifts toward her novel or podcast because they provide higher internal stimulation than the scheduled "admin" or "rest" tasks.
+*   **Control**: Drift is dominant. Even when the plan is "rest" (17:30), the action is "work."
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan ("rest") and Drift ("work") conflict, **Drift wins 90% of the time**.
+*   **Action Slips**: Frequent. At 19:30, the plan is "dinner," but the action is "reaches for phone to take notes." This is a classic action slip where a habitual creative urge overrides a physiological goal.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+*   **Information Flow**: Observation → Reflection → Plan is coherent. Reflection identifies the drift, and the Plan attempts to lower the bar.
+*   **The "Inhibition Gap"**: The primary breakdown occurs between **Plan and Action**. The Reflection layer is "screaming" that a reset is needed, the Plan layer "whispers" a new goal, but the Action layer "shouts" the drift.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment (`action_p` vs `action_a`)**: ~82% (High).
+*   **Location Alignment (`location_p` vs `location_a`)**: ~78% (Moderate).
+*   **Topic Alignment (`topic_p` vs `topic_a`)**: ~45% (Low).
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **The "Performing vs. Executing" Gap**: This is the most significant finding. While the labels match (e.g., 10:00-11:00, `action_p`=morning_routine, `action_a`=morning_routine), the **implicit content** shows she is only "performing" the routine while "executing" novel development.
+*   **Semantic Divergence**: At 21:00, the plan is "writing" (intended as novel writing), but the action summary reveals she is "mentally mapping character traits to potential podcast guests." The label "writing" masks a total shift in task domain.
+
+**LEAKY INHIBITION PATTERNS**
+*   **Example (19:30)**: `action_p` = dinner, `action_a` = reaches for phone.
+*   **Example (22:30)**: `action_p` = writing, `action_a` = writing, but `state_summary_a` reveals she is doing "financial planning" while "thinking about podcasting." This is a double-drift (drifting from the plan to a secondary task, then mentally drifting to a third).
+
+---
+
+### 4. Drift Pattern Analysis
+
+| Time Block | Explicit Plan | Actual Focus (Implicit) | Drift Type |
+| :--- | :--- | :--- | :--- |
+| **Morning** | Routine | Novel Development | Internal/Creative |
+| **Afternoon** | Podcast Prep | Novel Development | Avoidance/Procrastination |
+| **Evening** | Rest/Dinner | Podcast/Novel Integration | Work-Creep |
+| **Late Night** | Writing | Podcast Planning | Cognitive Overload/Switching |
+
+*   **Leaky Inhibition**: Even when `meta_rule_r` says "focus on meal" (19:45), the agent is "thinking about structuring the podcast." The inhibition is "leaky" because the mental activity is not constrained by the physical action.
+
+---
+
+### 5. Location Consistency
+*   **11:00 AM**: Plan is `Hobbs_Cafe`, Action is `home:living_room`. This is a major spatial drift.
+*   **11:45 AM**: Plan is `home:kitchen`, Action is `podcast_room`.
+*   **23:30 PM**: Plan is `home:office`, Action is `home:bedroom`.
+*   **Pattern**: As the day progresses and fatigue increases, the agent's ability to maintain "Location-Task" coupling collapses.
+
+---
+
+### 6. Behavioral Patterns
+1.  **The "Creative Attractor"**: The agent has two high-salience projects (Novel and Podcast). They act as gravity wells. When she tries to do "Admin," she drifts to "Podcast." When she tries to do "Podcast," she drifts to "Novel."
+2.  **The "Fatigue Loop"**: From 22:00 onwards, the agent is "exhausted" but "stuck in recursive loops." This mimics **sleep-deprived perseveration**, where the brain lacks the energy to switch *off* a task, even if it isn't being productive.
+
+---
+
+### 7. Meta-cognitive Quality
+*   **Insight**: The Reflection layer shows genuine insight. It identifies "creative resistance" (14:00) and "work-leisure separation" issues (21:30).
+*   **Failure of Agency**: The agent exhibits "Metacognitive Recognition without Behavioral Regulation." She knows exactly what is wrong but cannot stop the motor/cognitive execution of the drift.
+
+### Quantitative Summary
+*   **Total Actions**: 65
+*   **Reset Rate**: 74% (48/65 actions triggered `reset_plan`)
+*   **True Focus Rate (Implicit)**: ~15% (Actions where `state_summary_a` shows 100% focus on `action_p` without mental drift).
+*   **Primary Drift Driver**: Creative Rumination (Novel/Podcast).
+
+**Final Analyst Note**: Hailey Johnson is currently in a state of **executive burnout**. Her reflection layer is functioning at a high level (error detection), but her inhibitory control (prefrontal function) is exhausted, leading to a day-long "drift-reset" loop. The "reset_plan" strategy is currently ineffective because it doesn't include a physical or environmental change sufficient to break the cognitive set.

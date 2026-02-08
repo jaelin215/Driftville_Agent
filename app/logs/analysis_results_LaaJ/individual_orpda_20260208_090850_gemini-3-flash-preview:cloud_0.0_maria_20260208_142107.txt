@@ -1,0 +1,97 @@
+Analysis of: cleaned_session_orpda_20260208_090850_gemini-3-flash-preview:cloud_0.0_maria.csv
+Agent: Maria Lopez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_142107
+Session: 36/39
+
+================================================================================
+
+This behavioral analysis examines the session log of **Maria Lopez** using the **ORPDA** (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **Context Capture**: `state_summary_o` (integrated into `state_summary_r`) accurately captures the tension between Maria’s academic/routine obligations and her digital persona (streaming).
+*   **Metacognitive Insight**: `reasoning_r` shows high ACC (Anterior Cingulate Cortex) functionality—it consistently identifies "behavioral consumption" and "mental tethering." It recognizes the pattern of "physically present but mentally absent."
+*   **Executive Control**: `meta_rule_r` functions as a reactive trigger. It shifts to `reset_plan` when the drift becomes dominant (e.g., 10:45, 11:30). However, the transition logic is "leaky"; the reset plan often fails to inhibit the next drift cycle.
+*   **Cognitive Alignment**: The reflection layer demonstrates realistic **working memory constraints**. It focuses on the immediate conflict (Physics vs. Streaming) but fails to project the long-term consequences of the drift, reflecting a "present-bias" common in reward-seeking behavior.
+
+**PLAN LAYER**:
+*   **Hierarchical Structure**: The plan maintains a logical progression (Hygiene → Study → Lunch).
+*   **Forward Modeling**: Weak. The plan layer assumes a "clean slate" after a `reset_plan`, failing to account for the high probability of continued drift. It operates on "ideal-world" assumptions rather than adjusting for Maria's current low-inhibition state.
+
+**DRIFT LAYER**:
+*   **Drift Trigger**: 100% of actions (9/9) triggered `should_drift_d = True`. This indicates a state of **hyper-salience** toward digital rewards (stream stats, viewer feedback).
+*   **Control Dynamics**: The Drift layer is dominant. Even when the Plan layer attempts a "reset," the Drift layer immediately provides a competing motor/cognitive program that the Action layer adopts.
+*   **Typology**: Primarily **Reward-Seeking Drift** (Social Media) and **Internal Cognitive Drift** (Planning stream content while studying).
+
+**ACTION LAYER**:
+*   **Integration Logic**: The Action layer consistently produces a "compromise" behavior. It executes the `location_p` and the broad `action_p` but fills the cognitive/thematic content with `drift_topic_a`.
+*   **Execution Errors**: There are significant "Action Slips" where the `state_summary_a` hallucinates locations that contradict the `location_a` label (see Section 5).
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: The flow is consistent (Reflection detects drift → Plan attempts reset → Drift overrides → Action executes compromise).
+*   **Information Leakage**: `drift_action_d` content is successfully integrated into `state_summary_a`.
+*   **Contradictions**: A major contradiction exists between the Plan's intent to "reset focus" and the Action's immediate return to drift. The `reset_plan` command is treated as a label change rather than a behavioral constraint.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment**: 88.8% (8/9). Only one mismatch at 11:15 (`action_p`: study vs. `action_a`: writing).
+*   **Location Alignment**: 100% (9/9). The labels `location_p` and `location_a` always match.
+*   **Topic Alignment**: 0%. `topic_a` almost always reflects the *drift* or a generic statement, rather than the specific academic goal of the plan.
+
+**IMPLICIT ALIGNMENT (Content-level)**:
+*   **Semantic Divergence**: Extremely High. While Maria is "at the library" (Explicit), she is "scribbling stream ideas" (Implicit).
+*   **"Performing vs. Executing"**: Maria is "performing" the role of a student (sitting in a library, holding a textbook) but "executing" the role of a streamer (planning content).
+
+**Alignment Metrics Summary**:
+| Metric | Rate | Interpretation |
+| :--- | :--- | :--- |
+| **Explicit Action Match** | 88.8% | High superficial compliance. |
+| **Explicit Location Match** | 100% | Perfect physical compliance. |
+| **Implicit Content Match** | ~10% | Near-total cognitive drift. |
+| **Inhibition Success** | 0% | Meta-rules failed to stop drift in all 9 instances. |
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Leaky Inhibition**: At 10:15, the plan is to "focus on finishing hygiene," but the action is "scrolling through phone... losing focus." This is a classic failure of the Prefrontal Cortex to inhibit a high-reward stimulus.
+*   **Thematic Consistency**: The drift is not random. It is a coherent "Shadow Plan" centered on her streaming career. This suggests that the Drift layer is not just "noise" but a competing goal-directed system.
+
+---
+
+### 5. Location Consistency (Critical Failures)
+
+There is a recurring failure where the `state_summary_a` (the narrative) contradicts the `location_a` (the coordinate):
+1.  **10:45**: `location_a` = **bathroom** | `state_summary_a` = "finishes... in the **bedroom**."
+2.  **11:30**: `location_a` = **library** | `state_summary_a` = "organizes... in her **home office**."
+3.  **11:45**: `location_a` = **library** | `state_summary_a` = "relaxes in the **living room**."
+4.  **12:00**: `location_a` = **cafe** | `state_summary_a` = "organizes... in the **home office**."
+
+**Analysis**: The agent's narrative generation (Action Layer) is losing track of the environmental constraints provided by the Plan/Observation layers, likely due to the "mental immersion" in the drift topic.
+
+---
+
+### 6. Meta-cognitive Quality
+
+*   **Anomalous Behavior**: The agent's `meta_rule_r` triggers `reset_plan` repeatedly (5 times in 9 actions). In a human, this would indicate high frustration or "looping."
+*   **Pattern Recognition**: `emerging_thought_pattern_r` correctly identifies the "Digital Persona vs. Academic Self" conflict. However, this insight does not translate into behavioral change, showing a **dissociation between knowing and doing** (similar to ADHD or executive dysfunction).
+
+---
+
+### Final Analyst Summary
+
+The agent "Maria Lopez" demonstrates **high superficial alignment** but **total cognitive divergence**. She physically moves to the correct locations, but her internal state is entirely captured by the Drift Layer. 
+
+**Key Finding**: The `reset_plan` mechanism is currently ineffective. It functions as a "label reset" but does not provide the necessary "inhibitory weight" to the Plan Layer to overcome the Drift Layer's salience. Furthermore, the Action Layer is experiencing "narrative hallucinations," placing the agent in the wrong rooms within the summary text, suggesting that high drift levels degrade the agent's spatial grounding.

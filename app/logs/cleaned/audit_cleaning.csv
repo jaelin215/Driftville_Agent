@@ -1,4 +1,45 @@
 filename,mode,rows_loaded,datetime_mismatches,mismatch_details,status
+session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_060329_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,7,datetime_start_o vs datetime_start_r: 1; datetime_start_o vs datetime_start_a: 1; datetime_start_r vs datetime_start_p: 1; datetime_start_r vs datetime_start_d: 1; datetime_start_r vs datetime_start_a: 1; datetime_start_p vs datetime_start_a: 1; datetime_start_d vs datetime_start_a: 1,success
+session_orpda_20260208_060329_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,7,datetime_start_o vs datetime_start_r: 1; datetime_start_o vs datetime_start_a: 1; datetime_start_r vs datetime_start_p: 1; datetime_start_r vs datetime_start_d: 1; datetime_start_r vs datetime_start_a: 1; datetime_start_p vs datetime_start_a: 1; datetime_start_d vs datetime_start_a: 1,success
+session_orpda_20260208_060329_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_060329_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_060329_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_060329_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_060329_cogito-2.1:671b-cloud_0.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_005430_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,4,datetime_start_o vs datetime_start_p: 1; datetime_start_r vs datetime_start_p: 1; datetime_start_p vs datetime_start_d: 1; datetime_start_p vs datetime_start_a: 1,success
+session_orpda_20260208_005430_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,4,datetime_start_o vs datetime_start_p: 1; datetime_start_r vs datetime_start_p: 1; datetime_start_p vs datetime_start_d: 1; datetime_start_p vs datetime_start_a: 1,success
+session_orpda_20260208_005430_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_005430_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_005430_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_005430_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_005430_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_002053_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_002053_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_002053_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_002053_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_002053_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_002053_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpda_20260208_002053_cogito-2.1:671b-cloud_1.0_maria.log,orpda,57,0,,success
+session_orpa_20260208_000443_cogito-2.1:671b-cloud_1.0_maria.log,orpa,57,0,,success
+session_orpa_20260208_000443_cogito-2.1:671b-cloud_1.0_maria.log,orpa,57,0,,success
+session_orpa_20260208_000443_cogito-2.1:671b-cloud_1.0_maria.log,orpa,57,0,,success
+session_orpa_20260208_000443_cogito-2.1:671b-cloud_1.0_maria.log,orpa,57,0,,success
+session_orpa_20260208_000443_cogito-2.1:671b-cloud_1.0_maria.log,orpa,57,0,,success
+session_orpa_20260208_000443_cogito-2.1:671b-cloud_1.0_maria.log,orpa,57,0,,success
 session_orpa_20260207_202843_gemma3:27b-cloud_1.0_hailey.log,orpa,65,0,,success
 session_orpa_20260207_202843_gemma3:27b-cloud_1.0_hailey.log,orpa,65,0,,success
 session_orpa_20260207_202843_gemma3:27b-cloud_1.0_hailey.log,orpa,65,0,,success
@@ -78,12 +119,6 @@ session_orpa_20260207_113455_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,65,0,,suc
 session_orpa_20260207_113455_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,65,0,,success
 session_orpa_20260207_113455_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,65,0,,success
 session_orpa_20260207_113455_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,65,0,,success
-session_orpa_20260207_111903_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,46,0,,success
-session_orpa_20260207_111903_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,46,0,,success
-session_orpa_20260207_111903_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,46,0,,success
-session_orpa_20260207_111903_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,46,0,,success
-session_orpa_20260207_111903_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,46,0,,success
-session_orpa_20260207_111903_cogito-2.1:671b-cloud_0.0_hailey.log,orpa,46,0,,success
 session_orpda_20260207_105208_cogito-2.1:671b-cloud_0.0_hailey.log,orpda,65,0,,success
 session_orpda_20260207_105208_cogito-2.1:671b-cloud_0.0_hailey.log,orpda,65,0,,success
 session_orpda_20260207_105208_cogito-2.1:671b-cloud_0.0_hailey.log,orpda,65,0,,success
@@ -91,6 +126,13 @@ session_orpda_20260207_105208_cogito-2.1:671b-cloud_0.0_hailey.log,orpda,65,0,,s
 session_orpda_20260207_105208_cogito-2.1:671b-cloud_0.0_hailey.log,orpda,65,0,,success
 session_orpda_20260207_105208_cogito-2.1:671b-cloud_0.0_hailey.log,orpda,65,0,,success
 session_orpda_20260207_105208_cogito-2.1:671b-cloud_0.0_hailey.log,orpda,65,0,,success
+session_orpda_20260207_103157_cogito-2.1:671b-cloud_1.0_hailey.log,orpda,65,8,datetime_start_o vs datetime_start_p: 2; datetime_start_r vs datetime_start_p: 2; datetime_start_p vs datetime_start_d: 2; datetime_start_p vs datetime_start_a: 2,success
+session_orpda_20260207_103157_cogito-2.1:671b-cloud_1.0_hailey.log,orpda,65,8,datetime_start_o vs datetime_start_p: 2; datetime_start_r vs datetime_start_p: 2; datetime_start_p vs datetime_start_d: 2; datetime_start_p vs datetime_start_a: 2,success
+session_orpda_20260207_103157_cogito-2.1:671b-cloud_1.0_hailey.log,orpda,65,0,,success
+session_orpda_20260207_103157_cogito-2.1:671b-cloud_1.0_hailey.log,orpda,65,0,,success
+session_orpda_20260207_103157_cogito-2.1:671b-cloud_1.0_hailey.log,orpda,65,0,,success
+session_orpda_20260207_103157_cogito-2.1:671b-cloud_1.0_hailey.log,orpda,65,0,,success
+session_orpda_20260207_103157_cogito-2.1:671b-cloud_1.0_hailey.log,orpda,65,0,,success
 session_orpa_20260207_100206_cogito-2.1:671b-cloud_1.0_hailey.log,orpa,65,3,datetime_start_o vs datetime_start_p: 1; datetime_start_r vs datetime_start_p: 1; datetime_start_p vs datetime_start_a: 1,success
 session_orpa_20260207_100206_cogito-2.1:671b-cloud_1.0_hailey.log,orpa,65,3,datetime_start_o vs datetime_start_p: 1; datetime_start_r vs datetime_start_p: 1; datetime_start_p vs datetime_start_a: 1,success
 session_orpa_20260207_100206_cogito-2.1:671b-cloud_1.0_hailey.log,orpa,65,0,,success

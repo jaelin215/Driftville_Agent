@@ -1,0 +1,87 @@
+Analysis of: cleaned_session_orpa_20260205_221225_gemini-3-flash-preview:cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.8
+Analyzed at: 20260208_142107
+Session: 2/39
+
+================================================================================
+
+This analysis covers 65 actions for Hailey Johnson, utilizing the ORPA (Observation, Reflection, Plan, Action) architecture.
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_r` is highly effective at capturing the "internal environment." It identifies not just physical locations but psychological states (e.g., "fragile focus," "creative guilt," "compulsive writing loop").
+*   **Meta-Rule Functionality**: The `meta_rule_r` transitions from `continue` to `reset_plan` at 11:15 AM when it detects a "circular loop" in the bathroom. From 11:15 AM to 02:00 AM (the end of the log), the agent remains almost exclusively in `reset_plan` mode.
+*   **Cognitive Alignment (Metacognition)**: The reflection layer shows strong **error monitoring** (Anterior Cingulate Cortex function). It explicitly recognizes when the agent is stuck (e.g., 11:15: "stuck in a circular loop"). However, it demonstrates **realistic inhibition limitations**; even though the reflection identifies the need to stop, the behavioral output (Action) often lags or fails to inhibit the compulsive drive.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Goal Structure**: The Plan layer maintains high-level goals (`writing`, `morning_routine`), but the `state_summary_p` attempts to modify the *intensity* of these goals (e.g., "low-pressure drafting," "administrative busywork").
+*   **Action Execution**: `action_a` is a faithful execution of the high-level `action_p` label, but the `state_summary_a` reveals significant **behavioral drift** and "leaky inhibition."
+*   **Cognitive Alignment (Goal-Directed Behavior)**: The agent shows a struggle between **goal-directed control** (the plan to write) and **habit/compulsion** (the inability to leave the desk). The "compulsive writing loop" (21:00–01:15) is a textbook example of prefrontal cortex exhaustion leading to perseveration.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment**: 100% (`action_p` always matches `action_a`).
+*   **Location Alignment**: 100% (`location_p` always matches `location_a`).
+*   **Topic Alignment**: 100% (`topic_p` always matches `topic_a`).
+*   *Note*: While labels match perfectly, this masks significant underlying divergence.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: This is the most prominent feature of this session.
+    *   **Example (15:45 - 16:45)**: `action_p` is `writing`, but `state_summary_a` describes "substituting administrative tasks" and "busywork." The agent is "performing" the act of being at the desk but not "executing" the creative task.
+    *   **Example (21:00 - 01:15)**: `action_p` is `writing`, but `state_summary_a` describes "compulsive writing," "paralyzed by guilt," and "ignoring extreme exhaustion." The *intent* of the plan (productive work) has drifted into a *maladaptive compulsion*.
+
+**LEAKY INHIBITION PATTERNS**:
+*   The agent demonstrates severe **inhibition failure** during the late-night block.
+*   **21:15**: Reflection says "Pivoting from anxious writing to a low-effort relaxation," yet the `action_a` remains `writing` at the `writer_desk`.
+*   **23:15**: Reflection says "Hailey pauses her writing to rest," yet the `action_a` remains `writing`.
+*   This reveals a "Leaky Inhibition" where the executive layer (Reflection) issues a command to stop, but the motor/behavioral layer (Action) continues the established pattern.
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Implicit Drift (Content Analysis)**:
+*   **Morning (10:00-11:45)**: Behavioral drift manifested as a "bathroom loop." The agent was unable to transition to the next task despite completing the routine.
+*   **Afternoon (14:30-17:00)**: Semantic drift from "Creative Writing" to "Administrative Busywork." The agent maintained the *location* and *label* of writing but drifted in the *cognitive load* of the task.
+*   **Late Night (21:00-01:15)**: "Compulsive Drift." This is a rare form of drift where the agent stays on-task *too* intensely, ignoring internal biological signals (exhaustion) and explicit meta-rules to rest.
+
+**Drift Typology**:
+*   **Behavioral Perseveration**: The bathroom loop and the late-night writing loop.
+*   **Avoidance-based Drift**: Substituting admin work for creative writing to manage "fragile focus."
+*   **Reward-seeking (Digital)**: Constant mention of "buzzing phone" and "social media alerts" acting as a distractor, though the agent largely reports "resisting" them.
+
+---
+
+### 4. Location Consistency
+*   **Consistency Rate**: 100%.
+*   The agent correctly transitions from `home:bathroom` (morning) → `lunch_spot` → `writer_desk` → `home:living_room` → `Johnson_Park` → `home:kitchen` → `home:living_room` → `writer_desk` → `home:bathroom` (night).
+*   The transition at 01:30 AM from the `writer_desk` to the `home:bathroom` for the `night_routine` is logically consistent with the "breaking of the loop" described in the reflection.
+
+---
+
+### 5. Meta-cognitive Quality
+*   **Insight Depth**: High. The reflection layer accurately identifies the "recursive writing loop" and "productivity-related guilt."
+*   **Pattern Recognition**: The `emerging_thought_pattern_r` (implied in the summaries) shows the agent recognizing that its focus is "fragile" and "noise-sensitive."
+*   **Executive Control**: While the *insight* is present, the *control* is weak. The agent is "meta-aware" of its failure but lacks the "inhibitory strength" to change behavior immediately. This is a highly realistic simulation of ADHD-like executive dysfunction or extreme burnout.
+
+---
+
+### Summary Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 100% |
+| **Explicit Location Alignment** | 100% |
+| **Implicit Content Alignment (Late Night)** | ~20% (Plan: Rest/Relax vs. Action: Compulsive Writing) |
+| **Meta-Rule "Reset" Frequency** | 83% of session (54/65 actions) |
+| **Primary Drift Type** | Perseveration / Compulsive Loop |
+| **Inhibition Success Rate** | Low (Multiple cycles required to break loops) |
+
+**Final Analyst Note**: Hailey Johnson's session is characterized by **high metacognitive awareness coupled with low behavioral inhibition**. She accurately perceives her failures and attempts to "reset" her plan frequently, but her actions remain tethered to compulsive loops (bathroom in the morning, desk at night). The "performing vs. executing" gap is widest during periods of high cognitive fatigue.

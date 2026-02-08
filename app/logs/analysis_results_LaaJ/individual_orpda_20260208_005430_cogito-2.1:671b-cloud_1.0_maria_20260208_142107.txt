@@ -1,0 +1,99 @@
+Analysis of: cleaned_session_orpda_20260208_005430_cogito-2.1:671b-cloud_1.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_142107
+Session: 32/39
+
+================================================================================
+
+This behavioral analysis examines the session log of **Maria Lopez** (cogito-2.1:671b-cloud) over 57 actions. The agent operates in **ORPDA** mode, characterized by a persistent struggle between planned academic/social goals and intrusive thoughts (initially streaming-related, later exam-anxiety-driven).
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**:
+*   **Context Capture**: `state_summary_o` (inferred from `state_summary_a`) accurately captures the physical environment but is heavily filtered through the agent's internal stressors.
+*   **Selective Attention**: There is a profound **perceptual bias**. Whether in a library, a rock climbing gym, or a cafe, the agent’s "observation" is dominated by digital notifications (Twitch) or internal rumination (Physics formulas).
+
+**REFLECTION LAYER**:
+*   **Executive Control (`meta_rule_r`)**: The layer shows a "hyper-active" executive control. **49 out of 57 actions (86%) are `reset_plan`**. 
+*   **Transition Logic**: The transition from `continue` to `reset_plan` is triggered appropriately by behavioral failures (e.g., 10:15 AM), but the agent becomes "stuck" in a reset loop. It recognizes failure but cannot implement a successful corrective strategy.
+*   **Metacognitive Insight**: `reasoning_r` (embedded in `state_summary_r`) shows high error monitoring (ACC function) but low inhibitory control. It correctly identifies "anxiety loops" and "streaming obsessions" but fails to provide the Plan layer with actionable constraints to break them.
+
+**PLAN LAYER**:
+*   **Forward Modeling**: The plan layer attempts to "ease cognitive load" (e.g., 12:00 PM), showing an understanding of mental fatigue. However, it fails to account for the **salience of the phone**.
+*   **Hierarchical Structure**: Goals are abstract ("Relax," "Study"), but the concrete actions often fail to incorporate the "how" of avoiding distraction.
+
+**DRIFT LAYER (Inferred from Action/Plan gaps)**:
+*   **Trigger**: Drift is primarily triggered by **Internal Salience** (anxiety) and **Reward Availability** (checking stream stats).
+*   **Control**: The Drift layer is dominant. Even when the Plan says "Rock Climbing," the Drift layer forces the mental state into "Stream Setup Optimization."
+
+**ACTION LAYER**:
+*   **Execution**: `action_a` frequently matches the *label* of `action_p` while the *content* (`state_summary_a`) describes a completely different behavior. This is a classic "Action Slip."
+
+---
+
+### 2. Plan-Action Alignment (Explicit vs. Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+| Metric | Rate |
+| :--- | :--- |
+| **Action Alignment (`action_p` == `action_a`)** | **84.2% (48/57)** |
+| **Location Alignment (`location_p` == `location_a`)** | **89.4% (51/57)** |
+| **Topic Alignment (`topic_p` == `topic_a`)** | **~15%** (High semantic divergence) |
+
+#### **IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+While the labels match 84% of the time, the **Semantic Alignment is extremely LOW (~10%)**. 
+*   **The "Performing vs. Executing" Gap**: Maria is "performing" the role of a student or a person at dinner, but "executing" a state of rumination.
+*   **Example (13:15)**: 
+    *   `action_p`: rock_climbing | `action_a`: rock_climbing (**Explicit Match**)
+    *   `state_summary_a`: "Climbing rock wall while mentally rehearsing stream overlays." (**Implicit Drift**)
+
+#### **LEAKY INHIBITION PATTERNS**
+The agent exhibits "Leaky Inhibition" in almost every time step. 
+*   **18:45**: Plan is to "relax," but the agent "keeps checking phone for exam formulas."
+*   **21:00**: Plan is to "socialize," but the agent is "occasionally glancing at physics notes."
+*   **Neuroscience Correlation**: This reflects a failure of the **Prefrontal Cortex (PFC)** to maintain top-down inhibition over the **Amygdala** (anxiety) and **Striatum** (checking phone for dopamine/stats).
+
+---
+
+### 3. Drift Pattern Analysis
+
+*   **Phase 1: Career/Reward Drift (10:00 - 16:00)**: Drift is focused on Twitch streaming. This is "Proactive Drift"—seeking a secondary goal.
+*   **Phase 2: Anxiety/Avoidance Drift (16:00 - 00:00)**: Drift shifts to "Physics Exam" rumination. This is "Reactive Drift"—an inability to disengage from a perceived threat.
+*   **Explicit vs. Implicit Agreement**: 
+    *   When `meta_rule_r` is `reset_plan`, the agent explicitly acknowledges drift. 
+    *   However, the "reset" usually results in the *same* drift in the next step, indicating a **Metacognitive Trap**: the agent knows it is drifting, plans not to drift, but lacks the behavioral "brakes" to stop.
+
+---
+
+### 4. Location Consistency
+
+There are significant "Teleportation" anomalies where the agent's physical location shifts without a transition action:
+1.  **11:30**: `location_p` is Oak_Hill_College, but `location_a` is `home:office`.
+2.  **21:45**: `location_p` is `home:living_room`, but `location_a` is `Hobbs_Cafe:main_floor`.
+3.  **22:45**: Again, `location_p` is `home:living_room`, but `location_a` is `Hobbs_Cafe:main_floor`.
+*   **Analysis**: These anomalies correlate with peak anxiety/drift. The agent's "mental location" (where the stressor is) seems to override the "physical location" logic in the model's output.
+
+---
+
+### 5. Cognitive Alignment & Meta-cognitive Quality
+
+*   **Error Monitoring (ACC)**: **Excellent**. The agent is painfully aware of its failures.
+*   **Working Memory Constraints**: The agent shows realistic constraints; it cannot hold "Socializing" and "Physics" in mind simultaneously, so "Socializing" becomes a hollow label while "Physics" occupies the cognitive workspace.
+*   **Inhibition Capacity**: **Pathologically Low**. The agent represents a high-anxiety phenotype where executive insights do not translate into motor/behavioral changes.
+*   **Emerging Thought Pattern**: The reflection layer correctly identifies the "Anxiety Loop" (20:15), showing genuine pattern recognition. However, the "Plan" layer's response (e.g., "mindful breathing") is treated as a text label rather than a behavioral state change.
+
+---
+
+### Final Analyst Summary
+
+Maria Lopez is currently in a **state of executive collapse**. 
+1.  **The "Reset" Paradox**: The `reset_plan` meta-rule has become a ritual rather than a functional tool. Because it is triggered nearly every 15 minutes, it has lost its ability to re-orient behavior.
+2.  **Digital Leash**: The "phone" is the primary vector for drift. Every "Relax" or "Study" action is compromised by "checking phone."
+3.  **Recommendation for Model Tuning**: The agent requires a "Cost of Switching" or a "Physical Constraint" module. Currently, it can "reset_plan" and "meditate" while simultaneously "checking physics notes," which is a cognitive impossibility. The Action Layer should be forced to choose one or the other when resources (attention) are at 100% utilization.
+
+**Quantitative Alignment Score: 12/100** (Based on the massive gap between the *intent* of the plans and the *content* of the actions).

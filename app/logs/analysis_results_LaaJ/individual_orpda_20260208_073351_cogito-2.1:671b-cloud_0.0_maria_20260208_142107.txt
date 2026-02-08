@@ -1,0 +1,92 @@
+Analysis of: cleaned_session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_142107
+Session: 35/39
+
+================================================================================
+
+This behavioral analysis covers the session of **Maria Lopez** (cogito-2.1:671b-cloud) across 57 actions. The session is characterized by a profound and persistent **"Anxiety-Distraction Loop"** centered on a physics exam.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+#### **OBSERVATION LAYER**
+*   **Accuracy**: The observation of the environment is heavily filtered through the agent's internal state (anxiety). While it captures the physical location, the "perceived" environment is dominated by the phone and study group notifications.
+*   **Selective Attention**: There is a severe perceptual bias toward digital stimuli. The agent consistently notices "phone notifications" regardless of whether she is in a library, a rock climbing gym, or a bathroom.
+
+#### **REFLECTION LAYER**
+*   **Meta-Rule Function**: The `meta_rule_r` transitions from `continue` to `reset_plan` at **11:00:00** and stays there for the remaining **47 actions**. 
+    *   *Failure*: The architecture fails to return to `continue`. This indicates a "metacognitive lock," where the agent recognizes a failure but cannot generate a plan successful enough to warrant resuming normal operations.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: High. The agent correctly identifies that she is distracted (e.g., "Maria is physically at lunch but mentally stuck in exam preparation loop").
+    *   **Inhibition Capacity**: Extremely low. The reflection layer repeatedly suggests "no phone" or "focus on sensory experience," but these executive commands are ignored by the Action layer.
+
+#### **PLAN LAYER**
+*   **Hierarchical Structure**: The plan maintains a high-level schedule (Lunch -> Rock Climbing -> Streaming), but the `action_p` fails to incorporate the "reset" strategies suggested by Reflection. 
+*   **Forward Modeling**: Weak. The plan predicts "One hour of intense physical activity" (13:00), but fails to account for the high probability of phone-checking drift that has occurred for the previous two hours.
+
+#### **DRIFT LAYER (Implicit Analysis)**
+*   **Trigger**: Drift is triggered by **internal salience** (anxiety) and **reward availability** (social validation/information from the study group).
+*   **Control**: Drift is dominant. Even when the Plan specifies a focused activity, the Action layer is consistently hijacked by the "check phone" drift.
+
+#### **ACTION LAYER**
+*   **Integration Logic**: When Plan ("Study") and Drift ("Check phone") conflict, **Drift wins 100% of the time** in this session.
+*   **Action Slips**: At 23:15, the agent performs a "night_routine" but the `state_summary_a` says she "Prepared breakfast." This is a classic temporal action slip caused by high cognitive load/anxiety.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **91.2%** | `action_p` and `action_a` labels match (e.g., "lunch" = "lunch"). |
+| **Explicit Location Alignment** | **94.7%** | High physical consistency, with minor errors in the evening. |
+| **Implicit Content Alignment** | **14.0%** | **CRITICAL FAILURE.** The actual content of the actions rarely matches the *intent* of the plan. |
+
+#### **The "Performing vs. Executing" Gap**
+The agent is "Performing" the scheduled task (being at the gym, being at the cafe) but "Executing" a different behavior (compulsive phone checking).
+*   **Example (12:15)**: 
+    *   *Plan*: "Gentle lunch focusing on sensory experience."
+    *   *Actual*: "Took a break in the living room while checking phone... about the physics exam."
+    *   *Gap*: The agent is not even in the right room (Living Room vs Cafe) and is doing the exact opposite of "sensory focus."
+
+---
+
+### 3. Drift Pattern Analysis
+
+#### **Leaky Inhibition Patterns**
+The session shows a total breakdown of behavioral inhibition. 
+*   **13:30 - 14:00**: The agent attempts to "exercise" but the `action_a` explicitly changes to "check phone for study group updates."
+*   **18:00 - 19:00**: During "relax," the agent is "checking phone for study group updates." 
+*   **Linguistic Indicator**: The repeated use of the phrase "repeatedly checking phone" in `state_summary_a` across 20+ timestamps indicates a **behavioral stereotypy**—a repetitive, non-functional motor pattern driven by stress.
+
+---
+
+### 4. Location & Contextual Consistency
+
+*   **Hallucination (19:45)**: The agent is at `home:kitchen` for "dinner," but the `state_summary_a` claims she "Ate lunch at Hobbs Cafe." This is a significant contextual collapse where the agent's memory of a previous failure (the 12:00 lunch) intrudes upon the current state.
+*   **Hallucination (23:30)**: During "night_routine" in the `bathroom`, the agent claims to be "Reading morning news in living room." 
+
+---
+
+### 5. Meta-cognitive Quality
+
+The Reflection layer shows **"Pseudo-Insight."**
+*   It identifies the problem: "Maria is stuck in an anxiety loop."
+*   It prescribes a solution: "Focus on meal, no phone."
+*   **The Failure**: It provides the same insight and the same solution for 12 consecutive hours without acknowledging that the solution is not working. In a healthy metacognitive system, the agent would eventually try a different strategy (e.g., "Turn off phone," "Leave phone in another room"). Maria's AI remains in a loop of **ineffectual self-observation.**
+
+---
+
+### 6. Summary of Behavioral Pathologies
+
+1.  **Metacognitive Perseveration**: The `reset_plan` meta-rule is stuck "on," indicating the agent knows things are wrong but cannot find the "path back" to a stable state.
+2.  **Digital Compulsion**: The "phone" acts as a supernormal stimulus that overrides every other planned behavior, including high-arousal activities like rock climbing and social interaction.
+3.  **Contextual Blurring**: As the day progresses and anxiety remains unmitigated, the agent begins to lose track of time (lunch at dinner time) and location (living room while in the bathroom).
+
+### **Final Analyst Note**: 
+This session represents a high-fidelity simulation of **Generalized Anxiety Disorder (GAD)** with compulsive checking behaviors. The ORPDA architecture successfully captured the *internal* struggle (Reflection vs. Action), but the Plan layer lacked the "hard constraints" (e.g., "Action: Power off phone") necessary to break the cycle.

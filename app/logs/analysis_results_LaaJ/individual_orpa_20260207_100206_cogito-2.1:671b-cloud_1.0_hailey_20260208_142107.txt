@@ -1,0 +1,90 @@
+Analysis of: cleaned_session_orpa_20260207_100206_cogito-2.1:671b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260208_142107
+Session: 15/39
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** (cogito-2.1:671b-cloud) over 65 actions. The architecture used is **ORPA** (Observation, Reflection, Plan, Action).
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & ACTION LAYERS**:
+*   **Perceptual Consistency**: High. The agent maintains a consistent narrative of "phone distraction" in the morning and "writing fatigue" in the afternoon/evening.
+*   **State Summary Accuracy**: `state_summary_a` is highly descriptive but shows a "copy-paste" tendency from the Plan layer. It reflects the *intent* of the action more than the *environmental feedback* of the action.
+*   **Action Execution**: `action_a` perfectly matches `action_p` in every instance. In this ORPA configuration, the agent exhibits **perfect explicit compliance** but **high implicit drift**.
+
+**REFLECTION LAYER**:
+*   **Meta-rule (`meta_rule_r`)**: The executive control is hyper-active. `reset_plan` is triggered in **44 out of 65 actions (67%)**. This indicates an agent that perceives itself as constantly failing or needing adjustment.
+*   **Transition Logic**: The transition from `continue` to `reset_plan` is triggered by the recognition of "distraction" or "fatigue." However, the "reset" rarely solves the underlying issue, leading to a "reset loop."
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The agent shows overactive Anterior Cingulate Cortex function. It is hyper-aware of the gap between its goal (focus) and its state (distracted/fatigued).
+    *   **Inhibition Capacity**: The agent demonstrates "Ideal-World Assumptions." It reflects on the need to put the phone away or reset, but the subsequent reflection shows the distraction persisted. This is a classic **Prefrontal Cortex (PFC) exhaustion** profile.
+
+**PLAN LAYER**:
+*   **Hierarchical Structure**: Good. It moves from abstract goals ("Deep focus on novel") to concrete tactical adjustments ("Switching to low-cognitive admin").
+*   **Forward Modeling**: Weak. The Plan layer repeatedly suggests "mindful breathing" or "admin work" to fix fatigue, but the Reflection layer 15 minutes later reports the fatigue is still there. The agent lacks the "predictive coding" to realize that 15 minutes of breathing won't fix 4 hours of creative exhaustion.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate |
+| :--- | :--- |
+| **Explicit Action Alignment** (`action_p` == `action_a`) | **100%** |
+| **Explicit Location Alignment** (`location_p` == `location_a`) | **100%** |
+| **Explicit Topic Alignment** (`topic_p` == `topic_a`) | **100%** |
+| **Implicit Content Alignment** (Semantic) | **Low (approx. 35%)** |
+
+**Analysis of the "Performing vs. Executing" Gap**:
+*   **The "Fatigue Loop" (17:00 - 02:00)**: This is the most striking pattern.
+    *   **Explicitly**: The agent is doing `relax`, `walk`, `dinner`, `watch_tv`, and `night_routine`.
+    *   **Implicitly**: The `state_summary_a` for almost every action during this 9-hour block mentions "writing fatigue," "writing fixation," or "resetting from writing."
+    *   **Example (20:00)**: `action_a` is `watch_tv`, but `state_summary_a` is "Sit quietly with eyes closed, practice deep breathing." This is a direct contradiction between the categorical label and the semantic content.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode (no explicit Drift layer), drift is identified by comparing the **intended focus** vs. the **reflected reality**.
+
+*   **Leaky Inhibition**: The agent suffers from massive "Cognitive Leakage."
+    *   *Morning*: The "Morning Routine" is constantly interrupted by "phone urges."
+    *   *Evening*: The "Relaxation" and "Dinner" phases are entirely colonized by "Writing Fatigue." The agent is unable to inhibit thoughts of the previous task.
+*   **Linguistic Indicators of Drift**:
+    *   The use of words like "struggling," "persistent," "stuck," and "trapped" in the `state_summary_r` increases in frequency as the session progresses.
+    *   By 23:00, the agent describes itself as "trapped in writing fatigue despite multiple intervention attempts."
+
+---
+
+### 4. Location Consistency
+
+*   **Consistency**: High. The agent moves logically from `home:bathroom` (morning) to `writer_desk` (work) to `Johnson_Park` (walk) to `home:kitchen` (dinner) and back to `home:bathroom` (night).
+*   **Anomalies**: At 01:15, the plan is to "Move to different room," but the location remains `writer_desk`. This is a rare instance where the physical movement planned in the summary didn't update the `location_a` coordinate, though the action remained `writing`.
+
+---
+
+### 5. Behavioral Patterns & Meta-cognitive Quality
+
+**The "Reset" Paradox**:
+The agent uses `reset_plan` as a panacea. However, the "resets" are often just more cognitive work (e.g., "switching to admin tasks"). In the neuroscience of fatigue, switching from "writing" to "admin" still consumes executive resources. The agent's metacognition recognizes the *symptom* (fatigue) but fails to select the correct *remedy* (actual sleep or total disengagement), leading to the 4+ hour "fatigue cycle."
+
+**Emerging Thought Patterns**:
+*   **10:00 - 12:00**: Digital Distraction/Impulse Control struggle.
+*   **13:00 - 16:30**: High-effort focus with mounting "resistance cost."
+*   **17:00 - 02:00**: Chronic cognitive perseveration (inability to stop thinking about the task).
+
+---
+
+### 6. Summary for AI Behavior Architects
+
+1.  **Executive Over-firing**: The agent is "over-reflecting." The high frequency of `reset_plan` suggests the model is caught in a loop of self-correction that prevents actual task flow.
+2.  **Semantic Dissociation**: There is a widening gap between the `action` label (e.g., `watch_tv`) and the `state_summary` (e.g., "breathing to reset writing fatigue"). The agent is "labeling" a standard behavior while "experiencing" a different internal state.
+3.  **Inhibition Failure**: The agent demonstrates a realistic model of "ego depletion." As the day progresses, its ability to follow the plan (implicitly) collapses, even though it continues to claim it is following the plan (explicitly).
+
+**Final Assessment**: Hailey Johnson is a "High-Vigilance, Low-Recovery" agent. She possesses excellent error detection but lacks effective recovery strategies, leading to a state of **metacognitive burnout** by the end of the session.

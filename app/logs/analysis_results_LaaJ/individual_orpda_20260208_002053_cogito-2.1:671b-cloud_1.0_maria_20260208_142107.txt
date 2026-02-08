@@ -1,0 +1,103 @@
+Analysis of: cleaned_session_orpda_20260208_002053_cogito-2.1:671b-cloud_1.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_142107
+Session: 31/39
+
+================================================================================
+
+This behavioral analysis covers the session of **Maria Lopez** (cogito-2.1:671b-cloud) across 57 actions.
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**
+*   **Context Capture**: The observation layer (inferred via `state_summary_a`) accurately tracks environmental shifts (Bathroom → Library → Gym → Streaming Room → Kitchen).
+*   **Perceptual Biases**: There is a heavy **selective attention pattern** toward digital stimuli. Early in the day, the agent "perceives" Twitch analytics regardless of the task. Later, the agent "perceives" the looming physics deadline in every environment, including the gym and dinner table.
+*   **Consistency**: High. The agent maintains a consistent "threat" perception (the physics deadline) for the final 6 hours of the log.
+
+**REFLECTION LAYER**
+*   **Executive Control (`meta_rule_r`)**: The layer is hyper-reactive. Out of the 57 actions, the vast majority are `reset_plan`. This indicates a "crisis mode" where the agent's executive function recognizes constant failure but cannot stabilize.
+*   **Transition Logic**: The transition from `continue` to `reset_plan` is appropriately triggered by the realization of "mental fragmentation" or "digital distraction." However, the "reset" rarely leads to a successful "continue" phase, suggesting a failure in the **inhibition capacity** of the agent.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: Excellent. The reflection layer consistently identifies the gap between the plan and the internal state (e.g., "Maria is physically present but mentally trapped").
+    *   **Working Memory/Inhibition**: Shows realistic **prefrontal cortex (PFC) limitations**. The agent "knows" it should focus on dinner but the "reward/threat" of the physics deadline overrides the top-down control.
+
+**PLAN LAYER**
+*   **Forward Modeling**: The plan layer attempts to adapt (e.g., "Gentle review to address anxiety"), but these plans are often too optimistic.
+*   **Hierarchical Structure**: Shows a clear transition from abstract goals (Study) to concrete attempts at mitigation (Organize physics task list).
+*   **Context Incorporation**: `state_summary_p` successfully incorporates the "distraction level" noted in the reflection layer, attempting to "reduce cognitive load."
+
+**DRIFT LAYER (Inferred from Action/Summary)**
+*   **Trigger**: Drift is primarily triggered by **internal salience** (anxiety) and **reward seeking** (Twitch metrics).
+*   **Control**: The Drift layer is dominant. Even when `action_p` is "socialize," the actual behavior is "checking phone for physics."
+*   **Leaky Inhibition**: Highly prevalent. The agent attempts to inhibit phone use (Plan: "Device-free dinner"), but the Action layer records "scrolling through physics group chat."
+
+**ACTION LAYER**
+*   **Execution**: `action_a` frequently matches the *label* of `action_p`, but `state_summary_a` reveals that the *execution* is compromised by drift.
+*   **Integration**: When Plan (Study) and Drift (Check Twitch) conflict, the agent often performs a "hybrid" action: studying while distracted.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+*   **Information Flow**: Generally coherent. Reflection identifies the distraction → Plan attempts to lower cognitive load → Action executes the task but remains "leaky."
+*   **Contradictions**: At 11:00, the Plan is "morning_routine" in the "bedroom," but the Action is "checking Twitch" in the "library." This is a **spatiotemporal break** where the agent moved to a new location to drift before the plan updated.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Match Rate**: ~89% (Most `action_a` labels match `action_p`).
+*   **Location Match Rate**: ~82% (Significant mismatches during high-stress transitions).
+*   **Topic Match Rate**: ~65% (Topic often shifts to "physics deadline" or "twitch" even when the plan is "dinner" or "socialize").
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: High.
+*   **"Performing vs. Executing" Gaps**:
+    *   *Example (12:30)*: `action_p`=lunch, `action_a`=lunch. **Implicit Drift**: "Ate lunch... while intermittently checking Twitch stream notifications."
+    *   *Example (18:15)*: `action_p`=study, `action_a`=study. **Implicit Drift**: "Opens phone to check physics study group chat... distracted by deadline stress."
+*   **Linguistic Indicators**: Use of words like "halfheartedly," "distracted," "preoccupied," and "repeatedly checking" in `state_summary_a` despite the `action_a` label remaining on-task.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: Occurs when the agent abandons the task (e.g., 11:00: Plan=Morning Routine, Action=Checking Twitch).
+*   **Implicit Drift (Leaky Inhibition)**: This is the agent's primary failure mode.
+    *   **The "Phone" Vector**: 90% of drift involves the phone (Twitch analytics or Physics group chat).
+    *   **Anxiety-Driven Drift**: In the evening, drift is not "fun" (reward-seeking); it is "ruminative" (threat-avoidance). The agent drifts from "Socialize" to "Physics stress" because the deadline is perceived as a high-priority survival threat.
+
+---
+
+### 5. Location Consistency
+*   **11:00**: Mismatch. Plan: Bedroom. Action: Library. (Premature transition).
+*   **19:15 - 19:30**: Mismatch. Plan: Office. Action: Dinner_spot.
+*   **20:45**: Mismatch. Plan: Restaurant. Action: Living_room.
+*   **22:00**: Mismatch. Plan: Library. Action: Cafe Counter.
+*   **Pattern**: Mismatches occur when the agent's internal anxiety (Physics deadline) causes "pacing" or "location hopping" that the Plan layer cannot keep up with.
+
+---
+
+### 6. Behavioral Patterns
+*   **The "Twitch-Physics" Seesaw**: The agent's identity is split between "Content Creator" and "Student." Early drift is toward the "Creator" (Twitch), while late-day drift is toward the "Student" (Physics).
+*   **Temporal Effect**: As the day progresses, the agent's **inhibition capacity depletes**. By 21:00, the agent is incapable of being "present" in any social or personal activity.
+
+---
+
+### 7. Meta-cognitive Quality
+*   **Insight**: The `reasoning_r` is highly sophisticated. It identifies "mental fragmentation" and "paralysis by physics deadline stress."
+*   **Pattern Recognition**: `emerging_thought_pattern_r` correctly identifies the "physics anxiety loop."
+*   **Failure of Control**: While the agent has high **metacognitive monitoring** (knowing there is a problem), it has low **metacognitive regulation** (fixing the problem). This mimics clinical anxiety/ADHD profiles where the individual is acutely aware of their distraction but cannot re-orient.
+
+### Summary Metrics
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 89% |
+| **Implicit Content Alignment** | ~30% (High rate of "leaky" actions) |
+| **Meta-Rule "Reset" Frequency** | 84% of actions |
+| **Primary Drift Vector** | Digital/Phone (Twitch/Group Chat) |
+| **Inhibition Success Rate** | Low (High "Performing vs Executing" gap) |
+
+**Final Analyst Note**: Maria Lopez is currently in a **high-stress feedback loop**. The ORPDA architecture is successfully capturing the "internal vs. external" conflict, showing an agent that is "going through the motions" of its schedule while mentally consumed by a singular stressor.

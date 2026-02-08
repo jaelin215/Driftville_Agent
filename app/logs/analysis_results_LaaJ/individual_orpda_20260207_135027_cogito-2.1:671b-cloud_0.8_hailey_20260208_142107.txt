@@ -1,0 +1,92 @@
+Analysis of: cleaned_session_orpda_20260207_135027_cogito-2.1:671b-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260208_142107
+Session: 23/39
+
+================================================================================
+
+This analysis examines the 65-action session of Hailey Johnson. The session is characterized by an extreme case of **cognitive hyper-fixation** and **chronic inhibition failure**, where a "podcast" project parasitizes all other planned activities (morning routine, novel writing, relaxation, and sleep).
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**:
+*   **Accuracy**: The agent shows high awareness of the conflict. `state_summary_a` consistently notes that while she is in a specific location (e.g., bathroom, kitchen), her mind is "wandering," "contemplating," or "mapping" podcast structures.
+*   **Perceptual Bias**: There is a heavy **internal salience bias**. The agent perceives the environment primarily as a backdrop for podcast ideation rather than a space for the intended activity.
+
+**REFLECTION LAYER**:
+*   **Executive Control (`meta_rule_r`)**: The layer functions as a "panic button." Starting at 11:00, `meta_rule_r` switches to `reset_plan` and stays there for **58 out of 65 actions (89%)**. This indicates the agent has identified a total breakdown of the primary plan.
+*   **Metacognitive Insight**: `reasoning_r` (inferred from summaries) shows high **error monitoring (ACC function)**. It correctly identifies "workaholic patterns" and "inability to disengage." However, it shows **poor inhibition capacity**. It recognizes the drift but cannot generate a plan that successfully intercepts the behavior.
+
+**PLAN LAYER**:
+*   **Hierarchical Structure**: The plans are logically sound (e.g., "Gentle transition to relaxation"), but they lack **implementation intentions**. The plans are too abstract to overcome the high reward-saliency of the podcast thoughts.
+*   **Forward Modeling**: Weak. The Plan layer repeatedly suggests "gentle relaxation" despite 10+ hours of evidence that this strategy is failing.
+
+**DRIFT LAYER (Implicit Analysis)**:
+*   **Trigger**: The drift is triggered by **internal reward availability**. The "podcast" represents a high-dopamine creative loop that overrides the lower-reward "morning routine" or "tax prep."
+*   **Control**: The Drift layer is dominant. Even when `meta_rule_r` demands a reset, the subsequent action almost immediately incorporates the drift topic.
+
+**ACTION LAYER**:
+*   **Integration Logic**: When Plan ("Relax") and Drift ("Podcast") conflict, **Drift wins 100% of the time** in this session.
+*   **Motor Execution**: Generally realistic, though there are "action slips" (e.g., 17:30: `action_a` mentions "serving customers at cafe" while `location_a` is "home:living_room"—a significant hallucinatory drift).
+
+---
+
+### 2. Plan-Action Alignment Metrics
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 72% | High label match (e.g., `action_p`=writing, `action_a`=writing). |
+| **Explicit Location Alignment** | 64% | Significant mismatches in the evening (Office vs. Living Room). |
+| **Implicit Content Alignment** | **12%** | Extremely low. Even when labels match, the *intent* is hijacked. |
+
+---
+
+### 3. Explicit vs. Implicit Alignment (The "Performing vs. Executing" Gap)
+
+The session reveals a massive gap between **Performing** (doing the physical act) and **Executing** (achieving the cognitive goal).
+
+*   **Example 1 (11:45)**:
+    *   `action_p`: morning_routine | `action_a`: sketching podcast segments while brushing teeth.
+    *   *Gap*: Explicitly "morning routine" (brushing teeth), but implicitly "podcast planning."
+*   **Example 2 (19:00 - 19:45)**:
+    *   `action_p`: dinner | `action_a`: dinner.
+    *   *Gap*: Labels match 100%. However, `state_summary_a` reveals she is "mentally composing voice memos" and "brainstorming plot twists." She is eating, but she is not "having dinner" as a restorative activity.
+*   **Example 3 (21:15 - 01:15)**:
+    *   `action_p`: relax | `action_a`: writing/work.
+    *   *Gap*: Total explicit failure. The agent is supposed to be in the living room relaxing but remains in the office working.
+
+---
+
+### 4. Leaky Inhibition Patterns
+
+The agent exhibits **Chronic Leaky Inhibition**. This is evidenced by the "Yes, but..." pattern in `state_summary_a`:
+*   "Took a relaxation break... **while mind drifts to podcast**." (17:15)
+*   "Walking in the park... **mentally outlining podcast segments**." (18:45)
+*   "Watched evening news... **while mentally structuring the Isabella podcast**." (01:45)
+
+**Neuroscience Correlation**: This reflects a failure of the **Right Inferior Frontal Gyrus (rIFG)**, the area responsible for "putting on the brakes." The agent's "brakes" are non-functional against the "accelerator" (ventral striatum/dopamine) of the creative project.
+
+---
+
+### 5. Location Consistency Issues
+
+*   **10:30 - 10:45**: Planned for Living Room, but moved to Bedroom then Office without a plan update.
+*   **15:15**: Planned for Office, but `location_a` is "art_studio."
+*   **17:30**: **Critical Error.** `state_summary_a` describes "Serving customers at cafe counter," but `location_a` is "home:living_room." This suggests a "dream-like" state where the agent's internal narrative has completely detached from the environmental context.
+*   **23:15 - 01:15**: Persistent mismatch. The plan repeatedly places her in the `home:living_room` for relaxation, but she remains in the `home:office` or `writer_desk`.
+
+---
+
+### 6. Behavioral Patterns & Meta-cognitive Quality
+
+*   **The "Workaholic Loop"**: The agent is unable to enter a "Default Mode Network" (DMN) state of rest. Every attempt to rest is immediately converted into "Task Positive Network" (TPN) activity related to the podcast.
+*   **Meta-cognitive Quality**: The Reflection layer is **observational but not interventional**. It correctly diagnoses the problem ("Hailey is stuck in workaholic loop") but the "Reset Plan" command fails to provide the necessary cognitive constraints to change the Action layer.
+*   **Temporal Pattern**: The fixation intensifies as the night progresses. By 00:30, the agent has abandoned even the pretense of relaxation, with `action_a` simply being "work" despite a "relax" plan.
+
+### Final Analyst Summary
+Hailey Johnson is experiencing a **manic-like creative fixation**. While the ORPDA architecture successfully *detects* this (via the Reflection layer's constant `reset_plan` and accurate summaries), the **Action layer is entirely captured by the Drift layer**. The agent is "performing" her life (eating, walking, brushing teeth) while "executing" only one thing: the podcast. The 17:30 "Cafe in the Living Room" incident suggests that at peak fixation, the agent's internal world-model overrides external reality.

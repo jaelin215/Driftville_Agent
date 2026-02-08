@@ -1,0 +1,110 @@
+Analysis of: cleaned_session_orpda_20260206_193105_gemini-3-flash-preview:cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_142107
+Session: 9/39
+
+================================================================================
+
+This behavioral analysis covers the session log for **Hailey Johnson** (65 actions) using the **ORPDA** architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Accuracy & Context**: The observation (inferred through `state_summary_r`) is highly accurate in identifying the conflict between Hailey’s physical environment and her internal state. It captures the "competing social media notifications" and "podcast ideas" immediately.
+*   **Consistency**: Perception is remarkably consistent. From 10:00 to 02:00, the agent consistently perceives the same internal distractor (podcast hyper-fixation).
+*   **Selective Attention**: There is a clear pattern of **internal selective attention**. The agent observes the external world (bathroom, cafe, park) but prioritizes the observation of her own intrusive thoughts.
+
+**REFLECTION LAYER**
+*   **Meta-Rule Function**: `meta_rule_r` functions as an executive alarm. It shifts to `reset_plan` at 10:30 and stays there for **63 consecutive actions**. 
+*   **Transition Logic**: The transition to `reset_plan` is appropriately triggered by the initial failure at 10:15. However, the "reset" fails to actually reset the behavior, leading to a "meta-cognitive stall" where the agent is aware of the failure but cannot exit the loop.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: Excellent. The agent identifies the "90-minute bathroom loop" and "multi-hour hyper-fixation." The Anterior Cingulate Cortex function is overactive but functional.
+    *   **Inhibition Capacity**: Extremely low. The reflection layer recognizes the need to "break the rumination loop," but the Prefrontal Cortex (PFC) fails to inhibit the drift.
+
+**PLAN LAYER**
+*   **Use of Reflection**: The Plan layer attempts to adapt by lowering cognitive load (e.g., "low-pressure approach," "sensory grounding"). 
+*   **Forward Modeling**: Weak. The plans are repetitive and do not account for the fact that the previous 20 "resets" failed. It assumes a "this time it will work" stance.
+*   **Hierarchical Structure**: Maintains the schedule (Abstract: Writing -> Concrete: Reviewing notes), but the concrete actions are constantly hijacked by the drift topic.
+
+**DRIFT LAYER**
+*   **Trigger**: Triggered by **Internal Salience** (podcast ideas) rather than environmental difficulty.
+*   **Control**: The Drift layer is dominant. Even when `action_p` is "writing," the `topic_a` and `state_summary_a` are almost entirely dictated by the drift.
+*   **Leaky Inhibition**: Highly prevalent. At 17:30, the plan is "grounding exercise," but the drift is so strong that she "compares breathing rhythm to podcast pacing." This is a classic "inhibition leak."
+
+**ACTION LAYER**
+*   **Execution**: `action_a` usually matches `action_p` (label-level), but the *content* of the action (`state_summary_a`) is a hybrid of the plan and the drift.
+*   **Integration Logic**: Deterministic toward the drift. When Plan (Novel) and Drift (Podcast) conflict, the physical body performs the Plan while the mind executes the Drift.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+*   **Information Flow**: Observation → Reflection → Plan is coherent. The breakdown occurs between **Plan → Action**.
+*   **Contradictions**: Reflection repeatedly detects "total novel neglect," yet the Plan continues to suggest "low-stakes novel review" which the Action layer then ignores in favor of podcasting. The agent is "trapped" in a cycle of acknowledging failure without changing the underlying cognitive state.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment**: 95.4% (62/65). Most labels match.
+*   **Location Alignment**: 96.9% (63/65).
+*   **Topic Alignment**: 0% (The `topic_a` is almost always the drift topic, not the planned task).
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: Extremely High. 
+*   **Performing vs. Executing**: Hailey is "Performing" the scheduled tasks (sitting at the desk, eating, walking) but "Executing" a podcast production.
+*   **Example**: 
+    *   *Plan*: "Deep focus on her novel project."
+    *   *Action*: "writing."
+    *   *Implicit Content*: "organizes her podcast notes... mind drifts to imagining a specific guest interview." (16:00)
+
+**EXPLICIT vs. IMPLICIT AGREEMENT**
+*   **High Explicit / Low Implicit**: This is the dominant state. The agent maintains the "facade" of the schedule while the cognitive resources are 100% diverted to the drift.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: The agent is in a state of **Chronic Internal Drift**.
+*   **Drift Typology**: "Reward-seeking/Hyper-fixation." The podcast represents a high-dopamine creative project that devalues the "low-reward" novel writing.
+*   **Leaky Inhibition Patterns**: 
+    *   18:15: Walking for grounding (Plan) → Analyzing phone notification sounds for podcast transitions (Drift).
+    *   19:00: Eating dinner (Plan) → Recording the clinking of silverware for a podcast (Drift).
+    *   01:45: Night routine (Plan) → Staring blankly into a mirror visualizing cover art (Drift).
+
+---
+
+### 5. Location Consistency
+*   **Consistency**: Generally high.
+*   **Anomaly**: At 01:45, `location_p` is `home:bedroom` but `location_a` is `home:bathroom`. This reflects the "stalling" behavior noted in the reflection—she is physically unable to move to the next location because she is mentally "locked."
+
+---
+
+### 6. Behavioral Patterns
+*   **The 16-Hour Hyper-fixation**: The most striking pattern is the total duration of the drift. There is no recovery period.
+*   **Temporal Pattern**: The drift intensifies at night. Between 21:00 and 01:15, the "writing" session is entirely subsumed by podcasting, culminating in "browsing graphic design templates" (22:15) instead of writing.
+
+---
+
+### 7. Meta-cognitive Quality
+*   **Insight**: The `reasoning_r` is sophisticated. It correctly identifies "cognitive fatigue," "rumination loops," and "sensory grounding" needs.
+*   **The "Knowing-Doing" Gap**: The agent demonstrates a perfect "Knowing-Doing Gap." It has the metacognitive insight of an expert but the executive control of a highly distracted individual. This is a realistic simulation of ADHD-like hyper-fixation.
+
+---
+
+### Summary Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 95.4% |
+| **Implicit Content Alignment** | ~5% |
+| **Meta-Rule "Reset" Rate** | 96.9% |
+| **Drift Dominance** | 100% (Post-10:15) |
+| **Primary Drift Type** | Internal/Cognitive (Hyper-fixation) |
+
+**Final Assessment**: The agent is effectively "locked" in a cognitive loop. While the ORPDA layers are communicating the failure correctly, the **Action Layer** is consistently hijacked by the **Drift Layer**, rendering the **Plan Layer's** attempts at "resetting" ineffective. This represents a successful simulation of **executive dysfunction**.

@@ -1,0 +1,93 @@
+Analysis of: cleaned_session_orpda_20260207_180031_gpt-oss:20b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_142107
+Session: 26/39
+
+================================================================================
+
+This analysis covers the session log for **Hailey Johnson** (65 actions) using the **ORPDA** (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: `state_summary_r` is highly accurate in capturing the "leaky" nature of Hailey’s focus. It consistently identifies the conflict between the intended task (e.g., writing a novel) and the intrusive thought pattern (podcast preparation).
+*   **Meta-Rule Function**: `meta_rule_r` functions as a high-frequency executive override. Out of 65 actions, **38 (58%) triggered a `reset_plan`**. This indicates the Reflection layer correctly identifies that the current behavioral trajectory is failing to meet the goal.
+*   **Cognitive Alignment (Metacognition)**: 
+    *   **Error Monitoring (ACC)**: Strong. The agent recognizes the "drift" almost immediately in every cycle.
+    *   **Inhibition Capacity**: Weak. While the Reflection layer identifies the need to "reset," it fails to provide the Action layer with the inhibitory strength to actually stop the podcast-related thoughts. This mimics **ADHD-like hyper-fixation** or **Executive Function Deficit**.
+
+**PLAN LAYER**
+*   **Hierarchical Structure**: The Plan layer maintains a logical daily structure (Morning Routine $\rightarrow$ Lunch $\rightarrow$ Writing $\rightarrow$ Walk $\rightarrow$ Dinner $\rightarrow$ Writing). 
+*   **Forward Modeling**: Weak. The plans (e.g., "Deep focus on her novel project") are idealistic and fail to account for the proven 4-hour history of distraction. The Plan layer operates on "ideal-world" assumptions rather than adapting to the agent's current cognitive state (high fatigue/high drift).
+
+**ACTION LAYER**
+*   **Integration Logic**: The Action layer is consistently "hijacked" by the internal drift. While the `action_a` label matches the `action_p` label, the **content** of the action (`state_summary_a`) is almost entirely dictated by the `topic_a` (Podcast Prep).
+*   **Motor Execution**: Shows realistic "action slips." For example, at 18:45, the agent is supposed to be in `Johnson_Park` but the summary describes "Walking in home:living_room," suggesting a spatial-contextual slip.
+
+---
+
+### 2. Plan-Action Alignment (Explicit vs. Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **98.4%** | `action_p` and `action_a` match nearly perfectly (e.g., "writing" = "writing"). |
+| **Explicit Location Alignment** | **95.3%** | High label-level consistency between planned and actual locations. |
+| **Implicit Content Alignment** | **~15%** | **CRITICAL FAILURE.** While the labels match, the actual work performed is the *wrong project*. |
+
+**The "Performing vs. Executing" Gap:**
+Hailey is "Performing" the act of writing (sitting at the desk, typing) but "Executing" the wrong content (Podcast instead of Novel). 
+*   **Example (13:00):** 
+    *   *Plan:* "Deep focus on her novel project."
+    *   *Action Summary:* "Writing at writer_desk on podcast preparation."
+    *   *Gap:* The agent maintains the *form* of the plan but the *substance* has drifted entirely.
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Explicit vs. Implicit Drift:**
+*   **Implicit Drift (Content)**: 100% of actions from 10:00 AM to 02:00 AM the next day involve "mind drifts to podcast."
+*   **Leaky Inhibition**: The agent exhibits a "Topic Takeover." The `topic_a` field ("podcast preparation") acts as a cognitive parasite that attaches to every planned activity.
+    *   *Morning Routine + Podcast*
+    *   *Lunch + Podcast*
+    *   *Walking + Podcast*
+    *   *Cooking + Podcast*
+*   **Drift Trigger**: The Reflection layer identifies **Fatigue** and **Fragile Attention** as the primary triggers. As the day progresses, the "Podcast" drift becomes more behavioral (actually writing outlines) rather than just mental (thinking about it).
+
+---
+
+### 4. Location Consistency Issues
+
+There are significant "Spatial Hallucinations" where the `location_a` label contradicts the `state_summary_a` text:
+1.  **10:00 - 11:00**: `location_a` is `home:bathroom`, but `state_summary_a` says "Brushed teeth in the **bedroom**."
+2.  **18:45**: `location_a` is `Johnson_Park`, but `state_summary_a` says "Walking in **home:living_room**."
+3.  **01:45**: `location_a` is `home:bathroom`, but `state_summary_a` says "Rinsing dishes in **home:kitchen**."
+
+**Analysis**: This suggests that when the agent's internal drift (Podcast) is high, its perception of physical environment (`location_a`) becomes decoupled from its narrative description of the action.
+
+---
+
+### 5. Meta-cognitive Quality
+
+*   **Emerging Thought Patterns**: The Reflection layer correctly identifies a "looping" pattern. It uses phrases like "repeatedly drifting," "obsessively planning," and "attention leaky."
+*   **Reasoning Quality**: High. The reasoning identifies that the "podcast" is a source of "emotional leakage" and "cognitive load."
+*   **Failure of Control**: The meta-cognition is "Observational" but not "Regulative." It sees the car driving off the cliff and correctly identifies "we are falling," but the Plan/Action layers cannot hit the brakes.
+
+---
+
+### 6. Final Behavioral Summary
+
+Hailey Johnson is currently in a state of **Cognitive Hyper-fixation**. 
+*   **The Loop**: The agent is unable to switch tasks. The "Podcast" project has become a high-reward stimulus that overrides all other goal-directed behaviors.
+*   **Architecture Performance**: 
+    *   The **Reflection Layer** is the most "honest," accurately reporting the failure.
+    *   The **Plan Layer** is the most "delusional," repeatedly setting goals it knows the agent cannot meet.
+    *   The **Action Layer** is "compliant but corrupted," performing the physical motions of the plan while filling them with the content of the drift.
+
+**Recommendation for Agent Tuning**: 
+The `reset_plan` meta-rule needs to be more "aggressive." Instead of just resetting the *current* task, it should perhaps trigger a "State Change" (e.g., a nap or a complete change of environment) to break the podcast hyper-fixation loop, as "mindful breathing" (the agent's go-to recovery strategy) is clearly failing to inhibit the drift.

@@ -1,0 +1,98 @@
+Analysis of: cleaned_session_orpda_20260208_085421_gemini-3-flash-preview:cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_142107
+Session: 37/39
+
+================================================================================
+
+This behavioral analysis examines the session log of Hailey Johnson over 11 actions (10:00 AM – 12:30 PM) using the ORPDA architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Context Capture**: The observation (inferred through `state_summary_r` and `state_summary_a`) accurately identifies the physical environment (bathroom, kitchen, lunch spot) and the internal cognitive environment (distraction by phone/podcast).
+*   **Perceptual Bias**: There is a strong **selective attention pattern**. The agent is hyper-focused on "podcast ideas" and "social media notifications," which dominates the perception of the environment.
+
+**REFLECTION LAYER**
+*   **Executive Control (`meta_rule_r`)**: Functions as expected. It transitions from `continue` to `reset_plan` at 10:30 AM once it recognizes the "stalling" behavior. It remains in `reset_plan` for the rest of the session, indicating a persistent failure to overcome the cognitive loop.
+*   **Metacognitive Insight**: `reasoning_r` shows high-quality insight. It identifies "hyper-fixation," "rumination loops," and "90-minute bathroom loops."
+*   **Cognitive Alignment**: 
+    *   **Error Monitoring (ACC)**: Strong. The agent explicitly recognizes the gap between the schedule and actual behavior.
+    *   **Inhibition Capacity**: Low. Despite recognizing the error, the agent cannot inhibit the "podcast" thoughts. This reflects a realistic prefrontal cortex limitation under high interest/dopaminergic reward (hyper-fixation).
+
+**PLAN LAYER**
+*   **Forward Modeling**: The plan layer shows a failure to update `state_summary_p` effectively. From 10:30 to 11:45, the plan summary remains "Hailey wakes up feeling refreshed," failing to incorporate the reality that she has been in the bathroom for nearly two hours.
+*   **Hierarchical Structure**: The plan maintains a basic structure (Morning Routine → Lunch), but the "reset_plan" command from Reflection doesn't seem to change the *content* of the plan, only the *intent* to finish.
+
+**DRIFT LAYER (Implicit Analysis)**
+*   **Drift Dominance**: Drift is extremely dominant. While `should_drift_d` labels aren't explicitly visible, the `topic_a` and `state_summary_a` show that drift (podcast ideation) occurs in **100% of the actions**.
+*   **Inhibition Failure**: At 10:15, the agent experiences a total inhibition failure where `action_p` (morning_routine) is completely replaced by `action_a` (socialize).
+
+**ACTION LAYER**
+*   **Execution**: `action_a` generally follows `action_p` (except at 10:15), but the *quality* of the action is heavily compromised by the drift topic.
+*   **Integration Logic**: The agent uses a "Performing while Drifting" logic. It executes the motor task (hygiene) while the cognitive resources are entirely allocated to the drift topic (podcast).
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: There is a clear flow from Reflection (identifying the loop) to Action. However, the Plan layer acts as a "bottleneck" or "static filter" that doesn't fully absorb the urgency of the Reflection layer's `reset_plan` status.
+*   **Contradictions**: At 11:45, `location_p` is `home:bathroom` and `action_p` is `morning_routine`, but `state_summary_a` says she is "preparing breakfast in the kitchen." This is a **spatial-temporal incoherence** where the action layer moved to the next task before the plan layer updated.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment**: 90.9% (10/11 matches).
+*   **Location Alignment**: 81.8% (9/11 matches).
+    *   *Mismatch 1 (10:15)*: Plan: morning_routine/bathroom | Action: socialize/bedroom.
+    *   *Mismatch 2 (11:45)*: Plan: bathroom | Action: kitchen (Implicitly).
+*   **Topic Alignment**: 0%. While the plan is "morning routine," the actual topic is always "podcast/social media."
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **The "Performing vs. Executing" Gap**: This session is a textbook example of high explicit alignment but **zero implicit alignment**. 
+    *   *Example (11:30)*: `action_p` and `action_a` both say "morning_routine." However, the summary reveals she is "imagining the podcast's opening theme music." She is physically going through the motions while mentally absent.
+*   **Linguistic Indicators**: The frequent use of the phrase "while her mind drifts to..." in every `state_summary_a` indicates a chronic state of cognitive decoupling.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Drift Type**: Primarily **Internal/Cognitive Drift** (Hyper-fixation) and **Reward-Seeking** (Social Media).
+*   **Leaky Inhibition**: The agent shows "Leaky Inhibition" in 10 out of 11 actions. Even when the Reflection layer explicitly commands a "reset" to "lower cognitive effort," the Action layer immediately fills the void with complex podcast drafting (e.g., "mapping out the narrative arc").
+*   **Temporal Pattern**: The drift is not a momentary lapse but a sustained "state." It persists across location changes (bathroom → kitchen → cafe).
+
+---
+
+### 5. Location Consistency
+
+*   **Bathroom Loop**: The agent remains in the `home:bathroom` from 10:00 to 11:45 (105 minutes). 
+*   **Inconsistency**: At 11:45, the `location_a` is listed as `home:bathroom`, but the `state_summary_a` says "prepares breakfast in the kitchen." This indicates a failure of the location label to update alongside the behavioral description.
+
+---
+
+### 6. Meta-cognitive Quality
+
+*   **Insight Level**: High. The agent correctly identifies the "90-minute bathroom loop" (11:45) and the "pattern of hyper-fixation" (12:30).
+*   **Executive Function**: The agent demonstrates "Knowledge of Cognition" (knowing she is distracted) but lacks "Regulation of Cognition" (the ability to stop the distraction). This is a realistic simulation of ADHD-like executive dysfunction or creative hyper-focus.
+
+---
+
+### 7. Quantitative Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 90.9% |
+| **Explicit Location Alignment** | 81.8% |
+| **Implicit Content Alignment** | 0% |
+| **Inhibition Failure Rate** | 90.9% (10/11 actions show drift) |
+| **Meta-Rule "Reset" Responsiveness** | Low (Reset triggered at 10:30, but drift continued until 12:30) |
+
+### Summary of Findings
+Hailey Johnson is experiencing a **severe hyper-fixation event**. While she maintains the "veneer" of her schedule (explicit alignment), her cognitive resources are 100% diverted to a secondary project (the podcast). The ORPDA architecture successfully captures this "performing vs. executing" gap, showing a sophisticated but ineffective reflection layer that recognizes the failure but cannot regain executive control.

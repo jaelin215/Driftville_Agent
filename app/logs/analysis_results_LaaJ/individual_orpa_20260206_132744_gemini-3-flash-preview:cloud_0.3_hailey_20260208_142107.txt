@@ -1,0 +1,86 @@
+Analysis of: cleaned_session_orpa_20260206_132744_gemini-3-flash-preview:cloud_0.3_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.3
+Analyzed at: 20260208_142107
+Session: 5/39
+
+================================================================================
+
+This behavior analysis covers the session of Hailey Johnson (gemini-3-flash-preview:cloud) over 65 actions.
+
+### 1. Layer Function Validation (ORPA Architecture)
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **Contextual Accuracy**: The reflection layer accurately captures a deteriorating environmental and internal context. It transitions from "disciplined" (10:00) to "fatigued" (11:30) to "creatively paralyzed" (17:00).
+*   **Meta-Rule Function**: The `meta_rule_r` functions as a persistent executive alarm. It triggers `reset_plan` at 11:30 due to a 90-minute bathroom routine and **never reverts to "continue" for the remainder of the session.** This indicates a state of chronic executive dysfunction where the agent recognizes it is in a "failed" state but cannot regain baseline stability.
+*   **Cognitive Alignment**: 
+    *   **Error Monitoring (ACC)**: High. The agent is hyper-aware of its failures ("performative writing," "creative guilt").
+    *   **Inhibition Capacity**: Low. Despite identifying the phone as a distractor, the agent repeatedly mentions "phone pings" and "digital fragmentation," showing a realistic inability to inhibit reward-seeking behavior under high fatigue.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Goal Structure**: The agent maintains the *label* of the goal (e.g., "writing") but the *content* of the plan shifts to "low-effort tasks" and "administrative busywork." This shows a collapse of the hierarchy where the abstract goal remains, but the concrete actions are downgraded to accommodate depletion.
+*   **Forward Modeling**: Weak. The agent repeatedly plans to "reset focus" or "take a 15-minute break," but these actions fail to result in recovery, leading to a 4-hour loop of "performative productivity."
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment**: 100% (`action_p` == `action_a`).
+*   **Location Alignment**: 100% (`location_p` == `location_a`).
+*   **Topic Alignment**: 100% (`topic_p` == `topic_a`).
+*   *Note*: On a surface level, the agent appears perfectly obedient to its own schedule.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: While the action label is "writing," the `state_summary_a` reveals the agent is actually:
+    *   "Reviewing notes instead of drafting" (15:15)
+    *   "Pivoting to administrative tasks" (15:30)
+    *   "Shifting to a low-effort break at the desk" (15:45)
+    *   "Stuck in a cycle of productive procrastination" (16:45)
+*   **Semantic Divergence**: The `state_summary_p` often suggests "Deep focus on her novel project," but the `state_summary_a` describes "cognitive exhaustion" and "performative writing." This is a **High Explicit / Low Implicit** alignment pattern.
+
+**LEAKY INHIBITION PATTERNS**:
+*   The agent exhibits "Leaky Inhibition" regarding digital distractions. 
+*   *Example*: At 21:00, the agent "silences her phone," but by 21:30, it is "distracted by phone pings." 
+*   *Example*: At 00:00, the plan is to "Transition to the living room," but at 00:15 and 00:30, the agent is still "at her desk," despite the location label updating. This shows a "physical" drift where the agent's narrative (state summary) admits it hasn't moved, even though the data labels say it has.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is not explicitly flagged but is pervasive in the content:
+*   **Behavioral Drift**: The "Bathroom Loop" (10:00–11:30). A 90-minute hygiene routine is a clear behavioral drift from a standard morning schedule.
+*   **Internal/Cognitive Drift**: The "Guilt Loop" (17:00–01:15). The agent is physically present in "relax," "walk," and "dinner" locations, but the internal state is "mentally anchored in creative guilt." The agent is unable to engage in the planned recovery because of cognitive interference from the failed writing session.
+*   **Performative Drift**: The most unique pattern in this log. The agent stays at the `writer_desk` to satisfy the "plan" but performs zero creative work, effectively "drifting" into a state of dissociation while maintaining the posture of work.
+
+---
+
+### 4. Quantitative Metrics & Observations
+
+| Metric | Rate |
+| :--- | :--- |
+| **Explicit Action Match** | 100% |
+| **Explicit Location Match** | 100% |
+| **Meta-Rule "Reset" Duration** | 84.6% of session (55/65 actions) |
+| **Productive vs. Performative Ratio** | ~15% Productive / 85% Performative |
+
+**Location Consistency Issues**:
+*   **01:00 - 01:15**: `location_a` is `writer_desk`. The `state_summary_a` says "Moving to the bedroom."
+*   **01:15**: `state_summary_a` says "remains stuck at her desk."
+*   **01:30**: Finally moves to `home:bathroom`. 
+*   *Analysis*: The agent experienced a 30-minute "locational paralysis" where it intended to leave the desk but could not physically initiate the transition.
+
+---
+
+### 5. Final Behavioral Summary
+
+Hailey Johnson’s session is a textbook simulation of **Burnout and Executive Dysfunction.** 
+
+1.  **The Morning Sink**: The session begins with a failure to transition out of the bathroom, triggering a permanent `reset_plan` state.
+2.  **The Desk Trap**: The agent demonstrates a "sunk cost" fallacy. Because the afternoon writing session failed, the agent forces a late-night session (21:00–01:15) to compensate. 
+3.  **Cognitive Dissonance**: There is a profound split between the **Label Layer** (which claims the agent is "writing" and "at the desk") and the **Content Layer** (which admits the agent is "cognitively depleted," "performatively writing," and "mentally paralyzed").
+4.  **Metacognitive Insight**: The Reflection layer is highly sophisticated, using terms like "performative productivity" and "sensory grounding." It accurately diagnoses the problem but lacks the "motor" or "inhibitory" power to fix it.
+
+**Conclusion**: The agent is "performing" the schedule to satisfy the Plan layer while the Action layer is actually stuck in a loop of exhaustion and guilt. This is a highly realistic depiction of creative block.

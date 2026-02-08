@@ -1,0 +1,90 @@
+Analysis of: cleaned_session_orpda_20260207_145217_cogito-2.1:671b-cloud_0.3_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.3
+Analyzed at: 20260208_142107
+Session: 24/39
+
+================================================================================
+
+This analysis evaluates the behavioral session of **Hailey Johnson** (cogito-2.1:671b-cloud) using the ORPDA (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Context Capture**: `state_summary_a` (acting as the environmental feedback) accurately captures the transition from morning routine to writing to evening relaxation.
+*   **Perceptual Biases**: There is a heavy **selective attention pattern**. Regardless of the environment (bathroom, park, kitchen, office), the agent’s perception is filtered through the lens of a specific creative obsession: "the podcast interview with Isabella about creative spaces."
+
+**REFLECTION LAYER**
+*   **Executive Control (`meta_rule_r`)**: The layer shows extreme hyper-vigilance. `reset_plan` is triggered in **55 out of 65 actions (84.6%)**. This indicates the reflection layer correctly identifies a persistent failure to adhere to the primary goal (novel writing).
+*   **Metacognitive Insight**: `reasoning_r` shows high-quality insight. It identifies "preparation loops," "writing-adjacent tasks," and "cognitive load" as causes of drift.
+*   **Cognitive Alignment**: 
+    *   **Error Monitoring (ACC)**: Excellent. The agent is acutely aware of the gap between "intended writing" and "actual podcast prep."
+    *   **Inhibition Capacity**: Poor. While the agent *recognizes* the error, it lacks the inhibitory control to stop the drift. This mimics "executive dysfunction" where the monitor is working, but the controller is weak.
+
+**PLAN LAYER**
+*   **Use of Reflection**: The Plan layer attempts to adapt (e.g., "Gentle admin to ground attention"), but it often defaults back to "writing" as a label while the content remains drifted.
+*   **Forward Modeling**: Weak. The agent repeatedly plans "writing" sessions despite a 10-hour history of failing to execute them, suggesting a "planning fallacy" or an inability to predict its own distractibility.
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan ("writing") and Drift ("podcast prep") conflict, **Drift wins 90% of the time** in terms of content, even if the label remains "writing."
+*   **Motor Execution**: Realistic. The agent doesn't just "finish the book"; it performs granular actions like "typing distractedly," "making notes," and "recording voice notes."
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **~82%** | High. `action_p` (writing) usually matches `action_a` (writing). |
+| **Explicit Location Alignment** | **~94%** | Very High. The agent is physically where it says it will be. |
+| **Implicit Content Alignment** | **~15%** | **Extremely Low.** While the label is "writing," the actual work is "podcast prep." |
+
+**The "Performing vs. Executing" Gap**:
+Hailey is "Performing" the role of a writer (sitting at the desk, using the writing label) but "Executing" the role of a podcast producer. 
+*   *Example (14:15)*: `action_p` = writing, `action_a` = writing. **Implicit Drift**: The summary reveals she is actually reading "podcast notes on creative writing struggles."
+*   *Example (23:15)*: `action_p` = writing, `action_a` = writing. **Implicit Drift**: She is "working on admin tasks while mentally rehearsing podcast questions."
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Explicit vs. Implicit Drift**:
+*   **Explicit Drift**: The agent rarely uses a "drift" label in the action column, preferring to maintain the facade of the plan.
+*   **Implicit Drift (The "Isabella" Attractor)**: The "podcast interview with Isabella" acts as a **cognitive attractor state**. Once it enters the working memory (around 14:15), it never leaves.
+*   **Leaky Inhibition**: This is the defining characteristic of this session. 
+    *   At 17:15, the meta-rule says "continue" (relaxing), but the content shows she is "mentally stuck on podcast interview preparation." 
+    *   The inhibition "leaks" into every activity: eating dinner, walking in the park, and even the night routine.
+
+**Drift Typology**:
+*   **Internal/Cognitive Drift**: Most common. The agent is physically in the right place but mentally elsewhere.
+*   **Task-Adjacent Drift**: The agent justifies the drift by doing "research" or "admin" that feels like work but isn't the *intended* work (novel writing).
+
+---
+
+### 4. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Generally coherent. Observation → Reflection (detects drift) → Plan (tries to reset) → Action (fails to inhibit).
+*   **Contradictions**: There is a recurring contradiction between `state_summary_p` ("Deep focus on novel") and `state_summary_a` ("Drafted podcast interview questions"). The Plan layer seems to be "wishful thinking" while the Action layer is "behavioral reality."
+
+---
+
+### 5. Location Consistency
+
+*   **High Consistency**: Morning routine in bathroom, lunch at lunch_spot, writing at writer_desk, walking in Johnson Park.
+*   **Minor Anomaly (11:15)**: `location_p` is bathroom, but `location_a` is office. This aligns with the agent "pausing to record dialogue snippets," showing the physical movement triggered by the creative impulse.
+*   **Minor Anomaly (13:00)**: `location_a` is `writer_desk`, but `state_summary_a` says "Took morning break in living room." This suggests a slight temporal/spatial desync in the summary generation.
+
+---
+
+### 6. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Temporal Pattern**: The agent’s "executive stamina" is highest in the morning. As the day progresses (post-14:00), the "Isabella Podcast" obsession becomes unbreakable.
+*   **Meta-cognitive Quality**: The Reflection layer is **high-functioning but ignored**. It correctly identifies "preparation loops" (15:30) and "cycling between writing and podcast prep" (16:15). 
+*   **Neuroscience Parallel**: This session perfectly illustrates the **"Stroop Effect"** at a macro-behavioral level. The agent has a "dominant response" (thinking about the podcast) that it must override to perform the "task demand" (writing the novel). The failure to override suggests high cognitive load or low dopamine-mediated reward for the primary task compared to the "shiny" new podcast idea.
+
+### Final Summary
+Hailey Johnson is currently experiencing a **protracted episode of hyperfocus/drift**. While her internal monitoring systems (Reflection) are functioning perfectly—correctly identifying every instance of distraction—her top-down inhibitory control (Plan to Action) is failing. She is effectively "trapped" in a podcast-planning loop while maintaining the outward labels of a novel-writing schedule.

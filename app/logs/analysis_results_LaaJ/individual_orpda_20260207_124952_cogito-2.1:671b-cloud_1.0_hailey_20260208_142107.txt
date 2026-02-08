@@ -1,0 +1,97 @@
+Analysis of: cleaned_session_orpda_20260207_124952_cogito-2.1:671b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_142107
+Session: 21/39
+
+================================================================================
+
+This analysis covers the session log for **Hailey Johnson** (65 actions) using the **ORPDA** architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Context Capture**: `state_summary_o` (inferred from `state_summary_a`) accurately tracks the physical environment (bathroom, office, Hobbs Cafe, Johnson Park).
+*   **Perceptual Bias**: There is a heavy **selective attention pattern**. The agent’s observations are filtered through a "creative conflict" lens. Almost every observation from 13:00 onwards is colored by the intrusion of "podcast ideas" or "Isabella," suggesting that internal cognitive states are over-powering external environmental perception.
+
+**REFLECTION LAYER**
+*   **Executive Control (`meta_rule_r`)**: The layer shows a **chronic state of "reset_plan"** (occurring in ~88% of the logs). While this correctly identifies behavioral failure, the transition logic is stuck. It recognizes the need to reset but fails to generate a plan that actually inhibits the drift.
+*   **Metacognitive Insight**: `reasoning_r` is highly sophisticated. It identifies "task-switching loops," "cognitive overload," and "work-leisure boundary issues."
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: Excellent. The agent is hyper-aware of the gap between "Novel Writing" and "Podcast Planning."
+    *   **Inhibition Capacity**: Realistic but weak. The reflection layer assumes "gentle review" will fix the drift, which is an "ideal-world" assumption that fails against the high reward-salience of the podcast project.
+
+**PLAN LAYER**
+*   **Use of Reflection**: The Plan layer attempts to adapt (e.g., "Lowering cognitive load," "Gentle review"), but these are often too passive to counter the intense "Podcast" fixation.
+*   **Hierarchical Structure**: It maintains a goal (Write Novel), but the sub-actions are frequently hijacked by the drift topic.
+*   **Forward Modeling**: Weak. The plans do not seem to predict that "gentle review" will inevitably lead back to podcasting.
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan (Novel) and Drift (Podcast) conflict, **Drift wins 90% of the time**.
+*   **Action Slips**: Frequent. At 10:30, the plan is "morning routine" in the "bathroom," but the action is "typing notes" at "Hobbs Cafe." This is a major spatial and behavioral slip.
+*   **Motor Execution**: Realistic. The agent doesn't just "finish the novel"; she "sketches," "types distractedly," and "checks phone notes."
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+*   **Information Flow**: Generally coherent. Observation (I am at my desk) → Reflection (I am thinking about the podcast again) → Plan (Try to focus on the novel) → Action (Writing, but actually about the podcast).
+*   **The "Drift Gap"**: There is a clear disconnect where the Reflection layer identifies a "disruptive cycle," but the Action layer continues the cycle immediately. The "Drift" influence is implicitly dominant even when the Plan layer tries to assert control.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **~92%** | High. If the plan is `writing`, the action label is usually `writing`. |
+| **Explicit Location Alignment** | **~85%** | Moderate. Significant failures at 10:30 (Bathroom vs Cafe) and 02:00 (Office vs Bedroom). |
+| **Implicit Content Alignment** | **~15%** | **Extremely Low.** This is the core behavioral finding. |
+
+**Performing vs. Executing (The Gap):**
+*   **Example (14:15)**: `action_p` = writing, `action_a` = writing. **Explicit Match.**
+*   **Implicit Divergence**: `state_summary_a` reveals: "Writing novel chapter while **mentally planning podcast interview segments**."
+*   **Analysis**: The agent is "performing" the act of sitting at a desk and typing, but "executing" a completely different cognitive task (podcast planning).
+
+**Leaky Inhibition Patterns:**
+*   The agent exhibits **"Semantic Leakage."** Even when she successfully stays in the `writer_desk` location, the `topic_a` is almost always "podcast collaboration with Isabella."
+*   **Meta-rule Failure**: At 17:30, `meta_rule_r` is `reset_plan` to "decompress," but the action is "starts jotting down notes despite relaxation time." The internal drive (Drift) completely bypasses the executive "Stop" signal.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Drift Type**: Primarily **Internal/Cognitive Fixation** (Reward-seeking). The podcast represents a "shiny new project" that provides higher dopamine than the "novel" task.
+*   **Trigger**: Task difficulty. When the novel requires "deep focus," the agent drifts to the "easier" or more "exciting" podcast brainstorming.
+*   **Implicit Drift**: Even when `action_a` matches `action_p`, the `state_summary_a` shows the agent is "half-working" or "distracted by thoughts." This suggests the ORPDA model is successfully simulating **ADHD-like executive dysfunction**.
+
+---
+
+### 5. Location Consistency
+*   **Critical Failure (10:30)**: `location_p` is `home:bathroom`, but `location_a` is `Hobbs_Cafe:counter`. The agent teleported or the observation layer failed to update the transition.
+*   **Critical Failure (02:00)**: `location_a` is `home:office`, but `state_summary_a` says "Slept in bedroom." This is a direct contradiction between the state description and the location coordinate.
+*   **Routine Accuracy**: Morning routines are generally consistent (Bathroom/Bedroom), but the "Evening Walk" at 18:15 shows a transition from `Johnson_Park` to `running_trail`, which is logically sound.
+
+---
+
+### 6. Behavioral Patterns
+1.  **The "Isabella" Fixation**: A recurring social/collaborative trigger that disrupts all other tasks.
+2.  **The "Gentle" Fallacy**: The agent repeatedly plans "gentle" resets. In behavioral terms, these are too low-effort to break a high-salience fixation.
+3.  **Temporal Decay**: As the day progresses (21:00 onwards), the drift becomes more "physical." She stops just *thinking* about the podcast and starts *browsing equipment*, *texting*, and *recording audio*. Executive control degrades with time (ego depletion).
+
+---
+
+### 7. Metacognitive Quality
+*   **Rating: High.** The `reasoning_r` column is the strongest part of this agent's cognitive profile. It accurately diagnoses the behavior: *"Hailey is caught in a disruptive task-switching loop with high rumination."*
+*   **The Paradox**: The agent is **"Self-Aware but Powerless."** It has the metacognitive capacity of a high-functioning adult but the inhibitory control of a distracted child. This is a highly realistic simulation of creative burnout or "hyperfocus" on a side project.
+
+### Final Summary Metrics
+*   **Total Actions**: 65
+*   **Plan-Action Label Match**: 60/65 (92%)
+*   **Plan-Action Content Match**: 10/65 (15%)
+*   **Meta-Rule "Reset" Frequency**: 57/65 (88%)
+*   **Primary Drift Driver**: Creative fixation/Project excitement (Podcast).
+*   **Key Behavioral Anomaly**: Teleportation to Hobbs Cafe at 10:30; Sleeping in the office at 02:00.

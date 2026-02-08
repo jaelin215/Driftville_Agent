@@ -1,0 +1,90 @@
+Analysis of: cleaned_session_orpa_20260207_091642_gemma3:27b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260208_142107
+Session: 12/39
+
+================================================================================
+
+This analysis evaluates the behavioral session of **Hailey Johnson** (gemma3:27b-cloud) using the **ORPA** (Observation, Reflection, Plan, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_r` accurately tracks the transition from high-focus writing (13:00–17:00) to the onset of cognitive interference (18:00 onwards). It captures the internal environmental context (preoccupation with a podcast) effectively.
+*   **Executive Control (`meta_rule_r`)**: The transition from `continue` to `reset_plan` is highly responsive. The agent triggers `reset_plan` at 20:30 when it recognizes that "watching TV" is being undermined by "podcast thoughts."
+*   **Metacognitive Insight**: `reasoning_r` (implied through the summaries) shows genuine insight. The agent identifies that "deferral isn't working" (23:45) and shifts strategies from "ignoring" to "capturing" ideas to free up working memory.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: Strong. The agent detects the mismatch between the goal (writing) and the actual state (thinking about podcasts) and repeatedly attempts to recalibrate.
+    *   **Working Memory Constraints**: The agent demonstrates a realistic "bottleneck." Once the podcast idea takes hold, it occupies the primary cognitive slot, making the "Plan" harder to execute.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Goal Structure**: The Plan layer moves from abstract goals ("Another late night writing session") to concrete mitigation strategies ("Shift to low-cognitive admin to address distraction").
+*   **Forward Modeling**: The agent predicts that "capturing ideas in a document" will "free up mental space" (00:00), showing an understanding of its own cognitive architecture.
+*   **Action Execution**: `action_a` is a faithful execution of the *label* of `action_p`, but the `state_summary_a` reveals the "leaky" nature of the execution.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment (`action_p` vs `action_a`)**: **100% (65/65)**. The agent always performs the category of action it planned.
+*   **Location Alignment (`location_p` vs `location_a`)**: **100% (65/65)**.
+*   **Topic Alignment (`topic_p` vs `topic_a`)**: **100% (65/65)**.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: While the labels match 100%, the *content* reveals a massive divergence starting at 19:00.
+    *   **Example (21:15)**: `action_p` = writing, `action_a` = writing. However, `state_summary_a` says: *"Briefly brainstorm podcast ideas to address recurring thoughts and refocus writing."*
+    *   **Analysis**: The agent is "performing" the action of being at the desk, but the "execution" is actually a different task (brainstorming) necessitated by the failure of the original plan.
+*   **Semantic Divergence**: From 19:00 to 02:00 (29 actions), the agent is in a state of **Chronic Semantic Drift**. The "Podcast" topic dominates the internal state regardless of whether the planned action is "Dinner," "Watch TV," or "Writing."
+
+---
+
+### 3. Drift and Inhibition Analysis
+
+**LEAKY INHIBITION PATTERNS**:
+*   **The "Podcast" Intrusion**: This is a classic case of **Inhibition Failure**. The agent explicitly notes the need to "minimize distractions" or "defer thoughts," yet the `state_summary_a` consistently reports the intrusion of those thoughts.
+*   **Frequency**: Inhibition leaks occur in **44.6%** of the session (29 out of 65 actions).
+*   **Severity**: The leak is severe enough to force 12 `reset_plan` triggers in the final 6 hours of the session.
+
+**DRIFT TYPOLOGY**:
+*   **Internal/Cognitive Drift**: The drift is not caused by the environment (the park distractions were minor) but by **Internal Reward-Seeking**. The "Podcast" represents a more salient/novel cognitive reward than the "Novel Drafting," leading to a persistent "task-switching" cost.
+
+---
+
+### 4. Location Consistency Issues
+
+*   **Morning Routine Anomaly**: From 10:15 to 11:45, the `state_summary_p/a` mentions "having breakfast in the kitchen," but the `location_a` remains `home:bathroom`.
+    *   *Behavioral Interpretation*: The agent is either eating breakfast in the bathroom (unlikely) or there is a failure in the location-update logic during the morning routine sequence.
+*   **Night Routine Consistency**: The transition from `home:bathroom` (01:45) to `home:bedroom` (02:00) for the final wind-down is logically consistent.
+
+---
+
+### 5. Quantitative Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 65 |
+| **Explicit Action Alignment** | 100% |
+| **Explicit Location Alignment** | 100% |
+| **Implicit Alignment (Focus Rate)** | 55.4% (36/65) |
+| **Leaky Inhibition Rate** | 44.6% (29/65) |
+| **Reset Plan Frequency** | 18.5% (12/65) |
+| **Location Mismatch (Kitchen/Bathroom)** | 7 actions (10:15–11:45) |
+
+---
+
+### 6. Final Behavior Analyst Summary
+
+Hailey Johnson demonstrates a highly "human-like" cognitive profile characterized by **strong metacognitive monitoring but limited inhibitory control**.
+
+1.  **Productivity Peak**: The agent shows excellent sustained attention during the 13:00–17:00 block (Chapter 3 drafting).
+2.  **Cognitive Fatigue & Rumination**: As the day progresses, the agent's ability to inhibit "task-unrelated thoughts" (the podcast) collapses.
+3.  **Adaptive Strategy**: The agent's use of `reset_plan` to "Shift to low-cognitive admin" (23:00) is a sophisticated coping mechanism for cognitive overload. It recognizes it cannot "force" the writing and attempts to "triage" instead.
+4.  **The "Performing" Illusion**: This session is a prime example of an agent maintaining **Explicit Alignment** (doing what it's told) while suffering from **Implicit Drift** (thinking about something else). To an external observer, Hailey is "at her desk writing," but her internal state is entirely consumed by podcast planning.
+
+**Recommendation**: The location logic for the "Morning Routine" needs refinement to ensure the agent moves to the `home:kitchen` when the plan explicitly mentions breakfast.

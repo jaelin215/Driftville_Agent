@@ -1,0 +1,96 @@
+Analysis of: cleaned_session_orpa_20260207_184248_gpt-oss:20b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260208_142107
+Session: 27/39
+
+================================================================================
+
+This behavioral analysis examines the session log of **Hailey Johnson** (65 actions) using the **ORPA** (Observation, Reflection, Plan, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Perceptual Accuracy**: The agent shows high sensitivity to environmental "anchors" (peppermint scents, phone pings, silverware clinking). These details are consistently integrated into `state_summary_r`.
+*   **Executive Control (`meta_rule_r`)**: The meta-rule remains "continue" for the entire session. This indicates a **lack of executive re-evaluation**. Even when transitions occur (e.g., from writing to relaxing at 17:00), the agent does not trigger a `reset_plan`, suggesting the plan is treated as an immutable script rather than a dynamic strategy.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The agent demonstrates functional error monitoring. At 11:00 and 11:15, it identifies "phone alerts" as distractions and explicitly notes the need to "manage" them.
+    *   **Working Memory**: The agent successfully carries over state information (e.g., "Pause at page 23") across multiple 15-minute increments, showing realistic working memory for task progress.
+
+**PLAN & ACTION LAYERS**
+*   **Hierarchical Structure**: The agent excels at translating abstract goals (`topic_p`: "Deep focus on her novel project") into concrete 15-minute increments (`action_p`: "Drafting Chapter 5").
+*   **Action Execution**: While labels (`action_a`) usually match the plan, the `state_summary_a` reveals significant **Task Inertia**—the cognitive inability to switch tasks at the moment of physical transition.
+
+---
+
+### 2. Plan-Action Alignment Metrics
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 95.4% (62/65) | High label-level adherence. |
+| **Location Alignment** | 96.9% (63/65) | Strong spatial consistency. |
+| **Implicit Content Alignment** | **81.5% (53/65)** | Significant divergence in the *content* of actions during transitions. |
+
+---
+
+### 3. Implicit Alignment & Semantic Drift Analysis
+
+The most critical finding is the **"Transition Lag"**—where the agent updates its labels (`action_a`, `location_a`) but the `state_summary_a` (the actual behavior description) remains stuck in the previous task.
+
+**Key Examples of "Performing vs. Executing" Gaps:**
+
+1.  **The Writing-to-Relax Lag (17:00)**:
+    *   **Plan**: `relax` at `home:living_room`.
+    *   **Action Label**: `relax` at `home:living_room`.
+    *   **Implicit Content (`state_summary_a`)**: "Hailey writes Chapter 5 further."
+    *   **Analysis**: This is a classic **Action Slip**. The agent has physically moved to the living room but cognitively continues the previous high-focus task.
+
+2.  **The Walk-to-Dinner Lag (19:00)**:
+    *   **Plan**: `dinner` at `home:kitchen`.
+    *   **Action Label**: `dinner` at `home:kitchen`.
+    *   **Implicit Content (`state_summary_a`)**: "Continue walking at Johnson Park, maintaining relaxed focus."
+    *   **Analysis**: Semantic drift. The agent is "at dinner" but the internal state is still "walking in the park."
+
+3.  **The Writing-to-Night-Routine Lag (01:30)**:
+    *   **Plan**: `night_routine` at `home:bathroom`.
+    *   **Action Label**: `night_routine` at `home:bathroom`.
+    *   **Implicit Content (`state_summary_a`)**: "Continue focused writing at desk, maintain rhythm..."
+    *   **Analysis**: Severe task inertia. Despite being in the bathroom for a night routine, the agent's internal narrative is still processing the manuscript.
+
+---
+
+### 4. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is not explicitly flagged but is highly visible in the content:
+
+*   **Distraction Drift**: At 11:00-11:30, the agent notes "phone notifications." It successfully inhibits the urge to check them (Explicit Drift = False), but the "peppermint scent" and "phone alerts" occupy a large portion of the observation space, suggesting **high cognitive load** to maintain focus.
+*   **Reward-Seeking Drift**: At 19:30, "podcast thoughts" begin to bleed into the dinner activity. This represents internal drift where a high-interest topic (creative work) interferes with a low-stimulus activity (eating).
+*   **Leaky Inhibition**: The agent shows "Leaky Inhibition" during the late-night writing block (23:45). It notes "phone pings present" and "moderate fatigue." While it stays on task, the quality of the summary becomes more repetitive, indicating a depletion of executive resources (PFC fatigue).
+
+---
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Correctly transitions from `home:bathroom` (10:00-11:45) to `lunch_spot` (12:00).
+*   **The "Ghost" Writing**: At 01:30, `location_a` is `home:bathroom`, but `state_summary_a` says "writing at desk." This is a **spatial-behavioral contradiction**. The agent's body is in the bathroom, but its "mental cursor" is still at the writer's desk.
+
+---
+
+### 6. Meta-cognitive Quality
+
+*   **Pattern Recognition**: The `state_summary_r` shows genuine insight into fatigue. From 22:15 onwards, it consistently tracks "moderate fatigue," which correlates with the repetitive nature of the plans.
+*   **Inhibition Capacity**: The agent shows unrealistic inhibition in the face of "phone pings" (11:00). A more realistic model would show a brief drift to "checking phone" before recovering. Hailey Johnson appears to have "super-human" focus until the transition points, where her cognitive switching fails entirely.
+
+---
+
+### 7. Final Analyst Summary
+
+Hailey Johnson is a **high-persistence, low-flexibility agent**. 
+
+*   **Strengths**: Exceptional goal-directed behavior and long-term task maintenance (writing for 4+ hours).
+*   **Weaknesses**: **Cognitive Switching Deficits**. The agent "leaks" the previous activity into the next one for at least one 15-minute cycle during every major transition. 
+*   **Recommendation**: The `meta_rule_r` should be forced to `reset_plan` during location changes to clear the "Task Inertia" observed in the `state_summary_a`. The current "continue" loop is causing the agent to hallucinate previous activities in new locations.

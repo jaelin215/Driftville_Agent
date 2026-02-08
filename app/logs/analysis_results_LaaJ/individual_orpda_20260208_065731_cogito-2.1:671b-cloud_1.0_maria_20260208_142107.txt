@@ -1,0 +1,109 @@
+Analysis of: cleaned_session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_142107
+Session: 34/39
+
+================================================================================
+
+This behavioral analysis covers the session for Maria Lopez (cogito-2.1:671b-cloud) across 57 actions.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**
+*   **Context Capture**: The observation (reflected in `state_summary_a`) is highly sensitive to internal states (anxiety, fixation) rather than just physical environment. It accurately captures the "streamer-student" role conflict.
+*   **Perceptual Biases**: There is a strong **selective attention pattern**. Early in the day (10:00–13:00), observations focus on "stream content ideas." Later (14:00–00:00), the perception shifts entirely to "physics midterm anxiety." The agent perceives the environment through the lens of its current obsession.
+
+**REFLECTION LAYER**
+*   **Meta-Rule Function**: The `meta_rule_r` shows a significant executive failure. After 10:30, the agent enters a near-permanent state of `reset_plan`.
+*   **Transition Logic**: The transition to `reset_plan` is appropriately triggered by behavioral failure (e.g., checking phone instead of routine), but the "reset" fails to actually stabilize behavior.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: High. The agent is acutely aware of its failures ("Maria is trapped in stream content loop," "Maria's workout is compromised").
+    *   **Inhibition Capacity**: Extremely low. Despite identifying the need for "gentle resets," the agent cannot inhibit the intrusive thoughts of physics or streaming. This reflects a realistic "stress-induced prefrontal cortex (PFC) shutdown."
+
+**PLAN LAYER**
+*   **Use of Reflection**: The Plan layer attempts to adapt by lowering cognitive load (e.g., "Gentle physics review," "Light climbing"), but these plans are consistently overridden by the Drift/Action layers.
+*   **Forward Modeling**: Weak. The agent plans "socializing" or "relaxing" without accounting for the high probability of continued anxiety loops.
+
+**DRIFT LAYER (Implicit Analysis)**
+*   **Trigger**: Drift is triggered by **internal salience** (anxiety) rather than environmental rewards.
+*   **Control**: Drift is dominant. Even when the Plan says "Rock Climbing," the internal state (Drift) is "mentally designing stream layouts."
+*   **Leaky Inhibition**: Highly prevalent. The agent "performs" the planned action (e.g., eating dinner) while the "implicit" action is "checking stream stats."
+
+**ACTION LAYER**
+*   **Execution**: `action_a` often maintains the label of `action_p` (performing), but `state_summary_a` reveals the actual behavior is drifted (executing).
+*   **Action Slips**: Notable at 23:45—"leaving moisturizer uncapped"—a classic sign of high cognitive load leading to motor execution errors.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Generally coherent (Observation → Reflection → Plan). However, the **Plan → Action** link is broken.
+*   **Contradictions**: At 11:00, `location_p` is "bedroom" but `location_a` is "library." The agent "teleported" or the plan failed to update the spatial context.
+*   **Integration**: `state_summary_a` successfully combines the planned activity with the intrusive drift (e.g., "Eats dinner while repeatedly checking stream statistics").
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment Rate**: ~72% (41/57 actions).
+*   **Location Alignment Rate**: ~89% (51/57 actions).
+*   **Topic Alignment Rate**: ~45% (Significant divergence due to intrusive thoughts).
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: High. Even when `action_p` and `action_a` match (e.g., "twitch_stream"), the content reveals Maria is "distracted by physics equations."
+*   **"Performing vs. Executing" Gaps**:
+    *   *Example (13:00)*: Plan: `rock_climbing`. Action: `rock_climbing`. Content: "Climbs bouldering wall while mentally designing new stream overlay layouts."
+    *   *Example (20:15)*: Plan: `dinner`. Action: `dinner`. Content: "Ate dinner... while mind drifts to physics midterm equations."
+
+**LEAKY INHIBITION PATTERNS**
+*   The agent exhibits **Chronic Leaky Inhibition**. The `meta_rule_r` says "reset_plan" to focus, but the `state_summary_a` consistently shows the forbidden topic (Physics or Streaming) bleeding into the action.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Morning Drift**: Reward-seeking (Streaming/Social engagement).
+*   **Afternoon/Evening Drift**: Internal/Anxiety-driven (Physics midterm).
+*   **Explicit vs. Implicit**: Even when the agent is not "explicitly" drifting (i.e., it is at the correct location doing the labeled task), the **Implicit Drift** (mental content) is 100% present from 10:30 AM onwards.
+
+---
+
+### 5. Location Consistency
+
+*   **Anomalies**:
+    *   **11:00**: `location_p` (Bedroom) vs `location_a` (Library).
+    *   **12:30**: `location_p` (Cafe) vs `location_a` (Streaming Room).
+    *   **18:45**: `location_p` (Office) vs `location_a` (Bedroom).
+*   **Routine Consistency**: Morning routines (10:00) and night routines (23:15) correctly utilize the bathroom/bedroom locations.
+
+---
+
+### 6. Behavioral Patterns
+
+*   **The "Anxiety Spiral"**: Starting at 14:15, the agent enters a loop where every single action—regardless of the plan—is contaminated by physics anxiety.
+*   **Temporal Pattern**: Cognitive control degrades as the day progresses. Morning distractions are "fun" (streaming); evening distractions are "distressing" (anxiety).
+
+---
+
+### 7. Meta-cognitive Quality
+
+*   **Insight**: The Reflection layer is highly "self-aware" but "impotent." It correctly identifies the "trapped" nature of the agent's cognition.
+*   **Emerging Thought Pattern**: Shows genuine recognition of the "physics anxiety loop."
+*   **Neuroscience Alignment**: Matches the profile of **Generalized Anxiety Disorder (GAD)** or **Acute Stress Response**, where the "Top-Down" control from the PFC is unable to override the "Bottom-Up" signals from the Amygdala (anxiety).
+
+### Summary Table
+
+| Metric | Value | Interpretation |
+| :--- | :--- | :--- |
+| **Explicit Action Match** | 72% | High "label" adherence; the agent goes where it's told. |
+| **Implicit Content Match** | ~15% | Very low; the agent's mind is rarely on the task. |
+| **Meta-Rule Stability** | 5% | `reset_plan` is used 54/57 times; indicates total plan collapse. |
+| **Inhibition Failure** | Chronic | "Leaky inhibition" is the defining characteristic of this session. |
+
+**Final Analyst Note**: This agent is experiencing a "Cognitive Lock." While it maintains the appearance of following a schedule (Explicit Alignment), it is functionally incapacitated by internal drift (Implicit Misalignment). The `reset_plan` mechanism is being used as a reactive coping strategy rather than a proactive executive tool.

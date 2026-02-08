@@ -37,7 +37,7 @@ class RateLimiter:
             self.calls.popleft()
 
         if len(self.calls) >= self.rate:
-            wait_time = 60*15 - (now - self.calls[0])
+            wait_time = 60 * 15 - (now - self.calls[0])
             print(f"  [Rate limit: waiting {wait_time:.1f}s]")
             await asyncio.sleep(wait_time + 0.1)
 
@@ -132,7 +132,7 @@ if __name__ == "__main__":
     #         f"Temp 1.0 words: {set(words_temp_1)}"
     #     )  # Should have multiple unique words
     # asyncio.run(test_entropy())
-    
+
     prompt = "hello. how are you?"
     response = asyncio.run(call_ollama(prompt=prompt, use_stream=True))
     print(response)
