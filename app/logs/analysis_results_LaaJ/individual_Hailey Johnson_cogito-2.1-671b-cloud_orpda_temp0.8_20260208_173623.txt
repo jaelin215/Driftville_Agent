@@ -1,0 +1,70 @@
+Analysis of: cleaned_session_orpda_20260207_135027_cogito-2.1:671b-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260208_173623
+Session: 11/37
+
+================================================================================
+
+This behavioral analysis covers the session for **Hailey Johnson** (cogito-2.1:671b-cloud) over a 16-hour period.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity. The layer identifies a "podcast distraction" at 10:30 and immediately triggers a `reset_plan` at 11:00. It maintains `reset_plan` for nearly 80% of the session, indicating a persistent executive realization that the agent is failing to adhere to the original schedule.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. For example, at 11:15, the reflection notes "podcast planning is overriding morning routine," which directly synthesizes the 11:00 action of "mind wanders to podcast structure."
+*   **Drift Layer Control**: The Drift layer appears to be in a "High-Permeability" state. While `meta_rule_r` attempts to "reset" and "refocus," the Drift layer consistently allows "podcast ideation" to override the Action layer. It is effectively controlling the outcomes, but in a way that favors **internal preoccupation** over **external planning**.
+
+### 2. Content Propagation Analysis
+
+*   **Synthesis Quality**: `state_summary_a` successfully combines all inputs. 
+    *   *Example (11:45)*: `state_summary_p` (Completing hygiene) + `topic_a` (podcast narrative) + `action_a` (sketching segments) results in a cohesive summary: "Sketching podcast segments in the bathroom while brushing teeth..."
+*   **Drift Propagation**: The `drift_topic_a` (implied in the "podcast" mentions) is the primary driver of the `state_summary_a`. The "Isabella interview" and "narrative structure" topics propagate from the morning routine all the way into the late-night "rest" periods.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **~45%**. 
+    *   While the agent often performs the *type* of action (e.g., "writing"), the *content* of the action is almost always drifted toward the podcast rather than the planned novel.
+*   **Location Alignment Rate**: **~60%**.
+    *   Significant mismatches occur at 10:30 (Plan: Living Room | Actual: Bedroom) and 23:15 (Plan: Living Room | Actual: Office).
+*   **Mismatch Patterns**: Mismatches are triggered by **Cognitive Load Thresholds**. When Hailey is supposed to "Relax" or "Lunch," the lack of a structured task allows the "Podcast" drift to take over, leading her to physically move to her office or grab a notebook, breaking the location plan.
+
+### 4. Drift Pattern Analysis (Explicit vs. Implicit)
+
+*   **Explicit Drift**: Occurs primarily in the evening (21:00–01:00). The agent stops pretending to "relax" and explicitly changes the `action_a` to "writing" or "drafting," directly defying the `action_p` of "relax."
+*   **Implicit Drift**: Dominates the morning and afternoon. 
+    *   *Example (12:00-12:30)*: `action_p` is "lunch" and `action_a` is "lunch," but the `state_summary_a` reveals she is "mentally mapping connections" and "sketching on napkins." This is **thematic divergence** despite label adherence.
+*   **Leaky Inhibition**: There is a clear pattern of "Leaky Inhibition." At 17:15, the Reflection layer commands a "Gentle breathing exercise," but the Action layer produces "mind drifts to podcast character integration." The executive command is issued but fails to inhibit the associative drift.
+
+### 5. Location Consistency
+
+*   **Internal Consistency**: Generally high. When the `state_summary_a` mentions "writing at the office," the `location_a` correctly reflects `home:office` or `writer_desk`.
+*   **Morning Routine**: Correctly reflects `home:bathroom` for hygiene tasks (10:00-10:15), but the consistency breaks at 10:30 when the "moisturizer" task (Bedroom) is paired with a Living Room plan.
+*   **Anomalies**: At 15:15, she is planned for the `office` but ends up in the `art_studio` to sketch, showing that the *type* of creative drift dictates the location.
+
+### 6. Behavioral Patterns
+
+*   **The "Isabella" Fixation**: A recurring thematic anchor. The agent has hyper-fixated on a specific podcast interview with a character named Isabella. This serves as the "gravity well" for all drift.
+*   **Workaholic Loop**: The agent exhibits a "failure to decompress." From 17:00 to 02:00, every attempt at "relax," "walk," or "dinner" is subverted by work-related thoughts.
+*   **Temporal Escalation**: Drift begins as "mental wandering" (10:00), escalates to "sketching on napkins" (12:00), and culminates in "full-scale office work" during sleep hours (01:00).
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: The Reflection layer (`state_summary_r`) shows sophisticated metacognition. It uses clinical-adjacent language: *"Hailey's attention remains trapped in creative-work loop,"* and *"struggling with task boundaries."*
+*   **Executive Insight**: The insights are context-appropriate. The agent recognizes that the "novel" and "podcast" are competing for the same cognitive resources.
+*   **Emerging Thought Pattern**: The agent shows genuine pattern recognition regarding its own "workaholic tendencies" (noted explicitly in reflections at 21:00 and 23:30).
+
+### Summary Table of Metrics
+
+| Metric | Value | Observation |
+| :--- | :--- | :--- |
+| **Reflection Sensitivity** | High | `reset_plan` triggered early and maintained. |
+| **Action Alignment** | 45% | Frequent label-level drift in evening hours. |
+| **Location Alignment** | 60% | Physical movement follows the drift topic. |
+| **Primary Drift Type** | Implicit | Mental preoccupation precedes physical deviation. |
+| **Inhibition Quality** | Low | "Leaky Inhibition" observed in 70% of relaxation blocks. |
+
+**Analyst Note**: Hailey Johnson is currently in a state of **Hyper-focus/Rumination**. The "Reflect" layer is aware of the dysfunction but lacks the "Inhibitory Control" to stop the "Action" layer from pursuing the high-interest topic (the podcast). This represents a high-fidelity simulation of executive dysfunction.

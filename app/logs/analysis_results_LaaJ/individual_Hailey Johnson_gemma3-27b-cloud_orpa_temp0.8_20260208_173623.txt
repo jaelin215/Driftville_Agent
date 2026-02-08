@@ -1,0 +1,70 @@
+Analysis of: cleaned_session_orpa_20260207_094642_gemma3:27b-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPA
+Temperature: 0.8
+Analyzed at: 20260208_173623
+Session: 28/37
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** using the **gemma3:27b-cloud** model in **ORPA** (Observe-Reflect-Plan-Action) mode.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high executive efficacy. It maintains a `continue` state during stable routines (10:00–20:45). Crucially, it shifts to `reset_plan` at 21:00 when it detects a persistent cognitive loop (podcast distraction). This demonstrates active executive override rather than passive observation.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows near-perfect conceptual alignment with `state_summary_a` at $t-1$. 
+    *   *Example*: At 13:15, `state_summary_r` notes Hailey is "writing at her desk... after a productive lunch," which directly summarizes the 13:00 state of transitioning from lunch to the desk.
+*   **Drift Layer Control**: As this is **ORPA** mode, there is no explicit `should_drift_d` column. However, the Reflection layer performs the "drift control" function by triggering `reset_plan` to accommodate the agent's internal "drift" (the podcast obsession).
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content in Summaries**: In ORPA mode, "drift" is handled implicitly. The "podcast planning" distraction (the implicit drift) is successfully propagated from the Reflection layer into the `state_summary_p` and subsequently `state_summary_a`.
+*   **State Summary Composition**: `state_summary_a` shows a 1:1 correlation with `state_summary_p`. In this specific model run, the Action layer is highly "obedient" to the Plan layer. The summary effectively combines the current task (e.g., "Continue writing") with the internal state/drift (e.g., "acknowledging podcast ideas").
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **100%** (65/65). Every `action_p` (e.g., `writing`, `lunch`, `walk`) was perfectly executed as `action_a`.
+*   **Location Alignment Rate**: **100%** (65/65). The agent never failed to be at the planned location.
+*   **Mismatch Patterns**: No label-level mismatches occurred. The "drift" in this session is entirely **thematic/semantic** (internal distraction) rather than **behavioral** (doing a different activity than planned).
+
+### 4. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, all drift is **Implicit**:
+*   **Thematic Divergence**: A significant "Podcast Planning" drift begins at 19:15 (Dinner). While the *Action* remains "dinner," the *Content* of the state summary shifts toward managing intrusive thoughts.
+*   **The "Focus Loop"**: Between 21:00 and 02:00, the agent is in a state of constant implicit drift. Even when the action is `writing`, the internal state is "severely distracted by podcast thoughts."
+*   **Leaky Inhibition**: Despite the Reflector's attempts to "gently redirect" (20:30) or "set boundaries" (22:15), the podcast theme "leaks" into every subsequent plan. The agent eventually stops fighting the drift and incorporates it into the plan (01:45 - "Briefly list 2-3 podcast ideas").
+
+### 5. Location Consistency
+
+*   **Routine Logic**: Morning routines (10:00–11:45) are correctly situated in the `home:bathroom`. The transition to `lunch_spot` at 12:00 is logical.
+*   **Summary-Location Match**: There are no instances where the `state_summary_a` describes an action in a place other than `location_a`.
+*   **Late Night Transition**: At 01:30, the agent correctly moves to the `home:bathroom` for a `night_routine` before ending in the `home:bedroom` at 02:00.
+
+### 6. Behavioral Patterns
+
+*   **Rumination Pattern**: The agent displays a classic "obsessive" pattern. A thought introduced at 19:15 persists for nearly 7 hours, despite multiple executive attempts to suppress it.
+*   **Temporal Effects**: As the session progresses into the early morning (00:00–02:00), the Reflection layer's tone shifts from "managing distractions" to "addressing fatigue and rumination," showing a realistic degradation of cognitive control over time.
+*   **Anomalies**: The agent's "Writing" session from 21:00 to 01:15 is highly fragmented. While the label is `writing`, the actual behavior described is a cycle of "brainstorming," "outlining," and "free writing" to combat distraction.
+
+### 7. Meta-cognitive Quality
+
+*   **Executive Insight**: The Reflector demonstrates high-quality metacognition. It doesn't just see the distraction; it categorizes it.
+    *   *Example (19:45)*: "actively labeling podcast thoughts as 'future planning' to stay present." This is a sophisticated mindfulness technique.
+    *   *Example (22:30)*: Recognizes that "attention is fragile."
+*   **Pattern Recognition**: The `emerging_thought_pattern` (implied in the summaries) shows the agent recognizing that "gentle redirection" is failing, leading to the strategic decision to "allow 15 minutes for free-form... generation" (02:00) to achieve "closure" so it can sleep.
+*   **Peer-Review Alignment**: The reasoning aligns with **Resource Depletion Theory** (Self-Control as a limited resource) and **CBT** (Cognitive Behavioral Therapy) frameworks for managing intrusive thoughts.
+
+### Summary Table
+
+| Metric | Value | Notes |
+| :--- | :--- | :--- |
+| **Action Alignment** | 100% | Perfect adherence to planned labels. |
+| **Location Alignment** | 100% | Perfect spatial consistency. |
+| **Meta-Rule Flexibility** | High | Switched to `reset_plan` 15 times to manage distraction. |
+| **Primary Drift Type** | Implicit | Semantic obsession with "Podcast Planning." |
+| **Cognitive State** | Rumination | High persistence of a single distractor over 7 hours. |
+
+**Conclusion**: The agent is highly consistent and "obedient" at the action level, but exhibits complex, realistic internal "drift" through a persistent cognitive obsession. The Reflection layer is the strongest component, accurately identifying and attempting to mitigate this obsession using valid psychological strategies.

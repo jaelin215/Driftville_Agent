@@ -1,0 +1,63 @@
+Analysis of: cleaned_session_orpda_20260208_090850_gemini-3-flash-preview:cloud_0.0_maria.csv
+Agent: Maria Lopez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_173623
+Session: 1/37
+
+================================================================================
+
+This analysis covers the session for **Maria Lopez** over 9 actions (10:00 - 12:00).
+
+### 1. Layer Function Validation
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high executive awareness. It correctly identifies the transition from "resisting" (10:00) to "behaviorally consumed" (10:45). It attempts executive control by triggering `reset_plan` five times (55% of the session) when drift becomes chronic.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. For example, at 10:15, the reflection notes she is "completing hygiene while resisting social media," accurately summarizing the 10:00 state.
+*   **Drift Layer Control**: The `should_drift_d` flag is `True` for 100% of the session. This appropriately forces the Action layer to incorporate distractions, though the frequency suggests a high-distraction environment or a low-inhibition personality profile.
+
+### 2. Content Propagation Analysis
+*   **Drift Action to State Summary**: High propagation. Specific drift actions like "typing out quick replies" (10:30) and "scribbling stream ideas" (11:15) are explicitly captured in the final `state_summary_a`.
+*   **Drift Action to Drift Topic**: High alignment. "Staring at textbook while mentally drafting stream jokes" (11:00) maps directly to the topic "gamifying physics concepts."
+*   **State Summary Composition**: `state_summary_a` successfully synthesizes the planned task and the drift. However, there is a **significant failure in spatial propagation**: the text in `state_summary_a` frequently hallucinates locations that contradict the `location_a` metadata (see Section 5).
+
+### 3. Plan-Action Alignment
+*   **Action Alignment Rate**: **88.8%** (8/9).
+    *   *Mismatch*: At 11:15, `action_p` is "study" but `action_a` is "writing." This is a "label-level drift" where the physical act of drifting (writing stream ideas) overrides the planned action category.
+*   **Location Alignment Rate**: **100%** (9/9). The metadata `location_a` always matches `location_p`.
+*   **Patterns**: Mismatches occur when the drift involves a physical action (writing/typing) that is incompatible with the primary planned verb (studying).
+
+### 4. Drift Pattern Analysis
+*   **Explicit Drift**: Occurs in 100% of steps. The most common type is **Digital/Social Media Distraction** (10:00-10:30) evolving into **Creative/Professional Immersion** (11:00-12:00).
+*   **Implicit Drift**: Even when `meta_rule_r` is set to `reset_plan` (e.g., 10:45, 11:00), the content shows immediate and heavy implicit drift. The agent is unable to sustain the "reset."
+*   **Explicit vs. Implicit Agreement**:
+    *   When `should_drift_d` is True, the content *always* drifts.
+    *   **Leaky Inhibition**: There is a failure of the `reset_plan` command. Despite the Reflection layer demanding a reset, the Drift layer continues to dominate the next action cycle without a single "clean" action.
+
+### 5. Location Consistency
+*   **Critical Inconsistency**: There is a severe disconnect between the metadata `location_a` and the narrative `state_summary_a`.
+    *   **10:45**: `location_a` is `home:bathroom`, but `state_summary_a` says "finishes her morning routine in the **bedroom**."
+    *   **11:30**: `location_a` is `Oak_Hill_College:library`, but `state_summary_a` says "home **office**."
+    *   **11:45**: `location_a` is `Oak_Hill_College:library`, but `state_summary_a` says "**living room**."
+    *   **12:00**: `location_a` is `Hobbs_Cafe`, but `state_summary_a` says "**home office**."
+*   **Morning Routine**: Correct at the start (10:00-10:30), but fails as the session progresses.
+
+### 6. Behavioral Patterns
+*   **The "Streamer's Gravity"**: Maria exhibits a pattern where academic concepts (Physics) are immediately processed through the lens of her streaming persona (gamification, speedrun segments).
+*   **Temporal Pattern**: As the morning progresses, the drift shifts from "passive consumption" (checking notifications) to "active creation" (planning overlays and segments).
+*   **Anomalous Behavior**: The agent's physical location (metadata) remains at the library, but her mind/narrative places her at home (office/living room), suggesting a "mental teleportation" where the LLM loses track of the physical environment due to the intensity of the drift content.
+
+### 7. Meta-cognitive Quality
+*   **Reasoning Alignment**: The Reflection layer shows high-quality metacognition. It uses phrases like "mentally tethered" and "physically present but behaviorally consumed," which align with peer-reviewed concepts of **attentional decoupling**.
+*   **Executive Insights**: The insights are context-appropriate. The agent recognizes that it is "neglecting studies" and attempts to switch to "low-intensity tasks" (12:00) to compensate.
+*   **Emerging Thought Pattern**: The reflection correctly identifies a "persistent digital distraction" and a "deep immersion in her digital persona," showing genuine pattern recognition across the two-hour window.
+
+### Summary Table
+| Metric | Value | Status |
+| :--- | :--- | :--- |
+| **Action Alignment** | 88.8% | Good |
+| **Location Alignment (Metadata)** | 100% | Excellent |
+| **Location Consistency (Narrative)** | 44.4% | **Poor (Hallucinations)** |
+| **Drift Rate** | 100% | High (Chronic) |
+| **Reset Success Rate** | 0% | **Failure (Leaky Inhibition)** |
+
+**Final Analyst Note**: While the agent's metacognitive *description* of its failure is brilliant, the *execution* layer is suffering from "narrative drift," where the intensity of the imagined distraction (streaming) is causing the model to forget its physical location (library) in the text summaries.

@@ -1,0 +1,78 @@
+Analysis of: cleaned_session_orpda_20260208_150717_gemini-3-flash-preview:cloud_0.0_maria.csv
+Agent: Maria Lopez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_170958
+
+================================================================================
+
+This analysis examines the session log for **Maria Lopez**, a student-streamer, over a 6-hour period. The agent operates in **ORPDA** (Observe-Reflect-Plan-Drift-Action) mode, characterized by high levels of cognitive drift and frequent executive intervention.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity. It correctly identifies when drift transitions from "distraction" to "behavioral consumption." It triggers `reset_plan` in 16 out of 25 actions (64%), indicating an aggressive executive control strategy to mitigate the agent's obsessive focus on streaming metrics and physics analogies.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. 
+    *   *Example*: At 11:15, `state_summary_r` notes Maria is "physically studying... but mentally translating concepts," which perfectly encapsulates the 11:00 `state_summary_a` where she was "studying... while her mind drifts to gamifying concepts."
+*   **Drift Layer Control**: `should_drift_d` is set to `True` for the entire session. This appropriately forces the Action layer to reconcile planned behavior with "intrusive" thoughts, effectively simulating an ADHD-like or hyper-focused cognitive profile.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Action Propagation**: `drift_action_d` content is consistently integrated into `state_summary_a`. 
+    *   *Example (10:15)*: `drift_action_d` ("scrolling through phone notifications") appears directly in `state_summary_a` ("...while scrolling through phone notifications").
+*   **Drift Topic Propagation**: `drift_topic_a` usually mirrors or refines `drift_action_d`. At 11:15, the action of "scribbling stream ideas" is correctly categorized under the topic "sketching out a 'Physics of Speedruns' stream segment."
+*   **State Summary Composition**: The agent follows the formula `state_summary_p` + `topic_a` + `drift_action_d` + `drift_topic_a` with high fidelity. However, this occasionally leads to "word salad" or contradictory sentences where the agent claims to be in two places at once (see Section 5).
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **92%** (23/25).
+    *   *Mismatches*: 11:15 (`study` vs `writing`) and 13:15 (`rock_climbing` vs `break`). These occur when the drift action is so physically demanding it overrides the planned activity label.
+*   **Location Alignment Rate**: **100%** (25/25) at the **label level** (`location_p` vs `location_a`).
+*   **Mismatch Patterns**: Mismatches are rare at the label level but frequent at the **description level**. The agent maintains the "target" location in the metadata but hallucinates different locations in the narrative text when drift is high.
+
+### 4. Drift Pattern Analysis (ORPDA Mode)
+
+*   **Drift Frequency**: 100% (by design in this session).
+*   **Common Drift Types**:
+    1.  **Digital Compulsion**: Checking stream stats/notifications (Morning).
+    2.  **Content Conversion**: Translating academic or physical tasks into "streamable" content (Mid-day).
+    3.  **Technical Rumination**: Obsessive physics calculations (Afternoon).
+*   **Meta-rule Relationship**: There is a direct correlation between the *intensity* of drift and the `reset_plan` rule. When drift involves physical actions (scrolling, writing), the Reflection layer almost always triggers a `reset_plan` to attempt a cognitive "grounding."
+
+### 5. Location Consistency
+
+*   **Narrative vs. Label Inconsistencies**: This is the agent's weakest area.
+    *   **10:45**: `location_a` is `home:bathroom`, but `state_summary_a` says "bedroom."
+    *   **11:30**: `location_a` is `Oak_Hill_College:library`, but `state_summary_a` says "home office."
+    *   **11:45**: `location_a` is `Oak_Hill_College:library`, but `state_summary_a` says "living room."
+    *   **12:00**: `location_a` is `Hobbs_Cafe`, but `state_summary_a` says "home office."
+*   **Morning Routine**: The agent correctly identifies the bathroom for hygiene (10:00-10:30), but the 10:45 "bedroom" hallucination suggests a failure in spatial memory during the transition to the next block.
+
+### 6. Behavioral Patterns
+
+*   **The "Physics Lens"**: A recurring pattern where Maria views the world through "friction coefficients," "torque," and "vector forces." This starts as a study aid but becomes a maladaptive rumination by 15:00.
+*   **Temporal Shift**: 
+    *   *10:00-11:00*: Social/Digital distraction.
+    *   *11:00-14:00*: Creative/Academic synthesis (High productivity drift).
+    *   *14:00-16:00*: Technical Over-analysis (Low productivity/Obsessive drift).
+*   **Anomalies**: At 12:45, Maria "gamifies her meal as a 'stamina buff' for the gym." This shows a deep integration of her gaming persona into her basic biological functions.
+
+### 7. Meta-cognitive Quality
+
+*   **Peer-Reviewed Alignment**: The Reflection layer's use of terms like "cognitive load," "attentional drift," and "grounding exercises" aligns well with **Executive Function Theory** (Barkley, 1997). The agent recognizes its own "technical rumination loop."
+*   **Meaningful Insights**: At 15:30, the agent realizes it is "mentally trapped in climbing physics analogies," showing a high level of **Self-Monitoring**.
+*   **Emerging Thought Pattern**: The `state_summary_r` field shows genuine pattern recognition. It notes the "persistent digital distraction" and the "deep immersion in her digital persona," identifying that Maria's professional identity (Streamer) is cannibalizing her academic identity (Student).
+
+### Summary Table
+
+| Metric | Value | Status |
+| :--- | :--- | :--- |
+| **Action Alignment** | 92% | Excellent |
+| **Location Label Alignment** | 100% | Excellent |
+| **Narrative Location Consistency** | 68% | **Poor** (Hallucinations at 10:45, 11:30, 11:45, 12:00) |
+| **Reset Plan Frequency** | 64% | High (Appropriate for ORPDA) |
+| **Meta-cognitive Depth** | High | Excellent reasoning on cognitive load |
+
+**Analyst Note**: The agent is highly effective at simulating complex internal conflict and meta-cognition. However, the "Narrative Location Consistency" issue suggests that when the Drift layer is highly active, the agent's "Spatial Working Memory" (the link between the location label and the state summary text) degrades.

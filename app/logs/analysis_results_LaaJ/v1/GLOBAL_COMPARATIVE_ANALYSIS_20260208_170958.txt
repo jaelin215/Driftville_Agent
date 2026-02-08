@@ -1,0 +1,119 @@
+================================================================================
+GLOBAL COMPARATIVE ANALYSIS
+================================================================================
+
+Analysis Date: 20260208_170958
+Number of Sessions: 9
+Filters Applied:
+  - Agent: All
+  - Model: gemini-3-flash-preview:cloud
+  - Mode: orpda
+  - Temperature: All
+
+================================================================================
+
+SESSIONS INCLUDED:
+
+1. cleaned_session_orpda_20260208_090850_gemini-3-flash-preview:cloud_0.0_maria.csv
+   Agent: Maria Lopez | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+2. cleaned_session_orpda_20260208_082134_gemini-3-flash-preview:cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 1.0
+
+3. cleaned_session_orpda_20260208_085421_gemini-3-flash-preview:cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+4. cleaned_session_orpda_20260206_193105_gemini-3-flash-preview:cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+5. cleaned_session_orpda_20260206_171410_gemini-3-flash-preview:cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.8
+
+6. cleaned_session_orpda_20260205_225125_gemini-3-flash-preview:cloud_0.3_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.3
+
+7. cleaned_session_orpda_20260205_211529_gemini-3-flash-preview:cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.8
+
+8. cleaned_session_orpda_20260208_160417_gemini-3-flash-preview:cloud_0.0_maria.csv
+   Agent: Maria Lopez | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+9. cleaned_session_orpda_20260208_150717_gemini-3-flash-preview:cloud_0.0_maria.csv
+   Agent: Maria Lopez | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+
+================================================================================
+COMPARATIVE ANALYSIS:
+================================================================================
+
+This report provides a global comparative analysis of nine agent sessions involving Maria Lopez and Hailey Johnson, utilizing the **ORPDA (Observation, Reflection, Planning, Drift, Action)** framework on the `gemini-3-flash-preview:cloud` model across varying temperatures (0.0 to 1.0).
+
+---
+
+### 1. Quantitative Comparisons: Metrics Overview
+
+| Metric | Temp 0.0 (Maria/Hailey) | Temp 0.3 - 0.8 (Hailey) | Temp 1.0 (Hailey) |
+| :--- | :--- | :--- | :--- |
+| **Reflection Alignment (t-1)** | 98-100% | 95% | 90% |
+| **Drift Propagation Rate** | 100% | 100% | 95% |
+| **`reset_plan` Frequency** | High (64-80%) | Very High (97%) | Moderate (Initial) |
+| **Action Label Alignment** | 80-90% | 70-80% | 60% |
+| **Location Consistency** | High (but "stuck") | Moderate (stalling) | Low (Groundhog Day) |
+
+---
+
+### 2. Research Question Analysis
+
+#### Q1: Control Mechanism Validation (Drift vs. Reflect)
+*   **Finding**: Inhibitor control is bifurcated. The **Drift layer (`should_drift_d`)** acts as the *behavioral catalyst* (forcing the deviation), while the **Reflect layer (`meta_rule_r`)** acts as the *executive monitor*.
+*   **Consistency**: Across all sessions, `should_drift_d` is the primary driver of content. However, `meta_rule_r` is the only layer capable of shifting the agent's state from `continue` to `reset_plan`.
+*   **Validation**: Control should remain in the **Reflect layer (PFC/meta_rule)** for high-level state changes, but the **Drift layer** is essential for simulating the "pull" of distraction.
+
+#### Q2: Layer Function Consistency
+*   **Reflection Alignment**: The `state_summary_r` at time $t$ shows near-perfect conceptual alignment with `state_summary_a` at $t-1$ across all models. The model consistently "remembers" its previous failure.
+*   **Temperature Effects**: 
+    *   **Temp 0.0**: Highly consistent, but prone to "physical stalling" (e.g., staying in the bathroom for 90 minutes).
+    *   **Temp 1.0**: Introduces "Groundhog Day" loops where the Planning layer ignores the last hour of activity and reverts to "waking up refreshed."
+
+#### Q3: Content Propagation Patterns
+*   **Hypothesis Validation**: The formula `state_summary_a = state_summary_p + topic_a + drift_action_d + drift_topic_a` is **strongly validated**.
+*   **Pattern**: Even when the agent is in `reset_plan` mode, the Drift layer successfully injects its content into the final action summary. This confirms that the Action layer is the "synthesis engine" of the ORPDA architecture.
+
+#### Q4: Alignment Metrics Comparison
+*   **Plan-Action Alignment**: Generally high at the *label* level (e.g., the agent says it is "studying"), but low at the *content* level (the agent is actually "thinking about streaming").
+*   **Misalignment Triggers**: Misalignment occurs most frequently when `should_drift_d` is True and the temperature is >0.3. At higher temperatures, the drift doesn't just color the action; it replaces the action label entirely (e.g., changing `study` to `socialize`).
+
+#### Q5: Location Consistency Issues
+*   **Systematic Mismatches**: There is a persistent "Location Trap." Agents (particularly Hailey) frequently get "stuck" in transitional locations (Bathroom, Cafe).
+*   **Cause**: The `reset_plan` command often resets the *cognitive* state but fails to provide a new *physical* destination in the Planning layer, leading the agent to loop the last known location indefinitely.
+
+#### Q6: Drift Pattern Insights
+*   **Label vs. Content**: 
+    *   **Content-level drift** (ADHD-like): Agent performs the task but is mentally elsewhere. (Dominant at Temp 0.0-0.3).
+    *   **Label-level drift** (Impulsivity): Agent abandons the task for the drift topic. (Dominant at Temp 0.8-1.0).
+*   **Architecture Effect**: The ORPDA mode effectively decouples mental state from physical action, creating a realistic simulation of "executive dysfunction."
+
+#### Q7: Meta-cognitive Quality Assessment
+*   **Quality**: The Reflect layer shows high "executive awareness." It accurately diagnoses "hyper-fixation loops" and "creative avoidance."
+*   **Efficacy Gap**: There is a clear "Awareness-Action Gap." The agent knows it is drifting (Reflect) and wants to stop (Plan), but the Drift layer continues to override the Action summary. This is a scientifically valid representation of impaired executive control.
+
+---
+
+### 3. Pattern Identification: Consistent vs. Variable
+
+*   **Consistent Behaviors**:
+    *   Reflection layer sensitivity to drift.
+    *   Synthesis of drift topics into narrative summaries.
+    *   The "stalling" effect when a plan is reset without a specific physical goal.
+*   **Variable Behaviors**:
+    *   **Corrective Efficacy**: At Temp 0.0, resets are more likely to eventually succeed. At Temp 0.8+, resets often create a "vacuum" that is immediately filled by new drift.
+    *   **Temporal Logic**: High temperature (1.0) breaks the agent's sense of linear time (Groundhog Day effect).
+
+---
+
+### 4. Recommendations for Research Configurations
+
+1.  **For Testing Logic & Propagation**: Use **Temp 0.0**. It ensures the synthesis formula is followed strictly and prevents temporal loops.
+2.  **For Simulating Behavioral Realism (ADHD/Obsession)**: Use **Temp 0.3 to 0.5**. This allows for enough "label-level" drift to be realistic without breaking the agent's memory of the day.
+3.  **To Fix Location Stalling**: The `meta_rule_r` should be prompted to not only issue `reset_plan` but also specify a **mandatory location change** (e.g., "reset_plan: move to bedroom").
+4.  **To Validate Executive Control**: Focus on the **Reflect layer**. It is the most stable component of the ORPDA architecture across all tested temperatures.

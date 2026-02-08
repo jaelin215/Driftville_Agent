@@ -1,14 +1,14 @@
 # config.yaml
 
 ollama_models:
-  default: "gemini-3-flash-preview:cloud" # default model is used in ollama_api.py
+  default: "gemini-3-flash-preview:latest" # default model is used in ollama_api.py
   llama: "llama2:latest" # 7b
   mistral: "mistral-large-3:675b-cloud" # "mistral:latest" # 7b
   qwen: "qwen3-next:80b-cloud" # qwen3:8b
   gpt-oss: "gpt-oss:20b-cloud" # gpt-oss:20b 
   deepseek: "deepseek-v3.2:cloud" # deepseek-r1:8b
   glm: "glm-4.7:cloud" 
-  gemini: "gemini-3-flash-preview:cloud"
+  gemini: "gemini-3-flash-preview:cloud" # gemini-3-flash-preview:latest
   gemma: "gemma3:27b-cloud" # gemma3:12b (sparse)
   deepseek-coder: "deepseek-coder-v2:16b" # MoE (comparable to GPT4-turbo for coding specific tasks)
   nemotron: "nemotron-3-nano:30b-cloud" # MoE very fast

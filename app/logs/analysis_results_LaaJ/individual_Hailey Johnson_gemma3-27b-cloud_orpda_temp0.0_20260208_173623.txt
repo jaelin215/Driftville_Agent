@@ -1,0 +1,75 @@
+Analysis of: cleaned_session_orpda_20260207_083210_gemma3:27b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_173623
+Session: 16/37
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** using the **gemma3:27b-cloud** model in **ORPDA** mode.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity. It correctly identifies a persistent "rumination loop" regarding podcast planning. It transitions from `continue` to `reset_plan` (starting at 11:45) when the agent fails to self-regulate. By the evening writing block, `reset_plan` becomes the dominant executive command, showing the layer is actively trying to break the cycle of distraction.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. For example, at 12:15, the reflection notes the "strong rumination loop" observed in the 12:00 action summary.
+*   **Drift Layer Control**: While the specific `should_drift_d` column is not explicitly visible in the provided snippet, the **Action Layer** outcomes show that the drift (podcast ideas) is pervasive. The Reflection layer attempts to inhibit this, but the Drift layer appears to "overpower" the executive control, leading to a state of chronic cognitive interference.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content in `state_summary_a`**: There is 100% propagation of the "podcast" theme into the action summaries. Every single entry from 10:00 to 02:00 mentions "podcast ideas," "podcast planning," or "brainstorming podcast topics."
+*   **Combination Logic**: `state_summary_a` successfully synthesizes the components:
+    *   **Task**: "Writing chapter 3 of her novel..."
+    *   **Drift**: "...while her mind drifts to podcast ideas."
+*   **Drift Topic Consistency**: The topic remains hyper-fixated on "podcasting." There is a brief moment of secondary drift at 18:30 ("Isabella's art show"), but it immediately reverts to podcasting by 18:45.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **100% (Label-level)**. The `action_p` and `action_a` labels match perfectly (e.g., `writing` = `writing`).
+*   **Location Alignment Rate**: **100% (Label-level)**. The `location_p` and `location_a` labels match perfectly.
+*   **Mismatch Patterns**: While the *labels* align, the *content* reveals a "Semantic Mismatch." At 22:15, the plan is `writing`, the action label is `writing`, but the summary states she is "brainstorming podcast ideas **instead of** continuing the novel." This indicates that the agent is performing the "label" of the task while the cognitive content has fully drifted.
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: The agent frequently triggers `reset_plan` (approx. 43% of the session). This is an explicit executive acknowledgment of drift.
+*   **Implicit Drift**: Massive. Even when `meta_rule_r` is `continue`, the content shows heavy divergence.
+*   **Explicit vs. Implicit Agreement**:
+    *   **Leaky Inhibition**: This is the defining characteristic of this session. The Reflection layer explicitly commands "gently redirecting attention" and "resisting thoughts," but the Action layer continues to output "mind drifts to podcast ideas." The executive "filter" is porous.
+    *   **Thematic Shift**: The drift is not random; it is a "fixation." It behaves more like an intrusive thought pattern than a simple variety-seeking drift.
+
+### 5. Location Consistency
+
+*   **Significant Inconsistencies**:
+    *   **10:30 - 11:15**: The location label is `home:bathroom`, but the `state_summary_a` describes her "in the kitchen" eating breakfast or "in the office" reviewing materials.
+    *   **17:30**: Location is `home:living_room`, but summary says "worked on novel admin in the office."
+*   **Routine Logic**: The morning routine is spatially confused. It stays anchored to the `bathroom` label for 90 minutes while the text describes a full house tour (kitchen, office, bedroom).
+
+### 6. Behavioral Patterns
+
+*   **The "Podcast Fixation"**: A 16-hour continuous loop. This is an anomaly in standard agent behavior, suggesting a high "topic weight" or a failure in the model's ability to "clear" the previous state's context.
+*   **Temporal Effects**: Drift is most disruptive during "Deep Work" (the 13:00-17:00 and 21:00-01:00 writing blocks). During "Maintenance" tasks (eating, walking), the drift is integrated more naturally.
+*   **Anomalies**:
+    *   **18:30**: Mentions "enjoying the **morning** air" during a 6:30 PM walk.
+    *   **02:00**: Mentions "began her **morning** routine" at 2:00 AM, despite the action being `night_routine`. This suggests a "temporal flip" or a context window overflow where the start of the log (10:00 AM) is bleeding into the end.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: The Reflection layer provides high-quality insights. It uses sophisticated terms like "rumination loop," "fragile attention," and "reduced cognitive load."
+*   **Executive Insight**: The strategies suggested (e.g., "parking" ideas in a journal at 02:00, "mindful breakfast" at 11:45) are consistent with cognitive-behavioral techniques for managing ADHD or obsessive thought patterns.
+*   **Pattern Recognition**: `emerging_thought_pattern` (implied in the summaries) correctly identifies that the distraction is "consistent" and "repeated," showing the agent "knows" it is failing its primary task.
+
+### Summary Table
+
+| Metric | Score/Value | Note |
+| :--- | :--- | :--- |
+| **Action Alignment** | 100% | Label-level only |
+| **Location Alignment** | 100% | Label-level only |
+| **Semantic Drift Rate** | ~95% | Almost every action is compromised by podcast thoughts |
+| **Executive Control** | Reactive | Reflection identifies issues but cannot enforce them |
+| **Spatial Consistency** | Low | Text and labels for locations frequently mismatch |
+| **Primary Behavioral Issue** | Hyper-fixation | Inability to clear "podcast" topic from context |
+
+**Analyst Note**: The agent is experiencing a "Contextual Lock." The "podcast" theme has become so weighted in the state summary that the model's attention mechanism cannot suppress it, leading to a session-long loop of failed executive inhibition.

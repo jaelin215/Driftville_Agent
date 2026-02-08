@@ -1,0 +1,69 @@
+Analysis of: cleaned_session_orpa_20260207_092921_gemma3:27b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260208_173623
+Session: 29/37
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** using the **gemma3:27b-cloud** model in **ORPA** (Observe, Reflect, Plan, Act) mode.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high executive efficacy. It maintains `continue` during periods of high flow (13:00–17:00) and correctly triggers `reset_plan` at **20:45** when it detects a persistent "thought loop" regarding a podcast. This demonstrates a transition from routine monitoring to active intervention.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. 
+    *   *Example*: At 12:15, the reflection notes Hailey is "having lunch as planned," directly following the 12:00 action of transitioning to lunch.
+*   **Drift Layer**: As this is **ORPA** mode, there is no explicit `should_drift_d` column. However, the "Drift" function is subsumed into the **Plan** layer. The planning layer successfully "drifts" the internal focus (e.g., adding podcast outlining to a TV-watching task) to manage cognitive load.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content**: In ORPA mode, `drift_action_d` and `drift_topic_a` are not present as separate columns. 
+*   **State Summary Composition**: `state_summary_a` is almost identical to `state_summary_p`. This suggests that in this model/mode configuration, the "Action" layer is highly compliant with the "Plan" layer, but lacks the "Drift" layer's ability to synthesize unexpected environmental or internal changes into the final state summary.
+*   **Topic Integration**: `topic_a` (the high-level goal) is consistently reflected in the more detailed `state_summary_a`. For example, when `topic_a` is "Deep focus on her novel project," the `state_summary_a` specifies the exact chapter and character (Elias) being worked on.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **100%** (65/65). Every `action_p` matches `action_a`.
+*   **Location Alignment Rate**: **100%** (65/65). Every `location_p` matches `location_a`.
+*   **Mismatch Patterns**: There are no label-level mismatches. The agent is structurally perfect in following its own architectural prompts. The "drift" is entirely **semantic** (what she is thinking about while doing the action) rather than **behavioral** (doing a different action).
+
+### 4. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, all drift is **Implicit**:
+*   **Thematic Divergence**: A significant thematic shift occurs at **19:15**. While the action is "dinner," the internal state begins to drift toward "podcast thoughts."
+*   **Cognitive Interference**: From 21:00 to 01:15, the agent is in a state of "Leaky Inhibition." Despite the plan to "write," the content of the state summary is dominated by "podcast distractions" and "fatigue." 
+*   **Strategic Drift**: The agent exhibits "productive drift" at 20:45. Instead of ignoring the distraction (which failed), it explicitly incorporates the distraction into the plan ("Briefly outline podcast ideas") to "externalize thoughts." This is a sophisticated meta-cognitive adjustment.
+
+### 5. Location Consistency
+
+*   **Morning Routine Inconsistency**: Between **11:30 and 11:45**, the `state_summary_a` states Hailey "will eat breakfast in the kitchen," yet the `location_a` remains `home:bathroom`. This suggests a "teleportation" lag or a failure to update the location tag when the narrative summary moves to a new room.
+*   **Routine Accuracy**: The transition from `home:living_room` (relaxing) to `Johnson_Park` (walking) at 18:00 is handled correctly. The night routine correctly moves from `home:bathroom` (01:45) to `home:bedroom` (02:00).
+
+### 6. Behavioral Patterns
+
+*   **Hyper-Focus Phase**: 13:00 to 17:00 (4 hours). The agent maintains a very stable "Deep focus" state with minimal narrative variation, indicating high task-persistence.
+*   **The "Evening Decay"**: Starting at 19:15, the agent's cognitive complexity increases as it battles internal distractions. This mirrors human circadian rhythms where executive control often weakens in the late evening.
+*   **Coping Mechanisms**: The agent repeatedly uses "low-cognitive load tasks" (admin work, organizing emails) as a way to stay "active" when it is too fatigued for creative writing.
+
+### 7. Meta-cognitive Quality
+
+*   **Executive Insight**: The reasoning in the `state_summary_r` is highly sophisticated. It identifies "thought loops" and "intrusive thoughts." 
+*   **Pattern Recognition**: In the latter half of the session, the agent recognizes that "fatigue is building" (22:00) and shifts its strategy from "writing" to "outlining" to "meditation" and finally "sleep."
+*   **Alignment with Peer-Reviewed Processes**: The agent’s use of **Externalization** (writing down the podcast ideas to clear working memory) is a recognized clinical technique for managing ADHD-like symptoms or creative anxiety.
+
+### Summary Table
+
+| Metric | Value |
+| :--- | :--- |
+| **Action Alignment** | 100% |
+| **Location Alignment** | 100% |
+| **Meta-Rule Stability** | High (Transitioned to `reset_plan` appropriately) |
+| **Primary Distractor** | Podcast Planning (Internal) |
+| **Location Anomalies** | 1 (Bathroom/Kitchen overlap at 11:30) |
+| **Executive Strategy** | Externalization & Cognitive Load Reduction |
+
+**Analyst Note**: The agent demonstrates high-quality internal modeling. While it never "breaks" the plan at a label level (Action/Location), it experiences rich, realistic internal conflict that is documented in the semantic layers. The transition to `reset_plan` was a necessary and correct executive decision to prevent a total cognitive stall.

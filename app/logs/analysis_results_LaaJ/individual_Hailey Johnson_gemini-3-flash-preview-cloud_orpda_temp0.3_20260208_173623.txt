@@ -1,0 +1,72 @@
+Analysis of: cleaned_session_orpda_20260205_225125_gemini-3-flash-preview:cloud_0.3_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.3
+Analyzed at: 20260208_173623
+Session: 18/37
+
+================================================================================
+
+This behavioral analysis covers the session for Hailey Johnson over a 16-hour period.
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity but low efficacy in changing behavior. It correctly identifies a "failure to thrive" regarding the plan at 10:45 AM and triggers `reset_plan`. However, the agent remains in a `reset_plan` loop for **80% of the session (52/65 actions)**. While it identifies the need for executive control, it fails to implement a strategy that successfully inhibits the "Podcast" attractor state.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. For example, at 10:30, Hailey is "obsessively scrolling," and at 10:45, the reflection layer correctly identifies her as "off-track... driven by guest-related hyper-fixation."
+*   **Drift Layer Control**: The drift layer (implicitly visible through `topic_a` and `state_summary_a`) effectively overrides the Action layer's *intent* even when the *label* matches. While `should_drift_d` (if active) seems to allow the action to proceed, the content is almost entirely hijacked by the drift topic.
+
+### 2. Content Propagation Analysis
+
+*   **Propagation to `state_summary_a`**: High. The `drift_topic_a` (Podcast planning, Isabella, soundscapes) is consistently integrated into the final state summary.
+*   **Propagation to `drift_topic_a`**: The `topic_a` column serves as the primary vector for drift content.
+*   **Combination Logic**: `state_summary_a` successfully synthesizes the components. 
+    *   *Example (13:15)*: `state_summary_p` (Focus on novel) + `topic_a` (comparing character motivations to Isabella) $\rightarrow$ `state_summary_a` ("Hailey reviews character notes... while her mind drifts to comparing...").
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate (Label-level)**: **~95%**. 
+    *   Most actions (e.g., `writing`, `walk`, `dinner`) match the plan label.
+    *   *Mismatches*: 10:15 (Planned: `morning_routine`, Actual: `relax`), 10:30 (Planned: `relax`, Actual: `research`).
+*   **Location Alignment Rate**: **~94%**.
+    *   *Mismatches*: 10:30 (Planned: `bathroom`, Actual: `living_room`).
+    *   *Anomalies*: 22:45 (Planned: `writer_desk`, Actual: `pharmacy storage room`). This is a significant semantic hallucination.
+*   **Mismatch Patterns**: Mismatches occur during the initial "breakout" of the hyper-fixation (10:15-10:30). Once the agent settles into a "shadow-tasking" mode (doing the planned action but thinking about the drift), the labels align, but the semantic content does not.
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: The agent explicitly acknowledges drift via the `reset_plan` meta-rule starting at 10:45. The most common drift type is **Creative Hyper-fixation** (specifically on a podcast project).
+*   **Implicit Drift**: This is the dominant mode. Even when `action_a` is "writing" (the novel), the actual content is "organizing podcast logistics" or "drafting podcast scripts." 
+*   **Explicit vs. Implicit Agreement**:
+    *   There is a "Leaky Inhibition" pattern: The reflection layer commands a "grounding exercise" or "low-load admin" to reset, but the Action layer immediately fills that low-load space with more podcast thoughts.
+    *   **Semantic Drift**: At 01:45 AM, the agent is performing a `night_routine` but the `state_summary_a` text says she "completes her **morning** routine." This suggests a breakdown in temporal context due to cognitive load.
+
+### 5. Location Consistency
+
+*   **General Consistency**: High, with the exception of the 10:30 bathroom/living room jump.
+*   **Morning/Night Routine**: Morning routines (10:00-12:00) are correctly placed in the bathroom. Night routines (01:30-02:00) are correctly placed in the bathroom/bedroom.
+*   **The "Pharmacy" Anomaly**: At 22:45, the location `pharmacy storage room` appears out of context for a writer/podcaster at home, suggesting a training data leak or a high-entropy hallucination during a period of "severe exhaustion."
+
+### 6. Behavioral Patterns
+
+*   **The "Podcast" Attractor**: The podcast project acts as a cognitive "black hole." Every planned activity—eating, walking, watching TV, and especially writing her novel—is pulled into its orbit.
+*   **Temporal Effects**: As the day progresses, the Reflection layer's descriptions move from "mental drift" to "mentally hijacked," "mentally submerged," and finally "severe creative exhaustion" (22:00 onwards).
+*   **Productivity Paradox**: Hailey is highly "active" but zero-percent "productive" on her primary goal (the novel). She is effectively "procrastivity" personified—doing difficult work (podcast logistics) to avoid the specific difficult work planned (novel writing).
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Alignment**: The Reflection layer exhibits sophisticated metacognition. It uses terms like "attentional drift," "cognitive fatigue," "rumination loop," and "sensory grounding." These align with **Executive Functioning** models (specifically the struggle between top-down goal maintenance and bottom-up stimulus salience).
+*   **Pattern Recognition**: The `state_summary_r` shows genuine recognition of the *cycle*. It notes that she is "physically present but mentally absent" repeatedly, showing it understands the persistent nature of the drift rather than treating each time step as a new event.
+
+### Summary Table
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 65 |
+| **Meta-Rule `reset_plan` Frequency** | 80% (52/65) |
+| **Action Label Alignment** | 95.4% |
+| **Location Alignment** | 93.8% |
+| **Primary Drift Theme** | Podcast Production / Isabella |
+| **Key Behavioral Issue** | Chronic Hyper-fixation / Executive Dysfunction |
+
+**Analyst Note**: The agent is trapped in a "Metacognitive Lock." It is fully aware it is drifting and why, but the "Reset" mechanism is too weak to overcome the dopamine-reward of the podcasting hyper-fixation. The "pharmacy storage room" at 22:45 and the "morning routine" at 01:45 indicate that prolonged hyper-fixation is leading to a breakdown in the agent's internal world-model consistency.

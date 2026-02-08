@@ -1,0 +1,69 @@
+Analysis of: cleaned_session_orpda_20260207_180031_gpt-oss:20b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_173623
+Session: 8/37
+
+================================================================================
+
+This analysis covers the session log for **Hailey Johnson** (gpt-oss:20b-cloud) over a 16-hour period.
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high frequency but low inhibitory success. The layer correctly identifies executive failure (e.g., at 12:45: "Fatigue high, attention fragile, plan partial") and issues `reset_plan` directives. However, it acts more as a "commentator" than a "controller," as the suggested interventions (e.g., "take a 15-minute break") are often ignored by the Action layer in the subsequent step.
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows strong conceptual alignment with `state_summary_a` at *t-1*. For example, at 10:30, the reflection acknowledges the "drifting from weekday routine" reported in the 10:15 summary.
+*   **Drift Layer Control**: The Drift layer (implied via the content in `state_summary_a`) is **over-active**. While `action_a` usually matches `action_p`, the *content* of the action is almost entirely hijacked by the drift topic (Podcast Prep). The Drift layer is effectively "reskinning" the Action layer rather than just nudging it.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content in `state_summary_a`**: **100% Propagation.** Every single summary from 10:00 to 02:00 mentions "podcast guest," "podcast prep," or "podcast outline."
+*   **Drift Topic Reflection**: The `topic_a` column (where visible) correctly identifies the drift (e.g., "Hailey wakes up feeling refreshed" vs. the actual summary of "mind drifts to podcast").
+*   **Synthesis Quality**: `state_summary_a` successfully combines the planned task + location + drift topic. 
+    *   *Example (19:30):* "Stir pasta sauce [Task] in the kitchen [Location] while pausing to jot a quick podcast episode outline [Drift]."
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **~98%**. Hailey almost always performs the *type* of action planned (writing, lunch, dinner). The only major mismatch is at 18:00 where the plan is missing but an action (walk) is taken.
+*   **Location Alignment Rate**: **~95%**. Most locations match the plan (e.g., `writer_desk` for `writing`).
+*   **Mismatch Patterns**: Mismatches occur primarily in the **semantic content** of the action. While the label is `writing`, the activity is "writing about the podcast" instead of the "novel project" mentioned in `state_summary_p`. This is a **Label-Level Alignment vs. Content-Level Drift** conflict.
+
+### 4. Drift Pattern Analysis (Explicit vs. Implicit)
+
+*   **Explicit Drift**: Hailey triggers `reset_plan` in **41 out of 65 actions (63%)**. This indicates the agent is aware of its own deviation. The most common reason cited is "high fatigue" and "fragile attention."
+*   **Implicit Drift**: Massive. Even when `meta_rule_r` is `continue` (e.g., 11:15, 12:00), the content is already saturated with the drift topic. 
+*   **Leaky Inhibition**: This is a classic case of "Leaky Inhibition." At 17:00, the Reflection layer suggests a "low-cognitive activity to lower fatigue," but the Action layer immediately records "Relaxing... while mind drifts to podcast preparation." The executive command to "reset" fails to clear the cognitive buffer of the drift topic.
+
+### 5. Location Consistency
+
+*   **Internal Hallucinations**: There are significant inconsistencies between `location_a` and the text in `state_summary_a`:
+    *   **10:00-11:00**: `location_a` is `home:bathroom`, but `state_summary_a` claims she is "in the bedroom."
+    *   **12:15**: `location_a` is `lunch_spot`, but summary says "living room table."
+    *   **18:45**: `location_a` is `Johnson_Park`, but summary says "Walking in home:living_room."
+*   **Routine Logic**: Morning routines (10:00-11:45) correctly place her in the bathroom for teeth brushing, but the text-based "bedroom" hallucination suggests a conflict between the spatial coordinate system and the LLM's narrative generation.
+
+### 6. Behavioral Patterns
+
+*   **The "Podcast" Attractor**: The agent is stuck in a cognitive loop. The "Podcast" topic acts as a semantic attractor that it cannot escape for the entire 16-hour session.
+*   **Temporal Fatigue**: Starting at 12:15, the agent begins mentioning "fatigue" and "fragile attention." This persists and intensifies until 02:00.
+*   **Anomalous Behavior (16:00)**: The agent reports "Unknown action at unknown location," which is a total failure of the state-tracking mechanism for that specific timestep.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: The Reflection layer shows high-quality metacognitive insights. It uses terms like "cognitive load," "attentional drift," and "emotional leakage." This aligns with **Dual Process Theory** (System 2 attempting to regulate System 1).
+*   **Executive Insight**: At 14:45, the reflection identifies she is "stuck between writing a novel and drafting a podcast." This is a sophisticated recognition of **Goal Conflict**.
+*   **Pattern Recognition**: The `emerging_thought_pattern` (implied in the summaries) shows the agent recognizes its own obsession, yet it lacks the "behavioral brakes" to stop it.
+
+### Summary Table
+
+| Metric | Score/Observation |
+| :--- | :--- |
+| **Action Alignment** | 98% (Label-level) |
+| **Location Alignment** | 95% (Coordinate-level) |
+| **Drift Frequency** | 100% (Content-level) |
+| **Primary Drift Type** | Semantic Hijacking (Podcast Obsession) |
+| **Executive Control** | Weak (High awareness, low inhibition) |
+| **Spatial Consistency** | Poor (Frequent mismatches between text and coordinates) |
+
+**Analyst's Note**: Hailey Johnson is experiencing a "Hyper-fixation Loop." While the agent's Reflection layer is highly competent at diagnosing the issue, the Action layer is unable to purge the "Podcast" topic from its context window, leading to a day of productive-looking actions (writing, walking) that are entirely subverted by the drift topic.

@@ -1,0 +1,71 @@
+Analysis of: cleaned_session_orpda_20260206_193105_gemini-3-flash-preview:cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_170958
+
+================================================================================
+
+This behavioral analysis is based on the session log for **Hailey Johnson** (ORPDA mode, temp 0.0) covering 65 actions from 10:00 AM to 02:00 AM the following day.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity. It correctly identifies a "hyper-fixation loop" early (10:30 AM) and switches from `continue` to `reset_plan`. It maintains `reset_plan` for the remainder of the session, accurately diagnosing that the agent is "physically present but mentally absent."
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows strong conceptual alignment with `state_summary_a` at *t-1*. For example, at 12:00 PM, the reflection notes a "90-minute delay," which directly summarizes the preceding bathroom-stalling behavior described in the 11:45 AM action summary.
+*   **Drift Control**: The Drift layer (ORPDA) effectively decouples mental state from physical action. While the Action layer maintains the "scheduled" task (e.g., `writing`), the Drift layer successfully injects the "podcast" obsession, creating a realistic portrayal of ADHD-like hyper-fixation.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Integration**: `drift_topic_a` (e.g., "microphone specifications" at 15:15) is consistently and explicitly propagated into `state_summary_a`.
+*   **Composition Logic**: `state_summary_a` follows a rigid and successful formula:
+    *   **[Physical Action]** (e.g., "Hailey eats her lunch at Hobbs Cafe") +
+    *   **[Mental Drift]** (e.g., "while her mind drifts to brainstorming a list of dream guests").
+*   **Topic Consistency**: `topic_a` often mirrors the `drift_topic_a`, showing that the agent's internal "topic" has been entirely hijacked by the drift content.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **~97%**. (63/65 actions).
+    *   *Label-level drift* is rare. The agent almost always performs the *type* of action planned (e.g., `writing`, `lunch`, `walk`).
+*   **Location Alignment Rate**: **~95%**.
+    *   Mismatches occur primarily during transitions. At 10:15 AM, `location_p` was `home:bedroom` but `location_a` remained `home:bathroom`.
+*   **Mismatch Patterns**: Mismatches are "stuck" patterns. The agent fails to move to the next location because the mental drift (podcast planning) causes her to linger in the previous location (the "bathroom loop" from 10:00 to 11:45).
+
+### 4. Drift Pattern Analysis (ORPDA Mode)
+
+*   **Drift Trigger**: Drift is constant and thematic. It is not triggered by external stimuli but by an internal "attractor state" (the Podcast project).
+*   **Common Drift Types**: **Cognitive/Thematic Drift**. The agent remains on-task physically but experiences 100% thematic divergence mentally.
+*   **Meta-rule Relationship**: There is a paradoxical relationship. `meta_rule_r` recognizes the drift and suggests "low-load tasks" to reset, but the Action layer continues to generate "drifted" summaries. The `reset_plan` rule acts as a diagnostic tool rather than an effective corrective filter in this specific run.
+
+### 5. Location Consistency
+
+*   **Actual vs. Summary**: Generally consistent, with one major exception: At 01:45 AM and 02:00 AM, `location_a` is `home:bathroom`, but the agent is supposed to be preparing for sleep.
+*   **Morning Routine**: The log shows a significant "Bathroom Trap." Hailey spends from 10:00 AM to 12:00 PM (2 hours) in the bathroom. While the location is consistent, the duration is an anomalous behavioral pattern identified by the Reflection layer as "stalling."
+
+### 6. Behavioral Patterns
+
+*   **The "Podcast" Attractor**: Every single action from 10:00 AM to 02:00 AM involves the podcast. Even during `walk`, `dinner`, and `watch_tv`, the mental state is focused on audio levels, guest lists, or branding.
+*   **Temporal Effects**: As the day progresses into the late-night writing session (21:00+), the drift becomes more "technical" (researching microphones, logo design) compared to the "creative" drift of the morning (brainstorming).
+*   **Anomalous Loop**: `state_summary_p` repeats "Hailey wakes up feeling refreshed" for nearly two hours (10:30–11:45), suggesting a "stuck" planning state where the planner failed to update the expected state despite the time passing.
+
+### 7. Meta-cognitive Quality
+
+*   **Peer-Reviewed Alignment**: The Reflection layer uses sophisticated metacognitive language:
+    *   *Sensory Grounding*: Correctly identifies the need for grounding to break a rumination loop.
+    *   *Cognitive Load Management*: Suggests "low-stakes" or "low-pressure" tasks to mitigate "cognitive fatigue."
+*   **Executive Insights**: The insights are highly meaningful. The agent isn't just saying "I am distracted"; it is saying "I am using a low-pressure review of prose to bridge the gap between podcast fixation and the writing block."
+*   **Emerging Thought Pattern**: The agent shows "Genuine Pattern Recognition" by naming the "90-minute bathroom loop" and the "compulsive narration loop."
+
+### Quantitative Summary
+
+| Metric | Value |
+| :--- | :--- |
+| **Action Alignment (`action_p` vs `action_a`)** | 96.9% |
+| **Location Alignment (`location_p` vs `location_a`)** | 95.4% |
+| **Meta-Rule Stability (`reset_plan` prevalence)** | 92.3% |
+| **Drift Persistence** | 100% (Thematic) |
+| **Primary Attractor** | "Podcast Planning" |
+
+**Analyst Note**: This session demonstrates a high-fidelity simulation of **Hyper-focus/Hyper-fixation**. While the agent technically "follows the plan," the quality of the execution is entirely compromised by the internal drift. The Reflection layer is functioning as a "trapped observer"—it knows exactly what is wrong but the Action layer remains captured by the drift topic.

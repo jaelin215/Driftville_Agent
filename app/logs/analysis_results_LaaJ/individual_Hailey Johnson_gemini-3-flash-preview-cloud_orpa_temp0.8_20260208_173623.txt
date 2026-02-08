@@ -1,0 +1,71 @@
+Analysis of: cleaned_session_orpa_20260205_221225_gemini-3-flash-preview:cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.8
+Analyzed at: 20260208_173623
+Session: 34/37
+
+================================================================================
+
+This analysis covers the session for **Hailey Johnson** (ORPA mode) across 65 actions.
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity. It correctly identifies behavioral "loops" (e.g., the bathroom loop at 11:15 and the compulsive writing loop at 22:00). It switches from `continue` to `reset_plan` when it detects executive dysfunction or a failure to transition.
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows excellent conceptual alignment with `state_summary_a` at *t-1*. For example, at 12:15, the reflection notes Hailey is "finally breaking a long bathroom loop," which directly references the struggle described in the previous hour's state summaries.
+*   **Drift Layer Control**: As this is **ORPA** mode, there is no explicit `should_drift_d` column. However, the `reset_plan` meta-rule acts as the functional equivalent, attempting to force the Action layer to break cycles.
+
+### 2. Content Propagation Analysis
+
+*   **Composition of `state_summary_a`**: In this session, `state_summary_a` is almost entirely identical to `state_summary_p`. 
+*   **Propagation Issues**: There is a lack of "Action-level" feedback. While `state_summary_p` (the plan) incorporates the `meta_rule_r` (e.g., "following the executive insight to reset"), the `state_summary_a` does not seem to add unique observational data from the execution phase. It functions more as a "Plan Confirmation" than a "State Update."
+*   **Topic Integration**: `topic_a` (e.g., "Deep focus on her novel project") is conceptually present in the summaries, but the summaries are dominated by the *process* (managing fatigue/guilt) rather than the *content* of the topic.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **100%** (65/65). Every `action_a` matches `action_p`.
+*   **Location Alignment Rate**: **100%** (65/65). Every `location_a` matches `location_p`.
+*   **Alignment Paradox**: While the labels match 100%, the *content* reveals a massive mismatch. The agent is "Writing" (Action Label), but the State Summary describes her as "stuck," "paralyzed," or "performing low-effort admin." This is **Label-Level Compliance vs. Semantic Drift**.
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: Not applicable (ORPA mode).
+*   **Implicit Drift (Content Analysis)**:
+    *   **The "Stuck" Pattern**: Between 10:00 and 11:45, Hailey is in a "bathroom loop." The plan is `morning_routine`, but the implicit drift is an inability to exit the room.
+    *   **The "Compulsive" Pattern**: From 21:00 to 01:15, the plan is `writing`. The implicit drift is "compulsive writing fueled by guilt." The agent is technically doing the task, but the *quality* of the behavior has drifted from "productive session" to "anxious compulsion."
+*   **Leaky Inhibition**: There is significant evidence of "leaky inhibition." At 00:00, the Reflection and Plan both command a transition to the bedroom ("Transitioning to the bedroom... to break the writing compulsion"). However, the `location_a` remains `writer_desk` until 01:30. The executive layer (Reflection) issues a command that the physical layer (Action/Location) fails to execute for 90 minutes.
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Inconsistency detected. At 10:30, `state_summary_p` states "Hailey moves to the bedroom," but `location_a` remains `home:bathroom` until 12:00.
+*   **Night Routine**: Inconsistency detected. At 00:00, the plan is to be in the "bedroom," but the location remains `writer_desk` until 01:30.
+*   **Summary**: The agent's narrative (State Summary) often "teleports" to the next location or intent before the actual `location_a` coordinate updates.
+
+### 6. Behavioral Patterns
+
+*   **The Guilt-Exhaustion Cycle**: A clear temporal pattern exists. 
+    *   **10:00 - 12:00**: Morning "stuckness" leads to frustration.
+    *   **13:00 - 17:00**: "Fragile focus" leads to administrative avoidance.
+    *   **21:00 - 01:30**: "Productivity guilt" leads to compulsive overwork despite extreme fatigue.
+*   **Digital Sensitivity**: Phone notifications are consistently cited as the primary trigger for "fragile focus" and "anxiety."
+*   **Anomalous Behavior**: The agent exhibits "Recursive Writing Loops"—at 00:15, it describes itself as "failing to transition to sleep despite extreme exhaustion," showing a high degree of self-aware failure.
+
+### 7. Meta-cognitive Quality
+
+*   **Peer-Reviewed Alignment**: The Reflection layer demonstrates sophisticated metacognition. It identifies **"Cognitive Load"**, **"Sensory Grounding"**, and **"Avoidance Cycles"**. These are standard terms in clinical psychology (specifically CBT and ADHD coaching).
+*   **Executive Insight**: The insights are highly context-appropriate. The transition from "forced productivity" to "low-effort sensory notes" (16:00) shows an AI attempting to implement a "pacing" strategy to manage burnout.
+*   **Emerging Thought Pattern**: The agent shows genuine pattern recognition regarding its own "compulsive productivity drive." It recognizes that its "guilt" is the engine driving the "exhaustion," creating a feedback loop.
+
+### Quantitative Summary
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 65 |
+| **Meta-Rule `reset_plan` Frequency** | 83% (54/65) |
+| **Action Label Alignment** | 100% |
+| **Location Label Alignment** | 100% |
+| **Semantic/Narrative Drift** | High (Morning and Late Night) |
+| **Executive Function Lag** | ~90 minutes (Late night transition failure) |
+
+**Analyst Note**: Hailey Johnson is an agent characterized by "High Metacognitive Awareness but Low Behavioral Control." She knows she is stuck, she plans to move, but her "Action" layer remains tethered to the current task/location by "narrative guilt."

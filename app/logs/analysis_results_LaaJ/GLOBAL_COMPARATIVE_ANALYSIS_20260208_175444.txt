@@ -1,0 +1,220 @@
+================================================================================
+GLOBAL COMPARATIVE ANALYSIS
+================================================================================
+
+Analysis Date: 20260208_175444
+Number of Sessions: 37
+Filters Applied:
+  - Agent: All
+  - Model: All
+  - Mode: All
+  - Temperature: All
+
+================================================================================
+
+SESSIONS INCLUDED:
+
+1. cleaned_session_orpda_20260208_090850_gemini-3-flash-preview:cloud_0.0_maria.csv
+   Agent: Maria Lopez | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+2. cleaned_session_orpda_20260208_082134_gemini-3-flash-preview:cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 1.0
+
+3. cleaned_session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.csv
+   Agent: Maria Lopez | Model: cogito-2.1:671b-cloud | Mode: orpda | Temp: 0.0
+
+4. cleaned_session_orpda_20260208_085421_gemini-3-flash-preview:cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+5. cleaned_session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.csv
+   Agent: Maria Lopez | Model: cogito-2.1:671b-cloud | Mode: orpda | Temp: 1.0
+
+6. cleaned_session_orpda_20260207_145217_cogito-2.1:671b-cloud_0.3_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpda | Temp: 0.3
+
+7. cleaned_session_orpda_20260207_171847_gpt-oss:20b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: gpt-oss:20b-cloud | Mode: orpda | Temp: 1.0
+
+8. cleaned_session_orpda_20260207_180031_gpt-oss:20b-cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gpt-oss:20b-cloud | Mode: orpda | Temp: 0.0
+
+9. cleaned_session_orpda_20260207_124952_cogito-2.1:671b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpda | Temp: 1.0
+
+10. cleaned_session_orpda_20260207_131424_cogito-2.1:671b-cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpda | Temp: 0.0
+
+11. cleaned_session_orpda_20260207_135027_cogito-2.1:671b-cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpda | Temp: 0.8
+
+12. cleaned_session_orpda_20260207_122012_cogito-2.1:671b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpda | Temp: 1.0
+
+13. cleaned_session_orpda_20260207_105208_cogito-2.1:671b-cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpda | Temp: 0.0
+
+14. cleaned_session_orpda_20260206_193105_gemini-3-flash-preview:cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+15. cleaned_session_orpda_20260207_080202_gemma3:27b-cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: gemma3:27b-cloud | Mode: orpda | Temp: 0.8
+
+16. cleaned_session_orpda_20260207_083210_gemma3:27b-cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemma3:27b-cloud | Mode: orpda | Temp: 0.0
+
+17. cleaned_session_orpda_20260206_171410_gemini-3-flash-preview:cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.8
+
+18. cleaned_session_orpda_20260205_225125_gemini-3-flash-preview:cloud_0.3_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.3
+
+19. cleaned_session_orpa_20260207_202843_gemma3:27b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemma3:27b-cloud | Mode: orpa | Temp: 1.0
+
+20. cleaned_session_orpda_20260205_211529_gemini-3-flash-preview:cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.8
+
+21. cleaned_session_orpa_20260207_113455_cogito-2.1:671b-cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpa | Temp: 0.0
+
+22. cleaned_session_orpa_20260207_184248_gpt-oss:20b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: gpt-oss:20b-cloud | Mode: orpa | Temp: 1.0
+
+23. cleaned_session_orpa_20260207_185903_gpt-oss:20b-cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gpt-oss:20b-cloud | Mode: orpa | Temp: 0.0
+
+24. cleaned_session_orpa_20260207_115846_cogito-2.1:671b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpa | Temp: 1.0
+
+25. cleaned_session_orpa_20260207_111903_cogito-2.1:671b-cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpa | Temp: 0.0
+
+26. cleaned_session_orpa_20260207_100206_cogito-2.1:671b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: cogito-2.1:671b-cloud | Mode: orpa | Temp: 1.0
+
+27. cleaned_session_orpa_20260207_091642_gemma3:27b-cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemma3:27b-cloud | Mode: orpa | Temp: 0.0
+
+28. cleaned_session_orpa_20260207_094642_gemma3:27b-cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: gemma3:27b-cloud | Mode: orpa | Temp: 0.8
+
+29. cleaned_session_orpa_20260207_092921_gemma3:27b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemma3:27b-cloud | Mode: orpa | Temp: 1.0
+
+30. cleaned_session_orpa_20260206_132744_gemini-3-flash-preview:cloud_0.3_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpa | Temp: 0.3
+
+31. cleaned_session_orpa_20260206_143340_gemini-3-flash-preview:cloud_0.0_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpa | Temp: 0.0
+
+32. cleaned_session_orpa_20260206_161226_gemini-3-flash-preview:cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpa | Temp: 0.8
+
+33. cleaned_session_orpa_20260206_003939_gemini-3-flash-preview:cloud_0.3_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpa | Temp: 0.3
+
+34. cleaned_session_orpa_20260205_221225_gemini-3-flash-preview:cloud_0.8_hailey.csv
+   Agent: Hailey Johnson | Model: gemini-3-flash-preview:cloud | Mode: orpa | Temp: 0.8
+
+35. cleaned_session_orpda_20260207_171847_gpt-oss:20b-cloud_1.0_hailey.csv
+   Agent: Hailey Johnson | Model: gpt-oss:20b-cloud | Mode: orpda | Temp: 1.0
+
+36. cleaned_session_orpda_20260208_160417_gemini-3-flash-preview:cloud_0.0_maria.csv
+   Agent: Maria Lopez | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+37. cleaned_session_orpda_20260208_150717_gemini-3-flash-preview:cloud_0.0_maria.csv
+   Agent: Maria Lopez | Model: gemini-3-flash-preview:cloud | Mode: orpda | Temp: 0.0
+
+
+================================================================================
+COMPARATIVE ANALYSIS:
+================================================================================
+
+This GLOBAL COMPARATIVE ANALYSIS synthesizes 37 agent sessions across four model families (**Gemini-3-Flash, Cogito-2.1-671b, GPT-OSS-20b, Gemma-3-27b**) and two architectural modes (**ORPA vs. ORPDA**) to evaluate the efficacy of synthetic executive function and cognitive drift.
+
+---
+
+### 1. Control Mechanism Validation: Drift vs. Reflect
+**Finding**: Inhibitor control is bifurcated between **Micro-Inhibition (Drift Layer)** and **Macro-Inhibition (Reflect Layer)**.
+
+*   **Drift Layer (`should_drift_d`)**: Functions as the "Gatekeeper of the Moment." In ORPDA, this layer consistently overrides the Action layer's immediate output. It represents the *bottom-up* salience of distractions.
+*   **Reflect Layer (`meta_rule_r`)**: Functions as the "Executive Governor." It identifies chronic failures but lacks the "muscularity" to enforce them in the immediate next step.
+*   **Validation**: Across all models, `meta_rule_r` = `reset_plan` is the most common response to `should_drift_d` = `True`. However, the Drift layer usually "wins" the $t+1$ action, while the Reflect layer only successfully steers the agent at $t+3$ or later.
+
+### 2. Layer Function Consistency
+*   **Reflection Layer**: Shows **95%+ consistency** in $t-1$ conceptual alignment across all models. The "memory" of the previous state is the most stable component of the architecture.
+*   **Model-Specific Deviations**:
+    *   **Cogito-2.1**: Prone to **"Executive Lock"**—once it triggers `reset_plan`, it often stays there for 50+ actions, unable to find a "success" state to return to `continue`.
+    *   **GPT-OSS**: Shows **instability at Temp 1.0**, producing `NaN` values in the Reflection layer, suggesting a breakdown in meta-cognitive logic under high entropy.
+    *   **Gemini-3-Flash**: Highest "Executive Awareness" but lowest "Spatial Fidelity" (hallucinates locations in text that contradict metadata).
+
+### 3. Content Propagation Patterns
+**Hypothesis Validation**: `state_summary_a` = `state_summary_p` + `topic_a` + `drift_action_d` + `drift_topic_a`.
+
+*   **ORPDA Mode**: The hypothesis is **validated**. The Action layer acts as a "Synthesizer," successfully merging the plan with the drift.
+*   **ORPA Mode**: The hypothesis **fails**. In ORPA, `state_summary_a` is frequently a 1:1 verbatim copy of `state_summary_p`. This indicates that without an explicit Drift layer, the Action layer defaults to "Plan-Obedience," losing the ability to report environmental or internal nuances.
+
+### 4. Alignment Metrics Comparison
+| Metric | Gemini-3-Flash | Cogito-2.1 | Gemma-3-27b | GPT-OSS-20b |
+| :--- | :--- | :--- | :--- | :--- |
+| **Plan-Action Alignment (Label)** | 88% | 92% | 95% | 75% |
+| **Plan-Action Alignment (Content)** | 40% | 30% | 50% | 20% |
+| **Location Consistency** | Low | High | High | Moderate |
+| **Reset Efficacy** | Moderate | Low | High | Moderate |
+
+*   **Temperature Effect**: Higher temperatures (0.8–1.0) do not significantly break *label* alignment but cause massive *content* divergence (the "Reskinning" effect).
+
+### 5. Location Consistency Issues
+*   **Systematic Failure**: Gemini-3-Flash exhibits a "Contextual Bleed" where the `state_summary_a` mentions being in a "Cafe" while the `location_a` metadata remains "Bedroom."
+*   **Stability**: Cogito and Gemma show the highest location stability, likely due to a more rigid adherence to the `state_summary_p` constraints.
+
+### 6. Drift Pattern Insights (Explicit vs. Implicit)
+*   **Explicit Drift (`should_drift_d` = True)**: Occurs most frequently in Gemini and Cogito (80-100% of sessions). It represents a "High-Distractibility" profile.
+*   **Implicit Drift (Content-Level)**: 
+    *   **ORPA Mode**: Shows "Leaky Inhibition." Even when no drift is planned, the *content* of the summary begins to mention distractions (e.g., "writing while thinking of Isabella").
+    *   **ORPDA Mode**: "Reskinning." The agent performs the planned action (e.g., `writing`) but the *content* is 100% drift (e.g., writing about the distraction instead of the novel).
+*   **Agreement Rate**: When `should_drift_d` is True, implicit content drift is present in 100% of cases. However, implicit drift occurs in ~30% of cases where `should_drift_d` is False (Inhibitory Leakage).
+
+### 7. Meta-cognitive Quality Assessment
+*   **Gemini**: "The Self-Aware Distractee." It knows it is failing and describes its failure with high psychological nuance.
+*   **Cogito**: "The Perseverative Agent." It identifies a problem but repeats the same failed "reset" strategy indefinitely (Executive Dysfunction).
+*   **Gemma**: "The Compliant Worker." Shows the best balance of identifying drift and actually returning to the task after a reset.
+
+### 8. Model Rankings
+
+| Rank | Executive Awareness | Inhibitory Control | Synthesis Quality |
+| :--- | :--- | :--- | :--- |
+| **1** | Gemini-3-Flash | Gemma-3-27b | Gemini-3-Flash |
+| **2** | Cogito-2.1 | Gemini-3-Flash | Gemma-3-27b |
+| **3** | Gemma-3-27b | GPT-OSS-20b | Cogito-2.1 |
+| **4** | GPT-OSS-20b | Cogito-2.1 | GPT-OSS-20b |
+
+---
+
+### 9. Cognitive Science & Neuroscience Grounding
+
+#### **Task-Unrelated Thought (TUT)**
+The observed drifts (especially in Hailey Johnson sessions) are highly consistent with **TUT patterns** (Smallwood & Schooler, 2006). The agent's "Podcast" obsession represents a "Stimulus-Independent Thought" that competes with the primary task for limited working memory resources.
+*   *Citation*: Smallwood, J., & Schooler, J. W. (2006). The restless mind. *Psychological Bulletin*. DOI: 10.1037/0033-2909.132.6.946.
+
+#### **Executive Dysfunction & Perseveration**
+The "Reset Loop" observed in Cogito-2.1 (57 consecutive actions of `reset_plan` without behavioral change) is a digital analog for **Perseveration** seen in frontal lobe damage or ADHD. The agent has "Meta-cognitive Awareness" (Reflect layer) but "Executive Impotence" (Action layer).
+*   *Citation*: Barker, R. A. (2003). The executive functions. *Journal of Neurology, Neurosurgery & Psychiatry*.
+
+#### **DMN-ECN Interference (Dual-Process Theory)**
+*   **Drift Layer = Default Mode Network (DMN)**: Spontaneous, associative, and self-referential thought.
+*   **Reflect Layer = Executive Control Network (ECN)**: Goal-directed, inhibitory, and monitoring.
+The ORPDA architecture successfully simulates the **DMN-ECN competition**. High-temperature sessions show a "DMN Dominance" where the ECN (Reflect) identifies the error but the DMN (Drift) captures the output.
+
+#### **Temperature Effects: Micro vs. Macro Stochasticity**
+*   **ORPA (Micro-stochastic)**: High temp acts like a "drunk person on a yellow line." The agent stays on the path (the plan) but stumbles over words and phrasing.
+*   **ORPDA (Macro-stochastic)**: The architecture provides "Schema-level Resilience." Even at high temp, the *structure* of the drift (e.g., the "Isabella" theme) remains coherent, suggesting the drift is driven by semantic attractors rather than random token noise.
+
+---
+
+### 10. Final Recommendations
+
+1.  **For High-Fidelity Psychological Simulation**: Use **Gemini-3-Flash in ORPDA mode**. Its ability to synthesize internal conflict and "leaky" executive control is unmatched, despite spatial hallucinations.
+2.  **For Task-Oriented Agents**: Use **Gemma-3-27b in ORPA mode**. It shows the highest "Plan-Obedience" and the most effective recovery from `reset_plan` triggers.
+3.  **To Study Executive Failure**: Use **Cogito-2.1 in ORPDA mode**. Its tendency toward "Executive Lock" and "Perseveration" provides a perfect testbed for studying inhibitory failure.
+4.  **Architecture Choice**: **ORPDA** is significantly more biologically plausible. **ORPA** creates "Perfect Slaves" that lack the realistic cognitive friction and task-unrelated thoughts characteristic of human intelligence.

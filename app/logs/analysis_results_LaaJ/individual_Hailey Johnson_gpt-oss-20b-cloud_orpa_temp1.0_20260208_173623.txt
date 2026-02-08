@@ -1,0 +1,70 @@
+Analysis of: cleaned_session_orpa_20260207_184248_gpt-oss:20b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260208_173623
+Session: 22/37
+
+================================================================================
+
+This behavioral analysis examines the 65-action session of Hailey Johnson using the `gpt-oss:20b-cloud` model in **ORPA** (Observe-Reflect-Plan-Action) mode.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: The layer functions as a basic executive "stay-on-task" mechanism. It consistently outputs `continue`, effectively suppressing deviation. However, it shows signs of instability at high temperature (1.0), with `NaN` values appearing at 14:45, 15:30, 19:45, and 20:00.
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows strong conceptual alignment with `state_summary_a` at *t-1*. 
+    *   *Example*: At 13:15, `state_summary_r` ("Hailey writes calmly at her desk") correctly reflects the transition initiated at 13:00, though it slightly anticipates the writing action which was planned but not yet summarized in the 13:00 `state_summary_a` (which still focused on lunch).
+*   **Drift Layer Control**: As this is **ORPA** mode, the explicit Drift layer (`should_drift_d`) is absent. Control is handled implicitly through the Plan-Action pipeline.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content**: Because the agent is in ORPA mode, `drift_action_d` and `drift_topic_a` columns are not present in the log.
+*   **State Summary Composition**: In this trace, `state_summary_a` does not "combine" elements as it would in ORPDA mode. Instead, it functions as a **validation of the plan**. In 95% of entries, `state_summary_a` is a verbatim or near-verbatim copy of `state_summary_p`.
+*   **Propagation Failure**: At 15:15, when `state_summary_p` and `action_p` are `NaN`, the Action layer successfully generates an independent `state_summary_a` ("Hailey Johnson is at writer_desk doing writing"), showing that the Action layer can "hallucinate" or recover state even when the Planning layer fails.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **96.9%** (63/65).
+    *   *Mismatches*: 15:15 (Plan is `NaN`, Action is `writing`) and 20:00 (Plan is `watch_tv`, Action is `NaN`).
+*   **Location Alignment Rate**: **96.9%** (63/65).
+    *   *Mismatches*: Same timestamps as above.
+*   **Mismatch Patterns**: Mismatches are exclusively tied to "Schema Dropouts"—instances where the LLM fails to populate specific columns at temperature 1.0. There is no evidence of "rebellious" drift where the agent chooses a different action than planned; it only fails when the plan itself is null.
+
+### 4. Drift Pattern Analysis (Implicit)
+
+*   **Explicit Drift**: N/A (ORPA mode).
+*   **Implicit Drift (Content Divergence)**:
+    *   **Transition Lag**: There is a recurring pattern of "Thematic Overlap" during activity transitions. 
+        *   *13:00*: `topic_a` switches to "Deep focus on her novel," but `state_summary_a` remains "continues mindful lunch." 
+        *   *19:00*: `topic_a` switches to "Enjoying dinner," but `state_summary_a` remains "Continue walking at Johnson Park."
+    *   This suggests the Action layer has higher "thematic inertia" than the Planning layer, staying attached to the previous physical context for one 15-minute cycle after a goal change.
+*   **Linguistic Variability**: Extremely low. The agent exhibits "robotic adherence," repeating the plan's phrasing exactly.
+
+### 5. Location Consistency
+
+*   **Routine Accuracy**: Morning (10:00-11:45) and Night (01:30-02:00) routines are perfectly consistent. The agent correctly identifies `home:bathroom` and describes hygiene-related tasks (washing face, brushing teeth) in the `state_summary_a`.
+*   **Semantic Drift**: At 23:45, `state_summary_a` mentions "writing at the home bedroom," while `location_a` is `writer_desk`. This implies a nested spatial understanding (the desk is in the bedroom), which is logically consistent but shows a slight shift in how the agent describes its environment.
+
+### 6. Behavioral Patterns
+
+*   **Hyper-Focus/Workaholism**: The agent displays two massive blocks of "writing" (3.75 hours in the afternoon and 4.5 hours at night). 
+*   **Fatigue Tracking**: Starting at 20:30, the agent introduces the "moderate fatigue" tag into its reflections and state summaries. This tag persists for 18 consecutive actions (4.5 hours), showing excellent long-term state maintenance.
+*   **Temporal Logic**: The agent follows a standard circadian flow: Morning Routine -> Lunch -> Work -> Relax -> Walk -> Dinner -> TV -> Late Work -> Night Routine.
+
+### 7. Meta-cognitive Quality
+
+*   **Executive Insights**: The Reflection layer is primarily **descriptive** rather than **evaluative**. It describes *what* Hailey is doing ("Hailey is focused") rather than *why* or *how* to optimize ("I am tired, I should stop writing").
+*   **Pattern Recognition**: The `state_summary_r` at 21:15 ("Hailey switched from TV inspiration to late-night writing") shows genuine meta-cognitive awareness of a transition between different cognitive states (creative consumption to creative production).
+*   **Quality Assessment**: The reasoning is context-appropriate but lacks the "Self-Correction" seen in higher-order agents. It functions more as a "State Mirror" than a "Controller."
+
+### Summary Table
+| Metric | Value |
+| :--- | :--- |
+| **Plan-Action Alignment** | 96.9% |
+| **Location Consistency** | 100% (Conceptual) |
+| **Schema Stability** | 93.8% (4/65 rows had `NaN` drops) |
+| **Primary Behavior** | Writing (52% of total time) |
+| **Drift Type** | Implicit Transition Lag |

@@ -1,0 +1,74 @@
+Analysis of: cleaned_session_orpda_20260205_225125_gemini-3-flash-preview:cloud_0.3_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.3
+Analyzed at: 20260208_170958
+
+================================================================================
+
+This analysis examines the session log for Hailey Johnson over a 16-hour period (65 actions). The agent is operating in **ORPDA (Obsessive-Reflective-Plan-Drift-Action)** mode, characterized by a persistent hyper-fixation on a podcast project that overrides all other planned activities.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity. After the initial drift at 10:15 and 10:30, the reflection layer correctly identifies the "off-track" status and switches to `reset_plan` at 10:45. It maintains `reset_plan` for the remainder of the session (61 consecutive actions), indicating an executive realization that the agent is stuck in a rumination loop.
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows excellent conceptual alignment with `state_summary_a` at *t-1*. For example, at 10:15, the reflection notes the "mental drift toward social media" mentioned in the 10:00 summary.
+*   **Drift Layer Control**: The `should_drift_d` mechanism (internal to the ORPDA logic) is highly active. While the Action layer often maintains the *label* of the plan (e.g., "writing"), the Drift layer successfully injects "podcast hyper-fixation" into the *content* of every action.
+
+### 2. Content Propagation Analysis
+
+*   **Propagation to `state_summary_a`**: High. The `drift_topic_a` (Podcast logistics, guest research, audio aesthetics) is consistently integrated into the `state_summary_a`.
+*   **Propagation to `drift_topic_a`**: The agent successfully isolates the "distraction" (the podcast) from the "intended task" (novel writing/routine).
+*   **Combination Logic**: `state_summary_a` effectively combines the planned state with the drift. 
+    *   *Example (13:15):* `state_summary_p` (Deep focus on novel) + `topic_a` (comparing character motivations to Isabella) = `state_summary_a` ("Hailey reviews character notes... while her mind drifts to...").
+
+### 3. Plan-Action Alignment
+
+*   **Action Label Alignment Rate**: **96.9%** (63/65). 
+    *   *Mismatches:* 10:15 (Plan: morning_routine | Action: relax) and 10:30 (Plan: relax | Action: research).
+*   **Location Label Alignment Rate**: **98.5%** (64/65).
+    *   *Mismatch:* 10:30 (Plan: bathroom | Action: living_room).
+*   **Mismatch Patterns**: Mismatches occur only during the initial "breakout" phase of the hyper-fixation (10:15–10:30). Once the `reset_plan` meta-rule engages, the agent forces the action/location labels to match the plan, even though the *internal* behavior remains drifted. This suggests a "maladaptive compliance" pattern.
+
+### 4. Drift Pattern Analysis (ORPDA Mode)
+
+*   **Drift Timing**: Drift begins at 10:00 (first action) and never ceases.
+*   **Common Drift Types**: 
+    1.  **Hyper-fixation**: Obsessive planning of podcast logistics.
+    2.  **Sensory Transposition**: Interpreting environment (park noise, pasta flavor, TV pacing) as podcast material.
+    3.  **Cognitive Substitution**: Replacing novel writing with "low-stakes admin" that secretly focuses on the podcast.
+*   **Meta-rule Relationship**: There is a tragic relationship between `meta_rule_r` and drift. The reflection layer repeatedly commands "grounding" and "resetting," but the Action layer interprets "grounding" as an opportunity to think about the "sonic texture" of the room for the podcast.
+
+### 5. Location Consistency
+
+*   **General Consistency**: High. Most actions occur where planned.
+*   **Anomalies**:
+    *   **22:45**: `state_summary_a` mentions "pharmacy storage room," which is a significant hallucination/contextual leak, as the agent is at her `writer_desk` at home.
+    *   **Morning/Night Routine**: At **01:45**, the `state_summary_a` claims Hailey "completes her **morning** routine" despite the plan being `night_routine` and the time being nearly 2 AM. This indicates a temporal context failure.
+
+### 6. Behavioral Patterns
+
+*   **The "Podcast Loop"**: The agent is unable to perform any task without filtering it through the podcast project.
+*   **Temporal Patterns**: As the day progresses into the late-night writing session (21:00–01:15), the reflection layer's tone shifts from "addressing distraction" to "managing severe creative exhaustion" and "drowning in hyper-fixation."
+*   **Anomalous Behavior**: The "pharmacy storage room" mention (22:45) suggests a potential data contamination or a "dream-like" state brought on by the simulated "exhaustion."
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: The `state_summary_r` provides high-quality executive insights. It uses sophisticated psychological terminology: *"attentional drift," "cognitive load," "rumination loop," "sensory grounding."*
+*   **Peer-Reviewed Alignment**: The agent’s struggle mirrors **ADHD hyper-focus** or **OCD-adjacent rumination**. The reflection layer’s attempts to use "grounding exercises" to break the loop align with standard Mindfulness-Based Cognitive Therapy (MBCT) practices.
+*   **Emerging Thought Pattern**: The agent shows genuine pattern recognition regarding its own failure. By 01:15, the reflection acknowledges "total misalignment" and "hijacked by podcasting fantasies," showing a high level of simulated self-awareness of its own dysfunction.
+
+### Summary Table
+
+| Metric | Value |
+| :--- | :--- |
+| **Action Alignment** | 96.9% |
+| **Location Alignment** | 98.5% |
+| **Primary Drift Topic** | Podcast Production / Isabella |
+| **Meta-Rule Dominance** | `reset_plan` (93.8% of session) |
+| **Key Logic Error** | 01:45 (Morning routine during Night routine) |
+| **Contextual Hallucination** | 22:45 (Pharmacy storage room) |
+
+**Analyst Note**: Hailey Johnson is currently "trapped" in a meta-cognitive loop where she is aware of her distraction but lacks the behavioral "inhibitory control" to stop the drift. The session is a textbook example of ORPDA-driven hyper-fixation.

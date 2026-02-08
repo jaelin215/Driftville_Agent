@@ -37,7 +37,7 @@ class RateLimiter:
             self.calls.popleft()
 
         if len(self.calls) >= self.rate:
-            wait_time = 60 - (now - self.calls[0])
+            wait_time = 60*15 - (now - self.calls[0])
             print(f"  [Rate limit: waiting {wait_time:.1f}s]")
             await asyncio.sleep(wait_time + 0.1)
 
@@ -104,39 +104,37 @@ async def call_ollama(prompt, model=None, temperature=None, use_stream=False):
 
 
 if __name__ == "__main__":
+    # async def test_temperature():
+    #     prompt = "Write a unique 3-sentence story about a blue cat."
+
+    #     print("--- TESTING TEMP 0.0 ---")
+    #     res1 = await call_ollama(prompt, temperature=0.0)
+    #     res2 = await call_ollama(prompt, temperature=0.0)
+    #     print(f"Match: {res1 == res2}")  # MUST be True
+
+    #     print("\n--- TESTING TEMP 1.0 ---")
+    #     res3 = await call_ollama(prompt, temperature=1.0)
+    #     res4 = await call_ollama(prompt, temperature=1.0)
+    #     print(f"Match: {res3 == res4}")  # SHOULD be False
+    # asyncio.run(test_temperature())
+
+    # async def test_entropy():
+    #     words_temp_0 = []
+    #     words_temp_1 = []
+    #     prompt = "Give me one random noun. Only the word."
+
+    #     for _ in range(5):
+    #         words_temp_0.append(await call_ollama(prompt, temperature=0.0))
+    #         words_temp_1.append(await call_ollama(prompt, temperature=1.0))
+
+    #     print(f"Temp 0.0 words: {set(words_temp_0)}")  # Should have 1 unique word
+    #     print(
+    #         f"Temp 1.0 words: {set(words_temp_1)}"
+    #     )  # Should have multiple unique words
+    # asyncio.run(test_entropy())
+    
     prompt = "hello. how are you?"
     response = asyncio.run(call_ollama(prompt=prompt, use_stream=True))
     print(response)
     print()
     print(MODEL_NAME, MODEL_TEMPERATURE)
-
-    async def test_temperature():
-        prompt = "Write a unique 3-sentence story about a blue cat."
-
-        print("--- TESTING TEMP 0.0 ---")
-        res1 = await call_ollama(prompt, temperature=0.0)
-        res2 = await call_ollama(prompt, temperature=0.0)
-        print(f"Match: {res1 == res2}")  # MUST be True
-
-        print("\n--- TESTING TEMP 1.0 ---")
-        res3 = await call_ollama(prompt, temperature=1.0)
-        res4 = await call_ollama(prompt, temperature=1.0)
-        print(f"Match: {res3 == res4}")  # SHOULD be False
-
-    asyncio.run(test_temperature())
-
-    async def test_entropy():
-        words_temp_0 = []
-        words_temp_1 = []
-        prompt = "Give me one random noun. Only the word."
-
-        for _ in range(5):
-            words_temp_0.append(await call_ollama(prompt, temperature=0.0))
-            words_temp_1.append(await call_ollama(prompt, temperature=1.0))
-
-        print(f"Temp 0.0 words: {set(words_temp_0)}")  # Should have 1 unique word
-        print(
-            f"Temp 1.0 words: {set(words_temp_1)}"
-        )  # Should have multiple unique words
-
-    asyncio.run(test_entropy())

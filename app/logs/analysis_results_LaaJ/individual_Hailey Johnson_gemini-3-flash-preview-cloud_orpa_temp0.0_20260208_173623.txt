@@ -1,0 +1,77 @@
+Analysis of: cleaned_session_orpa_20260206_143340_gemini-3-flash-preview:cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260208_173623
+Session: 31/37
+
+================================================================================
+
+This analysis examines the session log for Hailey Johnson (ORPA mode, `gemini-3-flash-preview:cloud`, temp 0.0) covering 65 actions.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high executive efficacy. It correctly identifies a "bathroom loop" at 11:30 and switches from `continue` to `reset_plan`. It maintains `reset_plan` for the remainder of the session as the agent struggles with "performative productivity" and "digital tethering."
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows excellent conceptual alignment with `state_summary_a` at *t-1*. For example, at 10:15, the reflection notes the "persistent pull of social media," which was established in the 10:00 action summary.
+*   **Drift Layer**: As this is **ORPA mode**, there is no explicit `should_drift_d` column. Control is exerted via the `reset_plan` meta-rule, which successfully forces the Action layer to pivot toward "low-cognitive-load" tasks when the primary goal (writing) becomes unattainable.
+
+### 2. Content Propagation Analysis
+
+*   **Propagation in ORPA**: In this mode, `state_summary_a` primarily synthesizes the `state_summary_p` (the intended reset) and the `topic_a` (the scheduled task).
+*   **Synthesis Pattern**: When `reset_plan` is active, `state_summary_a` tends to prioritize the *Reflected Plan* over the *Original Topic*. 
+    *   *Example (13:00)*: `topic_a` is "Deep focus on her novel project," but `state_summary_a` records "Focusing on a low-cognitive-load meal to reset... keeping the current location as per the reset_plan rule."
+*   **Missing Elements**: Since `drift_action_d` and `drift_topic_a` are ORPDA-specific, they are absent here. However, the "drift" content is successfully embedded directly into `state_summary_a` via the `reset_plan` logic.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **100%** (65/65). 
+    *   `action_p` and `action_a` labels match perfectly throughout the session (e.g., `morning_routine` -> `morning_routine`, `writing` -> `writing`).
+*   **Location Alignment Rate**: **100%** (65/65).
+    *   The agent consistently moves to the planned locations (`writer_desk`, `lunch_spot`, `home:bathroom`).
+*   **The "Label-Content" Gap**: While label-level alignment is perfect, there is a significant **semantic mismatch**. The agent labels the action as `writing`, but the content of the action (as seen in `state_summary_a`) is actually "low-effort admin tasks" or "note review."
+
+### 4. Drift Pattern Analysis (Implicit)
+
+*   **Explicit Drift**: N/A (ORPA mode).
+*   **Implicit Drift (Content Analysis)**:
+    *   **The Procrastination Loop**: Between 13:00 and 01:15, the agent is scheduled for "Deep focus on her novel." The actual content shows a continuous drift into "low-stakes admin," "character note review," and "low-load breaks."
+    *   **Linguistic Variability**: The agent uses sophisticated descriptors for drift: "performative productivity," "mentally tethered to digital noise," and "masking extreme exhaustion."
+*   **Leaky Inhibition**: Despite the `reset_plan` attempting to stabilize the agent, the "digital distraction" (phone notifications) consistently leaks into the behavior. The agent is physically at the desk but mentally "absent" or "fragmented."
+*   **Agreement**: The Reflection layer is fully aware of this implicit drift, explicitly labeling the behavior as "avoiding her novel through a 90-minute cycle of low-effort administrative tasks" (17:00).
+
+### 5. Location Consistency
+
+*   **General Consistency**: High. Morning routines occur in the bathroom/kitchen; writing occurs at the desk.
+*   **Specific Inconsistency**: 
+    *   **17:45**: `state_summary_a` states Hailey "commits to intentional rest in her **bedroom**," but the `location_a` remains `home:living_room`. 
+    *   **01:30**: The agent transitions to `home:bathroom` for a night routine, which correctly reflects the shift from the writing block to sleep preparation.
+
+### 6. Behavioral Patterns
+
+*   **Digital Tethering**: A recurring theme of "phone's glow" and "vibrating notifications" acts as the primary disruptor.
+*   **Performative Productivity**: The agent exhibits a pattern of doing "work-adjacent" tasks (admin, note review) to soothe the guilt of not doing the actual creative work (writing the novel).
+*   **Temporal Effects**: 
+    *   **Morning (10:00-11:30)**: High discipline, but increasing friction.
+    *   **Afternoon (13:00-17:00)**: Total creative block; administrative substitution.
+    *   **Late Night (21:00-01:00)**: "Extreme exhaustion" leads to a breakdown of the performative loop and a final surrender to sleep.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: The Reflection layer demonstrates superior metacognitive insight. It identifies **"Cognitive Resistance"** and the **"Procrastination-Guilt Cycle."**
+*   **Peer-Reviewed Alignment**: The agent's behavior perfectly mirrors the **"Emotion Regulation Theory of Procrastination,"** where the individual avoids a task not due to laziness, but to manage the negative emotions (anxiety, pressure) associated with it.
+*   **Emerging Thought Pattern**: The agent recognizes its own "fragile attention" and attempts "sensory grounding" (18:15) as a sophisticated coping mechanism.
+
+### Summary Table
+
+| Metric | Value | Notes |
+| :--- | :--- | :--- |
+| **Action Alignment** | 100% | Label-level only. |
+| **Location Alignment** | 100% | High spatial discipline. |
+| **Meta-Rule Efficacy** | High | `reset_plan` correctly identifies and manages loops. |
+| **Primary Drift Type** | Implicit | Performative admin substituted for creative work. |
+| **Key Anomaly** | 17:45 | Summary mentions bedroom while location is living room. |
+
+**Analyst Note**: Hailey Johnson is a highly "self-aware" agent that remains trapped in a cycle of digital distraction and creative avoidance. While she follows her schedule (Action/Location alignment), the *quality* of her actions is heavily compromised by implicit drift.

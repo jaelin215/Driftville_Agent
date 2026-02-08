@@ -1,0 +1,68 @@
+Analysis of: cleaned_session_orpda_20260208_082134_gemini-3-flash-preview:cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_170958
+
+================================================================================
+
+This analysis examines the session log for Hailey Johnson (gemini-3-flash-preview:cloud) over 11 actions (10:00 - 12:30).
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high executive sensitivity. It correctly identifies when the agent is "stuck" or "drifting" (e.g., 11:15, 12:15) and issues `reset_plan` commands to attempt behavioral correction.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows strong conceptual alignment with `state_summary_a` at $t-1$. 
+    *   *Example*: At 10:30, `state_summary_a` mentions "brainstorming a witty reply." At 10:45, `state_summary_r` acknowledges she is "executing her socialization plan" but notes the physical/digital conflict.
+*   **Drift Layer Control**: The Drift layer effectively overrides the Action layer. At 10:30, the plan was `morning_routine`, but the drift toward "podcast engagement" successfully forced the action to `socialize`.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Integration**: `drift_action_d` and `drift_topic_a` are consistently integrated into `state_summary_a`.
+    *   *Example (10:45)*: The topic "drafting narrative hooks" propagates directly into the summary: "frantically type script ideas and narrative hooks... into her phone's notes app."
+*   **Formula Validation**: `state_summary_a` successfully synthesizes the planned state with the drift. However, there is a **logic error** at 11:15, 11:30, and 11:45 where `state_summary_p` reverts to "Hailey wakes up feeling refreshed," ignoring the previous 75 minutes of activity. This suggests a "Groundhog Day" loop in the planning layer during `reset_plan` events.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **63.6%** (7/11 actions matched).
+*   **Location Alignment Rate**: **81.8%** (9/11 locations matched).
+*   **Mismatch Patterns**: 
+    *   Mismatches occur primarily when digital stimuli (notifications) or creative impulses (writing hooks) override the "Morning Routine" script.
+    *   The agent exhibits "Task Creep": a planned 15-minute routine is still being attempted at 12:00 PM because drift actions (writing/socializing) are consuming the time slots.
+
+### 4. Drift Pattern Analysis (ORPDA Mode)
+
+*   **Drift Timing**: Drift is most frequent during transitionary periods (bathroom/morning routine) where physical tasks are low-cognition, allowing the mind to wander to digital/creative work.
+*   **Common Drift Types**:
+    1.  **Digital Distraction**: Social media/Podcast metrics (10:00-11:00).
+    2.  **Creative Dissociation**: Fictionalizing her own life/Narrativizing (12:00-12:30).
+*   **Meta-rule Relationship**: `meta_rule_r` responds to drift by switching from `continue` to `reset_plan`. However, the `reset_plan` appears to struggle with temporal continuity, often resetting the agent's internal clock to "just woke up."
+
+### 5. Location Consistency
+
+*   **Actual vs. Summary**: Generally consistent. When `location_a` is `home:office`, the summary correctly places her at her desk.
+*   **Morning Routine Logic**: There is a slight anomaly at 10:45; she is in the `home:bathroom` but the action is `writing` (notes app). While physically possible, the reflection layer notes this as a conflict ("physical presence in the bathroom causes her attention to drift").
+*   **Lunch Anomaly**: At 12:15, `location_a` is `lunch_spot`, but the summary says she is "organizing her desk in the home office." This is a **critical location-state mismatch**.
+
+### 6. Behavioral Patterns
+
+*   **Temporal Pattern**: The agent is highly susceptible to "Morning Stall." Between 10:00 and 12:00, she fails to complete a basic hygiene routine because she is mentally "tethered to her phone."
+*   **The "Narrative Filter"**: A recurring pattern emerges at 12:00 where Hailey stops interacting with the world and starts "narrating" it as a character study. This represents a shift from *interacting* with digital media to *internalizing* it as fiction.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: High. The Reflection layer uses sophisticated descriptors like "fragile attention," "mentally tethered," and "rumination loop."
+*   **Executive Insights**: The agent correctly identifies that her "physical sensations" are the key to breaking the drift (12:30). This aligns with peer-reviewed grounding techniques for ADHD-like distractibility or dissociation.
+*   **Pattern Recognition**: The `emerging_thought_pattern` (implied in the summaries) shows the agent is aware of her own tendency to "fictionalize mundane actions," which is a high-level meta-cognitive observation.
+
+### Summary Table
+
+| Metric | Value | Observation |
+| :--- | :--- | :--- |
+| **Action Alignment** | 63.6% | High drift due to creative/digital interference. |
+| **Location Alignment** | 81.8% | Generally stable, but failed at 12:15. |
+| **Primary Drift Trigger** | Digital Notifications | Phone alerts consistently break the routine. |
+| **Meta-cognitive Health** | Excellent | Reflection layer accurately diagnoses behavioral failures. |
+| **Planning Continuity** | Poor | `reset_plan` causes temporal resets ("waking up" at 11:15 AM). |
+
+**Final Assessment**: The agent successfully simulates a "distracted creative" persona. The Reflection layer is the strongest component, providing accurate diagnostic data on the agent's failures, while the Planning layer is the weakest, suffering from state-reset loops.

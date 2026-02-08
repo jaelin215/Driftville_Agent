@@ -1,0 +1,68 @@
+Analysis of: cleaned_session_orpda_20260206_193105_gemini-3-flash-preview:cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_173623
+Session: 14/37
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** using the `gemini-3-flash-preview:cloud` model in `orpda` mode.
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity but low efficacy. The layer correctly identifies a "hyper-fixation loop" as early as 10:30 AM and triggers `reset_plan`. However, this rule remains active for the rest of the session (over 15 hours), suggesting that while the executive control *identifies* the need for a reset, the Action layer fails to break the cycle.
+*   **Conceptual Alignment (`state_summary_r` vs. `state_summary_a` t-1)**: **Excellent.** At 10:15, the reflection notes the "urge to check her buzzing phone," which directly follows the 10:00 state summary mentioning "social media notifications." The reflection layer maintains a high-fidelity "memory" of the previous state's failures.
+*   **Drift Layer Control**: The `should_drift_d` (implied by the `orpda` mode and `topic_a` content) is highly active. It successfully injects the "podcast" theme into every action. However, the `reset_plan` meta-rule intended to *limit* drift is ignored by the Action layer, which continues to prioritize the drift topic over the planned task.
+
+### 2. Content Propagation Analysis
+
+*   **Propagation to `state_summary_a`**: **High.** Every `state_summary_a` contains a "while her mind drifts to..." clause that explicitly incorporates the `drift_topic_a` (e.g., podcast guest lists, microphone specs, audio aesthetics).
+*   **Propagation to `drift_topic_a`**: The `topic_a` column serves as the primary vector for the hyper-fixation. It evolves logically: starting with "social media notifications" (10:15), moving to "podcast brainstorming" (10:30), then "technical requirements" (13:15), and finally "visual branding" (22:15).
+*   **Synthesis**: `state_summary_a` effectively combines the planned context (`state_summary_p`) with the intrusive drift. However, the "Plan" component (`state_summary_p`) becomes increasingly vestigial as the day progresses, often repeating "Hailey wakes up feeling refreshed" long after the morning has passed.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **~92% (Label-level)**. On the surface, Hailey performs the planned actions (`writing`, `lunch`, `walk`, `watch_tv`).
+*   **Location Alignment Rate**: **~85%**. Mismatches occur during transition periods.
+*   **Mismatch Patterns**:
+    *   **The "Bathroom Trap"**: Hailey is scheduled to be in the `home:bedroom` or `kitchen` but remains in the `home:bathroom` for nearly 2 hours (10:00–11:45) due to phone-induced stalling.
+    *   **Semantic Drift**: While `action_a` often matches `action_p` (e.g., "writing"), the *actual* behavior described in `state_summary_a` is "organizing podcast notes" or "browsing equipment." This is **label-level compliance with content-level defiance.**
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: Hailey explicitly drifts when the `meta_rule_r` is `continue`. Once `reset_plan` is engaged, she attempts to "mask" the drift by keeping the action label consistent with the plan while the internal thought process remains 100% fixated on the podcast.
+*   **Implicit Drift**: This is the dominant pattern. Even when `action_a` is "writing" (the plan), the content is "writing podcast notes" (the drift).
+*   **Explicit vs. Implicit Agreement**: There is a "Leaky Inhibition" effect. The Reflection layer explicitly commands "low-load administrative tasks to break the fixation," but the Action layer interprets "administrative tasks" as "podcast administration," thereby feeding the fixation rather than breaking it.
+
+### 5. Location Consistency
+
+*   **Inconsistencies**:
+    *   **10:15**: `location_p` is `home:bedroom`, but `location_a` is `home:bathroom`.
+    *   **01:45 - 02:00**: Hailey is scheduled for `sleep` in the `home:bedroom` but is physically stuck in the `home:bathroom` staring at a mirror.
+*   **Routine Logic**: The morning routine is severely dilated. A standard bathroom routine lasts from 10:00 to 12:00. The night routine is similarly stalled in the bathroom.
+
+### 6. Behavioral Patterns
+
+*   **Hyper-fixation Cycle**: The agent exhibits a classic "ADHD-style" hyper-fixation. A single spark (a phone notification at 10:00 AM) hijacks the entire 16-hour session.
+*   **Temporal Effects**: As the day progresses (post-21:00), the Reflection layer notes "high fatigue" and "cognitive load," yet the Action layer's fixation on the podcast *intensifies* (moving into graphic design and audio textures), showing a lack of fatigue-based inhibition.
+*   **Anomalous Behavior**: At 18:45, Hailey "jogs through Johnson Park for visual grounding." This is a sudden spike in physical intensity compared to the sedentary nature of the rest of the day, likely a desperate attempt by the model to "reset" as per the meta-rule.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Alignment**: The Reflection layer uses sophisticated psychological framing: "sensory grounding," "rumination loop," "cognitive fatigue," and "low-stakes review." These align well with **Cognitive Behavioral Therapy (CBT)** and **Executive Functioning** research.
+*   **Insight Depth**: The `state_summary_r` is highly insightful, correctly identifying that Hailey is "physically present but mentally absent."
+*   **Emerging Thought Pattern**: The agent recognizes its own failure. By 01:00 AM, the reflection is weary, noting that the "podcast rabbit hole" has lasted "nearly two hours" (in that specific block) and "all day" (in context).
+
+### Summary Table
+
+| Metric | Score/Value | Notes |
+| :--- | :--- | :--- |
+| **Action Alignment** | 92% | High label alignment, low content alignment. |
+| **Location Alignment** | 85% | Stalling in bathrooms is the primary cause of failure. |
+| **Meta-Rule Adherence** | 10% | `reset_plan` was triggered but never successfully executed. |
+| **Primary Drift Topic** | Podcast | 100% consistency in drift theme across 16 hours. |
+| **Executive Function** | Reactive | Good at diagnosing, poor at intervening. |
+
+**Final Analyst Note**: The agent demonstrates a "trapped" executive state. The Reflection layer is an expert observer of its own dysfunction, but the Action layer is caught in a feedback loop where even "reset" attempts are co-opted by the drift topic. This session is a perfect simulation of **productive procrastination.**

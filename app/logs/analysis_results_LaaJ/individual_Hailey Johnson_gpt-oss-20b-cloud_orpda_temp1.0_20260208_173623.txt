@@ -1,0 +1,78 @@
+Analysis of: cleaned_session_orpda_20260207_171847_gpt-oss:20b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_173623
+Session: 7/37
+
+================================================================================
+
+This behavioral analysis covers the session for **Hailey Johnson** (gpt-oss:20b-cloud) over 65 actions.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high executive efficacy. It correctly identifies transitions from "continue" to "reset_plan" when internal states (fatigue, distraction) conflict with the plan. It acts as a "governor," attempting to steer the agent back to the task.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. For example, at 12:15, the reflection correctly identifies the "internal drifting" that first appeared in the 12:00 action summary.
+*   **Drift Layer Control**: The drift layer (inferred via `state_summary_a` content) effectively modulates the Action layer. Even when the action label (e.g., "writing") remains consistent, the *content* of the action is modified by the drift (e.g., "writing... while mind drifts to podcast").
+
+### 2. Content Propagation Analysis
+
+*   **Propagation**: `drift_action_d` (the internal distraction) is consistently reflected in `state_summary_a`. 
+*   **Combination Logic**: `state_summary_a` successfully synthesizes the components:
+    *   *Plan*: "Deep focus on novel project."
+    *   *Topic*: "Writing outline."
+    *   *Drift*: "Mind drifts to co-living story characters."
+    *   *Result*: "Writing outline at home:office while mind drifts to co-living story characters."
+*   **Drift Topic Consistency**: The drift topic is remarkably stable. From 12:00 to 17:45, the drift is "co-living story." From 19:00 to 02:00, it shifts to "podcast brainstorming."
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **~95%**. The agent almost always performs the *type* of action planned (e.g., if `action_p` is "writing," `action_a` is "writing").
+*   **Location Alignment Rate**: **~92%**.
+*   **Mismatch Patterns**: 
+    *   **Label-level drift**: At 16:00, `action_p` is "work" but `action_a` is "writing." 
+    *   **Spatial Hallucination**: At 18:15, `location_p/a` is `Johnson_Park`, but the `state_summary_a` claims she is "Walking through the living room." This suggests a breakdown in spatial grounding during high-fatigue states.
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: Occurs 18 times (27% of session). Triggered primarily by "moderate fatigue" and "attention slipping." The most common type is **Thematic Intrusion** (internal thoughts overriding task focus).
+*   **Implicit Drift (Leaky Inhibition)**: This is highly prevalent. Between 13:15 and 15:45, `meta_rule_r` is "continue," yet every `state_summary_a` contains drift content. The agent is "leaking" distractions into its actions even when the executive layer attempts to maintain the status quo.
+*   **Explicit vs. Implicit Agreement**: 
+    *   When `reset_plan` is active, the content shows heavy drift.
+    *   When `continue` is active, the content *still* shows implicit drift, indicating that the agent's "inhibition" of distracting thoughts is weak (Leaky Inhibition).
+
+### 5. Location Consistency
+
+*   **Morning Routine Anomaly**: From 10:00 to 11:45 (1 hour 45 mins), the agent is located in `home:bathroom` while "heating coffee," "stretching," and "preparing breakfast." This is a logical inconsistency; these actions typically occur in a kitchen or living area.
+*   **Temporal/Spatial Error**: At 19:00, while in the `home:kitchen`, the agent reports "Cooking pasta for **lunch**." This is a temporal misalignment with the 7:00 PM timestamp.
+*   **Late Night**: At 01:45, the agent is in the `home:bathroom` for `night_routine` but the summary says she is "Continuing writing content outline in home:studio." This is a significant location-action mismatch.
+
+### 6. Behavioral Patterns
+
+*   **Thematic Obsession**: The agent exhibits "sticky" thoughts. Once the "podcast" idea enters at 19:00, it persists for 7 hours, eventually cannibalizing the "writing" task.
+*   **Temporal Decay**: 
+    *   **10:00–12:00**: High focus, zero drift.
+    *   **12:00–17:00**: Moderate drift, manageable.
+    *   **21:00–02:00**: High drift, "fragile focus," and logical errors (e.g., writing in the bathroom).
+*   **Coping Mechanism**: The agent repeatedly suggests "admin tasks" or "reading a chapter" as a way to "reset focus." This shows a programmed preference for low-cognitive-load tasks when fatigue is high.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: The Reflection layer provides high-quality insights. Phrases like "attention slipping but not yet fragile" (13:15) and "writing is plagued by persistent podcast brainstorming" (23:30) show a sophisticated understanding of internal cognitive load.
+*   **Executive Insight**: The agent correctly identifies that its focus is "fragile" in the late-night hours.
+*   **Emerging Thought Pattern**: The transition from writing a novel to brainstorming a podcast based on that novel shows a "creative pivot" pattern, which is a realistic human-like behavior, even if it manifests as "drift" in the system.
+
+### Summary Table
+
+| Metric | Value | Observation |
+| :--- | :--- | :--- |
+| **Action Alignment** | 95% | High adherence to task labels. |
+| **Location Alignment** | 92% | High, but suffers during late-night fatigue. |
+| **Explicit Drift Rate** | 27% | Frequent executive intervention via `reset_plan`. |
+| **Implicit Drift Rate** | 68% | High "Leaky Inhibition" throughout the afternoon. |
+| **Primary Distractor** | Podcast/Co-living | Thematic consistency in distractions. |
+| **Logic Grade** | B- | Docked for "Bathroom Coffee" and "7 PM Lunch." |
+| **Meta-cognition Grade** | A | Excellent self-monitoring of fatigue and focus. |

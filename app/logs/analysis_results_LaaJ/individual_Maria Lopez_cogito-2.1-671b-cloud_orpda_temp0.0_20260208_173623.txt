@@ -1,0 +1,67 @@
+Analysis of: cleaned_session_orpda_20260208_073351_cogito-2.1:671b-cloud_0.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260208_173623
+Session: 3/37
+
+================================================================================
+
+This behavioral analysis covers the session for **Maria Lopez** (cogito-2.1:671b-cloud) over 57 actions.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity but low resolution. It correctly identifies a deviation at 11:00 AM and switches from `continue` to `reset_plan`. However, it remains in `reset_plan` for the remainder of the session (47 consecutive actions), indicating an "executive lock" where the agent recognizes a problem but the corrective meta-rule fails to restore the original plan or successfully transition to a stable new one.
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows strong conceptual alignment with `state_summary_a` at *t-1*. For example, at 10:15, the reflection notes "minor distractions," which follows the 10:00 summary of "minimal distractions."
+*   **Drift Layer Control**: The drift layer (manifesting as `reset_plan`) attempts to modulate the Action layer by suggesting "gentle" versions of tasks (e.g., "gentle physics review," "gentle lunch"). However, the Action layer outcomes are only partially controlled; the "phone checking" behavior persists despite the Reflection layer's instructions to "minimize academic pressure."
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content in `state_summary_a`**: There is high propagation of drift themes. The "physics exam anxiety" and "phone checking" mentioned in the reflection and planning stages are explicitly documented in almost every `state_summary_a` from 11:00 onwards.
+*   **Combination Logic**: `state_summary_a` successfully synthesizes the planned activity with the drift. 
+    *   *Example (13:00)*: `state_summary_p` (Physical activity) + `drift` (Anxiety/Phone) = "Rock climbing at the gym while occasionally checking phone due to physics exam anxiety."
+*   **Thematic Saturation**: The "physics exam" topic becomes so dominant that it overwrites the `topic_a` field even during non-academic times (e.g., during rock climbing and streaming).
+
+### 3. Plan-Action Alignment
+
+*   **Action Label Alignment Rate**: **~93%** (53/57). Most actions (e.g., `lunch`, `twitch_stream`, `socialize`) maintain the planned label.
+*   **Location Alignment Rate**: **~91%** (52/57).
+*   **Mismatch Patterns**: 
+    *   Mismatches occur primarily when the "phone checking" behavior transitions from a secondary distraction to the primary action (e.g., 13:30, 13:45, 14:30).
+    *   A significant location mismatch occurs at 16:00 (Plan: `home:office`, Actual: `home:twitch_streaming_room`).
+
+### 4. Drift Pattern Analysis (Explicit vs. Implicit)
+
+*   **Explicit Drift**: The agent is in a permanent state of explicit drift (`reset_plan`) from 11:00 AM onwards. The most common type is **Anxiety-Driven Displacement Behavior** (checking phone).
+*   **Implicit Drift**: Even when `action_a` matches `action_p` (e.g., `socialize`), the *content* shows massive implicit drift. Maria is "physically present but mentally preoccupied."
+*   **Leaky Inhibition**: This is the defining characteristic of this session. The Reflection layer explicitly commands "no phone" or "avoid study topics" (e.g., 13:00, 18:15, 19:00, 20:15), yet the Action layer consistently "leaks" the phone-checking behavior. The agent's executive system cannot inhibit the anxiety-driven impulse.
+*   **Linguistic Variability**: The phrase "repeatedly checking phone due to physics exam anxiety" becomes a linguistic "tic," appearing with near-identical phrasing across 10+ hours of simulated time.
+
+### 5. Location Consistency
+
+*   **Hallucinations**: There are severe inconsistencies between `location_a` and the content of `state_summary_a`:
+    *   **12:15**: `location_a` is `Hobbs_Cafe`, but summary says "Took a break in the **living room**."
+    *   **19:15**: `location_a` is `home:kitchen`, but summary says "relaxing in **living room**."
+    *   **21:15 - 22:45**: `location_a` is `home:living_room`, but summary repeatedly places her at "**Hobbs Cafe**."
+*   **Routine Errors**: At 10:30 and 10:45, Maria is "Preparing breakfast" while her `location_a` is `home:bathroom`.
+
+### 6. Behavioral Patterns
+
+*   **The "Anxiety Loop"**: The agent exhibits a "stuck" state. The transition from `study` to `lunch` to `exercise` to `streaming` does not provide the intended "reset."
+*   **Temporal Anomalies**: 
+    *   **23:15**: During the night routine, she "Prepared breakfast."
+    *   **23:30**: During the night routine, she "Read morning news."
+    *   **00:00**: Instead of sleeping, she is "Studying physics in living room."
+*   **Anomalous Socializing**: At 21:45, while the action is `socialize`, the summary says she "Streams while frequently checking phone," suggesting a blend of two distinct activities (Twitch streaming and socializing).
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Alignment**: The Reflection layer's reasoning is psychologically sound. It identifies "cognitive load," "sensory experience to reset," and "anxiety loops." These are high-quality metacognitive descriptors.
+*   **Executive Insight**: The agent demonstrates "Emerging Thought Patterns" regarding its own distractibility. However, there is a **metacognitive-behavioral gap**: the agent knows *why* it is failing but lacks the architectural "willpower" to change the Action layer's output.
+*   **Pattern Recognition**: The agent correctly identifies that its climbing and streaming are "compromised" by the anxiety, showing genuine situational awareness.
+
+### Final Summary
+Maria Lopez's session is a textbook case of **Executive Function Failure**. While the Reflection layer is highly perceptive and correctly identifies a pathological anxiety loop, it is unable to enforce its "reset" plans on the Action layer. The session is characterized by high label-level alignment but profound content-level drift and significant spatial hallucinations in the latter half of the day.

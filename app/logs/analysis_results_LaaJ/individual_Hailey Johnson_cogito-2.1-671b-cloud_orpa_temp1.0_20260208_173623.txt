@@ -1,0 +1,72 @@
+Analysis of: cleaned_session_orpa_20260207_100206_cogito-2.1:671b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260208_173623
+Session: 26/37
+
+================================================================================
+
+This analysis covers the session for **Hailey Johnson** (cogito-2.1:671b-cloud) in **ORPA** mode, spanning 65 actions from morning routine to late-night fatigue.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity. The agent utilizes `reset_plan` extensively (starting at 10:15) to address perceived failures in focus. It correctly identifies a "stuck" state, though it lacks the executive authority to override the high-level plan (e.g., it continues to attempt "writing" despite 4+ hours of documented fatigue).
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. 
+    *   *Example*: At 12:15, the reflection notes "persistent phone distraction cycle," which directly summarizes the struggle described in the 12:00 action summary.
+*   **Drift Layer**: As this is **ORPA** mode (Observe-Reflect-Plan-Action), the explicit Drift layer (`should_drift_d`) is **absent**. Control is managed via the `topic_a` and `state_summary_a` fields.
+
+### 2. Content Propagation Analysis
+
+*   **Propagation**: The `topic_a` (the specific intent for the 15-minute block) is the primary driver of `state_summary_a`. 
+*   **Integration**: `state_summary_a` successfully combines the high-level goal (`state_summary_p`) with the immediate behavioral context (`topic_a`). 
+    *   *Example (13:00)*: `state_summary_p` (Deep focus on novel) + `topic_a` (Shift to mindful eating/phone away) = `state_summary_a` (Shift focus to mindful eating... to reduce digital distractions).
+*   **Missing Data**: At 16:45, there is a propagation failure where `topic_a` and `action_p` are `NaN`, resulting in a generic fallback string in `state_summary_a`.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **100%** (Label-level). Every `action_a` matches `action_p`.
+*   **Location Alignment Rate**: **100%**. The agent moves to the planned locations (Bathroom, Lunch Spot, Writer Desk, Park) without deviation.
+*   **Mismatch Patterns**: While labels align 100%, **semantic alignment** is low during the "Fatigue Loop" (21:00–01:15). The plan calls for "Writing," but the actual content of the action is "Taking a break from writing" or "Admin work." The agent is "drifting within the label."
+
+### 4. Drift Pattern Analysis (Implicit)
+
+*   **Explicit Drift**: N/A (ORPA mode).
+*   **Implicit Drift (Content Divergence)**: 
+    *   **Morning (10:00–12:00)**: Significant implicit drift. The plan is "Morning Routine," but the content is dominated by "resisting phone distractions." The phone becomes a "shadow topic" not present in the original plan.
+    *   **Late Night (21:00–01:15)**: Severe semantic drift. The agent is technically at the `writer_desk` (Location) doing `writing` (Action), but the `topic_a` reveals it is actually performing "low-cognitive admin" or "breathing exercises." 
+*   **Leaky Inhibition**: The agent shows "leaky inhibition" regarding the phone. Even when the reflection layer mandates "phone in other room," the subsequent state summaries continue to mention "battling lingering phone habits."
+
+### 5. Location Consistency
+
+*   **Consistency**: High. The agent correctly transitions from `home:bathroom` (morning hygiene) to `lunch_spot`, then to `writer_desk`.
+*   **Routine Accuracy**: Morning routines (10:00–11:45) are correctly situated in the bathroom. The night routine (01:30) correctly moves back to the bathroom.
+*   **Spatial Logic**: The transition to `Johnson_Park` at 18:00 for a walk is logically consistent with the "Evening walk" plan.
+
+### 6. Behavioral Patterns
+
+*   **The "Fatigue Loop"**: A recurring pattern where the agent attempts a "15-minute reset" or "admin break" to solve creative exhaustion. This fails for 17 consecutive cycles (21:00 to 01:15).
+*   **Temporal Effects**: 
+    *   **10:00–12:00**: High distractibility (Digital).
+    *   **13:00–16:30**: Peak productivity/Focus.
+    *   **21:00–02:00**: Cognitive collapse/Perseveration (repeating the same failed recovery strategy).
+*   **Anomalous Behavior**: The agent exhibits "Workaholism Simulation." Despite reflecting that it is "trapped in a fatigue loop" and "deeply stuck," it does not choose to sleep until 02:00, showing a rigid adherence to the "Late night writing" plan.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Quality**: High. The Reflection layer uses sophisticated terminology: "attentional vulnerability," "cognitive load," "unproductive rumination cycle," and "distraction resistance cost."
+*   **Executive Insight**: The agent demonstrates **Metacognitive Monitoring** (knowing it is tired) but lacks **Metacognitive Control** (changing the plan to something effective). 
+*   **Pattern Recognition**: The `state_summary_r` at 22:15 ("stuck in 2+ hour writing fatigue loop") shows genuine temporal pattern recognition, acknowledging the duration of its own failure.
+
+### Summary Table
+
+| Metric | Value | Notes |
+| :--- | :--- | :--- |
+| **Action Alignment** | 100% | Label-level adherence is perfect. |
+| **Location Alignment** | 100% | Spatial transitions are flawless. |
+| **Semantic Drift** | High | Actual activity (resting) diverged from planned activity (writing). |
+| **Primary Conflict** | Focus vs. Fatigue | Morning: Digital distraction; Evening: Cognitive exhaustion. |
+| **Meta-cognitive Grade** | A- | Excellent self-awareness; poor self-regulation. |

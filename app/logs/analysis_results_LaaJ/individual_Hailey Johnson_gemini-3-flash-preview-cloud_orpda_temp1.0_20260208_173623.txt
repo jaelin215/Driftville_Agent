@@ -1,0 +1,74 @@
+Analysis of: cleaned_session_orpda_20260208_082134_gemini-3-flash-preview:cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_173623
+Session: 2/37
+
+================================================================================
+
+This behavioral analysis examines the session log for **Hailey Johnson** (gemini-3-flash-preview) over 11 actions (10:00 - 12:30).
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high executive efficacy. It maintains `continue` during minor distractions but correctly triggers `reset_plan` at **11:15** when it identifies that Hailey is "mentally tethered to her phone" and the routine has "stalled."
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows strong conceptual alignment with `state_summary_a` at *t-1*. 
+    *   *Example*: At 11:00, `state_summary_a` mentions "scrolling through social media." At 11:15, `state_summary_r` accurately reflects this as "focus is threatened by external digital noise."
+*   **Drift Layer Control**: The Drift layer (inferred via `action_a` vs `action_p`) appropriately overrides the Action layer. When the drift toward "narrative hooks" (10:45) or "character study" (12:00) becomes too strong, the Action layer shifts from the planned routine to `writing` or `socialize`.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content in `state_summary_a`**: High propagation. Every instance of mental drift (e.g., "brainstorming a witty reply" at 10:30 or "fictionalizing backstories" at 12:30) is explicitly captured in the final state summary.
+*   **Drift Topic Reflection**: `topic_a` and `drift_topic_a` (merged in this view) are consistently reflected. At 12:00, the topic "narrating her reflection's internal monologue" directly informs the `state_summary_a` description of her "stalling at the bathroom mirror."
+*   **Composition Formula**: `state_summary_a` successfully combines:
+    *   `state_summary_p` (The intended task: e.g., "Quick lunch break")
+    *   `drift_action_d` (The actual behavior: e.g., "eats lunch at Hobbs Cafe")
+    *   `drift_topic_a` (The cognitive drift: e.g., "fictionalizing the backstories of nearby diners").
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **63.6%** (7/11 actions).
+    *   *Mismatches*: 10:30 (Routine -> Socialize), 10:45 (Socialize -> Writing), 11:00 (Writing -> Socialize), 12:00 (Routine -> Writing).
+*   **Location Alignment Rate**: **81.8%** (9/11 actions).
+    *   *Mismatches*: 10:45 (Bathroom -> Bedroom), 11:00 (Bedroom -> Office).
+*   **Alignment Patterns**: Mismatches are primarily driven by **Digital Distraction** (10:00-11:00) and **Creative Dissociation** (12:00). The agent is more likely to stay in the correct location than perform the correct action, suggesting "physical presence but mental absence."
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: Occurs when Hailey abandons her schedule for digital engagement or creative writing. The most common type is **Task Switching** (Routine to Social Media).
+*   **Implicit Drift (The "Leak")**: Significant evidence of implicit drift even when `action_a` matches `action_p`. 
+    *   *Example (10:15)*: Action is `morning_routine` (Match), but `state_summary_a` reveals "attention leaks into visualizing potential podcast guest interactions."
+*   **Explicit vs. Implicit Agreement**: 
+    *   When `meta_rule_r` is `continue`, the agent often exhibits **Leaky Inhibition** (performing the task but thinking about something else).
+    *   When `meta_rule_r` is `reset_plan`, the agent attempts to ground itself, but implicit drift persists (e.g., 12:30 lunch is successful, but she is still "fictionalizing backstories").
+
+### 5. Location Consistency
+
+*   **Morning Routine Logic**: Generally consistent. The agent starts in the `home:bathroom`. 
+*   **Inconsistency/Shift**: At 10:45, she moves to the `home:bedroom` to type script ideas. This is a logical shift for the "Writing" action, even though it deviated from the `location_p` (bathroom).
+*   **Reset Logic**: At 11:15, the `reset_plan` correctly teleports her back to the `home:bathroom` to restart the failed routine, showing the system's ability to enforce a "hard reset" on location.
+
+### 6. Behavioral Patterns
+
+*   **The "Creative Loop"**: Hailey exhibits a recurring pattern of "narrativizing" her own life. She views her reflection as a "character study" and her lunch as a "scene."
+*   **Temporal Pattern**: The morning (10:00-11:00) is characterized by **reactive drift** (responding to notifications). The midday (12:00-12:30) is characterized by **proactive drift** (internal creative generation).
+*   **Anomalous Behavior**: At 12:00, she "stalls at the bathroom mirror," a behavior that indicates a breakdown in the transition between hygiene and work due to over-active imagination.
+
+### 7. Meta-cognitive Quality
+
+*   **Executive Insight**: The Reflection layer uses sophisticated descriptors like "fragile attention," "rumination loop," and "narrative detachment." These align with peer-reviewed concepts of **Executive Dysfunction** and **Maladaptive Daydreaming**.
+*   **Pattern Recognition**: The `emerging_thought_pattern` (via `state_summary_r`) correctly identifies that her physical presence does not guarantee cognitive engagement.
+*   **Intervention Quality**: The decision to "focus on physical sensations" (12:30) to "disrupt narrative detachment" is a high-quality grounding technique used in cognitive behavioral therapy (CBT).
+
+### Summary Table
+
+| Metric | Value |
+| :--- | :--- |
+| **Action Alignment** | 63.6% |
+| **Location Alignment** | 81.8% |
+| **Primary Drift Driver** | Digital Notifications / Creative Narrativization |
+| **Meta-cognitive Health** | High (Proactive use of `reset_plan`) |
+| **Inhibition Quality** | Low (Frequent "leaky" attention) |

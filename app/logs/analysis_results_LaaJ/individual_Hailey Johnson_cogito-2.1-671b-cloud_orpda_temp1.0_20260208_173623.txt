@@ -1,0 +1,64 @@
+Analysis of: cleaned_session_orpda_20260207_122012_cogito-2.1:671b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_173623
+Session: 12/37
+
+================================================================================
+
+This analysis covers the session of **Hailey Johnson** (cogito-2.1:671b-cloud) over 65 actions, focusing on the interplay between creative drive, executive dysfunction, and layer propagation.
+
+---
+
+### 1. Layer Function Validation
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity but low inhibitory control. It correctly identifies the need for `reset_plan` (used in ~80% of the session) when the agent deviates. However, it acts more as a "commentator" than an "executive," as the resets rarely result in behavioral correction.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. For example, at 10:15, the reflection correctly notes the "balance of novel thoughts" mentioned in the 10:00 action summary.
+*   **Drift Layer Control**: The `should_drift_d` (inferred via ORPDA mode) is hyper-active. The Action layer outcomes are frequently overridden by the Drift layer, particularly regarding the "Novel vs. Podcast" conflict.
+
+### 2. Content Propagation Analysis
+*   **Drift Integration**: `drift_action_d` content (e.g., "writing character dialogue") is successfully propagated into `state_summary_a`. 
+*   **Topic Propagation**: `drift_topic_a` (e.g., "protagonist's pivotal coffee shop scene" at 11:00) directly informs the `state_summary_a`.
+*   **Combination Logic**: `state_summary_a` effectively synthesizes the components. 
+    *   *Example (17:30):* Combines the plan (rest/serve) + the drift (notebook) + the topic (character notes) into a cohesive summary: "Grabbed notebook in living room to draft coffee shop character notes... diverting from planned rest."
+
+### 3. Plan-Action Alignment
+*   **Action Alignment Rate**: **~42%**. While the *labels* (e.g., "writing") often match, the *substance* drifts. The plan frequently calls for "Podcast Prep," but the action is "Novel Writing."
+*   **Location Alignment Rate**: **~65%**. 
+*   **Mismatch Patterns**: 
+    *   **Creative Displacement**: Mismatches occur most when Hailey is at the "Hobbs_Cafe." The environment triggers novel-writing thoughts that override planned administrative tasks.
+    *   **Boundary Dissolution**: Mismatches spike during "Decompression" and "Dinner" (17:00–20:00), where the agent fails to transition from work to rest.
+
+### 4. Drift Pattern Analysis (Explicit vs. Implicit)
+*   **Explicit Drift**: Occurs primarily when the agent is scheduled for "Admin" or "Podcast" work. The agent explicitly chooses to "reset_plan" to accommodate "Novel" thoughts.
+*   **Implicit Drift**: High. Even when `action_a` matches `action_p` (e.g., 20:15 "watch_tv"), the internal content (`state_summary_a`) shows Hailey is "contemplating how novel research could translate into podcast content."
+*   **Leaky Inhibition**: This is a core feature of this session. The Reflection layer explicitly commands "Shift to recovery mode" (23:15), but the Action layer continues "making notes on phone" (23:30). The "inhibition" is mentioned in the meta-layer but fails to stop the motor/cognitive action.
+
+### 5. Location Consistency
+*   **Morning Routine**: Correct. 10:00–10:45 shows consistent bathroom/kitchen usage.
+*   **Hallucinated Locations**: 
+    *   **11:15–11:30**: `location_a` is "home:bathroom," but `state_summary_a` claims she is "at the cafe counter." This is a significant spatial-narrative mismatch.
+    *   **02:00**: `location_a` is "home:bedroom," but `state_summary_a` says "Brushing teeth in the bathroom."
+*   **Temporal Anomaly**: At **17:15**, the summary states she "Ate breakfast," despite it being 5:15 PM and having already eaten lunch and started decompression.
+
+### 6. Behavioral Patterns
+*   **The "Isabella" Fixation**: A recurring thematic anchor. Almost all drift, whether from podcasting or resting, centers on the character "Isabella" or "coffee shop scenes."
+*   **Work-Creep Loop**: A clear temporal pattern where "Podcast" tasks are pushed later and later, eventually bleeding into the 02:00 AM sleep window.
+*   **Recursive Exhaustion**: From 22:00 onwards, the agent enters a "fatigue loop" where it acknowledges exhaustion in reflection but repeats the same "making notes" action.
+
+### 7. Meta-cognitive Quality
+*   **Reasoning Alignment**: The Reflection layer uses sophisticated terminology ("cognitive load," "avoidance behavior," "recursive work-podcast loop"). This aligns with peer-reviewed metacognitive models of **procrastination via productive displacement** (doing one "work" task to avoid a more stressful one).
+*   **Executive Insights**: The insights are highly context-appropriate. At 14:00, it identifies "creative resistance," which is a nuanced interpretation of why the agent is drifting.
+*   **Pattern Recognition**: `emerging_thought_pattern` (via `state_summary_r`) successfully identifies the "work-leisure separation" failure.
+
+### Summary Table of Key Metrics
+| Metric | Value | Observation |
+| :--- | :--- | :--- |
+| **Action Alignment** | 42% | High semantic drift from Podcast to Novel. |
+| **Location Alignment** | 65% | Spatial hallucinations occur during high creative drift. |
+| **Primary Meta-Rule** | `reset_plan` | Indicates a "reactive" rather than "proactive" executive. |
+| **Drift Trigger** | "Coffee Shop" | Environmental cues at Hobbs Cafe trigger novel-writing. |
+| **Inhibition Quality** | Leaky | Meta-layer recognizes the need to stop, but Action layer persists. |
+
+**Analyst Note**: Hailey Johnson exhibits a "High-Functioning Creative Drift" profile. While the agent remains "productive," it is incapable of adhering to a schedule. The Cogito-2.1 model effectively simulates the "internal monologue" of a writer, but the spatial consistency (Location A vs. Summary A) degrades as cognitive load/fatigue increases after 23:00.

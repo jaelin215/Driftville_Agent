@@ -1,0 +1,67 @@
+Analysis of: cleaned_session_orpa_20260207_185903_gpt-oss:20b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260208_173623
+Session: 23/37
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** (gpt-oss:20b-cloud) over a 16-hour period. The agent operated in **ORPA** (Observe, Reflect, Plan, Act) mode.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high stability but low granularity. It consistently outputs "continue," successfully maintaining executive control over long durations (e.g., the 4-hour writing block). However, it failed to trigger a correction during the "breakfast at 8 PM" logic error at 20:00.
+*   **State Summary Alignment**: Conceptual alignment between $t$ (`state_summary_r`) and $t-1$ (`state_summary_a`) is **strong**. The reflection layer accurately ingests the previous state to maintain continuity.
+*   **Drift Layer**: As this is ORPA mode, the `should_drift_d` column is absent. Control is managed implicitly through the alignment of `state_summary_p` and `action_a`.
+
+### 2. Content Propagation Analysis
+
+*   **Synthesis Quality**: In this session, `state_summary_a` is almost exclusively a direct copy of `state_summary_p`. 
+*   **Topic Integration**: There is a "leaky" propagation of `topic_a` into the actual state. For example, at 13:00, the plan shifts to "Deep focus on her novel," but the `state_summary_a` remains stuck on "Resume lunch, savor food." This indicates that the **Action Layer is occasionally prioritized over the Planning Layer's thematic shifts.**
+*   **Missing Data**: At 16:00 and 16:45, `state_summary_a` and `action_a` are null, despite the Reflection and Planning layers functioning. This suggests a propagation failure at the final output stage for those specific timestamps.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **96.9%** (63/65 actions). The only mismatches are the two NaN values at 16:00 and 16:45.
+*   **Location Alignment Rate**: **96.9%** (63/65 locations).
+*   **Mismatch Patterns**: 
+    *   **Data Gaps**: The primary "mismatches" are technical drops (NaNs) rather than behavioral deviations.
+    *   **Semantic Drift**: While the labels (`action_p` vs `action_a`) match, the *content* within the summaries shows a "carry-over" effect where the agent performs the new action but describes the old one (e.g., 13:00 transition from lunch to writing).
+
+### 4. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, all drift is **Implicit**:
+*   **Task Carry-over (Mental Drift)**: At 01:30, the agent is physically performing `night_routine` in the `home:bathroom`, but the `state_summary_a` claims she is "refining the opening section of the paper." This is a classic example of **cognitive persistence**, where the previous high-intensity task (writing) dominates the internal state despite a change in physical activity.
+*   **Linguistic Hallucination**: At 20:00, the agent describes "cooking breakfast" while the time is 8:00 PM and the action is `watch_tv`. This is a significant thematic drift where the agent's internal narrative loses temporal grounding.
+*   **Inhibition Success**: Despite "occasional phone pings" mentioned in the reflections (21:15–22:45), the agent successfully inhibited the urge to drift to a "phone" topic, maintaining the "writing" action.
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Generally consistent (`home:bathroom`). However, at 11:30, the summary states "Hailey moves to the kitchen," but the `location_a` remains `home:bathroom`. This indicates a **15-minute lead-time error** where the narrative moves faster than the coordinate system.
+*   **Evening Anomaly**: At 20:00, the agent is in the `home:living_room` (correct for `watch_tv`), but the summary describes "cooking," which should logically occur in the `home:kitchen`.
+
+### 6. Behavioral Patterns
+
+*   **Hyper-Focus Cycles**: Hailey exhibits two massive blocks of "Deep Focus" (13:15–17:00 and 21:15–01:15). This suggests a "Work-Hard, Play-Hard" behavioral profile.
+*   **Temporal Sensitivity**: The agent shows a clear decompression cycle (17:00–19:00) between work blocks, involving relaxation and a park walk. This demonstrates a realistic energy management model.
+*   **Anomalous Event**: The 20:00 "cooking breakfast" error is the most significant anomaly, likely caused by a token-level confusion between "cooking dinner" (19:45) and a "morning routine" template.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: The Reflection layer is largely descriptive rather than analytical for the first 80% of the session. It acts as a "logger" rather than a "controller."
+*   **Late-Night Insight**: The quality of reflection improves significantly at 02:00: *"Hailey in bathroom on night routine, low focus on writing, fatigue high, slight diversion..."* This shows **genuine metacognitive monitoring** of internal states (fatigue) and their impact on task performance.
+*   **Executive Insight**: The agent successfully identifies "anecdotal inspiration" from the TV (20:30), showing an ability to link passive activities back to primary goals (podcast/writing).
+
+### Summary Table
+
+| Metric | Value | Notes |
+| :--- | :--- | :--- |
+| **Action Alignment** | 96.9% | High; failures only on NaNs. |
+| **Location Alignment** | 96.9% | High; minor narrative lead-time errors. |
+| **Primary Drift Type** | Implicit | Mental carry-over from writing to routine. |
+| **Meta-cognitive Score** | 7/10 | Strong self-awareness of fatigue at end-of-day. |
+| **Logic Integrity** | 8/10 | Deducted for "8 PM breakfast" hallucination. |

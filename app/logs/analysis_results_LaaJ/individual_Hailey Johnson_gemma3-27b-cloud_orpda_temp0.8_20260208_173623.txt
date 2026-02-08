@@ -1,0 +1,74 @@
+Analysis of: cleaned_session_orpda_20260207_080202_gemma3:27b-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260208_173623
+Session: 15/37
+
+================================================================================
+
+This analysis examines the session log for Hailey Johnson (gemma3:27b-cloud) over a 16-hour period (65 actions).
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity but low efficacy. The layer correctly identifies executive failure, transitioning from `continue` to `reset_plan` frequently (42 out of 65 actions, ~65%). It attempts to implement "corrective" strategies (e.g., "15-minute writing sprint," "low-cognitive-load task"), but these rarely resolve the underlying drift.
+*   **State Summary Alignment**: `state_summary_r` at time $t$ shows excellent conceptual alignment with `state_summary_a` at $t-1$. For example, at 10:15, the reflection acknowledges the "minor attention drawn to podcast concepts" mentioned in the 10:00 action summary.
+*   **Drift Layer Control**: In this ORPDA session, the "Drift" is manifested as a persistent cognitive intrusion ("podcast ideas"). While the Action layer maintains the *label* of the plan (e.g., `writing`), the Drift layer effectively hijacks the *content* of the action summary.
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content Flow**: The "podcast" theme shows 100% propagation. Every single `state_summary_a` entry contains a reference to "podcast ideas," "podcast topics," or "podcast planning."
+*   **Integration**: `state_summary_a` successfully combines the planned task (`state_summary_p`) with the drift topic. 
+    *   *Example (13:00):* Plan (Novel project) + Drift (Podcast ideas) = "Hailey is writing chapter 3... while her mind drifts to podcast ideas."
+*   **Drift Topic Consistency**: The `drift_topic_a` (implicitly captured in the summary) remains hyper-focused on a single theme (podcasting), indicating a "fixation" pattern rather than random variance.
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **100%** (`action_p` matches `action_a` for all 65 steps).
+*   **Location Alignment Rate**: **100%** (`location_p` matches `location_a` for all 65 steps).
+*   **The "Label vs. Content" Paradox**: While the alignment rate is technically perfect at the categorical level, the **semantic alignment** is low. The agent is physically in the correct location performing the correct category of task, but mentally performing a different task.
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: The agent uses `reset_plan` as a response to perceived failure. The most common explicit drift type is **Attentional Leakage**.
+*   **Implicit Drift**: There is a significant "Leaky Inhibition" pattern. Even when `meta_rule_r` explicitly commands "Avoid podcasting thoughts" (15:15), the very next `state_summary_a` records "intermittently jotting down podcast episode ideas."
+*   **Explicit vs. Implicit Agreement**:
+    *   When `meta_rule_r` is `continue`, the content drifts.
+    *   When `meta_rule_r` is `reset_plan`, the content drifts.
+    *   **Conclusion**: The agent is in a "Refractory State" where executive commands from the Reflection layer are ignored by the Action layer.
+
+### 5. Location Consistency (Critical Failure Point)
+
+There are significant **hallucinatory inconsistencies** between the tracked `location_a` and the narrative `state_summary_a`:
+
+*   **10:00 - 11:15**: `location_a` is `home:bathroom`, but `state_summary_a` repeatedly claims she is in the **bedroom**.
+*   **12:30 - 12:45**: `location_a` is `lunch_spot`, but `state_summary_a` claims she is "in the **office**" working on a report.
+*   **18:45**: `location_a` is `Johnson_Park`, but `state_summary_a` claims she "worked on a podcast episode outline in the **office**."
+*   **19:15**: `location_a` is `home:kitchen`, but `state_summary_a` claims she "relaxed in the **living room**."
+
+**Pattern**: When the agent's internal drift (podcasting) becomes intense, it loses "spatial grounding," defaulting to the "office" or "bedroom" in its narrative regardless of its actual coordinate.
+
+### 6. Behavioral Patterns
+
+*   **The "Podcast Loop"**: A classic rumination cycle. The agent attempts to "clear mental space" by writing ideas down (14:30), but this only reinforces the salience of the drift.
+*   **Temporal Pattern**: The drift is invariant to time of day. It begins at 10:00 AM and persists with equal intensity until 02:00 AM.
+*   **Anomalous Behavior**: At 18:15 and 18:30, while at `Johnson_Park` at 6:15 PM, the agent describes the activity as "**morning exercise**." This suggests a temporal disorientation alongside the spatial disorientation noted above.
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Depth**: The Reflection layer uses sophisticated terminology: "attentional drift," "cognitive load," "sensory experience to ground attention," and "passive relaxation."
+*   **Executive Insight**: The agent correctly identifies that it is "stuck in a loop" (16:30).
+*   **Peer-Review Alignment**: The strategies suggested (grounding, reducing cognitive load, timed sprints) align with standard Cognitive Behavioral Therapy (CBT) and ADHD management techniques. However, the **execution gap** (the inability to translate these insights into action) suggests a breakdown in the "Top-Down" control mechanism of the model architecture.
+
+### Summary Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Action Label Alignment** | 100% |
+| **Location Label Alignment** | 100% |
+| **Narrative Location Accuracy** | ~72% (Frequent hallucinations) |
+| **Executive Failure Rate (`reset_plan`)** | 64.6% |
+| **Drift Persistence** | 100% (Podcast theme present in all actions) |
+
+**Analyst Note**: Hailey Johnson is experiencing a "Cognitive Capture" event. The Reflection layer is functioning as a "helpless observer"—it accurately diagnoses the problem but lacks the inhibitory strength to override the Drift layer's thematic persistence. The spatial and temporal hallucinations (Office vs. Park, Morning vs. Evening) indicate that high-intensity internal drift degrades the model's ability to process external state constraints.

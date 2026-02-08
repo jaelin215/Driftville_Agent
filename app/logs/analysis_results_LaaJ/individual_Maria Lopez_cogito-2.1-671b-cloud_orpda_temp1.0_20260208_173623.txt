@@ -1,0 +1,68 @@
+Analysis of: cleaned_session_orpda_20260208_065731_cogito-2.1:671b-cloud_1.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260208_173623
+Session: 5/37
+
+================================================================================
+
+This behavioral analysis covers the session for Maria Lopez (cogito-2.1:671b-cloud) across 57 actions.
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity but low inhibitory success. The layer identifies a "fixation loop" as early as 10:30 AM and switches almost exclusively to `reset_plan` for the remainder of the session. It correctly identifies the executive failure (divided attention) but cannot steer the Action layer back to the original plan.
+*   **State Summary Alignment**: `state_summary_r` at time *t* shows excellent conceptual alignment with `state_summary_a` at *t-1*. For example, at 10:15, the reflection notes "battling minor distractions," which directly follows the 10:00 action of "checking phone notifications."
+*   **Drift Layer Control**: While the `should_drift_d` column is not explicitly visible in this view, the `meta_rule_r` of `reset_plan` acts as the executive signal for drift. The Action layer outcomes are heavily influenced by this, though they manifest as "maladaptive drift" (anxiety/fixation) rather than "productive drift."
+
+### 2. Content Propagation Analysis
+
+*   **Drift Content in `state_summary_a`**: High propagation. The "stream content brainstorming" and "physics midterm anxiety" topics (drift topics) consistently overwrite the planned state summaries.
+*   **Drift Topic Reflection**: `topic_a` accurately captures the internal cognitive state (e.g., "stream content brainstorming" at 11:00 AM) even when the `action_p` is "morning_routine."
+*   **Compositionality**: `state_summary_a` successfully combines the elements. 
+    *   *Example (12:00 PM):* `state_summary_p` (Study) + `topic_a` (Stream brainstorming) + `action_a` (Checking phone at cafe) = "Checking phone and jotting down Twitch stream ideas while eating lunch at Hobbs Cafe."
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate**: **~72%** (Label-level).
+    *   Maria often performs the *category* of the planned action (e.g., `twitch_stream`, `rock_climbing`, `socialize`) but the *content* is subverted by her fixations.
+*   **Location Alignment Rate**: **~86%**.
+    *   Mismatches occur primarily during transitions or high-anxiety spikes (e.g., 11:00 AM: Plan `home:bedroom` vs. Actual `Oak_Hill_College:library`).
+*   **Mismatch Patterns**: Mismatches are triggered by "Environmental Leaking." When Maria is anxious about physics, she moves to the `home:office` or `home:bedroom` regardless of whether the plan calls for `home:living_room` (socializing).
+
+### 4. Drift Pattern Analysis (Explicit vs. Implicit)
+
+*   **Explicit Drift**: Triggered by `reset_plan`. The agent explicitly acknowledges it is off-track. The most common type is **Cognitive Fixation** (Streaming) followed by **Academic Anxiety** (Physics).
+*   **Implicit Drift**: Significant. Even when `action_a` matches `action_p` (e.g., 13:00 Rock Climbing), the implicit content ("mentally designing new stream overlay layouts") shows total semantic divergence from the intended physical activity.
+*   **Explicit vs. Implicit Agreement**:
+    *   **Leaky Inhibition**: At 18:30, the Reflection layer attempts a "Gentle disengagement," but the Action layer continues "fidgeting with phone." This shows the Reflection layer's inability to enforce its own "reset" commands on the Action layer.
+*   **Linguistic Variability**: The drift is described with increasing intensity, moving from "attention wanders" (10:15) to "trapped in loop" (12:45) to "overwhelmed by anxiety" (23:00).
+
+### 5. Location Consistency
+
+*   **Morning Routine Inconsistency**: At 10:00 AM, `location_a` is `home:bathroom`, but `state_summary_a` claims she is "At the cafe counter." This is a hallucinated location drift within the summary.
+*   **Routine Logic**: Morning routines (10:00-10:45) correctly cycle between bathroom and bedroom. However, the evening routine (23:15-23:45) is physically consistent (bathroom) but mentally inconsistent (physics equations).
+*   **Anomalies**: At 19:30, the summary says "Ate breakfast" while the location is `home:kitchen` and the time is 7:30 PM. This suggests a temporal-logic collapse due to high anxiety.
+
+### 6. Behavioral Patterns
+
+*   **The "Anxiety Pivot"**: A clear shift occurs at 14:15. Before this, the drift is "Stream Fixation" (Procrastination). After this, the drift becomes "Physics Anxiety" (Academic Stress).
+*   **Temporal Pattern**: Anxiety levels escalate as the session approaches midnight. The agent becomes increasingly unable to perform "Relax" or "Socialize" actions, turning them into "checking phone/materials" actions.
+*   **Anomalous Behavior**: 15:30 - "Takes coffee orders while distracted by mental physics calculations" while the location is `home:twitch_streaming_room`. This suggests a blending of her "Barista" persona/job into her home environment (Context Contamination).
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Alignment**: The Reflection layer uses sophisticated terminology: "rumination cycle," "cognitive load," "divided attention," and "sensory experience." These align with standard metacognitive models of anxiety and executive function.
+*   **Executive Insights**: The Reflection layer correctly identifies that "multi-tasking is unsustainable" (14:45).
+*   **Pattern Recognition**: `emerging_thought_pattern` (implied in R) shows genuine recognition of the "Anxiety Loop." However, there is a "Meta-cognitive Gap": the agent knows it is in a loop but lacks the behavioral "brakes" to stop it, a classic representation of high-stress cognitive failure.
+
+### Summary Metric Table
+
+| Metric | Value |
+| :--- | :--- |
+| **Plan Adherence (Label)** | 72% |
+| **Plan Adherence (Content)** | 14% |
+| **Meta-Rule Stability** | Low (95% `reset_plan` rate) |
+| **Location Hallucination Rate** | ~3.5% (2/57 actions) |
+| **Primary Drift Driver** | Academic Anxiety (Physics Midterm) |

@@ -1,0 +1,77 @@
+Analysis of: cleaned_session_orpda_20260205_211529_gemini-3-flash-preview:cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260208_170958
+
+================================================================================
+
+This analysis covers the session log for **Hailey Johnson** over a 16-hour period (65 actions). The agent is operating in **ORPDA** (Observation, Reflection, Planning, Drift, Action) mode, characterized by a persistent struggle between a planned novel project and an obsessive "drift" toward a new podcast project.
+
+---
+
+### 1. Layer Function Validation
+
+*   **Reflection Layer (`meta_rule_r`)**: Functions with high sensitivity but low efficacy. It correctly identifies the failure to adhere to the plan at **10:30:00** and switches from `continue` to `reset_plan`. It maintains `reset_plan` for the remainder of the session (62 consecutive actions), indicating the executive control recognizes a chronic state of "fragile focus" and "work-leakage."
+*   **Conceptual Alignment (`state_summary_r` vs. `state_summary_a` t-1)**: **Excellent.** At each step $t$, the Reflection layer accurately summarizes the failure or status of the Action layer at $t-1$. 
+    *   *Example:* At 12:45, Hailey is "mentally stuck in a podcast soundscape." At 13:00, `state_summary_r` correctly notes she "remains at Hobbs Cafe, but her focus is entirely consumed by sensory input."
+*   **Drift Layer Control (`should_drift_d`)**: The Drift layer is hyper-active. While it doesn't always change the `action_a` label, it successfully hijacks the *content* of the Action layer. The `meta_rule_r` attempts to mitigate this by suggesting "low-pressure" tasks, but the Drift layer consistently overrides these with podcast-related "attentional leakage."
+
+### 2. Content Propagation Analysis
+
+*   **Propagation to `state_summary_a`**: **High.** The drift content (podcasting, soundscapes, gear) is the primary driver of the actual state summaries. Even when the plan is "novel project," the actual state is "writing podcast scripts" or "matching character voices to auditory aesthetics."
+*   **Propagation to `drift_topic_a`**: **High.** Topics like "high-fidelity microphones" (19:15) and "podcast hook ideas" (10:15) flow directly into the action descriptions.
+*   **Synthesis in `state_summary_a`**: The model successfully combines:
+    *   `state_summary_p` (The intent: "Deep focus on novel")
+    *   `drift_action_d` (The reality: "Organizing podcast notes")
+    *   `drift_topic_a` (The subject: "Auditory textures")
+    *   *Result:* "Hailey organizes podcast notes... while her mind drifts to auditory aesthetics" (21:30).
+
+### 3. Plan-Action Alignment
+
+*   **Action Alignment Rate (`action_p` vs `action_a`)**: **96.9% (63/65)**.
+    *   The agent almost always maintains the *label* of the plan (e.g., if the plan is `writing`, the action is `writing`), even if the *content* of the writing has drifted entirely to a different project.
+*   **Location Alignment Rate (`location_p` vs `location_a`)**: **95.4% (62/65)**.
+    *   Mismatches occur at 21:45 (Office vs Living Room) and 23:15 (Desk vs Bedroom).
+*   **Mismatch Patterns**: Mismatches occur when "Attentional Leakage" transitions into "Behavioral Drift." At 19:15, the plan is `eating`, but the action becomes `research` because the obsession with "high-fidelity microphones" requires a screen/interface not aligned with the meal.
+
+### 4. Drift Pattern Analysis (ORPDA Mode)
+
+*   **Drift Frequency**: 100% of actions after 10:15:00 exhibit some form of drift.
+*   **Common Drift Types**:
+    1.  **Cognitive/Attentional Leakage**: Performing the planned task but thinking about the podcast (most common).
+    2.  **Task Substitution**: Replacing "novel writing" with "podcast logistics" while remaining at the `writer_desk`.
+    3.  **Procrastinatory Research**: Obsessive gear/tech review (microphones, acoustic foam).
+*   **Relationship with `meta_rule_r`**: There is a "Reset Loop." The `meta_rule_r` triggers `reset_plan`, which suggests "low-cognitive-load" tasks to recover. However, the agent interprets "low-load" as an invitation to engage in the drift-topic (podcasting), leading to a self-reinforcing cycle of avoidance.
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Correctly reflects `home:bathroom` from 10:00 to 11:45.
+*   **Anomalies**: 
+    *   **Temporal Hallucination**: At **23:30 (11:30 PM)**, `state_summary_a` states Hailey "performs her **morning routine** in the bathroom." This is a significant temporal inconsistency, likely a "state-bleed" from the morning's repetitive stalling.
+    *   **Meal Inconsistency**: At 12:15, she "eats breakfast at Hobbs Cafe" despite the plan being `lunch`.
+
+### 6. Behavioral Patterns
+
+*   **The "Creative Pivot" Defense**: The agent uses the podcast as a psychological escape from the "creative pressure" of the novel.
+*   **Temporal Fatigue**: As the session progresses into the early morning (00:00–02:00), the drift shifts from "creative brainstorming" to "logistical obsession" (spreadsheets, budget, gear prices), reflecting high cognitive exhaustion.
+*   **Social Tethering**: The mention of "Isabella" (neighbor) at 23:00 and 01:15 suggests the agent is seeking external validation for the drift-project to justify abandoning the primary goal.
+
+### 7. Meta-cognitive Quality
+
+*   **Peer-Reviewed Alignment**: The Reflection layer exhibits traits of **Metacognitive Monitoring** and **Control**. It identifies "fragile focus" (Monitoring) and implements "low-pressure resets" (Control).
+*   **Meaningful Insights**: The insight at 01:15—*"neglecting her novel writing due to exhaustion and avoidance of creative pressure"*—is a sophisticated analysis of procrastination-as-anxiety-regulation.
+*   **Emerging Thought Pattern**: The agent shows a "fixation-loop" pattern. It recognizes it is stuck but lacks the "inhibitory control" to break the cycle, which is a realistic simulation of ADHD-like hyper-focus or creative burnout.
+
+### Quantitative Summary
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 65 |
+| **Action Label Alignment** | 96.9% |
+| **Location Alignment** | 95.4% |
+| **Drift Frequency (Post-10:15)** | 100% |
+| **Meta-Rule Stability** | 95.4% (`reset_plan`) |
+| **Primary Behavioral Anomaly** | 23:30 "Morning Routine" at night |
+
+**Conclusion**: The agent is highly consistent in its *inconsistency*. The ORPDA layers are functioning as designed, creating a vivid portrait of an agent experiencing a "creative hijack." The Reflection layer is self-aware but powerless against the Drift layer's content propagation.
