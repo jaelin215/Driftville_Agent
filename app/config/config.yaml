@@ -1,7 +1,7 @@
 # config.yaml
 
 ollama_models:
-  default: "cogito-2.1:671b-cloud" # default model is used in ollama_api.py
+  default: "gemma3:27b-cloud" # default model is used in ollama_api.py
   llama: "llama2:latest" # 7b
   mistral: "mistral-large-3:675b-cloud" # "mistral:latest" # 7b
   qwen: "qwen3-next:80b-cloud" # qwen3:8b
@@ -13,7 +13,7 @@ ollama_models:
   deepseek-coder: "deepseek-coder-v2:16b" # MoE (comparable to GPT4-turbo for coding specific tasks)
   nemotron: "nemotron-3-nano:30b-cloud" # MoE very fast
   cogito: "cogito-2.1:671b-cloud"
-  gemma-quantized: "gemma3:27b-it-qat" # instruction-tuned, quantized
+  # gemma-quantized: "gemma3:27b-it-qat" # instruction-tuned, quantized, not responding
   
 
 model:
@@ -24,7 +24,7 @@ embedding_model:
 
 embed_cost_per_1k_tokens: 0.00015
 
-use_drift: True  # False: no drift, True: drift
+use_drift: False  # False: no drift, True: drift
 
 sim_config:
   persona: "Hailey Johnson"    # get the names from driftville_personas.json file
@@ -33,4 +33,4 @@ sim_config:
 
 load_prompt_from_langfuse: True   # False: loading the prompt from the local .yaml file, True: loading the prompt from LangFuse
 
-temperature: 0.3
+temperature: 1.0
