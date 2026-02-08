@@ -1,7 +1,7 @@
 # config.yaml
 
 ollama_models:
-  default: "gemma3:27b-cloud" # default model is used in ollama_api.py
+  default: "gemini-3-flash-preview:cloud" # default model is used in ollama_api.py
   llama: "llama2:latest" # 7b
   mistral: "mistral-large-3:675b-cloud" # "mistral:latest" # 7b
   qwen: "qwen3-next:80b-cloud" # qwen3:8b
@@ -24,13 +24,13 @@ embedding_model:
 
 embed_cost_per_1k_tokens: 0.00015
 
-use_drift: False  # False: no drift, True: drift
+use_drift: True  # False: no drift, True: drift
 
 sim_config:
-  persona: "Hailey Johnson"    # get the names from driftville_personas.json file
+  persona: "Maria Lopez"    # get the names from driftville_personas.json file
   start_time: "2023-02-13 10:00"   # keep it at quarters of an hour
-  num_ticks: 65   # keep it at 2 for this example, as the simulation is very short
+  num_ticks: 57   # keep it at 2 for this example, as the simulation is very short
 
 load_prompt_from_langfuse: True   # False: loading the prompt from the local .yaml file, True: loading the prompt from LangFuse
 
-temperature: 1.0
+temperature: 0.0
