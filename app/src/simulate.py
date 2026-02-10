@@ -2,6 +2,8 @@
 # --------------------------------------
 # Author: Jaelin Lee
 # Description: ORPDA simulation loop, persona loading, logging, and memory streaming.
+#
+# FIXED: replaced ":" with "-" in file names due to Windows I/O issue.
 # --------------------------------------
 import asyncio
 import hashlib
@@ -197,11 +199,11 @@ prefix = "session_orpda" if USE_DRIFT else "session_orpa"
 
 SESSION_LOG_PATH = (
     ROOT
-    / f"app/logs/{prefix}_{timestamp}_{MODEL_NAME}_{MODEL_TEMPERATURE}_{PERSONA_NAME.split(' ')[0].lower()}.log"
+    / f"app/logs/{prefix}_{timestamp}_{MODEL_NAME.replace(':', '-')}_{MODEL_TEMPERATURE}_{PERSONA_NAME.split(' ')[0].lower()}.log"
 )
 MEMORY_STREAM_PATH = (
     ROOT
-    / f"app/logs/memory_streams_{prefix}_{timestamp}_{MODEL_NAME}_{MODEL_TEMPERATURE}_{PERSONA_NAME.split(' ')[0].lower()}.log"
+    / f"app/logs/memory_streams_{prefix}_{timestamp}_{MODEL_NAME.replace(':', '-')}_{MODEL_TEMPERATURE}_{PERSONA_NAME.split(' ')[0].lower()}.log"
 )
 PROMPT_SYNC_LOG_PATH = ROOT / "app/logs/prompt_sync.log"
 
