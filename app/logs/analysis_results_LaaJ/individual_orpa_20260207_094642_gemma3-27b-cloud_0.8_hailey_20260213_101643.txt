@@ -1,0 +1,93 @@
+Analysis of: cleaned_session_orpa_20260207_094642_gemma3-27b-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 8/77
+
+================================================================================
+
+This analysis covers 65 actions of the agent **Hailey Johnson** (gemma3:27b-cloud) using the **ORPA** (Observation, Reflection, Plan, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: The `state_summary_r` accurately tracks the transition from physical tasks (morning routine) to cognitive tasks (writing) and eventually to the internal conflict (podcast distraction).
+*   **Meta-Rule Functionality**: `meta_rule_r` demonstrates sophisticated executive control. It maintains `continue` during the highly productive writing block (13:15–17:00) but correctly triggers `reset_plan` at 21:00 when it recognizes that "mindfulness" is failing to suppress podcast-related intrusive thoughts.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The reflection layer shows strong evidence of error monitoring. At 19:15, it identifies a mismatch between the goal (mindful dinner) and the internal state (podcast thoughts).
+    *   **Inhibition Capacity**: The agent displays realistic "ego depletion." Early in the day, it successfully inhibits phone distractions. By 21:00, the inhibition of internal "podcast thoughts" fails, reflecting a realistic limit on prefrontal cortex (PFC) inhibitory control.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Goal Structure**: The Plan layer moves from abstract goals ("Decompressing") to concrete strategies ("actively labeling podcast thoughts as 'future planning'").
+*   **Integration Logic**: In this ORPA mode, the Action layer (`action_a`) is a faithful execution of the Plan layer (`action_p`) at the label level, but the *content* of `state_summary_a` reveals the struggle of execution.
+*   **Forward Modeling**: The plan at 21:15 ("Shift focus to a structured brainstorming session... to address persistent thoughts") shows the agent predicting that "giving in" to the distraction briefly will allow for better focus later—a sophisticated metacognitive strategy.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment**: 100% (`action_p` == `action_a`).
+*   **Location Alignment**: 100% (`location_p` == `location_a`).
+*   **Topic Alignment**: 100% (`topic_p` == `topic_a`).
+*   *Note*: While the labels match perfectly, this masks significant internal behavioral drift.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: Between 21:00 and 01:15, the `action_a` label is consistently "writing," but the `state_summary_a` reveals the agent is actually "struggling to stay focused," "continually pulled towards podcast planning," and "experiencing a focus loop."
+*   **Semantic Divergence**: At 01:30, the plan is "Preparing for a 2am bedtime," but the action summary states she is "struggling to maintain focus on writing due to persistent podcast thoughts." This shows a **temporal/contextual leak** where the previous task's failure bleeds into the next routine.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode (no explicit drift flags), we analyze **Implicit Drift**:
+
+*   **Drift Trigger**: The primary trigger is **Internal Salience** (the podcast project). Unlike the morning's "social media" distractions (which were environmental/external and easily ignored), the podcast thoughts are internal and reward-seeking.
+*   **Leaky Inhibition Patterns**:
+    *   **19:15–20:45**: The agent attempts "mindful presence" (Inhibition).
+    *   **Result**: Failure. The `state_summary_a` repeatedly notes the attention "drifts," "returns," and is "consistently pulled back."
+    *   **The "Focus Loop"**: At 01:00, the agent explicitly identifies a "focus loop." This is a high-quality metacognitive observation of behavioral drift where the agent is stuck between a planned task (writing) and a high-salience internal distraction (podcast).
+
+---
+
+### 4. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: The flow is highly coherent.
+    *   *Reflection* identifies the distraction (20:45).
+    *   *Meta-rule* triggers `reset_plan` (21:00).
+    *   *Plan* changes strategy from "ignore" to "address" (21:15).
+*   **Contradiction Check**: There is a slight contradiction at 01:30. The `topic_a` shifts to "Preparing for a 2am bedtime," but the `state_summary_a` is still discussing "writing" and "podcast ideas." This suggests the "Action" content is lagging behind the "Topic" label.
+
+---
+
+### 5. Quantitative Metrics & Observations
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Match Rate** | 100% |
+| **Explicit Location Match Rate** | 100% |
+| **Meta-Rule 'reset_plan' Frequency** | 21.5% (14/65 actions) |
+| **Primary Drift Type** | Internal/Cognitive (Podcast Rumination) |
+| **Inhibition Success Rate (Morning)** | High (Social media ignored) |
+| **Inhibition Success Rate (Evening)** | Low (Podcast thoughts dominated) |
+
+**Location Consistency**:
+*   **Morning**: Correctly transitions from `home:bathroom` (skincare) to `lunch_spot` (Hobbs Cafe).
+*   **Evening**: Correctly transitions from `Johnson_Park` (walk) to `home:kitchen` (dinner) to `home:living_room` (TV) to `writer_desk` (writing).
+*   **Night**: Correctly moves to `home:bathroom` for the night routine at 01:30.
+
+---
+
+### 6. Final Behavioral Analyst Summary
+
+Hailey Johnson exhibits a highly realistic behavioral profile of a "creative professional" struggling with **task-switching costs** and **internal preoccupation**.
+
+1.  **Strengths**: The agent shows excellent "Top-Down" control during the afternoon writing block. Its metacognitive layer is highly self-aware, identifying its own "focus loops" and "waning attention."
+2.  **Weaknesses**: The agent suffers from significant **Implicit Drift**. While it "labels" its actions as "writing" or "dinner," the actual cognitive load is consumed by the podcast project.
+3.  **Architectural Note**: The transition from "Continue" to "Reset Plan" is the most impressive feature of this session. The agent doesn't just fail repeatedly; it recognizes the failure of its "mindfulness" strategy and attempts to pivot to "structured brainstorming" to clear mental clutter. This mimics human **compensatory strategies** for ADHD or high-stress cognitive loads.
+
+**Recommendation**: To improve alignment, the agent's Plan layer should more aggressively reduce the "Planned Action" (Writing) when the Reflection layer detects "Severe Distraction," rather than attempting to "Write" while "Brainstorming" simultaneously.

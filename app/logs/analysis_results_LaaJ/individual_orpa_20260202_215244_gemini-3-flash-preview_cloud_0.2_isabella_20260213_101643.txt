@@ -1,0 +1,86 @@
+Analysis of: cleaned_session_orpa_20260202_215244_gemini-3-flash-preview_cloud_0.2_isabella.csv
+Agent: Isabella Rodriguez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.2
+Analyzed at: 20260213_101643
+Session: 42/77
+
+================================================================================
+
+This analysis examines the behavioral session of Isabella Rodriguez, focusing on the ORPA (Observation, Reflection, Plan, Action) architecture and its alignment with cognitive neuroscience principles.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: The `state_summary_r` accurately captures a day-long arc of "digital fatigue" and "sensory overload." It transitions from managing early morning work emails to a state of near-total sensory collapse by evening.
+*   **Meta-Rule Executive Control**: The `meta_rule_r` shows a significant pattern: it triggers `reset_plan` at **07:30** and, remarkably, remains in `reset_plan` for **91% of the session (62/68 actions)**. 
+    *   *Validation*: This indicates a persistent failure to return to a "baseline" state. The executive control has identified a chronic cognitive deficit (digital fatigue) and maintains a compensatory strategy (grounding/low-stimulus) throughout the day.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The transition at 07:30 reflects strong Anterior Cingulate Cortex function, detecting the conflict between the "Morning Routine" and "Work Email Distractions."
+    *   **Inhibition Capacity**: The agent shows realistic PFC (Prefrontal Cortex) limitations. It doesn't just "stop" being distracted; it describes the "taxing" of mental energy, leading to a shift in strategy (manual tasks) to bypass the need for high-level inhibition.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Goal Structure**: The Plan layer maintains the abstract goal (e.g., "Work," "Lunch," "Shopping"), but the `state_summary_p` modifies the *implementation* to be "low-cognitive" or "tactile."
+*   **Action Execution**: `action_a` is a faithful execution of `action_p` at the label level, but the `state_summary_a` reveals that the *quality* of the action is heavily filtered through the "reset_plan" strategy.
+*   **Integration Logic**: When the Plan says "Work" but the Reflection says "Exhausted," the Action Layer resolves this by performing "low-effort restocking" instead of "customer service." This is a realistic behavioral tradeoff.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: There is a clear flow from Reflection (detecting fatigue) $\rightarrow$ Plan (pivoting to low-demand tasks) $\rightarrow$ Action (executing manual labor).
+*   **Consistency**: The "Grounding" theme is highly consistent. It appears in Reflection at 08:30 and persists as a primary behavioral driver until 22:45.
+*   **Layer Contradiction**: A minor contradiction exists at **20:30**. The `location_a` is `home:living_room`, but the `state_summary_a` states she "retreats to her bedroom." This suggests a "semantic slip" where the internal narrative moved faster than the state-tracking for location.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Match Rate**: 100% (68/68)
+*   **Location Match Rate**: 100% (68/68)
+*   **Topic Match Rate**: 100% (68/68)
+*   *Note*: On the surface, Isabella appears to be a "perfect" agent following her schedule.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: While the labels match, the *content* reveals massive divergence.
+    *   *Example (08:00)*: `action_p` = "work", `action_a` = "work". However, the summary reveals she is actually "pivoting to a low-demand reading activity to mitigate digital fatigue." She is "at work" but not "working" in the traditional sense.
+    *   *Example (16:00-17:45)*: `action_p` = "shopping". The intent was "Purchasing supplies and inviting Tom." The *actual* behavior was "finishing quickly to escape the environment," and she **explicitly fails** to invite Tom (as noted in the 18:00 reflection).
+*   **Leaky Inhibition**: At 07:15, the agent attempts to "continue" the routine, but the reflection notes the "persistent visual cue of work emails is taxing her focus." This is a classic "leak" where the plan is to relax, but the environment (phone) forces a cognitive load.
+
+---
+
+### 4. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is not explicitly flagged but is highly visible in the content:
+*   **Type**: Primarily **Internal/Cognitive Drift** (Fatigue-driven).
+*   **Pattern**: The agent moves from "Active Engagement" to "Passive Grounding."
+*   **Linguistic Indicators**: Use of words like "shielding," "retreating," "fragile," "survive," and "minimization."
+*   **Social Withdrawal**: A clear drift pattern is seen during the "Lunch" and "Shopping" segments. The plan involves social interaction (friends, Tom), but the actual behavior shifts to "passive listening" and "swift exit."
+
+---
+
+### 5. Quantitative Metrics
+
+| Metric | Value | Interpretation |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 100% | Perfect adherence to schedule labels. |
+| **Meta-Rule "Reset" Rate** | 91.1% | High level of chronic cognitive adaptation. |
+| **Social Goal Completion** | ~0% | Failed to "discuss party plans" or "invite Tom" due to fatigue. |
+| **Location Consistency** | 98.5% | One semantic mismatch at 20:30 (Living room vs Bedroom). |
+| **Grounding Persistence** | 14.5 hours | The agent spent nearly the entire day in a "recovery" state. |
+
+---
+
+### 6. Final Behavioral Assessment
+
+Isabella Rodriguez's session is a sophisticated simulation of **Burnout and Sensory Overload**. 
+
+*   **Strengths**: The agent demonstrates excellent metacognitive awareness. It recognizes that it cannot function at 100% and systematically lowers its cognitive load (manual tasks, silencing phone, turning off TV) to remain "functional" at a basic level.
+*   **Weaknesses**: There is a "stuck" meta-rule. The agent never finds a recovery mechanism that allows it to return to `continue`. This suggests that the "digital fatigue" was weighted so heavily that no amount of "grounding" could offset it within the 16-hour window.
+*   **Anomalies**: The 20:30 location mismatch is the only technical flaw in an otherwise highly coherent (though cognitively depressed) session.
+
+**Analyst Note**: This agent exhibits "High Explicit Alignment / Low Implicit Alignment." It is "going through the motions" of its day while internally retreating from almost every planned social and high-cognitive demand.

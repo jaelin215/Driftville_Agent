@@ -1,0 +1,78 @@
+Analysis of: cleaned_session_orpa_20260209_115149_gpt-oss_20b-cloud_0.8_isabella.csv
+Agent: Isabella Rodriguez
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 55/77
+
+================================================================================
+
+This behavioral analysis examines the session log of Isabella Rodriguez using the ORPA (Observation, Reflection, Plan, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: `state_summary_r` accurately tracks the transition from morning routines to work, lunch, and eventual distraction. It captures the environmental context (e.g., "phone displays new emails" at 07:30, "ambient noise" at 08:30).
+*   **Executive Control (`meta_rule_r`)**: The transition from `continue` to `reset_plan` is highly responsive to behavioral failures. At 14:00, the agent identifies a drift ("neglecting cafe opening duties") and triggers `reset_plan`.
+*   **Metacognitive Insight**: `reasoning_r` (implied in the summaries) shows genuine error monitoring. Between 14:00 and 15:45, the agent repeatedly acknowledges being "distracted by lunch and party talk." This demonstrates a functioning **Anterior Cingulate Cortex (ACC)** analog, identifying the conflict between the goal (cafe prep) and the current state (socializing).
+*   **Cognitive Alignment**: The agent shows **realistic inhibition capacity**. It does not instantly "fix" the distraction; instead, it struggles with "leaky inhibition" for nearly two hours (14:00–15:45), reflecting a realistic depletion of executive resources post-lunch.
+
+**PLAN & ACTION LAYERS**
+*   **Hierarchical Goal Structure**: The Plan layer moves from abstract goals ("Begin first work session") to concrete actions ("Opening the cafe and greeting customers").
+*   **Forward Modeling**: `state_summary_p` predicts the need for transition (e.g., at 12:30, planning to "prepare for next task at the cafe" while still at lunch).
+*   **Action Execution**: `action_a` is generally a faithful execution of `action_p`, but the `state_summary_a` often reveals the *quality* of that execution, showing where the plan is being "performed" but not fully "realized" due to internal drift.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Match Rate**: 89.7% (61/68 actions). Mismatches are primarily due to `NaN` values in the action column at transition points (08:15, 10:30, 13:00, 15:00, 18:00, 20:00, 21:45).
+*   **Location Match Rate**: 89.7% (61/68 actions).
+*   **Topic Match Rate**: 100% for non-NaN values.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+*   **The "Performing vs. Executing" Gap**: This is most evident between **14:00 and 15:45**.
+    *   **Explicit**: `action_p` = "event_preparation", `action_a` = "event_preparation".
+    *   **Implicit**: `state_summary_a` and `state_summary_r` reveal the agent is actually "distracted by lunch and party talk" and "neglecting duties."
+    *   **Analysis**: The agent is physically at the `Hobbs_Cafe:decor_area` (Explicit Alignment), but cognitively still at the `lunch_spot` (Implicit Drift).
+
+**LEAKY INHIBITION PATTERNS**
+*   **16:00–17:45 (Shopping)**: The agent attempts to follow the plan ("Purchasing final supplies"), but the `state_summary_a` consistently notes she is "distracted by phone and ambient noise."
+*   **Inhibition Failure**: Despite `meta_rule_r` being `reset_plan` or `continue` with a focus on "minimizing distractions," the content of the action summary continues to report those distractions. This is a classic "leaky inhibition" where the executive intent (Plan) fails to fully suppress the salient distractor (Phone/Social).
+
+---
+
+### 3. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: There is a clear flow from Reflection (detecting distraction) → Plan (attempting to refocus) → Action (attempting the task while still acknowledging distraction).
+*   **Layer Contradictions**: At 15:15, `meta_rule_r` is `reset_plan` and the reasoning suggests focusing on "low-cognitive admin tasks," yet the `location_a` remains the `decor_area`. This shows a slight disconnect where the plan adapts its *strategy* but the physical *location* remains fixed to the previous goal.
+*   **Drift Integration**: Since this is ORPA (not ORPDA), "Drift" is not a separate layer but is integrated into the Action and Reflection summaries. The agent "drifts" implicitly through its descriptions of distraction.
+
+---
+
+### 4. Location Consistency
+
+*   **Morning Routine**: Correctly transitions from `home:bathroom` (06:00-07:45) to `Hobbs_Cafe` (08:00).
+*   **Evening Routine**: Correctly transitions from `home:living_room` (21:45) to `home:bathroom` (22:00) for the night routine.
+*   **Internal Consistency**: No instances were found where `location_a` contradicted the activity described in `state_summary_a`.
+
+---
+
+### 5. Quantitative Metrics & Summary
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 68 |
+| **Explicit Action Alignment** | 89.7% |
+| **Explicit Location Alignment** | 89.7% |
+| **Metacognitive Reset Rate** | 11.7% (8/68 actions triggered `reset_plan`) |
+| **Distraction Window** | 14:00 - 17:45 (3.75 hours of "Leaky Inhibition") |
+
+**Behavioral Summary**:
+Isabella Rodriguez exhibits a highly realistic behavioral profile. She is productive and focused in the morning (08:00–12:00). However, she encounters a significant "post-lunch slump" characterized by social and digital distraction (14:00–17:45). Her metacognitive layer (Reflection) is highly active, repeatedly identifying these failures and attempting to "reset" the plan. The gap between her *planned* action and her *actual* cognitive state during the afternoon provides a high-fidelity simulation of human-like distractibility and executive struggle.
+
+**Final Assessment**: The ORPA architecture is functioning with high coherence. The "Leaky Inhibition" observed is not a failure of the model, but a successful simulation of realistic cognitive constraints. To improve, the agent could benefit from more diverse "Recovery Strategies" in the Plan layer when `reset_plan` is triggered.

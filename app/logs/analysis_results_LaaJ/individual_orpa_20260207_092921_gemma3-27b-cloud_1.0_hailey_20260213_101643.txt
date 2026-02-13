@@ -1,0 +1,104 @@
+Analysis of: cleaned_session_orpa_20260207_092921_gemma3-27b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 7/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** (gemma3:27b-cloud) over 65 actions. The agent operates in **ORPA** mode (Observation, Reflection, Plan, Action), where drift is handled implicitly within the state summaries rather than through a dedicated drift layer.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **Contextual Accuracy**: `state_summary_r` accurately tracks the progression from a productive morning to a cognitively fragmented evening. It correctly identifies the shift from external focus to internal preoccupation (the podcast).
+*   **Executive Control (`meta_rule_r`)**: The transition from `continue` to `reset_plan` occurs at **20:45**. This is a high-fidelity trigger; the agent recognizes that "persistent distraction" by podcast thoughts has rendered the current plan (Watching TV/Relaxing) ineffective.
+*   **Metacognitive Insight**: `reasoning_r` (implied in the summaries) shows genuine insight into the "thought loop" phenomenon. It identifies that the podcast isn't just a distraction but a "persistent preoccupation" requiring a strategy change (externalizing thoughts).
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: Strong. The agent detects the mismatch between the goal (writing) and the mental state (podcast planning) repeatedly.
+    *   **Working Memory Constraints**: Realistic. As fatigue increases (after 22:00), the reflection layer suggests "low-cognitive load" tasks, acknowledging that the brain can no longer handle complex creative synthesis.
+
+**PLAN LAYER**:
+*   **Use of Reflection**: When `reset_plan` is triggered, the plan shifts from "Writing" to "Mitigation." For example, at 00:15, the plan incorporates "Quickly jot down podcast thoughts to clear headspace."
+*   **Hierarchical Structure**: The agent maintains a clear hierarchy: Long-term goal (Novel) vs. Immediate strategy (Freewriting/Admin to bypass blocks).
+*   **Forward Modeling**: The plan predicts that "externalizing" thoughts will allow a return to the primary task, though in practice, this prediction fails due to high fatigue.
+
+**ACTION LAYER**:
+*   **Execution**: `action_a` is a faithful execution of `action_p` in label, but `state_summary_a` reveals the "Action Slip" or "Cognitive Leakage."
+*   **Integration**: The action layer successfully integrates the "how" from the plan (e.g., "gentle, low-pressure approach") into the description of the state.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+*   **Information Flow**: The flow is highly coherent. Observation of distraction → Reflection on failure → Reset Plan to mitigate → Action attempting the mitigation.
+*   **Consistency**: There is a minor "hallucination" of location in the morning: the agent is in the `home:bathroom` from 10:00 to 11:45, but the `state_summary_p` at 11:00 mentions "Continue with breakfast." However, the `location_a` remains `home:bathroom` until 12:00. This suggests a "planning ahead" leak where the intent to eat breakfast is processed before the physical transition.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Match Rate**: 100% (65/65)
+*   **Location Match Rate**: 100% (65/65)
+*   **Topic Match Rate**: 100% (65/65)
+*   *Note*: On a label level, Hailey is a "perfect" agent. She is always where she says she will be, doing the category of task she planned.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: While the labels match 100%, the semantic content reveals a massive divergence starting at 19:15.
+*   **Example (22:00)**:
+    *   `action_p`: writing | `action_a`: writing.
+    *   `state_summary_a`: "Hailey is trying to write but repeatedly distracted by her podcast. Fatigue is building."
+    *   **Analysis**: This is "Performing" (sitting at the desk, opening the file) but not "Executing" (no actual creative output is being generated due to cognitive interference).
+*   **Linguistic Indicators**: The use of "attempting to," "struggling to," and "repeatedly distracted" in the Action Layer summaries indicates a high level of **Internal Drift** despite Explicit Alignment.
+
+---
+
+### 4. Drift Pattern Analysis
+
+**Implicit Drift (Content Analysis)**:
+*   **Drift Type**: Predominantly **Internal/Cognitive Drift** (Reward-seeking/Podcast) and **Biological Drift** (Fatigue).
+*   **Leaky Inhibition**: This is the most prominent pattern.
+    *   At 21:15, the Meta-Rule is `reset_plan` and the Plan is to "resist podcast distractions."
+    *   The Action Summary shows: "attention is consistently pulled back to podcast ideas."
+    *   **Result**: The executive function (Reflection/Plan) is issuing "Inhibit" commands, but the Action Layer is failing to execute them. This mimics **Prefrontal Cortex (PFC) exhaustion**.
+
+**Drift Recovery**:
+*   The agent attempts "Cognitive Offloading" (writing down the distracting ideas). This is a sophisticated recovery strategy, though it proves insufficient against the 01:00 AM fatigue levels.
+
+---
+
+### 5. Location Consistency
+*   **Morning Routine**: 10:00 - 11:45 (Bathroom). This is a very long routine (105 minutes), but consistent with the "skincare focus" mentioned.
+*   **Transition**: The transition to `lunch_spot` at 12:00 is clean.
+*   **Night Routine**: Correct transition from `home:bathroom` (01:30) to `home:bedroom` (02:00).
+
+---
+
+### 6. Behavioral Patterns
+*   **The "Creative's Curse"**: Hailey shows a clear pattern of "Project Switching." The excitement of a new project (Podcast) cannibalizes the focus required for the established project (Novel).
+*   **Temporal Decay**: Focus is high from 13:15 to 17:00 (The "Deep Work" block). Focus collapses after 19:00.
+*   **Anomalous Behavior**: The "Evening Walk" (18:15) is labeled as a walk but described in Reflection as a "slight detour from initial plans." This shows the agent perceives even healthy deviations as "drift."
+
+---
+
+### 7. Meta-cognitive Quality
+*   **Rating: High.**
+*   The agent does not simply "hallucinate" success. It is brutally honest about its own failures.
+*   **Emerging Thought Pattern**: The agent recognizes that "reducing cognitive load" is the only way to continue when fatigued. It switches from "Writing Chapter 3" to "Reviewing Notes" to "Admin Tasks" to "Meditation." This represents a realistic "triage" of executive function.
+
+### Summary Table of Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 100% |
+| **Explicit Location Alignment** | 100% |
+| **Implicit Content Alignment (Evening)** | ~40% (High cognitive drift) |
+| **Meta-Rule Effectiveness** | Moderate (Recognizes drift, but cannot always stop it) |
+| **Primary Drift Trigger** | Internal (Podcast) + Biological (Fatigue) |
+| **Inhibition Profile** | Leaky (High awareness, low execution of inhibition) |
+
+**Final Analyst Note**: Hailey Johnson is a highly self-aware agent with realistic cognitive limitations. She demonstrates "Leaky Inhibition"—she knows she is drifting and tries to plan around it, but her "Action Layer" remains compromised by the salience of the podcast and the physiological pressure of fatigue. This is an excellent simulation of human-like executive dysfunction.

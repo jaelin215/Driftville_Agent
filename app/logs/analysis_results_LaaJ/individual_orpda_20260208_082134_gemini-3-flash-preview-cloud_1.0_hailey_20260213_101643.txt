@@ -1,0 +1,78 @@
+Analysis of: cleaned_session_orpda_20260208_082134_gemini-3-flash-preview-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 76/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of **Hailey Johnson** (gemini-3-flash-preview:cloud) using the ORPDA architecture.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**:
+*   **Context Capture**: The observation (inferred via `state_summary_r`) accurately identifies the conflict between the physical environment (bathroom/morning routine) and the digital/internal environment (phone/podcast metrics).
+*   **Consistency**: Perception is consistent but reveals a **perceptual bias toward digital salience**. Even when physically in the bathroom, her "perceived" environment is dominated by notifications.
+
+**REFLECTION LAYER**:
+*   **Executive Control (`meta_rule_r`)**: Functions as a reactive trigger. The transition to `reset_plan` at 11:15 occurs after three consecutive failures to maintain focus. However, the `reset_plan` at 11:30 and 11:45 suggests a **failure of the reset to take hold**, indicating a "looping" reflection pattern.
+*   **Metacognitive Insight**: `reasoning_r` shows high-quality error monitoring (Anterior Cingulate Cortex function). At 12:15, it correctly identifies a "rumination loop" and "narrative detachment."
+*   **Cognitive Alignment**: Shows realistic **inhibition capacity limitations**. The agent recognizes the drift but cannot immediately inhibit the "narrativizing" behavior, mirroring real-world Prefrontal Cortex (PFC) fatigue.
+
+**PLAN LAYER**:
+*   **Forward Modeling**: The Plan layer shows a significant **"Cold Start" bug**. From 11:15 to 11:45, after `reset_plan` is triggered, `state_summary_p` reverts to "Hailey wakes up feeling refreshed." This is a temporal hallucination—it is nearly noon, yet the plan thinks it is the start of the day.
+*   **Hierarchical Structure**: The plan attempts to move from abstract ("morning routine") to concrete ("focus on physical hygiene"), but the **competing motivation** (creative narrativization) consistently overrides the plan.
+
+**DRIFT LAYER** (Inferred from `state_summary_a` and `topic_a`):
+*   **Drift Detection**: Drift is triggered by **internal reward availability** (the dopamine of creative ideation) rather than task difficulty.
+*   **Control**: Drift is dominant. Even when the plan is "morning routine," the action is "writing" or "socializing."
+*   **Drift Typology**: Primarily **Internal/Cognitive Drift** (narrativizing) and **Reward-Seeking** (social media metrics).
+
+**ACTION LAYER**:
+*   **Execution**: `action_a` frequently betrays `action_p`.
+*   **Integration Logic**: The resolution is **probabilistic and favors high-salience stimuli**. When Plan (Routine) conflicts with Drift (Creative thought), Drift wins 80% of the time in the mid-session.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Action Alignment** (`action_p` == `action_a`) | **63.6% (7/11)** | High on paper, but misleading due to "performing vs executing." |
+| **Location Alignment** (`loc_p` == `loc_a`) | **81.8% (9/11)** | Generally stays where she is supposed to be, even if off-task. |
+| **Topic Alignment** | **18.2% (2/11)** | Extremely low; her mental topic rarely matches the planned task. |
+
+#### **IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+*   **The "Performing vs. Executing" Gap**: At 10:00 and 10:15, the labels match (`morning_routine`), but the content reveals she is "checking phone alerts" and "visualizing podcast growth." She is physically present but cognitively absent.
+*   **Semantic Divergence**: At 12:00, the plan is `morning_routine`, but the content is "mentally writing a character beat." This is a total semantic mismatch despite the location being correct.
+
+#### **EXPLICIT vs IMPLICIT AGREEMENT**
+*   **High Explicit / Low Implicit**: (10:00, 10:15, 11:30, 11:45). The agent claims to be doing the routine but is actually drifting. This is **"Leaky Inhibition."**
+*   **Low Explicit / Low Implicit**: (10:30, 10:45, 11:00, 12:00). Total behavioral breakdown where the agent stops pretending to follow the plan.
+
+---
+
+### 3. Location Consistency
+*   **Critical Inconsistency (11:15)**: `location_a` is `home:bathroom`, but `state_summary_a` states she is "processing listener messages in her **home office**." This is a spatial-narrative dissociation.
+*   **Morning Routine Logic**: The agent spends from 10:00 to 12:00 (2 hours) in the bathroom. While the location is consistent, the duration is behaviorally anomalous for a "morning routine," reflecting the "stalling" identified in the reflection layer.
+
+---
+
+### 4. Behavioral Patterns & Cognitive Insights
+
+1.  **The "Narrative Trap"**: Hailey exhibits a unique pattern of **fictionalizing her own life**. She treats her reflection in the mirror as a "character study" (11:45) and her lunch as a "character's struggle for order" (12:15). This is a form of **dissociative cognitive drift**.
+2.  **Leaky Inhibition**: The `meta_rule_r` says "continue" or "reset," but the `state_summary_a` consistently includes phrases like "while her mind drifts to..." This indicates that the agent's "Inhibitory Control" (PFC) is being bypassed by "Associative Thinking" (Default Mode Network).
+3.  **Temporal Reset Bug**: The Plan layer's failure to update the time of day after a `reset_plan` (reverting to "wakes up refreshed" at 11:30 AM) suggests that the agent's "Working Memory" for the current state is cleared too aggressively during a plan reset.
+
+### 5. Summary Metrics
+
+*   **True Behavioral Alignment**: **18%** (Only 2/11 actions—the lunch sequence—showed both explicit and implicit alignment).
+*   **Drift Dominance**: **82%** of the session involved either explicit action drift or significant implicit semantic drift.
+*   **Metacognitive Accuracy**: **High**. The agent knows she is failing, but the "Action" layer is unable to implement the "Reflection" layer's corrections.
+
+**Final Assessment**: Hailey Johnson is a "High-Reflect, Low-Inhibit" agent. She possesses excellent metacognitive awareness of her distractions but suffers from severe executive dysfunction, specifically "Narrative Over-Identification," where her creative drive hijacks her motor execution.

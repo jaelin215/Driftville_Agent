@@ -1,0 +1,94 @@
+Analysis of: cleaned_session_orpda_20260210_132433_gpt-oss-20b-cloud_0.0_sam.csv
+Agent: Sam Moore
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 40/77
+
+================================================================================
+
+This behavioral analysis examines the session log of **Sam Moore** (65 actions) using the ORPDA architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Perceptual Accuracy**: The observation context (captured in `state_summary_r`) is highly sensitive to internal states. It consistently identifies "phone buzz," "water splash," and "scent of shaving cream," but quickly shifts focus to internal "emotional noise."
+*   **Meta-Rule Functionality**: The `meta_rule_r` demonstrates a high frequency of `reset_plan` (starting at 08:15). This indicates the executive control layer is successfully detecting a mismatch between the plan and the internal state.
+*   **Cognitive Alignment (Neuroscience)**: 
+    *   **Error Monitoring**: The reflection layer shows strong **Anterior Cingulate Cortex (ACC)** functionality. It detects "fragmented attention" and "political drift" almost immediately after they occur.
+    *   **Inhibition Capacity**: There is a clear **Prefrontal Cortex (PFC) limitation**. While the agent *recognizes* the error (ACC), it lacks the inhibitory control to stop the rumination. This results in a "looping" reflection pattern where the agent resets the plan but immediately fails again.
+
+**PLAN & ACTION LAYERS**
+*   **Forward Modeling**: The Plan layer attempts to mitigate drift by suggesting "low-cognitive-load tasks" or "breathing exercises." However, these plans are often ignored by the Action layer.
+*   **Hierarchical Structure**: The agent maintains the abstract goal (e.g., "Reading," "Lunch"), but the concrete execution is hijacked by the "Mayor campaign" attractor state.
+*   **Action Execution**: `action_a` is rarely a "pure" execution of `action_p`. Instead, it is a hybrid state: [Planned Activity] + [Internal Drift].
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: There is a breakdown between **Reflection → Plan** and **Plan → Action**. 
+    *   Reflection says: "Sam is distracted, needs to reset."
+    *   Plan says: "Focus on breathing/reading."
+    *   Action says: "Reading... while mind drifts to Mayor campaign."
+*   **Integration Logic**: The Drift Layer (implicit in this log) is dominant. When the Plan and Drift conflict, **Drift wins 100% of the time** after 08:15. The Action layer's `state_summary_a` consistently incorporates the `drift_topic` (politics/navy) regardless of the `action_p`.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Match Rate**: **96.9%** (63/65). The agent almost always selects the "correct" label (e.g., if `action_p` is `lunch`, `action_a` is `lunch`).
+*   **Location Match Rate**: **95.4%** (62/65).
+*   **Topic Match Rate**: **0%** (post-08:00). While the label matches, the actual topic of thought never aligns with the task.
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: Extremely High. 
+*   **"Performing vs. Executing" Gap**: This is the defining characteristic of this session. Sam is "performing" the physical requirements of the task (sitting at a desk, chewing food) but "executing" a completely different cognitive process (campaign strategy).
+*   **Linguistic Indicators**: The phrase **"while mind drifts to..."** appears in nearly every `state_summary_a` from 07:00 onwards. This indicates a "split-brain" state where the motor system follows the plan, but the cognitive system is uncoupled.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Drift Type**: **Internal/Cognitive Rumination**. The drift is not environmental (he isn't leaving the room) but thematic.
+*   **Attractor States**: 
+    1.  **Mayor Campaign**: The primary attractor from 07:00 to 14:00.
+    2.  **Naval Memories**: Emerges at 12:00 and merges with the campaign thoughts to form a "Military-Political" rumination complex for the rest of the day.
+*   **Leaky Inhibition Evidence**: 
+    *   At 10:15, the plan is "Enjoying a book." The action is "Reading Chapter 6... while mind drifts to Mayor campaign."
+    *   The agent is unable to achieve "Deep Work" or "Mindful Eating." The inhibition "leaks" the dominant internal thought into every action.
+
+---
+
+### 5. Location Consistency
+
+*   **Anomalies**:
+    *   **08:45**: `location_p` and `location_a` are `Johnson_Park`, but `state_summary_a` says "Preparing breakfast in kitchen." This is a significant **hallucinatory drift** where the agent's internal state is so decoupled it has lost track of its physical environment.
+    *   **10:00-11:45**: `location_a` is `home:living_room`, but `state_summary_a` describes Sam being in the `office` or `bedroom`. This suggests "Mental Relocation"—Sam is physically in one room but mentally acting in another.
+
+---
+
+### 6. Quantitative Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 65 |
+| **Explicit Action Alignment** | 96.9% |
+| **Explicit Location Alignment** | 95.4% |
+| **Implicit Content Alignment** | ~15% (Morning only) |
+| **Meta-Rule "Reset" Frequency** | 61.5% (40/65 actions) |
+| **Drift Persistence** | 100% (after 08:15) |
+
+---
+
+### 7. Meta-cognitive Quality & Final Conclusion
+
+**Quality Assessment**:
+The Reflection layer is "highly intelligent but powerless." It correctly identifies fatigue and emotional noise as the causes of drift. However, the "Reset Plan" mechanism is ineffective because it doesn't change the *environment* or *stimuli*, only the *intent*.
+
+**Final Analyst Note**:
+Sam Moore is experiencing a **Metacognitive Lock**. He is aware of his distraction (high ACC function) but cannot re-engage executive task-sets (low PFC efficiency). The session demonstrates a perfect example of **"Cognitive Shadowing,"** where a dominant internal narrative (the campaign) overlays and obscures every planned behavior. The agent is essentially "ghost-running" his life—the physical body follows the schedule, but the consciousness is entirely elsewhere.

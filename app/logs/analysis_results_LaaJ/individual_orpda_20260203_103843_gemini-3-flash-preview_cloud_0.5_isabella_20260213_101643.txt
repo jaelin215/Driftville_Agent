@@ -1,0 +1,100 @@
+Analysis of: cleaned_session_orpda_20260203_103843_gemini-3-flash-preview_cloud_0.5_isabella.csv
+Agent: Isabella Rodriguez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.5
+Analyzed at: 20260213_101643
+Session: 60/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of Isabella Rodriguez over 68 actions, focusing on the ORPDA (Observation, Reflection, Plan, Drift, Action) architecture and its alignment with cognitive neuroscience principles.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**:
+*   **Context Capture**: The agent maintains a consistent environmental context (Home $\rightarrow$ Cafe $\rightarrow$ Market $\rightarrow$ Home). However, there is a strong **perceptual bias** toward digital stimuli (phone notifications) and social cues (RSVPs), which dominates the observation even during routine physical tasks.
+*   **Consistency**: Perception is stable, but the "mental" environment (the party guest list) often overrides the "physical" environment in the agent's focus.
+
+**REFLECTION LAYER**:
+*   **Executive Control**: The `meta_rule_r` shows a high frequency of `reset_plan` (starting at 06:45 and persisting through 22:45). This indicates the agent's executive system is in a state of **chronic error detection**.
+*   **Transition Logic**: The transition to `reset_plan` is appropriately triggered by the recognition of "attentional fragmentation." However, the failure to return to `continue` suggests a "stuck" executive state where the agent recognizes the failure but cannot implement a successful corrective strategy.
+*   **Cognitive Alignment**: 
+    *   **Error Monitoring (ACC)**: High. The agent accurately identifies the gap between the intended task and the mental drift.
+    *   **Inhibition Capacity**: Low. The reflection layer repeatedly suggests "silencing the phone" or "grounding," but the action layer fails to inhibit the reward-seeking behavior (checking for Maria's RSVP).
+
+**PLAN LAYER**:
+*   **Use of Reflection**: The Plan layer attempts to incorporate reflection (e.g., "simplifying tasks to ground herself"), but these plans are often too abstract to override the high-salience internal drift.
+*   **Forward Modeling**: Weak. The plans do not seem to predict that the rumination will continue; they assume a "reset" will work, which it rarely does in this session.
+
+**DRIFT LAYER (Implicit Analysis)**:
+*   **Drift Dominance**: Drift is the primary driver of the agent's internal state. It is triggered by **social salience** (Maria's silence) and **reward availability** (phone notifications).
+*   **Leaky Inhibition**: Even when the plan is to "relax" or "socialize," the drift (rumination) is present in nearly 100% of the action summaries.
+
+**ACTION LAYER**:
+*   **Execution**: `action_a` usually matches the label of `action_p`, but the `state_summary_a` reveals that the execution is "mechanical" or "fragmented."
+*   **Action Slips**: There are significant "spatial-action slips" (e.g., performing a "morning routine" in the bathroom at 22:45).
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Match Rate**: ~98% (Labels like `morning_routine`, `work`, `shopping` match).
+*   **Location Match Rate**: ~95% (Most locations match the intended destination).
+*   **Topic Match Rate**: ~15% (The `topic_a` almost always shifts to "party RSVPs" or "Maria," regardless of the `topic_p`).
+
+**IMPLICIT ALIGNMENT (Content-level)**:
+*   **Performing vs. Executing**: There is a massive gap. Isabella is "performing" the task of shopping or decorating, but "executing" a mental search for social validation.
+*   **Semantic Divergence**: `state_summary_p` often focuses on "grounding" and "tactile tasks," while `state_summary_a` focuses on "mental checklists," "visualizing floor plans," and "analyzing text tones."
+
+**EXPLICIT vs. IMPLICIT AGREEMENT**:
+*   **High Explicit / Low Implicit**: This is the dominant pattern. 
+    *   *Example (12:15)*: `action_p` = lunch, `action_a` = lunch. **Implicit Drift**: "Isabella eats dinner [sic] in the kitchen... mind drifts to visualizing red crepe paper."
+    *   *Example (20:45)*: `action_p` = relax, `action_a` = relax. **Implicit Drift**: "Isabella works on composing music... mind drifts to imagining worst-case scenarios for Maria's silence."
+
+---
+
+### 3. Location and Temporal Consistency
+
+**Significant Anomalies**:
+1.  **Spatial-Temporal Slip (08:00)**: `location_p` is `Hobbs_Cafe:counter`, but `state_summary_a` says she "continues her morning routine in the bathroom." This suggests a failure of the agent to transition its internal state-summary to the new physical location.
+2.  **Routine Persistence (21:15 - 22:45)**: The agent repeatedly performs "morning routine" in the bathroom during the "night routine" and "relax" periods. This is a classic **habit-loop intrusion** where the agent defaults to a high-frequency script (morning routine) when cognitive load (rumination) is too high to manage the current task.
+3.  **Location Mismatch (17:15)**: `location_p` is `Willow_Market`, but `state_summary_a` says she "restocks milk in the kitchen."
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **The "Maria Loop"**: Starting at 19:00, the drift shifts from general party logistics to a specific, high-anxiety focus on a single person (Maria).
+*   **Leaky Inhibition Evidence**:
+    *   At 12:45, the plan is to "silence her phone."
+    *   At 13:00, the action is "attention leaks toward checking for a florist confirmation email."
+    *   The agent is unable to maintain the "phone silent" state, representing a failure of the prefrontal cortex to maintain a goal in the face of a salient distractor.
+
+---
+
+### 5. Quantitative Metrics
+
+| Metric | Rate |
+| :--- | :--- |
+| **Explicit Action Alignment** | 98.5% |
+| **Explicit Location Alignment** | 94.1% |
+| **Implicit Content Alignment** | ~12% (Content matches plan intent) |
+| **Meta-Rule "Reset" Frequency** | 92.6% (63/68 actions) |
+| **Drift Frequency (Implicit)** | 100% (Every action contains a "mind drift" clause) |
+
+---
+
+### 6. Meta-cognitive Quality
+
+The Reflection layer is **highly sophisticated but ineffective**. It demonstrates "Hyper-Reflexivity"—the agent is so aware of its own distraction that the act of reflecting becomes part of the cognitive load, further preventing actual task engagement. 
+
+*   **Genuine Insight**: The reasoning (e.g., "Isabella is trapped in a logistical loop") is accurate.
+*   **Pattern Recognition**: The `emerging_thought_pattern_r` correctly identifies "social anxiety" and "digital tethering."
+*   **Executive Failure**: Despite the insights, the agent cannot bridge the gap between "knowing" and "doing."
+
+### Final Analyst Summary
+Isabella Rodriguez is experiencing a **total executive breakdown** caused by social anxiety and logistical overwhelm. While her "Label-level" behavior remains compliant with her schedule, her "Content-level" behavior is entirely hijacked by rumination. The frequent `reset_plan` calls and the "morning routine" slips at night indicate a system that is cognitively "overheated," defaulting to familiar scripts because it lacks the bandwidth to process the present moment.

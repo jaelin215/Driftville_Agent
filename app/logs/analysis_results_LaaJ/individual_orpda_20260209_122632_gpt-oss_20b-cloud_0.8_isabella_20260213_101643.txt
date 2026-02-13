@@ -1,0 +1,91 @@
+Analysis of: cleaned_session_orpda_20260209_122632_gpt-oss_20b-cloud_0.8_isabella.csv
+Agent: Isabella Rodriguez
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 71/77
+
+================================================================================
+
+This behavioral analysis is based on the 68-action session log for Isabella Rodriguez.
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**:
+*   **Context Capture**: The observation (inferred through `state_summary_r`) is highly accurate during the morning and work blocks (06:00–11:45). However, as the day progresses, a "perceptual bleed" occurs where the agent observes its own internal drift more than the external environment.
+*   **Selective Attention**: There is a clear pattern of **selective attention toward social rewards** (Valentine’s Day party planning). By 13:00, the observation of the "Cafe" environment is increasingly filtered through the lens of "Party Planning."
+
+**REFLECTION LAYER**:
+*   **Executive Control (`meta_rule_r`)**: Functions well as a diagnostic tool. It triggers `reset_plan` at 13:00, 14:45, 16:00, and consistently from 20:15 onwards.
+*   **Transition Logic**: The transition from `continue` → `reset_plan` is appropriately triggered by the recognition of "mind drifting." However, the "reset" fails to actually inhibit the drift in the Action Layer, suggesting a **decoupling of executive intent and motor execution**.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: High. The reflection layer accurately identifies when the agent is off-task (e.g., 16:00: "Isabella’s attention drifted...").
+    *   **Inhibition Capacity**: Low/Realistic. The agent demonstrates "Ideal-World Assumptions" in its planning ("avoid party thoughts") but fails to execute them, mirroring real-world prefrontal cortex (PFC) limitations under high cognitive load or emotional salience.
+
+**PLAN LAYER**:
+*   **Forward Modeling**: The plan layer shows hierarchical goal structures (e.g., 16:15: "Focus on café prep items"). However, the plans become increasingly reactive to the drift rather than proactive.
+*   **Drift Incorporation**: The `reset_plan` often attempts to "force" focus (e.g., 13:00: "avoid party thoughts"), which ironically seems to increase the salience of the drift (the "White Bear" effect).
+
+**ACTION LAYER**:
+*   **Integration Logic**: When Plan and Drift conflict, **Drift wins the semantic content, while Plan wins the label.** This creates a "zombie agent" effect where the agent claims to be doing the task while the description reveals it is doing something else.
+*   **Neuroscience Alignment**: Shows realistic "Action Slips." At 22:30, the agent is supposed to be doing a `night_routine` in the `bathroom`, but the `state_summary_a` describes "Breakfast in kitchen." This is a classic failure of task-set maintenance.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **98.5%** | `action_p` and `action_a` match almost perfectly. |
+| **Explicit Location Alignment** | **98.5%** | `location_p` and `location_a` match almost perfectly. |
+| **Implicit Content Alignment** | **~45%** | High divergence starting at 12:30. |
+
+**The "Performing vs. Executing" Gap**:
+The agent exhibits a high rate of **"Label Adherence with Semantic Drift."**
+*   **Example (13:00)**: `action_a` is "lunch," but `state_summary_a` says "mind drifts to Valentine's Day party planning."
+*   **Example (22:45)**: `action_a` is "night_routine," but `state_summary_a` says "Work at home office on project deadline."
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Explicit vs. Implicit Drift**:
+*   **Explicit Drift**: The agent rarely changes its `action_a` label to "drift." It maintains the facade of the plan.
+*   **Implicit Drift (Content)**: This is the dominant mode. The drift is almost entirely **Internal/Reward-Seeking** (social validation via the party).
+*   **Leaky Inhibition**: This is most evident between 20:15 and 21:45. The `meta_rule_r` repeatedly calls for `reset_plan` to "refocus on decorations," but the `state_summary_a` remains stuck on "mind drifts to friend RSVP."
+
+**Drift Typology**:
+1.  **Thematic Bleed**: Cafe work (14:00) is described as "Shopping for party supplies in the living room."
+2.  **Temporal Displacement**: At 22:30 (Bedtime), the agent describes "Breakfast in kitchen." This suggests a breakdown in the agent's temporal grounding.
+
+---
+
+### 4. Location Consistency
+
+*   **Major Inconsistency (22:30 - 22:45)**:
+    *   `location_a`: `home:bathroom`
+    *   `state_summary_a`: "Breakfast in kitchen" (22:30) and "Work at home office" (22:45).
+    *   **Analysis**: The agent's spatial "proprioception" has failed. It is physically in the bathroom (per the label) but mentally/narratively in the kitchen or office.
+
+---
+
+### 5. Meta-cognitive Quality
+
+*   **Genuine Insight**: The `state_summary_r` at 16:00 ("Isabella’s attention drifted from event prep to personal party planning") shows excellent metacognitive monitoring.
+*   **Emerging Thought Patterns**: The agent recognizes its own obsession. However, the `emerging_thought_pattern_r` (inferred) is repetitive. It identifies the same drift for 10 consecutive cycles without successfully implementing a new strategy to counter it.
+
+---
+
+### 6. Summary for Behavior Analysis
+
+**Behavioral Profile: "The Distracted Planner"**
+Isabella Rodriguez demonstrates high functional competence during routine, low-stakes hours (Morning/Early Work). However, the introduction of a high-salience social event (Valentine's Party) triggers a catastrophic failure in the **Inhibition/Action selection** loop.
+
+**Key Findings**:
+1.  **Semantic Dissociation**: The agent maintains "correct" labels for actions and locations while the descriptive content of those actions completely diverges into drift.
+2.  **Ineffective Reset**: The `reset_plan` mechanism acts as a "flag" but lacks the "teeth" to alter the `state_summary_a` generation.
+3.  **Temporal/Spatial Collapse**: By the end of the day, the agent's internal narrative (Breakfast/Office) loses all alignment with its physical constraints (Night/Bathroom).
+
+**Recommendation**:
+The agent requires a stronger "Inhibition Weight" in the ORPDA architecture. When `meta_rule_r` = `reset_plan`, the Action Layer should be forced to clear its "thought buffer" to prevent the semantic bleed observed in this session.

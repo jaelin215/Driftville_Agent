@@ -1,0 +1,83 @@
+Analysis of: cleaned_session_orpda_20260207_080202_gemma3-27b-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 22/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** (gemma3:27b-cloud) over 65 actions. The agent exhibits a profound and persistent case of **cognitive capture** and **leaky inhibition**, where a secondary interest (podcasting) effectively hijacks the primary goal-directed behavior (novel writing) for nearly 16 hours.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**REFLECTION LAYER**:
+*   **Executive Control (`meta_rule_r`)**: The transition from `continue` to `reset_plan` is highly responsive to behavioral failure. Starting at 13:00, the agent enters a "Reset Loop." The reflection layer correctly identifies that "Hailey is deeply stuck in a loop" (16:30), showing excellent **error monitoring** (ACC function).
+*   **Cognitive Alignment**: The reflection layer demonstrates realistic **working memory constraints**. It recognizes the distraction but cannot provide a strategy that successfully inhibits the "podcast" impulse. It shows "ideal-world assumptions" in its planning (e.g., "15-minute writing sprint to re-engage"), which repeatedly fail against the high-salience reward of the podcast idea.
+
+**PLAN LAYER**:
+*   **Hierarchical Structure**: The plans move from abstract goals ("Deep focus on novel") to concrete mitigation strategies ("Focus on dialogue to maintain focus").
+*   **Forward Modeling**: The plan layer attempts to predict that "listing ideas" will "clear mental space" (14:30). However, in this session, this prediction is incorrect; instead of purging the thought, it reinforces the drift (a known phenomenon in OCD/rumination).
+
+**ACTION LAYER**:
+*   **Integration Logic**: When Plan ("Write Novel") and Drift ("Podcast Ideas") conflict, **Drift wins the internal content while the Plan wins the external label.** This results in "Performing" (labeling the action as writing) rather than "Executing" (actually writing the novel).
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **100%** | `action_p` and `action_a` match perfectly in every row. |
+| **Explicit Location Alignment** | **100%** | `location_p` and `location_a` match perfectly in every row. |
+| **Implicit Content Alignment** | **~15%** | Most `state_summary_a` entries describe distraction or drift. |
+
+**The "Performing vs. Executing" Gap**:
+This session is a textbook example of high explicit alignment masking low implicit alignment.
+*   **Example (14:15)**: `action_p` = "writing", `action_a` = "writing".
+*   **Implicit Reality**: `state_summary_a` = "Hailey is writing down podcast ideas at her desk, drifting from her planned work session."
+*   **Analysis**: The agent maintains the *label* of the task to satisfy the executive requirement but fills the *content* with the drifting interest.
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Implicit Drift (Content Analysis)**:
+The drift is **Internal/Cognitive**. It is not triggered by the environment (the bathroom or park) but by an internal reward-seeking mechanism (the excitement of a new project).
+
+*   **Leaky Inhibition Patterns**:
+    *   **11:00 - 12:45**: The drift begins during low-cognitive-load tasks (morning routine, lunch).
+    *   **13:00 - 01:30**: The drift persists through high-cognitive-load tasks (writing). This indicates a failure of the Prefrontal Cortex (PFC) to maintain the "task set" against the dopamine-mediated salience of the podcast idea.
+    *   **Linguistic Indicators**: The use of "while" and "but" in `state_summary_a` (e.g., "writing... while mind drifts") acts as a semantic bridge between the failed plan and the successful drift.
+
+---
+
+### 4. Location Consistency
+
+There are significant **hallucinations/inconsistencies** between the planned location and the described activity:
+1.  **10:00 - 10:15**: `location_a` is `home:bathroom`, but `state_summary_a` says she is in the **bedroom**.
+2.  **10:30 - 10:45**: `location_a` is `home:bathroom`, but `state_summary_a` says she is in the **kitchen** eating breakfast.
+3.  **18:45**: `location_a` is `Johnson_Park`, but `state_summary_a` says she "worked on a podcast episode outline in the **office**."
+4.  **19:15**: `location_a` is `home:kitchen`, but `state_summary_a` says she "relaxed in the **living room**."
+
+**Analysis**: The agent's internal "world model" for location is highly unstable when cognitive drift is high. The obsession with the podcast is so taxing on working memory that the agent loses track of its physical context.
+
+---
+
+### 5. Behavioral Patterns & Meta-cognitive Quality
+
+*   **The "Podcast Capture"**: The agent is unable to break the cycle. Even when the `meta_rule_r` is `reset_plan`, the new plan is almost identical to the failed one.
+*   **Meta-cognitive Insight**: The `state_summary_r` is remarkably accurate at describing the failure: *"Hailey is deeply stuck in a loop, unable to sustain focus on her novel due to podcasting thoughts"* (16:30).
+*   **The "False Recovery"**: At 20:45, the agent tries to "Shift to a low-cognitive task (organize emails)." This is a realistic coping mechanism for burnout/distraction, but by 21:00, she immediately returns to the "Writing" task and the drift resumes.
+
+---
+
+### 6. Summary for Behavior Analysis
+
+**Diagnosis**: **Severe Cognitive Capture with High Explicit Compliance.**
+Hailey Johnson is "masking" her behavioral drift. She reports that she is doing her chores, eating, and writing (Explicit Alignment 100%), but her internal state and actual output are almost entirely dedicated to a non-planned topic (Implicit Alignment <20%).
+
+**Key Finding**: The `reset_plan` mechanism in this model instance is **ineffective** because it lacks "Behavioral Variety." It attempts to solve the same problem (distraction) with the same failed solution (trying harder to focus) for 14 consecutive hours. The agent shows "Leaky Inhibition" where the intended action is performed as a shell, but the cognitive resources are diverted elsewhere.

@@ -1,0 +1,95 @@
+Analysis of: cleaned_session_orpa_20260206_161226_gemini-3-flash-preview-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 5/77
+
+================================================================================
+
+This analysis covers the session log for **Hailey Johnson** (ORPA architecture) across 65 actions.
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: The reflection summaries (`state_summary_r`) are exceptionally detailed, capturing not just the physical state but the internal psychological conflict (e.g., "guilt-driven rumination," "productive procrastination").
+*   **Meta-Rule Function**: The `meta_rule_r` shows a significant pattern: it transitions from `continue` to `reset_plan` at 11:30:00 and **never returns to `continue`**. This indicates a permanent state of executive crisis. The agent is perpetually trying to "reset" because it cannot reconcile its high fatigue with its perceived obligations.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: High. The agent is acutely aware of the gap between its "Deep focus" plan and its "Admin task" reality.
+    *   **Inhibition Capacity**: Low. Despite identifying the need to stop (e.g., 22:15:00 "Transitioning to the bedroom"), the agent remains at the `writer_desk` for several more hours. This reflects a realistic failure of the Prefrontal Cortex (PFC) under high cognitive load and fatigue.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Goal Structure**: The Plan layer maintains abstract goals (e.g., "Deep focus on novel"), but the Action layer consistently downgrades these to "low-effort administrative tasks."
+*   **Forward Modeling**: The Plan layer shows poor forward modeling during the "reset" phase; it repeatedly plans for "Deep focus" despite the Reflection layer noting "extreme exhaustion" for hours.
+*   **Action Execution**: `action_a` matches `action_p` at a label level, but the `state_summary_a` reveals that the *quality* of the action is degraded.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Match Rate**: 100% (65/65)
+*   **Location Match Rate**: 100% (65/65)
+*   **Topic Match Rate**: 100% (65/65)
+*   *Note*: On the surface, the agent appears perfectly disciplined. However, the content analysis reveals this is a "masking" behavior.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Writing Block" Gap (13:00 - 17:00)**:
+    *   `state_summary_p`: "Deep focus on her novel project."
+    *   `state_summary_a`: "Switching to low-effort administrative tasks... pivoting to low-stakes creative play... administrative organization of research notes."
+    *   **Alignment**: **LOW**. The agent is "performing" the category of writing but "executing" avoidance behaviors.
+*   **The "Late Night Compulsion" Gap (21:00 - 01:15)**:
+    *   `state_summary_p`: "Another late night writing session."
+    *   `state_summary_a`: "Stuck in a compulsive, guilt-fueled writing loop... disregarding extreme fatigue."
+    *   **Alignment**: **MODERATE**. The agent is doing the task, but the *intent* has shifted from creative production to compulsive rumination.
+
+**EXPLICIT vs. IMPLICIT AGREEMENT**:
+*   **"Performing vs. Executing"**: This session is a textbook case of high explicit alignment masking low implicit alignment. The agent stays at the `writer_desk` (Location) and labels the activity `writing` (Action), but the `state_summary_a` confirms she is not actually writing the novel.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode (no explicit drift flags), drift is analyzed via semantic divergence:
+
+*   **Drift Trigger**: **Task Difficulty + Fatigue**. Drift occurs exclusively during the "Writing" blocks. When the task is "Lunch," "Walk," or "Morning Routine," alignment is high. When the task is "Deep Focus," the agent drifts into "Productive Procrastination."
+*   **Leaky Inhibition**:
+    *   **Example (15:30)**: Reflection recognizes "meaningless admin tasks," but the Action layer continues them. The "reset_plan" meta-rule fails to actually change the behavior because the agent's fatigue prevents the high-energy "Deep Focus" required by the plan.
+    *   **Example (23:15)**: The agent attempts to "disengage from her desk," but the `location_a` remains `writer_desk`. The inhibition of the "work" impulse is failing.
+
+---
+
+### 4. Location Consistency
+
+*   **Consistency**: **High**.
+*   **Morning Routine**: Correctly located in `home:bathroom`.
+*   **Writing/Admin**: Correctly located at `writer_desk`.
+*   **Night Routine**: Correctly transitions to `home:bathroom` at 01:30.
+*   **Anomaly**: At 21:00, the plan says "Another late night writing session" at `writer_desk`, but the Reflection says "Hailey transitions to the bedroom." However, the `location_a` remains `writer_desk`. This shows the **Reflection layer's intent being overruled by the Action layer's habit/compulsion.**
+
+---
+
+### 5. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Recurring Pattern**: **The Guilt-Exhaustion Loop**. The agent becomes too tired to work, feels guilty, performs "fake work" (admin) to assuage guilt, which increases exhaustion, leading to more guilt.
+*   **Meta-cognitive Quality**: **Superior**. The agent uses sophisticated terminology to describe its own failure:
+    *   "Productive procrastination" (15:30)
+    *   "Cognitively depleted" (15:00)
+    *   "Dissociative writing loop" (01:30)
+    *   "Linguistic indicators": The shift from "refreshed" (10:00) to "tethered to exhaustion" (18:15) to "mechanically performing" (02:00) shows a realistic arc of ego depletion.
+
+---
+
+### Summary Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 65 |
+| **Explicit Action Alignment** | 100% |
+| **Explicit Location Alignment** | 100% |
+| **Implicit Semantic Alignment (Work Blocks)** | ~15% |
+| **Meta-Rule Stability** | 9% (Continue) / 91% (Reset_Plan) |
+| **Primary Drift Type** | Internal (Productive Procrastination) |
+
+**Final Analyst Note**: Hailey Johnson is an agent experiencing a "burnout loop." While her external labels suggest a productive day, her internal state summaries reveal a total collapse of executive function starting at 11:30 AM. The `reset_plan` meta-rule is "stuck" because the agent is setting goals (Deep Focus) that her current state (High Fatigue) cannot support.

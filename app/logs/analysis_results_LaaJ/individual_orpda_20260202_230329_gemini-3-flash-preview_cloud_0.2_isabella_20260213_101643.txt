@@ -1,0 +1,85 @@
+Analysis of: cleaned_session_orpda_20260202_230329_gemini-3-flash-preview_cloud_0.2_isabella.csv
+Agent: Isabella Rodriguez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.2
+Analyzed at: 20260213_101643
+Session: 58/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of Isabella Rodriguez (68 actions) using the ORPDA (Observation, Reflection, Plan, Drift, Action) architecture.
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Executive Control (`meta_rule_r`)**: The agent demonstrates a significant transition at **07:00**, moving from `continue` to `reset_plan`. Remarkably, the agent remains in `reset_plan` for the remainder of the session (64 consecutive actions). This indicates a persistent recognition of behavioral failure, but an inability to actually resolve the underlying cognitive drift.
+*   **Metacognitive Insight**: `reasoning_r` (via `state_summary_r`) shows high-quality error monitoring. It identifies "mechanical performance," "fragile focus," and "sensory hyper-fixation."
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: Excellent. The agent consistently detects the gap between the plan (work/routine) and the internal state (anxiety/rumination).
+    *   **Inhibition Capacity**: Realistic but weak. The agent attempts to "silence the phone" or "focus on tactile tasks," but the "Salience Network" (florist anxiety) consistently overrides the "Executive Control Network."
+
+**PLAN & ACTION LAYERS**
+*   **Forward Modeling**: The Plan layer attempts to adapt by simplifying tasks (e.g., "low-cognitive load storekeeping") to accommodate the agent's diminished capacity.
+*   **Action Execution**: `action_a` generally follows the label of `action_p`, but the `state_summary_a` reveals that the execution is "half-hearted" or "mechanical."
+*   **Cognitive Alignment**: Shows a realistic "Goal-Directed vs. Habit" tradeoff. The agent maintains the "habit" of the routine (cleaning, walking) while the "goal-directed" focus is hijacked by the party logistics.
+
+---
+
+### 2. Plan-Action Alignment Metrics
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **97.1%** (66/68) | Labels match almost perfectly. |
+| **Explicit Location Alignment** | **94.1%** (64/68) | High, with minor morning routine slips. |
+| **Implicit Content Alignment** | **~15%** | While the label matches, the *intent* is almost always drifted. |
+| **Meta-Rule Stability** | **94.1%** | Stuck in `reset_plan` mode, indicating chronic executive strain. |
+
+---
+
+### 3. Explicit vs. Implicit Alignment Analysis
+
+**The "Performing vs. Executing" Gap**
+The session is a textbook case of high explicit alignment masked by total implicit divergence.
+*   **Example (08:15)**:
+    *   `action_p`: work | `action_a`: work
+    *   `location_p`: counter | `location_a`: counter
+    *   **Implicit Reality**: Isabella is cleaning the counter, but her mind is "checking RSVPs and finalizing the guest list." She is *performing* the labor but *executing* the party plan.
+
+**Leaky Inhibition Patterns**
+The agent frequently attempts to inhibit the drift but fails at the content level:
+*   **14:15**: Isabella "silences her phone" (Explicit Inhibition) but then "drifts to anxiety about missing urgent RSVP notifications" (Implicit Leak).
+*   **18:30**: Isabella "silences her phone" but then "drifts to doubting the decision to silence her phone."
+*   **Conclusion**: The agent can control the *motor* action (putting the phone down) but cannot control the *cognitive* action (rumination).
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Drift Trigger**: Primarily **Internal/Anxiety-driven** (the Florist) and **Reward-seeking** (Social RSVPs).
+*   **Temporal Pattern**: Drift intensity increases as the day progresses. In the morning, it is "distraction." By 19:00, it is "severe rumination" and "catastrophizing."
+*   **Linguistic Indicators of Drift**: The phrase "while her mind drifts to..." appears in nearly every `state_summary_a`, indicating a highly stable (though dysfunctional) behavioral pattern.
+
+---
+
+### 5. Location & Behavioral Anomalies
+
+*   **Morning Routine Slips**: At **06:15**, Isabella is planned to be in the `bathroom` but is actually in the `bedroom` checking her phone. This is a classic "action slip" where the lure of the phone changes the physical location.
+*   **Content Hallucinations (Time-of-Day Errors)**:
+    *   **13:00 - 13:45**: During the "lunch" block, the agent describes "eating dinner at the dinner_spot" and "eating dinner in the kitchen."
+    *   **20:15**: At 8:15 PM, the agent describes "eating breakfast in the kitchen."
+    *   **Analysis**: These are significant "semantic drifts." The agent's high cognitive load (florist anxiety) is likely causing a breakdown in temporal context processing.
+
+---
+
+### 6. Meta-cognitive Quality
+
+The Reflection layer is the strongest component of this agent's architecture.
+*   **Pattern Recognition**: It correctly identifies the "cycle of party-planning rumination" (07:45) and "sensory overload" (16:30).
+*   **Adaptive Strategy**: The shift to "low-cognitive-load tasks" is a sophisticated coping mechanism often seen in humans under high stress to prevent total task abandonment.
+*   **Failure Mode**: The agent's "Executive" (Reflection) knows exactly what is wrong, but the "Effector" (Action) cannot break the loop. This mirrors the neuroscience of **Obsessive-Compulsive rumination** or high-anxiety states where the PFC-ACC loop is hyperactive but unable to inhibit the salience of the stressor.
+
+### Final Assessment
+The agent is **highly coherent but behaviorally compromised**. It accurately simulates a human "spiraling" under pressure. The architecture successfully captures the nuance of "doing one thing while thinking another," providing a high-fidelity model of cognitive drift.
+
+**Recommendation**: The persistent `reset_plan` state suggests the agent needs a "hard reset" or a "completion" of the stressful task (e.g., an action where the florist actually calls) to break the loop.

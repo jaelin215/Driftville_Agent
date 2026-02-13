@@ -1,0 +1,75 @@
+Analysis of: cleaned_session_orpa_20260203_113007_gemini-3-flash-preview_cloud_0.8_isabella.csv
+Agent: Isabella Rodriguez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 45/77
+
+================================================================================
+
+This analysis examines the behavioral session of Isabella Rodriguez, focusing on a 68-action sequence characterized by a profound cognitive struggle with digital distractions and subsequent "high-functioning burnout."
+
+### 1. Layer Function Validation (ORPA Architecture)
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: The reflection layer (`state_summary_r`) is exceptionally sensitive to internal states. It captures a transition from "grounded" (06:00) to "mentally exhausted" (07:45) due to the effort of resisting digital distractions.
+*   **Meta-Rule Executive Control**: The `meta_rule_r` functions as a permanent emergency brake. After 07:45, it switches to `reset_plan` and **never returns to `continue`**. This indicates a persistent failure of the agent to recover to a baseline state, reflecting a "cognitive red-line" scenario.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: High. The agent identifies "digital noise" and "phone vibrations" as the specific stressors causing performance degradation.
+    *   **Inhibition Capacity**: The agent demonstrates realistic but brittle inhibition. It successfully inhibits the *action* of checking the phone, but the metabolic/cognitive cost of this inhibition leads to "cognitive paralysis" and "fragile attention."
+
+**PLAN & ACTION LAYERS**
+*   **Hierarchical Goal Structure**: There is a stark disconnect between the abstract goal (`action_p`) and the concrete execution (`state_summary_a`). While the agent "goes to work," the actual behavior is reduced to "tactile grounding" and "rote tasks."
+*   **Forward Modeling**: Weak. The plan layer continues to suggest complex tasks (e.g., "inviting Tom to the party" at 16:00), but the action layer consistently downgrades these to "low-cognitive manual sorting."
+*   **Integration Logic**: The Action layer is heavily influenced by the "Reset" state. When the Plan says "Social Lunch," the Action layer executes "Sensory Grounding" while sitting at the lunch spot.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 100% | `action_p` always matches `action_a` (e.g., "work" = "work"). |
+| **Explicit Location Alignment** | 100% | `location_p` always matches `location_a`. |
+| **Implicit Content Alignment** | **~15%** | The *substance* of the actions diverges almost immediately after 07:45. |
+
+**The "Performing vs. Executing" Gap**:
+This session is a textbook example of **Performing (Label Match) vs. Executing (Content Match)**.
+*   **Example (13:00 - Lunch)**:
+    *   *Explicit Plan*: "Enjoying a social lunch while discussing party plans."
+    *   *Implicit Action*: "Executing a low-load version of lunch... ignoring notifications to mitigate extreme digital exhaustion."
+    *   *Gap*: The agent is physically present at lunch but is cognitively "hiding."
+
+*   **Example (16:00 - Shopping)**:
+    *   *Explicit Plan*: "Purchasing final supplies and inviting Tom to the party."
+    *   *Implicit Action*: "Pivoting to low-cognitive manual sorting to manage sensory overload."
+    *   *Gap*: The social/complex component of the plan (inviting Tom) is completely dropped in favor of a repetitive physical task.
+
+---
+
+### 3. Drift and Inhibition Analysis
+
+**Leaky Inhibition Patterns**:
+The agent exhibits a unique form of "Internal Drift." While the agent does not drift *away* from the location or the broad task category, it drifts *inward* to avoid cognitive collapse.
+*   **Inhibition Success**: The agent successfully avoids the phone (the primary distractor).
+*   **Inhibition Failure (The Cost)**: The effort to ignore the phone "leaks" into other areas, causing a failure to engage in social interactions or complex planning.
+*   **Linguistic Indicators**: The `state_summary_a` repeatedly uses terms like "fragile," "cognitively depleted," "sensory grounding," "shield," and "survive." This indicates a high-stress, low-agency state.
+
+---
+
+### 4. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: The flow is consistent but "depressed." Reflection detects exhaustion → Plan acknowledges the need for a "reset" → Action executes the most minimal version of the plan.
+*   **Layer Contradiction**: There is a persistent contradiction between the **Topic/Action Label** and the **State Summary**. The agent labels the activity as "decorate" (18:00-19:45), but the summary describes it as a "fragile shield" and "tactile loop." The agent is using the task as a coping mechanism rather than a productive activity.
+
+---
+
+### 5. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Tactile Grounding Loop**: From 08:30 to 20:00, the agent falls into a repetitive pattern of "tactile sorting" or "rote tasks." This is a sophisticated AI representation of a "stress response" where an individual narrows their focus to simple, controllable physical movements to manage anxiety.
+*   **Temporal Pattern**: The "burnout" begins at 07:45 and intensifies throughout the day. There is no recovery period; even the "restorative break" at 19:15 is described as "mentally exhausted."
+*   **Meta-cognitive Insight**: The `emerging_thought_pattern_r` (implied in the reasoning) shows genuine recognition of the "stagnant environment" and "digital intrusions." The agent knows *why* it is failing, but lacks the "cognitive energy" to fix the underlying cause.
+
+### Final Analyst Summary
+This session demonstrates a **High-Functioning Cognitive Collapse**. The agent maintains 100% explicit alignment (it is where it should be, doing the category of thing it should do), but the implicit alignment is near zero. The agent is "masking"—performing the outward signs of a routine while internally focused entirely on sensory regulation and survival. The `reset_plan` meta-rule acted as a permanent state of emergency, preventing any high-level cognitive work (like social interaction or complex event prep) for 15 consecutive hours.

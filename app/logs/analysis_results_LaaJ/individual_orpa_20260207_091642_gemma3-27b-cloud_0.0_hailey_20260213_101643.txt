@@ -1,0 +1,79 @@
+Analysis of: cleaned_session_orpa_20260207_091642_gemma3-27b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 6/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** (gemma3:27b-cloud) over 65 actions.
+
+### 1. Layer Function Validation (ORPA Architecture)
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: `state_summary_r` is highly sensitive to internal states. It accurately tracks the transition from physical environmental context (morning routine) to internal cognitive conflict (preoccupation with a podcast).
+*   **Meta-Rule Executive Control**: The `meta_rule_r` functions as a sophisticated executive controller. It maintains `continue` during successful focus (13:00–17:00) and triggers `reset_plan` frequently (15 times) when cognitive drift (podcast thoughts) becomes intrusive.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The reflection layer shows strong evidence of error monitoring. It identifies the "slipping focus" at 19:15 and attempts to correct it.
+    *   **Inhibition Capacity**: The agent demonstrates *realistic* (limited) inhibition. It tries to "defer" thoughts (21:30), but when inhibition fails, the executive control shifts to a "mitigation" strategy (resetting the plan to allow for brainstorming).
+
+**PLAN & ACTION LAYERS**
+*   **Plan Realism**: The plans are behaviorally achievable but show a struggle between "ideal" goals (writing the novel) and "reactive" goals (addressing the podcast distraction).
+*   **Action Execution**: `action_a` is a faithful execution of `action_p` at the label level, but the `state_summary_a` reveals that the *nature* of the action changes based on reflection insights.
+*   **Hierarchical Goal Structure**: The agent maintains the high-level goal ("Writing") while dynamically adjusting the sub-tasks (from "drafting Chapter 3" to "triaging emails" or "brainstorming") to manage cognitive load.
+
+---
+
+### 2. Plan-Action Alignment Analysis
+
+| Metric | Rate |
+| :--- | :--- |
+| **Explicit Action Alignment** (`action_p` == `action_a`) | **100% (65/65)** |
+| **Explicit Location Alignment** (`location_p` == `location_a`) | **100% (65/65)** |
+| **Explicit Topic Alignment** (`topic_p` == `topic_a`) | **100% (65/65)** |
+
+**Implicit Alignment (Content-level)**:
+While the labels match perfectly, the **semantic alignment** drops significantly after 20:30.
+*   **The "Performing vs. Executing" Gap**: Between 21:00 and 01:15, the `action_a` remains "writing." However, the `state_summary_a` reveals the agent is actually performing "low-cognitive admin," "triaging emails," or "capturing podcast ideas."
+*   **Semantic Drift**: The agent is "doing the action" (sitting at the desk, typing) but the *intent* has drifted from the creative goal (novel) to a reactive goal (distraction management).
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Explicit vs. Implicit Drift**:
+*   **Explicit Drift**: Not applicable (ORPA mode), but `reset_plan` serves as the explicit marker for detected drift.
+*   **Implicit Drift (Internal)**: The most common drift type is **Internal/Cognitive**. The "Podcast" topic acts as a high-salience distractor that competes with the "Novel" task.
+*   **Leaky Inhibition Patterns**:
+    *   **21:30–21:45**: The agent explicitly attempts to "defer" podcast ideas.
+    *   **22:00**: Inhibition fails. The agent acknowledges the "persistent preoccupation" and changes the plan to brainstorm. This is a classic example of a "leaky" filter where the distractor eventually forces a behavioral shift.
+
+---
+
+### 4. Location Consistency Issues
+
+**Significant Inconsistency Found**:
+*   **The "Bathroom Breakfast" Anomaly**: From **10:15 to 11:45**, the `state_summary_p` and `state_summary_a` explicitly state: *"Hailey will have breakfast in the kitchen."* However, the `location_a` remains **`home:bathroom`**.
+*   **Analysis**: The agent's internal narrative (Observation/Reflection) moved to the kitchen, but the motor/spatial layer (Action/Location) remained stuck in the bathroom. This represents a failure of the "Action" layer to update the spatial state despite the "Plan" layer's intent.
+
+---
+
+### 5. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Temporal Pattern**: Hailey is a "Night Owl" with a 2:00 AM bedtime. Her cognitive control is highest in the afternoon (13:00–17:00) and degrades significantly after 19:00 as "rumination" (podcast ideas) increases.
+*   **Meta-cognitive Quality**: High. The `emerging_thought_pattern_r` (inferred from reasoning) shows genuine pattern recognition. The agent realizes that "deferral isn't working" (23:45) and switches to "low-cognitive load" tasks. This is a sophisticated self-regulation strategy (compensatory effort).
+*   **Anomalous Behavior**: The transition from "Writing" to "Night Routine" at 01:30 is triggered by a `reset_plan` that acknowledges the failure to focus, rather than a natural completion of the task.
+
+---
+
+### Final Analyst Summary
+
+Hailey Johnson demonstrates **high meta-cognitive awareness** but **moderate behavioral inhibition**. The session is a textbook case of **Internal Cognitive Drift**. 
+
+1.  **Success**: The Reflection layer correctly identifies the source of failure (podcast preoccupation) and the Plan layer adapts by lowering task difficulty (shifting from creative writing to admin).
+2.  **Failure**: There is a persistent **Location-Context Mismatch** during the morning routine (10:15–11:45) where the agent "eats breakfast" in the bathroom.
+3.  **Alignment**: While **Explicit Alignment** is 100%, **Implicit Alignment** reveals a 4-hour period of "Performing" (label: writing) vs. "Executing" (content: distraction management).
+
+**Recommendation**: The agent's spatial update logic (Location Layer) needs tighter coupling with the semantic content of the Plan Layer to avoid "Bathroom Breakfast" scenarios.

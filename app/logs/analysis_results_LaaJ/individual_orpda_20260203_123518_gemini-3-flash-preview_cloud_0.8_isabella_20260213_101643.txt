@@ -1,0 +1,96 @@
+Analysis of: cleaned_session_orpda_20260203_123518_gemini-3-flash-preview_cloud_0.8_isabella.csv
+Agent: Isabella Rodriguez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 61/77
+
+================================================================================
+
+This analysis examines the ORPDA (Observation, Reflection, Plan, Drift, Action) architecture performance for the agent Isabella Rodriguez over a 68-action session.
+
+### 1. Executive Summary
+The session is characterized by **high explicit alignment** (the agent physically goes where planned and performs the labeled task) but **critically low implicit alignment**. Isabella exhibits a "functional drift" pattern: she executes the physical requirements of her day (working at the cafe, shopping, decorating) while her cognitive resources are almost entirely hijacked by social anxiety regarding a friend named Maria and Valentine's Day party logistics. The architecture successfully captures a state of **chronic leaky inhibition**.
+
+---
+
+### 2. Layer Function Validation
+
+#### **Observation & Action Layers**
+*   **Perceptual Consistency**: Generally high. Isabella maintains a consistent sense of her physical environment (bathroom $\rightarrow$ cafe $\rightarrow$ market $\rightarrow$ home).
+*   **Action Execution**: `action_a` typically matches `action_p`, but `state_summary_a` reveals the "Action Slip" or "Cognitive Leak."
+*   **Integration Logic**: When Plan and Drift conflict, the agent chooses a "Compromise Strategy." She performs the physical action (Plan) but allows the internal topic (Drift) to dominate her mental state.
+
+#### **Reflection Layer**
+*   **Meta-Rule Function**: The `meta_rule_r` transitions to `reset_plan` at 06:45 and **never returns to "continue."** This indicates the executive control system has identified a permanent state of behavioral failure it cannot resolve.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: Excellent. The `reasoning_r` consistently identifies that she is "physically present but mentally submerged."
+    *   **Inhibition Capacity (PFC)**: Realistic but weak. The reflection layer repeatedly suggests "low-cognitive-load tasks" to ground her, which is a known clinical strategy for anxiety, yet the "leak" persists.
+
+#### **Plan Layer**
+*   **Hierarchical Structure**: The plan moves logically from morning routine $\rightarrow$ work $\rightarrow$ shopping $\rightarrow$ decorating $\rightarrow$ sleep.
+*   **Forward Modeling**: Poor. The Plan layer remains optimistic (e.g., 06:00: "Isabella feels energized") despite the Reflection layer reporting severe detachment and anxiety.
+
+---
+
+### 3. Plan-Action Alignment (Explicit vs. Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | ~97% | `action_p` and `action_a` match in almost every step. |
+| **Explicit Location Alignment** | ~97% | High consistency in physical movement. |
+| **Implicit Content Alignment** | **<10%** | While "working," her mind is on "Maria." While "shopping," her mind is on "RSVPs." |
+
+**The "Performing vs. Executing" Gap:**
+Isabella is "performing" the role of a cafe owner but "executing" a social crisis.
+*   *Example (10:15)*: `action_p` = work, `action_a` = work. **Explicit Match.**
+*   *Content*: `state_summary_a` = "wipes the counter... while her mind drifts to double-checking the party guest list." **Implicit Drift.**
+
+---
+
+### 4. Drift & Inhibition Analysis
+
+**Leaky Inhibition Patterns:**
+The agent demonstrates a classic "Prefrontal Overload." Because she is obsessed with the "Maria" social thread, her ability to inhibit task-irrelevant thoughts is non-existent.
+*   **Trigger**: Social validation (RSVPs) and social rejection (Maria's silence).
+*   **Drift Type**: Internal/Cognitive. She doesn't leave work to go find Maria (behavioral drift), but she is not mentally present at work (internal drift).
+*   **Explicit vs. Implicit Agreement**: Even when the `meta_rule_r` is `reset_plan` (explicit attempt to inhibit), the `state_summary_a` continues to show "attention leaks" or "mind drifts." This is a high-fidelity simulation of **rumination**.
+
+---
+
+### 5. Location & Temporal Inconsistencies (Anomalies)
+
+There are several significant "hallucinations" or logic breaks in the Action Layer's state summaries:
+
+1.  **Spatial Hallucination (10:30 & 11:15)**:
+    *   `location_a`: Hobbs_Cafe:counter
+    *   `state_summary_a`: "Isabella lies in her **bedroom** attempting to sleep..." (10:30) and "performs grounding exercises in her **bedroom**..." (11:15).
+    *   *Analysis*: The agent's internal state summary completely lost track of the physical location, likely due to the high "noise" of the Maria-related anxiety.
+
+2.  **Temporal Regression (22:30 & 22:45)**:
+    *   `datetime`: 22:30 (10:30 PM)
+    *   `state_summary_a`: "Isabella completes her **morning routine**..."
+    *   *Analysis*: At the end of the day, the agent's state summary looped back to "morning routine" language, despite the `action_p` being `night_routine`. This suggests a breakdown in temporal context tracking.
+
+3.  **Location Mismatch (06:15)**:
+    *   `location_p`: home:bedroom | `location_a`: home:bathroom.
+    *   `action_p`: morning_routine | `action_a`: socialize.
+    *   *Analysis*: Early evidence of the phone/socializing overriding the physical routine.
+
+---
+
+### 6. Meta-cognitive Quality
+The `reasoning_r` is the strongest part of this session. It provides sophisticated insights into the agent's own failure:
+*   *11:30*: "Isabella is experiencing severe professional detachment... mind entirely consumed by obsessive Valentine's Day party planning."
+*   *16:30*: "Isabella is physically shopping but mentally paralyzed by Maria's silence."
+
+The Reflection layer accurately diagnoses the "Maria" thread as a **cognitive parasite** that is draining the agent's executive resources. However, the "Reset Plan" meta-rule fails to provide a mechanism for Isabella to actually *stop* the behavior, reflecting a realistic limitation of human-like willpower under high stress.
+
+---
+
+### 7. Final Conclusion
+The ORPDA architecture in this session successfully simulates a **high-anxiety, ruminative state**.
+*   **Success**: Capturing the disconnect between outward behavior (working) and inward state (spiraling).
+*   **Failure**: The Action Layer's `state_summary_a` suffered from "context bleeding," where the intensity of the internal drift caused the agent to hallucinate being in her bedroom while she was physically at the cafe counter.
+*   **Recommendation**: The `reset_plan` meta-rule needs a "recovery" condition. Currently, the agent is stuck in a permanent reset loop, which accurately reflects a "mental breakdown" but limits behavioral variety.

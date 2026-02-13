@@ -1,0 +1,84 @@
+Analysis of: cleaned_session_orpda_20260207_105208_cogito-2.1-671b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 25/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** over 65 actions (approx. 16 hours). The agent exhibits a chronic, high-salience behavioral drift pattern centered on a "podcast" project that cannibalizes all other planned activities.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & ACTION LAYERS**:
+*   **Perceptual Bias**: There is a massive selective attention pattern. Regardless of the environment (Bathroom, Cafe, Park, Office), the agent’s perception is filtered through "podcast episode ideas."
+*   **Action Execution**: `action_a` frequently reflects "Action Slips." While the label might say `writing`, the `state_summary_a` reveals she is actually researching podcast equipment or drafting podcast notes.
+
+**REFLECTION LAYER**:
+*   **Meta-Rule Function**: `meta_rule_r` shows a hyper-active executive override. It triggers `reset_plan` in **89%** of the analyzed steps. This indicates the agent is aware of its failure but cannot translate that awareness into behavioral change.
+*   **Cognitive Alignment (Metacognition)**:
+    *   **Error Monitoring (ACC)**: High. The agent consistently recognizes the gap between the novel and the podcast.
+    *   **Inhibition Capacity**: Extremely Low. The reflection layer suggests "gentle refocusing," which is a weak inhibitory strategy that fails against the high-reward salience of the podcast ideas.
+
+**PLAN LAYER**:
+*   **Forward Modeling**: Weak. The plan layer repeatedly sets "Deep focus on novel" despite 10+ hours of evidence that this goal is currently unachievable. It fails to account for the "reward-seeking" drift.
+*   **Hierarchical Structure**: The plan maintains a rigid schedule (Morning Routine -> Lunch -> Writing -> Walk -> Dinner) but the content within those blocks is hollowed out by the drift.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | ~85% | High. The agent labels its action as "writing" or "morning_routine" to match the plan. |
+| **Explicit Location Alignment** | 98% | High. The agent physically moves to the correct locations. |
+| **Implicit Content Alignment** | **~15%** | **Extremely Low.** While the labels match, the actual work performed is almost never the planned task. |
+
+**The "Performing vs. Executing" Gap**:
+The agent is "performing" the role of a writer (sitting at the desk, labeling the action as writing) but "executing" the role of a podcast producer.
+*   *Example (13:15):* `action_p`: writing | `action_a`: jotting down podcast notes.
+*   *Example (15:00):* `action_p`: writing | `action_a`: writing (but summary says "Writing about podcast episode ideas").
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Drift Typology**: **Internal/Reward-Seeking Drift.**
+The "Podcast" serves as a high-salience distractor. In neuroscience terms, the dopamine reward associated with the *new* creative idea (podcast) outweighs the effort-based reward of the *existing* task (novel).
+
+**Leaky Inhibition Patterns**:
+*   The agent exhibits "Leaky Inhibition" in almost every cycle.
+*   **The "Gentle Refocus" Loop**: The reflection layer repeatedly prescribes "Gentle review of novel outline to ease back into writing." This strategy is too weak to inhibit the podcast-related thoughts, leading to immediate re-drift.
+*   **Linguistic Indicators**: The use of "mind wanders to," "attention drifts," and "deviating from" in `state_summary_a` shows a conscious struggle with inhibitory control.
+
+---
+
+### 4. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Generally coherent but "impotent." Reflection identifies the drift -> Plan acknowledges the drift -> Action ignores the plan and follows the drift.
+*   **Contradiction Example (21:00)**:
+    *   `action_p`: writing (Another late night writing session).
+    *   `location_a`: writer_desk.
+    *   `state_summary_a`: "Relaxing in the living room while brainstorming podcast episode ideas."
+    *   *Analysis*: This is a severe coherence failure. The agent claims to be at the desk in the location field but describes being in the living room in the summary.
+
+---
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Correctly transitions from Bathroom (10:00) to Bedroom (11:00) back to Bathroom (11:30).
+*   **The "Hobbs Cafe" Hallucination**: At 19:30 and 19:45 (Dinner time), the `state_summary_a` claims she is "Eating lunch at Hobbs Cafe," even though the `location_a` is `home:kitchen` and the time is 7:30 PM. This indicates a "memory leak" or a repetitive thought pattern where a previous successful state (lunch) is being re-pasted into the current context.
+
+---
+
+### 6. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Temporal Pattern**: The drift is constant. There is no "recovery" period. Even during the "Evening Walk" (18:00) and "Watch TV" (20:00), the podcast obsession remains the primary cognitive driver.
+*   **Meta-cognitive Quality**: The `emerging_thought_pattern_r` (inferred from reasoning) shows "Genuine Pattern Recognition" but "Zero Executive Control." The agent is like an observer of its own failure, documenting its obsession without the ability to stop it.
+
+### Final Analyst Summary
+Hailey Johnson is in a state of **Creative Hyper-fixation**. The ORPDA architecture successfully captures the conflict between her "Ideal Self" (Novel Writer) and "Actual Self" (Podcast Planner). The session is characterized by **High Explicit Alignment** (she goes to the desk) but **Total Implicit Drift** (she only thinks about podcasts). The "Gentle Refocusing" strategy in the Reflection layer is clinically ineffective for this level of salience, suggesting the agent needs a "Hard Reset" or a change in the Plan Layer to actually incorporate the podcast as a primary task rather than fighting it as a drift.

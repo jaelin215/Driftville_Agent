@@ -1,0 +1,99 @@
+Analysis of: cleaned_session_orpa_20260209_125932_gpt-oss_20b-cloud_0.5_isabella.csv
+Agent: Isabella Rodriguez
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 0.5
+Analyzed at: 20260213_101643
+Session: 56/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of Isabella Rodriguez (gpt-oss:20b-cloud) using the ORPA (Observation, Reflection, Plan, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_r` generally captures the environmental context (e.g., "shower steam," "market noise," "jazz"). However, it fails to detect a major context mismatch during the 12:00–13:45 block, where it reflects "opening the cafe" while the agent is physically at a "lunch_spot."
+*   **Meta-Rule Function**: `meta_rule_r` remains "continue" for all 68 actions. It fails as an executive control mechanism because it does not trigger a `reset_plan` even when the agent’s internal state (opening the cafe) contradicts its physical location (lunch spot).
+*   **Cognitive Alignment (Neuroscience)**: 
+    *   **Error Monitoring (ACC)**: Deficient. The agent does not recognize the "action slip" of performing work tasks while at lunch.
+    *   **Working Memory**: Shows "leaky" persistence. The goal of "opening the cafe" persists in the reflection layer long after the agent has moved to the lunch location.
+
+**PLAN LAYER**:
+*   **Hierarchical Structure**: The plan layer shows a clear transition from abstract goals (morning routine) to concrete actions (work, lunch, shopping).
+*   **Forward Modeling**: Weak. At 08:00, the `action_p` is "work," but the `state_summary_p` still describes "morning routine, shower, dress." This indicates a 15-minute lag between the high-level plan and the detailed state projection.
+
+**ACTION LAYER**:
+*   **Execution**: `action_a` is a faithful execution of `action_p` in label only.
+*   **Integration Logic**: The Action layer is heavily influenced by the Plan layer's labels but the *content* (`state_summary_a`) is often a direct copy of the Reflection layer, leading to "hallucinated" behaviors (e.g., processing cafe orders while at a lunch spot).
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Observation → Reflection → Plan → Action.
+*   **Coherence Gaps**: There is a significant disconnect between the **Label** (Action/Location) and the **Content** (State Summary). 
+    *   At 12:00, `location_a` = `lunch_spot`, but `state_summary_a` = "Continue opening the cafe... processing orders."
+    *   The Reflection layer's "stuck" state (cafe work) overrides the Plan layer's environmental context (lunch).
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment**: 95.6% (65/68). Mismatches only occur due to `NaN` values at 10:15, 17:30, and 21:45.
+*   **Location Alignment**: 95.6% (65/68).
+*   **Topic Alignment**: 95.6% (65/68).
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: This is the most significant finding.
+    *   **12:00–13:45 (Lunch Block)**: Explicit alignment is **HIGH** (Action = lunch, Location = lunch_spot), but Implicit alignment is **ZERO**. The `state_summary_a` describes "opening the cafe, greeting customers, and processing orders." 
+    *   **Result**: The agent is "performing" the label of lunch but "executing" the logic of work. This is a classic **Action Slip** where a dominant habit (work) intrudes on a new context (lunch).
+
+**LEAKY INHIBITION PATTERNS**:
+*   The agent shows a failure to inhibit the "Work" schema. Even when the plan shifts to "lunch" or "event_preparation," the internal narrative continues to reference "opening duties" and "processing orders" (e.g., 14:00–15:45).
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Implicit Drift**: High.
+*   **Linguistic Indicators**: The repetition of "juggling lunch, opening, and decor prep" (14:15–15:45) suggests a cognitive loop where the agent cannot resolve competing task demands.
+*   **Leaky Inhibition**: At 12:00, the agent explicitly acknowledges "ambient noise and emails distract her," yet the `meta_rule_r` remains "continue." The drift is not a "distraction" in the sense of stopping work, but a "persistence" drift where work-thought invades non-work time.
+
+---
+
+### 5. Location Consistency
+
+*   **Critical Inconsistency**: 
+    *   **08:00**: `location_a` is `Hobbs_Cafe:counter`, but `state_summary_a` says "Proceed with morning routine... shower, dress." The agent is physically at work but mentally in the bathroom.
+    *   **12:00–13:45**: `location_a` is `lunch_spot`, but `state_summary_a` says "processing orders at the counter."
+
+---
+
+### 6. Behavioral Patterns
+
+*   **The "Work-Centric" Bias**: Isabella Rodriguez is highly biased toward "opening the cafe." This schema dominates her reflections from 08:00 until 16:00, regardless of her actual location or planned activity.
+*   **Temporal Pattern**: The agent's cognitive coherence is highest in the early morning (06:00–07:45) and late evening (20:00–22:45). The "mid-day collapse" of coherence (08:00–15:00) suggests that complex task-switching (Work → Lunch → Decor) exceeds the model's current executive control capacity.
+
+---
+
+### 7. Meta-cognitive Quality
+
+*   **Score: Low-Moderate**.
+*   While the `reasoning_r` (embedded in summaries) identifies distractions (phone, noise), it fails to perform the primary function of metacognition: **Correction**. 
+*   The `emerging_thought_pattern` (if analyzed as the transition of summaries) shows **Perseveration**—the pathological persistence of a thought or action (cafe opening) despite the cessation of the stimulus.
+
+### Summary Metrics
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Match** | 95.6% | High label-level adherence. |
+| **Explicit Location Match** | 95.6% | High label-level adherence. |
+| **Implicit Content Match** | ~65% | Significant "Work" schema intrusion during Lunch/Decor. |
+| **Meta-Rule Sensitivity** | 0% | Never triggered `reset_plan` despite clear context errors. |
+| **Action Slips** | 8/68 | Primarily during the 12:00-14:00 transition. |
+
+**Final Analyst Note**: The agent demonstrates "Superficial Alignment." It correctly updates its status labels (Action/Location) to match the plan, but its internal narrative (State Summary) remains tethered to previous high-salience goals, indicating a failure of the Reflection layer to update the "Mental Model" of the environment.

@@ -1,0 +1,99 @@
+Analysis of: cleaned_session_orpda_20260208_005430_cogito-2.1-671b-cloud_1.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 34/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of **Maria Lopez** (cogito-2.1:671b-cloud) using the ORPDA (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Context Capture**: The observation (inferred via `state_summary_a`) is highly sensitive to internal states. It accurately captures the tension between the intended task (e.g., "morning routine") and the intrusive thought (e.g., "streaming chat interactions").
+*   **Consistency**: Perception is consistent. Maria consistently perceives her phone as the primary vector for drift (10:00, 10:30, 11:15, 12:00, 12:45, 13:45, etc.).
+*   **Biases**: There is a clear **salience bias** toward digital rewards (Twitch analytics) in the morning and **threat-detection bias** (exam anxiety) in the evening.
+
+**REFLECTION LAYER**
+*   **Meta-Rule Function**: The `meta_rule_r` shows a "Hyper-Reflective" state. After 10:15, the agent enters a near-constant `reset_plan` loop (49 out of 57 actions). This indicates the executive control recognizes failure but cannot regain behavioral stability.
+*   **Transition Logic**: The transition to `reset_plan` is appropriately triggered by the recognition of "divided focus" or "obsession." However, the "continue" rule is rarely used, suggesting the agent feels in a permanent state of crisis.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: Extremely high. The agent is acutely aware of the gap between "should" and "do."
+    *   **Inhibition Capacity**: Realistic but weak. The reflection layer correctly identifies the need for "device-free" or "mindful" resets, but the Action layer fails to inhibit the impulse.
+
+**PLAN LAYER**
+*   **Forward Modeling**: The plan layer attempts "compensatory strategies" (e.g., 11:15: "Gentle academic work to rebuild focus"). This shows a sophisticated understanding of cognitive load.
+*   **Hierarchical Structure**: Goals are clear (Study -> Lunch -> Exercise -> Stream), but the "concrete actions" often get hijacked by the Drift layer.
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan and Drift conflict, **Drift wins approximately 70% of the time** in terms of semantic content, even if the label (`action_a`) remains aligned with the plan.
+*   **Motor Execution**: Realistic. Maria doesn't just "teleport" to a focused state; she "fiddles," "checks," and "glances," reflecting the messy nature of human distraction.
+
+---
+
+### 2. Plan-Action Alignment (Quantitative & Qualitative)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment Rate**: ~79% (45/57). Most labels match.
+*   **Location Alignment Rate**: ~84% (48/57).
+*   **Topic Alignment Rate**: ~65%. (Frequent shifts to "stream setup" or "exam prep").
+
+#### **IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+This is where the agent shows significant "Leaky Inhibition."
+
+| Time | Action_P (Label) | Action_A (Label) | State_Summary_A (The Reality) | Alignment Status |
+| :--- | :--- | :--- | :--- | :--- |
+| 10:00 | morning_routine | morning_routine | Brushed teeth **while checking phone** | **Performing, not Executing** |
+| 11:30 | study | browsing Twitch | Browsing Twitch layouts on phone | **Explicit Mismatch** |
+| 13:15 | rock_climbing | rock_climbing | Climbing **while mentally rehearsing overlays** | **Cognitive Drift** |
+| 20:45 | eating | eating | Ate dinner **while checking phone... despite the plan** | **Leaky Inhibition** |
+| 22:00 | relax | study | **Attempts to study while pretending to relax** | **Total Role Confusion** |
+
+**The "Performing vs. Executing" Gap**: In 42% of cases where the labels match (`action_p == action_a`), the `state_summary_a` reveals that the agent is physically present but mentally/digitally drifted.
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Explicit vs. Implicit Drift**:
+*   **Explicit Drift**: Occurs when Maria changes her location or action entirely (e.g., 11:45, moving to the streaming room during study time).
+*   **Implicit Drift**: The most dominant pattern. Maria stays in the "correct" room (e.g., Kitchen for dinner) but her "Topic" and "Action Detail" are consumed by the drift (checking exam formulas).
+
+**Drift Typology**:
+1.  **Reward-Seeking (10:00 - 15:00)**: Driven by Twitch metrics and "stream optimization."
+2.  **Anxiety-Driven (17:00 - 00:00)**: Driven by "exam formula review" and "physics problems."
+
+**Leaky Inhibition Evidence**:
+At 20:45, the Reflection layer explicitly sets a "Device-free dinner" plan. The Action layer records `action_a: eating`, but the summary admits: *"Ate dinner in kitchen while checking phone for exam materials despite the plan."* This is a perfect model of **prefrontal cortex failure**—the agent knows the rule, intends to follow it, but the motor/habitual loop (checking phone) overrides the executive command.
+
+---
+
+### 4. Location Consistency
+
+*   **Major Inconsistency (11:30)**: `location_p` is Oak Hill College, but `location_a` is Home:Office. The agent "drifted" so hard she never actually left the house, or "teleported" back mentally.
+*   **Social Inconsistency (21:45)**: `location_p` is Home:Living Room, but `location_a` is Hobbs Cafe. This suggests a failure in the spatial tracking module during high-anxiety states.
+*   **Routine Consistency**: Morning and night routines (Bathroom/Bedroom) are handled correctly.
+
+---
+
+### 5. Meta-cognitive Quality
+
+The `reasoning_r` and `emerging_thought_pattern_r` are of **high quality**.
+*   **Pattern Recognition**: The agent identifies its own "looping" behavior. (e.g., 12:30: "Maria is stuck in a loop of checking stream analytics").
+*   **Insight**: At 17:45, the agent recognizes that "stream obligations and exam anxiety" are "derailing both." This shows a high-level "Meta-Management" capability, even if the "Execution" capability is currently compromised by the simulated "stress" variable.
+
+---
+
+### 6. Final Behavioral Summary
+
+Maria Lopez exhibits a **"High-Functioning Anxiety"** profile.
+*   **Strengths**: High self-awareness, sophisticated planning, and realistic recovery attempts (breathing exercises, mindful eating).
+*   **Weaknesses**: Severe inhibition deficit when faced with digital triggers (phone) or academic stress.
+*   **Architecture Performance**: The ORPDA architecture successfully captures the "internal struggle." The separation of `action_p` and `state_summary_a` is crucial here; it reveals that the agent is **lying to itself** or **failing its own standards**, which is a hallmark of realistic human-like behavior.
+
+**Recommendation**: The agent's `reset_plan` meta-rule is currently "shouting into the void." To improve alignment, the Drift layer needs a stronger "Inhibition" weight, or the Plan layer needs to incorporate the drift (e.g., "Study for 10 mins, check phone for 2 mins") to reduce the cognitive dissonance that leads to the `reset_plan` loop.

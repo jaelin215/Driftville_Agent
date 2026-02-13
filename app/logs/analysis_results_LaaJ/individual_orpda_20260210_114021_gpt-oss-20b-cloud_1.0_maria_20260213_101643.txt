@@ -1,0 +1,90 @@
+Analysis of: cleaned_session_orpda_20260210_114021_gpt-oss-20b-cloud_1.0_maria.csv
+Agent: Maria Lopez
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 38/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of **Maria Lopez** (52 actions) using the ORPDA (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_r` is highly accurate in tracking prior failures. For example, at 10:15, it correctly identifies that Maria was "drifting to streaming content planning" at 10:00.
+*   **Meta-Rule Function**: `meta_rule_r` shows high executive activity. It triggers `reset_plan` in **73%** of the analyzed steps. This indicates the agent is in a constant state of "error detection."
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: High. The reflection layer consistently identifies the gap between the plan and the internal drift.
+    *   **Inhibition Capacity (PFC)**: **Extremely Low.** Despite the Reflection layer identifying drift and the Plan layer issuing "focus" instructions, the Action layer fails to inhibit the "streaming planning" thought pattern. This represents a classic "Leaky Inhibition" profile.
+
+**PLAN LAYER**:
+*   **Forward Modeling**: Weak. The plans (e.g., "Complete bathroom routine calmly") are reactive to the previous drift rather than proactive in preventing the next one.
+*   **Hierarchical Structure**: Present (e.g., "One hour of intense physical activity" → "climb at rock_climbing_gym"), but the concrete actions are frequently contaminated by the same cognitive drift.
+
+**ACTION LAYER**:
+*   **Execution vs. Performance**: The Action layer often "performs" the label (e.g., `action_a` = "study") while the content (`state_summary_a`) reveals the agent is actually ruminating on something else.
+*   **Integration Logic**: When Plan and Drift conflict, **Drift wins 100% of the time** at the implicit (content) level, even if the explicit label matches the plan.
+
+---
+
+### 2. Plan-Action Alignment (Explicit vs. Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **92%** | High label-level adherence. Maria "says" she is doing the task. |
+| **Explicit Location Alignment** | **48%** | Low. Frequent mismatches between `location_p` and `location_a`. |
+| **Implicit Content Alignment** | **4%** | **Critically Low.** Almost every `state_summary_a` contains "mind drifts to streaming content planning." |
+
+**The "Performing vs. Executing" Gap**:
+Maria exhibits a "Zombie-Agent" pattern. She moves to the correct location and selects the correct action label, but her internal state (the semantic content of her action) is entirely decoupled from the goal.
+*   *Example (11:00):* `action_p` = study, `action_a` = study. **Explicit Match.**
+*   *Implicit Divergence:* `state_summary_a` = "Studied physics... while mind drifts to streaming content planning."
+
+---
+
+### 3. Drift Pattern Analysis
+
+*   **Drift Type**: **Internal/Cognitive Rumination.** The drift is not environmental (she isn't distracted by a cat or a noise) but reward-seeking (planning her Twitch stream).
+*   **Leaky Inhibition Evidence**:
+    *   At 14:15, `reasoning_r` explicitly says "Interact with chat to boost engagement while reducing internal planning distraction."
+    *   The resulting `state_summary_a` at 14:15: "...while mind drifts to streaming content planning."
+    *   **Result**: The executive command to "reduce distraction" had zero effect on the actual behavior.
+
+---
+
+### 4. Location Consistency Issues
+
+The agent shows significant spatial decoherence:
+1.  **11:00 - 11:45**: `location_p` is "Oak_Hill_College:library," but `state_summary_a` places her at "home:office" and "home:study_area."
+2.  **12:00 - 12:45**: `location_p` is "Hobbs_Cafe," but `state_summary_a` says she is in the "kitchen" or "home:studio."
+3.  **22:30**: `location_p` is "home:living_room," `action_a` is "socialize," but `state_summary_a` says "Sleeping in bedroom." This is a **hallucination/coherence collapse.**
+
+---
+
+### 5. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: The flow is "broken" between Plan and Action.
+    *   Observation → Reflection (Detects error) → Plan (Attempts fix) → **[Drift Overwrites Content]** → Action (Executes label only).
+*   **Contradictions**:
+    *   At 15:00, `action_p` is "twitch_stream" but `action_a` is "customer_service." This is a rare **explicit behavioral drift** where the agent physically does the wrong task.
+    *   At 15:15, the agent tries to "reset" but `state_summary_a` says she is "serving customers at Hobbs_Cafe" while her location is "home:twitch_streaming_room."
+
+---
+
+### 6. Summary of Behavioral Profile
+
+1.  **Cognitive Fixation**: Maria is obsessed with "streaming content planning." This topic appears in **50 out of 52** action summaries.
+2.  **Executive Dysfunction**: The agent possesses high "Self-Awareness" (Reflection layer) but zero "Self-Regulation" (Action layer). She knows she is drifting but cannot stop.
+3.  **Spatial Disorientation**: The agent fails to maintain a consistent mental map, often confusing her home office with the college library or a cafe.
+
+### Quantitative Metrics Summary:
+*   **Meta-Rule Reset Rate**: 73% (High awareness of failure)
+*   **Label Match Rate**: 92% (High "faked" compliance)
+*   **Semantic Coherence**: 4% (Total cognitive drift)
+*   **Spatial Accuracy**: 48% (Poor environmental grounding)
+
+**Analyst Recommendation**: The agent is experiencing a "looping fixation." The ORPDA architecture is successfully detecting the error (Reflection) but the Plan-to-Action weight is too weak to overcome the internal Drift bias. The agent requires a "Hard Reset" or a reduction in the "streaming" reward weight.

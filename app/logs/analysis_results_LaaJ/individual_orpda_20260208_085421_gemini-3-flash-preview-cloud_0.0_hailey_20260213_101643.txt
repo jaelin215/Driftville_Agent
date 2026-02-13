@@ -1,0 +1,86 @@
+Analysis of: cleaned_session_orpda_20260208_085421_gemini-3-flash-preview-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 75/77
+
+================================================================================
+
+This behavioral analysis examines the session of **Hailey Johnson** (ORPDA mode) over an 11-action sequence. The session is characterized by a significant "hyper-fixation loop" regarding a podcast project, leading to severe temporal distortion and executive dysfunction.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **Perceptual Consistency**: The observation of the environment is consistent but narrow. The agent accurately identifies the conflict between the physical task (morning routine) and the digital/mental distraction (podcast/social media).
+*   **Meta-Rule Functionality**: The `meta_rule_r` correctly transitions from `continue` to `reset_plan` at 10:30:00 after the agent explicitly drifts to "socialize" at 10:15:00. However, the `reset_plan` remains active for the rest of the session (9 consecutive actions), suggesting an **executive "stuck" state** where the agent recognizes the need to reset but cannot successfully terminate the problematic behavior.
+*   **Metacognitive Insight**: `reasoning_r` shows high insight, using terms like "stalling," "hyper-fixation," and "rumination loop."
+*   **Neuroscience Alignment**:
+    *   **Error Monitoring (ACC)**: High. The agent identifies the discrepancy between the schedule and actual behavior.
+    *   **Inhibition Capacity (PFC)**: Low. Despite the `reset_plan` signal, the agent fails to inhibit the "podcast ideation" for over two hours. This reflects realistic prefrontal cortex limitations under high-interest/high-reward conditions (hyper-fixation).
+
+**PLAN LAYER**:
+*   **Forward Modeling**: The Plan layer attempts to simplify tasks (e.g., "low-pressure approach," "simple hygiene") to facilitate a transition. However, it fails to account for the "stickiness" of the drift.
+*   **Hierarchical Structure**: The plan maintains a goal (finish routine), but the `state_summary_p` becomes repetitive ("Hailey wakes up feeling refreshed" is reused inappropriately at 11:00, 11:15, 11:30, and 11:45, indicating a **working memory failure** or a "template collapse" in the planning layer).
+
+**DRIFT & ACTION LAYERS**:
+*   **Drift Dominance**: Drift is the primary driver of the session. Even when `action_a` matches `action_p`, the `state_summary_a` reveals that the cognitive load is 90% drift-based.
+*   **Integration Logic**: The resolution is **probabilistic but heavily weighted toward drift**. At 10:15, drift wins explicitly (`action_a` = socialize). In all other steps, drift wins *implicitly* (the action is performed, but the mind is elsewhere).
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Action Alignment** | 91% (10/11) | Only one explicit mismatch at 10:15:00. |
+| **Location Alignment** | 82% (9/11) | Mismatches at 10:15 (Bedroom vs Bathroom) and 11:45 (Kitchen vs Bathroom). |
+| **Topic Alignment** | 0% | `topic_a` is consistently social media/podcasts, while the plan is hygiene/lunch. |
+
+#### **IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: Extremely High. While the agent labels the action as `morning_routine`, the semantic content of `state_summary_a` is almost entirely about "podcast guest lists," "logo design," and "theme music."
+*   **"Performing vs. Executing" Gap**: This session is a textbook case of this gap.
+    *   *Example (11:30)*: `action_p` = morning_routine, `action_a` = morning_routine.
+    *   *Implicit Reality*: "Hailey finishes her morning routine... while her mind drifts to imagining the podcast's opening theme music."
+    *   *Analysis*: The agent is "performing" the physical movements of hygiene while "executing" the mental task of podcast production.
+
+---
+
+### 3. Drift Pattern Analysis
+
+*   **Explicit Drift**: Occurs at 10:15:00 (checking phone).
+*   **Implicit Drift**: Occurs in **100% of the actions**. Every single `state_summary_a` contains the phrase "while her mind drifts to..."
+*   **Leaky Inhibition**:
+    *   The agent attempts to "put her phone away" (10:45) and "lower cognitive effort" (11:30).
+    *   **Failure Pattern**: The inhibition of the *physical* device (phone) does not stop the *internal* drift (ideation). The agent successfully inhibits the phone but fails to inhibit the "hyper-fixation" thought pattern.
+*   **Drift Typology**: Primarily **Internal/Cognitive Drift** (ideation) triggered by an initial **Reward-Seeking Drift** (social media notifications).
+
+---
+
+### 4. Location Consistency
+
+*   **10:15:00**: `location_p` is `home:bedroom`, but `location_a` is `home:bathroom`. The agent is "stuck" in the bathroom physically while the plan expects her to have moved on.
+*   **11:45:00**: `location_p` suggests "Moving to the kitchen," but `location_a` remains `home:bathroom`. This indicates a **failure of physical transition** despite a planned intent.
+*   **12:00:00**: The agent finally breaks the bathroom loop and moves to `lunch_spot`, but the mental state remains unchanged.
+
+---
+
+### 5. Meta-cognitive Quality
+
+*   **Pattern Recognition**: The `emerging_thought_pattern_r` (implied in reasoning) correctly identifies the "90-minute bathroom loop."
+*   **Executive Control Failure**: The `meta_rule_r` of `reset_plan` is used as a "panic button" that the agent keeps pressing without actual behavioral change. In neuroscience terms, this is a **dissociation between the monitor (ACC) and the effector (Motor Cortex/PFC)**.
+*   **Realistic Constraints**: The agent demonstrates a very realistic "ADHD-style" morning where a single notification at 10:00 AM derails the schedule until 12:00 PM.
+
+---
+
+### 6. Summary Metrics & Observations
+
+*   **Total Duration of Hyper-fixation**: 150 minutes (2.5 hours).
+*   **Primary Drift Trigger**: Digital notifications (Social Media).
+*   **Success of Recovery Strategies**: Low. The transition to a new location (Lunch) was the only successful "break," but it did not resolve the internal drift.
+
+**Final Analyst Note**: The agent exhibits high "Self-Awareness" but low "Self-Regulation." The ORPDA architecture successfully captured the nuance of an agent who is "doing" her routine while being mentally entirely elsewhere. The most significant failure is the **Plan Layer's repetitive state** (11:00-11:45), which suggests that when the agent is in a hyper-fixation loop, the planning mechanism loses its temporal awareness.

@@ -1,0 +1,83 @@
+Analysis of: cleaned_session_orpa_20260207_202843_gemma3-27b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemma3:27b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 14/77
+
+================================================================================
+
+This analysis covers the 65-action session of Hailey Johnson (gemma3:27b-cloud) using the ORPA architecture.
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **Perceptual Accuracy**: The observation/reflection layers accurately capture the transition from a highly productive morning/afternoon to a cognitively "stuck" evening.
+*   **Meta-Rule Function**: `meta_rule_r` functions as a high-sensitivity executive controller. It triggers `reset_plan` at **20:30** the moment it detects that "watching TV" is being compromised by "intrusive thoughts about her podcast."
+*   **Transition Logic**: The transition to `reset_plan` is persistent. From 20:30 until 02:00 (18 consecutive actions), the agent remains in `reset_plan` mode. This indicates a **behavioral deadlock** where the reflection layer recognizes a failure, but the resulting plans fail to resolve the underlying cognitive drift.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: Excellent. The reflection layer consistently identifies the gap between the goal (relax/write) and the internal state (podcast rumination).
+    *   **Inhibition Capacity**: Realistic but weak. The agent demonstrates "leaky inhibition"—knowing she should focus on dinner or TV but failing to suppress the "podcast" task-set.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Structure**: The Plan layer attempts to move from abstract goals ("Address fatigue") to concrete strategies ("Guided meditation," "Gentle admin").
+*   **Forward Modeling**: The Plan layer shows evidence of "if-then" modeling (e.g., "Allow 15 minutes for podcast notes, then return to focused viewing"). However, these models fail in execution because the "reward" of podcast ideation outweighs the "cost" of the planned task.
+*   **Action Execution**: `action_a` is a faithful execution of `action_p` at the label level, but the `state_summary_a` reveals that the *quality* of the action is degraded by internal drift.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 100% (65/65) | `action_p` always matches `action_a`. |
+| **Explicit Location Alignment** | 100% (65/65) | `location_p` always matches `location_a`. |
+| **Implicit Content Alignment** | ~60% | High alignment until 19:00; Low alignment 19:00–02:00. |
+
+**The "Performing vs. Executing" Gap**:
+A significant gap emerges in the late-night segment (21:00–01:15).
+*   **Example (21:45)**:
+    *   **Plan**: "Address podcast ideation directly with a focused brainstorm session to unstick Hailey."
+    *   **Action Label**: `writing`
+    *   **State Summary**: "Hailey is fatigued and stuck in a loop of trying to relax while obsessing about her podcast."
+    *   **Analysis**: The agent is "performing" the act of sitting at the desk (`writer_desk`), but "executing" rumination rather than the planned brainstorm.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode (no explicit drift flags), drift is analyzed via semantic divergence in `state_summary_a`.
+
+*   **Drift Trigger**: Task transition and "Reward Salience." The podcast represents a high-novelty, high-reward internal stimulus that hijacks the "Writing" task-set.
+*   **Leaky Inhibition Patterns**:
+    *   **19:15–20:00 (Dinner)**: The plan is "mindful eating." The action is "dinner." The *implicit drift* is "attention is beginning to shift to her podcast."
+    *   **21:00–01:15 (The Writing Block)**: This is a total inhibition collapse. Despite 17 attempts to "reset," the agent remains "stuck in a podcast-related rumination loop."
+*   **Linguistic Indicators of Drift**: The use of words like "stuck," "loop," "obsessing," "hindering," and "displacement activity" in the `state_summary_a` indicates the agent's self-awareness of its own behavioral drift.
+
+---
+
+### 4. Location Consistency
+
+*   **The "Bathroom Breakfast" Anomaly**: From **10:15 to 11:45**, the agent is "preparing and eating breakfast" but the location is `home:bathroom`.
+    *   *Analysis*: This is a logical inconsistency. While the agent is consistent with itself (Plan and Action both say bathroom), it is behaviorally unrealistic to spend 90 minutes eating breakfast in a bathroom.
+*   **Evening Consistency**: Locations for the park walk, kitchen (dinner), and living room (TV) are logically sound.
+
+---
+
+### 5. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Temporal Pattern**: The agent shows a "Sundowning" effect. Cognitive control is high during the 13:00–17:00 writing block but disintegrates after 19:00.
+*   **Emerging Thought Pattern**: The reflection layer correctly identifies its own "Avoidance Cycle" (01:45). This is a high-level metacognitive insight—recognizing that the "night routine" is not just for sleep, but a way to escape the guilt of not writing.
+*   **The "Reset Plan" Trap**: The agent falls into a loop where it recognizes a problem (`reset_plan`), proposes a "gentle" fix, fails the fix, and repeats. It lacks the "radical" reset (e.g., "Go to sleep immediately at 21:00") that a human might employ to break a 5-hour rumination loop.
+
+---
+
+### 6. Summary of Findings
+
+1.  **Executive Function**: The agent has excellent **monitoring** (knowing it's failing) but poor **regulation** (fixing the failure).
+2.  **Alignment**: Explicit alignment is perfect, but it masks a massive internal "semantic drift" where the agent's internal monologue (podcast) has completely replaced the planned task (writing).
+3.  **Anomalies**: The "Bathroom Breakfast" (10:15) suggests a minor glitch in location-task mapping.
+4.  **Neuro-Behavioral State**: The agent successfully simulates a "fatigued creative" profile, showing realistic struggles with task-switching and rumination.
+
+**Final Grade for Behavior Realism**: **High**. The struggle with the "podcast loop" is a very human-like depiction of ADHD-style hyperfocus/rumination interfering with a primary goal.

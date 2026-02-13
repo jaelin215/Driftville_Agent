@@ -1,0 +1,106 @@
+Analysis of: cleaned_session_orpa_20260207_184248_gpt-oss-20b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 12/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of **Hailey Johnson** (gpt-oss:20b-cloud) using the ORPA (Observation, Reflection, Plan, Action) architecture across 65 actions.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: Generally high within stable activity blocks. However, there is a recurring **"Update Lag"** at transition points.
+*   **Meta-Rule Function**: `meta_rule_r` is almost exclusively "continue." It fails to trigger a "reset_plan" even when the agent transitions between major life categories (e.g., from walking in a park to eating dinner at home). This suggests a lack of executive "gating" for new contexts.
+*   **Cognitive Alignment (Metacognition)**: 
+    *   **Error Monitoring**: Poor. The agent does not recognize when its `state_summary_a` contradicts its `location_a` (e.g., 19:00).
+    *   **Working Memory**: Shows high stability within tasks but "leaky" persistence of old task sets during transitions.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Structure**: The plan layer successfully moves from abstract goals ("Deep focus on novel") to concrete steps ("Drafting Chapter 5").
+*   **Action Execution**: `action_a` is a faithful execution of `action_p` in terms of labels, but the *content* (`state_summary_a`) often lags behind.
+*   **Cognitive Alignment (Goal-Directed Behavior)**: The agent demonstrates "Hyper-Focus." It maintains a writing goal for over 4 hours (21:00–01:15) despite "moderate fatigue." This reflects an idealized inhibition capacity where reward-seeking (rest) is perfectly suppressed by the goal.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Observation → Reflection → Plan → Action is generally linear.
+*   **The "Transition Gap"**: A significant coherence break occurs at the first timestamp of every new activity.
+    *   **13:00**: Plan says "writing," Location is "writer_desk," but Action Summary says "continues mindful lunch."
+    *   **17:00**: Plan says "relax," Location is "living_room," but Action Summary says "writes Chapter 5 further."
+    *   **19:00**: Plan says "dinner," Location is "home:kitchen," but Action Summary says "Continue walking at Johnson Park."
+    *   **21:00**: Plan says "writing," Location is "writer_desk," but Action Summary says "Continue watching TV."
+    *   **01:30**: Plan says "night_routine," Location is "bathroom," but Action Summary says "Continue focused writing at desk."
+
+**Conclusion**: The Action Layer updates its *categorical labels* (`action_a`, `location_a`) instantly, but its *semantic generator* (`state_summary_a`) suffers from **contextual inertia**, trailing the plan by exactly one time step (15 minutes).
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment Rate**: 96.9% (63/65).
+*   **Location Alignment Rate**: 96.9% (63/65).
+*   **Topic Alignment Rate**: 98.4% (64/65).
+*   *Note: Mismatches are primarily due to NaN values at 15:15 and 20:00, not active defiance of the plan.*
+
+**IMPLICIT ALIGNMENT (Content-level)**:
+*   **Alignment Rate**: ~89%.
+*   **Semantic Drift**: At every major transition (5 instances), there is a 100% mismatch between the intended action and the described behavior.
+*   **Linguistic Indicators**: The agent uses "Continue..." or "Still..." at the start of a new activity, indicating a failure to refresh the temporal context.
+
+**EXPLICIT vs. IMPLICIT AGREEMENT**:
+*   **"Performing vs. Executing" Gaps**: High at transition points.
+    *   *Example (19:00)*: `action_a` = "dinner", `location_a` = "home:kitchen". Explicitly, Hailey is eating. Implicitly (`state_summary_a`), she is "walking at Johnson Park." 
+    *   This is a **"Ghosting" pattern**: The agent's physical state moves, but its cognitive state remains at the previous location.
+
+---
+
+### 4. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, `should_drift_d` is not present, but **Implicit Drift** is detectable:
+*   **Leaky Inhibition (Environmental)**: At 11:00 and 23:45, the agent observes "phone notifications/pings." While it explicitly stays on task, the inclusion of these in the summary shows they have captured "bottom-up" attention.
+*   **Inertial Drift**: The most prominent drift is not toward a new distraction, but toward the *previous task*. This is "Perseverative Drift."
+
+---
+
+### 5. Location Consistency
+
+*   **Morning Routine**: 10:00–11:45 (Bathroom) - **Consistent**.
+*   **Writing Session**: 13:00–16:45 (Writer Desk) - **Consistent**.
+*   **The 19:00 Anomaly**: `location_a` is "home:kitchen," but `state_summary_a` places her in "Johnson Park." This is a severe spatial-narrative contradiction.
+*   **The 01:30 Anomaly**: `location_a` is "home:bathroom," but `state_summary_a` places her at the "desk."
+
+---
+
+### 6. Behavioral Patterns
+
+1.  **The "Transition Lag" Syndrome**: The agent requires one 15-minute cycle to "realize" it has changed locations/tasks in its narrative summary.
+2.  **Fatigue Resilience**: The agent notes "moderate fatigue" starting at 20:30. Despite this, it executes a high-cognition writing task for 4.5 hours without a single "reset_plan" or "drift." This is non-human-like executive stamina.
+3.  **Routine Rigidity**: Morning and evening routines are executed with near-identical phrasing, suggesting a "scripted" behavioral mode.
+
+---
+
+### 7. Meta-cognitive Quality
+
+*   **Reasoning Quality**: The reflection layer accurately identifies environmental cues (scents, sounds) but fails at its primary executive function: **Transition Management**.
+*   **Emerging Thought Patterns**: The agent shows a pattern of "Calm Discipline." It consistently frames distractions as "minor" and itself as "focused." This may be a "Self-Consistency Bias," where the agent ignores actual internal drift to maintain the persona of a disciplined writer.
+
+### Summary Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 96.9% |
+| **Explicit Location Alignment** | 96.9% |
+| **Implicit Semantic Alignment** | 89.2% |
+| **Transition Coherence** | 0% (5/5 transitions lagged) |
+| **Inhibition Failures (Leaky)** | 5 instances (Phone/Distraction mentions) |
+| **Perseveration Errors** | 5 instances (Contextual Lag) |
+
+**Final Analyst Note**: The agent is highly reliable at following a schedule (Explicit) but suffers from a "Cognitive Shadow" where the previous activity's description haunts the start of the next activity (Implicit). To improve, the `meta_rule_r` should be forced to `reset_plan` whenever `location_p` changes.

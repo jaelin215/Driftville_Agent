@@ -13,6 +13,8 @@ import pandas as pd
 
 filterwarnings("ignore")
 audit_log = []
+processed_files = []  # Add this line
+failed_files = []  # Add this line
 
 
 def load_session_log(f_path):
@@ -49,8 +51,8 @@ log_files = sorted(
     key=lambda x: x.stat().st_birthtime,
     reverse=True,
 )
-
 print(f"Found {len(log_files)} logs")
+all_filenames = [f.name for f in log_files]
 
 # Process each file
 for session_path in log_files:
@@ -68,6 +70,7 @@ for session_path in log_files:
 
     try:
         df_session = load_session_log(session_path).dropna(subset=["llm_model"])
+        processed_files.append(session_path.name)  # Add this line
         print(f"Loaded {len(df_session)} rows")
 
         # Extract ORPDA layer to each dataframe
@@ -259,18 +262,7 @@ for session_path in log_files:
                 if mismatches > 0:
                     mismatch_details.append(f"{col1} vs {col2}: {mismatches}")
 
-        audit_log.append(
-            {
-                "filename": session_path.name,
-                "mode": mode,
-                "rows_loaded": len(df_session),
-                "datetime_mismatches": mismatch_count,
-                "mismatch_details": "; ".join(mismatch_details),
-                "status": "success",
-            }
-        )
-
-        # NOW fix datetime columns
+        # Fix datetime columns (outside audit loop)
         datetime_col_counts = {col: tmp2[col].notna().sum() for col in datetime_cols}
         best_col = max(datetime_col_counts, key=datetime_col_counts.get)
         first_datetime = tmp2[best_col].dropna().iloc[0]
@@ -286,72 +278,16 @@ for session_path in log_files:
         datetime_range = pd.date_range(
             start=first_datetime, periods=len(tmp2), freq="15min"
         )
+
+        # Apply fix to ALL datetime columns at once
         for col in datetime_cols:
-            datetime_cols = [
-                col for col in tmp2.columns if col.startswith("datetime_start")
-            ]
-            mismatch_count = 0
-            mismatch_details = []
-
-            for i in range(len(datetime_cols)):
-                for j in range(i + 1, len(datetime_cols)):
-                    col1, col2 = datetime_cols[i], datetime_cols[j]
-                    mismatches = (tmp2[col1] != tmp2[col2]).sum()
-                    mismatch_count += mismatches
-                    if mismatches > 0:
-                        mismatch_details.append(f"{col1} vs {col2}: {mismatches}")
-
-            audit_log.append(
-                {
-                    "filename": session_path.name,
-                    "mode": mode,
-                    "rows_loaded": len(df_session),
-                    "datetime_mismatches": mismatch_count,
-                    "mismatch_details": "; ".join(mismatch_details),
-                    "status": "success",
-                }
-            )
-
-            # NOW fix datetime columns
-            datetime_col_counts = {
-                col: tmp2[col].notna().sum() for col in datetime_cols
-            }
-            best_col = max(datetime_col_counts, key=datetime_col_counts.get)
-            first_datetime = tmp2[best_col].dropna().iloc[0]
-
-            try:
-                first_datetime = pd.to_datetime(first_datetime, format="%Y-%m-%d %H:%M")
-            except (ValueError, TypeError):
-                first_datetime = pd.to_datetime(first_datetime)
-
-            if pd.isna(first_datetime):
-                first_datetime = pd.Timestamp("2024-01-01 00:00:00")
-
-            datetime_range = pd.date_range(
-                start=first_datetime, periods=len(tmp2), freq="15min"
-            )
-            for col in datetime_cols:
-                tmp2[col] = datetime_range
+            tmp2[col] = datetime_range
 
         print(
             f"Updated {len(datetime_cols)} datetime columns starting from {first_datetime}"
         )
 
-        # Track datetime mismatches for audit
-        datetime_cols = [
-            col for col in tmp2.columns if col.startswith("datetime_start")
-        ]
-        mismatch_count = 0
-        mismatch_details = []
-
-        for i in range(len(datetime_cols)):
-            for j in range(i + 1, len(datetime_cols)):
-                col1, col2 = datetime_cols[i], datetime_cols[j]
-                mismatches = (tmp2[col1] != tmp2[col2]).sum()
-                mismatch_count += mismatches
-                if mismatches > 0:
-                    mismatch_details.append(f"{col1} vs {col2}: {mismatches}")
-
+        # Add SINGLE audit entry per file (only once, not in loop)
         audit_log.append(
             {
                 "filename": session_path.name,
@@ -364,13 +300,11 @@ for session_path in log_files:
         )
 
         # 6. Export to CSV
-        # Export CSV
         filename = session_path.name.replace(".log", ".csv")
         output_path = Path(ROOT, "app/logs/cleaned", f"cleaned_{filename}")
         output_path.parent.mkdir(parents=True, exist_ok=True)
         tmp2.to_csv(str(output_path), index=False)
         print(f"CSV saved to {output_path}!")
-        tmp2.tail(2).T
 
         # 7. Filter Columns
         locations = tmp2.filter(regex="(time|location)")
@@ -445,7 +379,8 @@ for session_path in log_files:
         # )
         # print(session_path)
     except (KeyError, ValueError, FileNotFoundError) as e:
-        print("ERROR:", e)
+        print("ERROR processing", session_path.name, ":", e)
+        failed_files.append(session_path.name)  # Add this line
         continue
 
 # create audit report
@@ -457,3 +392,11 @@ print(f"\nProcessed {len(audit_log)} files")
 print(f"Audit report saved to {audit_path}")
 print("\nAudit Summary:")
 print(audit_df[["filename", "rows_loaded", "datetime_mismatches", "status"]])
+
+# status
+print(f"\nProcessed {len(processed_files)} files successfully")
+print(f"Failed {len(failed_files)} files")
+if failed_files:
+    print("\nFailed files:")
+    for f in failed_files:
+        print(f"  - {f}")

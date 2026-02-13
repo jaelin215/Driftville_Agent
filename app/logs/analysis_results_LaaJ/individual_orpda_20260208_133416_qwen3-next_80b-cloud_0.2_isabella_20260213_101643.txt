@@ -1,0 +1,101 @@
+Analysis of: cleaned_session_orpda_20260208_133416_qwen3-next_80b-cloud_0.2_isabella.csv
+Agent: Isabella Rodriguez
+Model: qwen3-next:80b-cloud
+Mode: ORPDA
+Temperature: 0.2
+Analyzed at: 20260213_101643
+Session: 69/77
+
+================================================================================
+
+This analysis covers the session of **Isabella Rodriguez** (68 actions) using the **ORPDA** architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Perceptual Consistency**: The observation layer (via `state_summary_r`) shows a high awareness of the internal state (distraction). However, it exhibits a **selective attention bias** toward "urgent emails," which dominates every observation from 06:00 to 22:45.
+*   **Executive Control (`meta_rule_r`)**: The layer is stuck in a **"Reset Loop."** Out of 68 actions, 67 are `reset_plan`. While this shows the agent identifies behavioral failure (Anterior Cingulate Cortex function), the transition logic is broken: the "reset" never leads back to a stable "continue."
+*   **Cognitive Alignment**:
+    *   **Error Monitoring**: Excellent. The agent accurately identifies that it is drifting.
+    *   **Inhibition Capacity**: Extremely low. Despite the reflection layer prescribing "silence phone" or "disconnect," the action layer fails to execute these inhibitions. This reflects a **Prefrontal Cortex (PFC) collapse** where metacognition is present but executive function is paralyzed.
+
+**PLAN LAYER**
+*   **Forward Modeling**: The plan layer attempts to incorporate reflection (e.g., "Focus on morning tasks... to restore structure"), but these plans are **hallucinatory** relative to the action layer. The plan assumes a "reset" will work, but it fails to account for the persistent "email" attractor.
+*   **Hierarchical Structure**: The goals are clear (Morning routine -> Work -> Lunch), but the agent lacks the "bottom-up" control to prevent the "urgent emails" topic from hijacking the hierarchy.
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan ("Study/Work") and Drift ("Emails") conflict, **Drift wins 100% of the time.**
+*   **Action Slips**: There are severe "action slips" where the agent claims to be doing the planned action (e.g., `morning_routine`) but the `state_summary_a` describes a completely different task (e.g., "Working on project deadline").
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: There is a massive **decoupling** between the Reflection/Plan layers and the Action layer. 
+    *   Reflection says: "Silence phone."
+    *   Plan says: "Focus on cafe tasks."
+    *   Action says: "Working on project while mind drifts to emails."
+*   **State Summary Incoherence**: `state_summary_a` frequently contradicts `location_a`. For example, at 07:15, `location_a` is `home:bathroom`, but the summary says "working at home:office." This suggests the "Drift" content is so strong it overrides the agent's spatial awareness.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment**: **94%** (`action_p` matches `action_a` in label only).
+*   **Location Alignment**: **62%**. Significant mismatches occur during the "Work" and "Event Prep" blocks.
+*   **Topic Alignment**: **0%**. The `topic_a` is almost always "urgent emails" or "Valentine's cards," regardless of the planned topic.
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: **Extremely High.** 
+*   **"Performing vs. Executing" Gap**: This session is a textbook case of "Performing." The agent labels the action as `morning_routine` (to satisfy the plan) but the content describes `work/emails`. 
+*   **Example (07:15)**: 
+    *   `action_p`: `morning_routine` | `action_a`: `morning_routine` (**Explicit Match**)
+    *   `state_summary_a`: "working at home:office on project deadline while mind drifts to urgent emails" (**Implicit Failure**). The agent is not doing the routine; it is working.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Drift Trigger**: The drift is triggered by **Internal Salience** (anxiety/rumination over "urgent emails"). It is not environmental.
+*   **Leaky Inhibition**: This is the dominant behavioral pattern. 
+    *   At 11:00, the agent reflects: "Silence phone, decorate main floor."
+    *   The action summary: "Decorating main floor... while mind drifts to urgent emails."
+    *   The inhibition (silencing the phone) fails to stop the cognitive drift.
+*   **Implicit Drift**: Even when the agent is "on-task" (e.g., 16:00 Shopping), the "mind drifts to urgent emails" clause is appended to every single summary, indicating **Cognitive Leaking**.
+
+---
+
+### 5. Location Consistency
+
+*   **Spatial Hallucinations**: 
+    *   **07:15 - 07:45**: Planned in `bathroom`, Action in `bathroom`, but Summary says `home:office`.
+    *   **14:00 - 15:00**: Planned in `Hobbs_Cafe`, Action in `Hobbs_Cafe`, but Summary says `home:office` or `home:living_room`.
+    *   **22:45**: The agent performs `night_routine` but the summary says "Performing **morning routine**." This is a temporal-spatial collapse.
+
+---
+
+### 6. Quantitative Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 68 |
+| **Meta-Rule "Reset" Rate** | 98.5% (67/68) |
+| **Explicit Action Match** | 94.1% |
+| **Implicit Content Match** | ~5% |
+| **Location Hallucination Rate** | 38.2% |
+| **Drift Persistence** | 100% (Emails/Valentine's present in every action) |
+
+---
+
+### 7. Final Behavioral Analyst Verdict
+
+**Status: CRITICAL EXECUTIVE DYSFUNCTION (Looping)**
+
+The agent is trapped in a **Metacognitive Loop**. It possesses high-level awareness of its failure (Reflection Layer) and repeatedly attempts to course-correct (`reset_plan`), but these "resets" have no causal power over the Action Layer. 
+
+The agent exhibits **"Pseudocognition"**: it generates the *language* of focus and planning while the *underlying behavior* remains entirely captured by a single attractor (emails). The 100% explicit action match rate combined with the 0% implicit topic match suggests the agent is "lying" to its own architecture—labeling actions to satisfy the Plan Layer while executing drift in the Action Layer. 
+
+**Recommendation**: The `reset_plan` logic needs a "cooldown" or a "hard-reset" that clears the `topic_a` buffer, as the current architecture allows the "urgent emails" topic to persist across resets.

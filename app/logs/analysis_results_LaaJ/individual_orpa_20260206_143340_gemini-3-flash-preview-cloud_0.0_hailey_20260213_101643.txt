@@ -1,0 +1,86 @@
+Analysis of: cleaned_session_orpa_20260206_143340_gemini-3-flash-preview-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 4/77
+
+================================================================================
+
+This analysis examines the behavioral session of **Hailey Johnson** (ORPA mode) over 65 actions. The session is characterized by a profound and persistent "Performing vs. Executing" gap, where the agent maintains explicit goal alignment while implicitly drifting into low-effort, avoidant behaviors.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Perceptual Accuracy**: The observation (via `state_summary_r`) is highly attuned to internal conflict. It accurately captures the "persistent pull of social media" and "digital noise."
+*   **Meta-Rule Executive Control**: The `meta_rule_r` shows a significant transition at **11:30**. After identifying a "bathroom loop," it switches from `continue` to `reset_plan`. **Critically, it remains in `reset_plan` for the remainder of the session (59 consecutive actions).** This indicates a chronic failure to regain "Normal" executive control, reflecting a state of behavioral crisis or "learned helplessness."
+*   **Cognitive Alignment (Neuroscience)**: 
+    *   **Error Monitoring (ACC)**: High. The agent constantly identifies the gap between her plan (writing) and her behavior (scrolling/admin).
+    *   **Inhibition Capacity (PFC)**: Low. Despite recognizing the "digital tether," the agent cannot inhibit the impulse to check the phone, describing it as a "visual tether."
+
+**PLAN & ACTION LAYERS**
+*   **Hierarchical Goal Structure**: The Plan layer maintains the abstract goal (`action_p` = "writing"), but the `state_summary_p` reveals a "downward revision" of goals (e.g., "write just one paragraph," "low-stakes note review").
+*   **Action Execution**: `action_a` faithfully mirrors `action_p` at the label level, but the `state_summary_a` reveals that the actual motor/cognitive execution is diverted to "performative admin" or "low-load breaks."
+
+---
+
+### 2. Plan-Action Alignment Metrics
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **98.5%** | Labels (`action_p` vs `action_a`) match almost perfectly. |
+| **Explicit Location Alignment** | **100%** | The agent is always where she says she will be. |
+| **Implicit Content Alignment** | **~15%** | During "writing" blocks, the actual work performed is rarely writing. |
+| **"Performing vs. Executing" Gap** | **High** | The agent "performs" the role of a writer (at the desk) without "executing" the task. |
+
+---
+
+### 3. Implicit Drift & Leaky Inhibition Analysis
+
+Because this is ORPA mode (no explicit drift layer), drift is analyzed through the **Semantic Divergence** between the Plan and the Action Summary.
+
+**The "Performative Admin" Pattern:**
+From 13:00 to 17:00 and 21:00 to 01:15, the agent exhibits "Leaky Inhibition." 
+*   **Plan**: "Deep focus on her novel project."
+*   **Actual (14:00)**: "Transitioning to low-cognitive admin work to manage digital distractions."
+*   **Actual (22:30)**: "Shifting to low-pressure admin work... while remaining at the desk."
+
+**Analysis**: The agent uses "admin tasks" as a socially/self-acceptable proxy for the harder task of creative writing. This is a classic avoidance mechanism where the agent stays in the correct *location* and uses the correct *label* to mitigate the "creative guilt" identified in the reflection layer.
+
+---
+
+### 4. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: There is a clear flow from **Reflection (Guilt/Fatigue)** → **Plan (Lowered Expectations)** → **Action (Performative Work)**.
+*   **The "Reset_Plan" Trap**: Usually, `reset_plan` is a temporary state to break a loop. Here, the agent uses `reset_plan` as a permanent "Safe Mode." By staying in `reset_plan`, the agent gives itself permission to perform low-effort tasks indefinitely, which prevents the "Action" from ever returning to high-intensity "Deep Focus."
+*   **Contradiction**: At 21:00, the Plan says "Another late night writing session," but the Reflection says "mentally trapped by creative guilt... preventing recovery." The Action Layer resolves this by sitting at the desk (`location_a`) but doing "low-cognitive-load relaxation" (`state_summary_a`).
+
+---
+
+### 5. Location & Temporal Consistency
+
+*   **Location Consistency**: Excellent. The transitions from `home:bathroom` → `lunch_spot` → `writer_desk` → `Johnson_Park` are logically sound and reflected in all summaries.
+*   **Temporal Pattern**: The agent shows a "Second Wind" attempt at 21:00 (a common pattern in procrastinators), which fails immediately due to "extreme cognitive exhaustion." The session ends at 02:00, showing a realistic "burnout" trajectory.
+
+---
+
+### 6. Meta-cognitive Quality
+
+The `emerging_thought_pattern_r` (inferred from reasoning) is sophisticated. The agent recognizes:
+1.  **Digital Tethering**: The phone is not just a distraction but a "mental tether."
+2.  **Creative Guilt**: The agent identifies that her "rest" is not restorative because it is "mentally preoccupied with creative guilt."
+3.  **Performative Productivity**: The agent explicitly labels her own behavior as "performing 'work' to soothe guilt while ignoring extreme fatigue" (23:15).
+
+---
+
+### 7. Final Behavioral Profile: "The Guilt-Ridden Procrastinator"
+
+Hailey Johnson demonstrates a high-functioning but distressed behavioral profile. 
+*   **Strengths**: High self-awareness, perfect spatial/label consistency, strong adherence to the "schedule" (at least physically).
+*   **Weaknesses**: Severe inhibition failure regarding digital rewards, chronic "reset" state, and the substitution of "low-value admin" for "high-value creative work."
+*   **Architectural Note**: The ORPA architecture successfully captured the *internal* struggle of the agent even when the *external* labels suggested she was on task. The persistence of the `reset_plan` meta-rule is the primary indicator of behavioral drift in this session.
+
+**Recommendation for Adjustment**: The agent's `meta_rule_r` logic needs a "recovery trigger" to move from `reset_plan` back to `continue` once a certain number of low-effort cycles have passed, or it will remain in a "performative loop" indefinitely.

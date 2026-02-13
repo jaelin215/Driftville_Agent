@@ -1,0 +1,75 @@
+Analysis of: cleaned_session_orpa_20260209_155648_gpt-oss_20b-cloud_0.2_isabella.csv
+Agent: Isabella Rodriguez
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 0.2
+Analyzed at: 20260213_101643
+Session: 57/77
+
+================================================================================
+
+This behavioral analysis covers 68 actions of Isabella Rodriguez using the ORPA (Observation, Reflection, Plan, Action) architecture.
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: `state_summary_r` accurately tracks the transition of physical states, but shows a significant "cognitive overhang." For example, at 12:15, it recognizes the lunch break but immediately focuses on the "return to work" rather than the current state of eating.
+*   **Meta-Rule Function**: `meta_rule_r` functions as an executive toggle. It correctly triggers `reset_plan` during major context shifts (Work → Lunch at 12:15; Lunch → Event Prep at 13:45). However, it enters a **perseverative loop** from 20:15 to 22:45, repeatedly triggering `reset_plan` because it perceives a failure to "decorate," despite the plan having shifted to "relax" and "night_routine."
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The agent shows hyper-active error monitoring. It detects a "drift" from the decorating task during her relaxation time (20:15+) and treats this as a behavioral failure rather than a scheduled transition.
+    *   **Working Memory**: The agent demonstrates "goal maintenance" issues. It holds onto the "Valentine's decoration" goal so strongly that it interferes with the execution of the "winding down" goal.
+
+**PLAN & ACTION LAYERS**
+*   **Hierarchical Goal Structure**: The agent successfully moves from abstract goals (Work) to concrete actions (Greeting customers).
+*   **Forward Modeling**: The Plan layer shows predictive capacity (e.g., at 12:15, planning to "prepare to greet customers after the break").
+*   **Action Execution**: `action_a` is generally a faithful execution of `action_p`, but the `state_summary_a` reveals that the *internal* state is often lagging or preoccupied.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment**: 98.5% (67/68). The only mismatch is a data dropout at 16:15.
+*   **Location Alignment**: 98.5% (67/68).
+*   **Topic Alignment**: 98.5% (67/68).
+*   *Note*: On a label level, the agent is perfectly "obedient" to its schedule.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+*   **The "Transition Lag" Pattern**: At 08:00, the plan switches to `work`, but the action summary still describes the `morning_routine`. At 12:00, the plan switches to `lunch`, but the action summary still describes `greeting customers`. This indicates a **15-minute cognitive refractory period** where the agent's description of its behavior lags behind its categorical label.
+*   **Performing vs. Executing**: From 20:15 to 21:45, the agent is "Performing" relaxation (Location: living_room, Action: relax) but "Executing" cognitive work (Summary: "Reviewing decorating notes," "Reviewing color palette"). This is a classic **performing vs. executing gap**.
+
+---
+
+### 3. Drift & Inhibition Analysis
+
+**Implicit Drift (Leaky Inhibition)**
+Since this is ORPA mode (no explicit drift layer), drift is identified via semantic analysis:
+*   **Task Over-Persistence**: The most prominent drift is not *away* from work, but a failure to inhibit work-thoughts during rest.
+*   **Evidence of Leaky Inhibition**: At 22:30, while in the `bathroom` for `night_routine`, the agent's summary is "Gentle admin of Valentine decorations to refocus attention." This is a clear failure of the prefrontal cortex to inhibit the "Event Prep" task set in favor of the "Sleep" task set.
+*   **Linguistic Indicators**: The use of "needs to refocus" and "off track" in the reflection layer during scheduled rest periods (21:00-22:00) suggests the agent's internal reward system is still tied to the "Decorating" task completion.
+
+---
+
+### 4. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Generally flows well from Observation → Action.
+*   **Layer Contradiction**: A major contradiction exists between the **Plan Layer** (which says "Relax") and the **Reflection Layer** (which says "You are off track from decorating"). The Reflection layer is using an outdated goal-set to judge current performance, leading to unnecessary `reset_plan` triggers.
+*   **Location Consistency**: High. The agent correctly moves from `home:bathroom` (morning) → `Hobbs_Cafe` (work) → `lunch_spot` → `Willow_Market` → `home:living_room`.
+
+---
+
+### 5. Quantitative Metrics & Summary
+
+| Metric | Rate |
+| :--- | :--- |
+| **Explicit Action Alignment** | 98.5% |
+| **Explicit Location Alignment** | 98.5% |
+| **Transition Lag Frequency** | 2 major instances (08:00, 12:00) |
+| **Perseverative Loop Duration** | 150 minutes (20:15 - 22:45) |
+| **Meta-Rule Reset Rate** | 16.1% (11/68 actions) |
+
+**Behavioral Profile**:
+Isabella Rodriguez is a "High-Persistence/Low-Inhibition" agent. She excels at maintaining long-term task focus (decorating the cafe) but struggles with **set-shifting**. Her cognitive architecture shows a "sticky" goal state where work-related reflections bleed into her private time and sleep preparation. The `reset_plan` mechanism is being used as a corrective tool for "perceived drift" that is actually just a scheduled change in activity.
+
+**Recommendation**:
+The Reflection layer needs a "Goal-Set Update" signal. Currently, it judges "Relaxation" as a "Failure to Work," which triggers a cycle of stress-based resets. The agent would benefit from a more distinct "Work-Life" boundary in its hierarchical goal processing.

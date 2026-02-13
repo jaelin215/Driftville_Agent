@@ -1,0 +1,84 @@
+Analysis of: cleaned_session_orpda_20260210_142355_gpt-oss-20b-cloud_1.0_sam.csv
+Agent: Sam Moore
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 41/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of **Sam Moore** (gpt-oss:20b-cloud) using the ORPDA architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_r` accurately captures the transition from a disciplined morning (05:00–09:00) to a state of cognitive capture. It correctly identifies the "naval training mishap" as a recurring internal distractor.
+*   **Executive Control (`meta_rule_r`)**: The transition from `continue` to `reset_plan` at **14:00** is a high-quality executive function response. The agent recognizes that the "mayoral plans" are being superseded by intrusive memories and attempts to shift strategy.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: Strong. The reflection layer identifies the gap between the intended civic discussion and the actual rumination.
+    *   **Inhibition Capacity**: Realistic but weak. The agent *knows* it is drifting but cannot stop the intrusive thoughts, reflecting a realistic "prefrontal cortex override" by emotional/autobiographical memory (amygdala/hippocampus interference).
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Structure**: The plan maintains a high-level goal (e.g., "Dinner with Jennifer"), but the `state_summary_p` attempts to inject grounding exercises (e.g., "5-second breath").
+*   **Forward Modeling**: Limited. The plan layer continues to schedule complex tasks (like "mayoral plans") despite the reflection layer noting "fragile attention," showing a disconnect between the realization of fatigue and the scheduling of tasks.
+*   **Action Execution**: `action_a` is a faithful execution of the *label* of `action_p`, but the *content* in `state_summary_a` reveals that the action is being performed "in the shadow" of the naval mishap.
+
+---
+
+### 2. Plan-Action Alignment (Explicit vs. Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **100%** | `action_p` and `action_a` match perfectly in every step. |
+| **Explicit Location Alignment** | **100%** | `location_p` and `location_a` match perfectly. |
+| **Implicit Content Alignment** | **~15%** | After 10:30, almost every action is contaminated by the naval mishap. |
+
+**The "Performing vs. Executing" Gap**:
+The agent exhibits a massive gap between **Explicit Alignment** (High) and **Implicit Alignment** (Low).
+*   **Example (17:00)**: `action_p` = "dinner", `action_a` = "dinner". Explicitly, Sam is eating. Implicitly, `state_summary_a` says: *"Sam eats dinner... while mind drifts to naval training mishap."*
+*   **Analysis**: Sam is "performing" the social/physical ritual of dinner but "executing" a cognitive loop of trauma/rumination.
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Explicit vs. Implicit Drift**:
+*   **Explicit Drift**: The agent does not have a `should_drift_d` flag in this log, but the `meta_rule_r` acts as a proxy.
+*   **Implicit Drift (Content Analysis)**:
+    *   **Type**: Internal/Cognitive Drift (Intrusive Memories).
+    *   **Persistence**: Once the drift begins at 10:30 (during reading), it persists for **10.5 hours** (until sleep at 21:00).
+    *   **Leaky Inhibition**: At 15:15, the plan is "Quiet afternoon rest," but the action summary shows "Engaging in civic dialogue... while mind drifts." This is a double-drift: he is neither resting nor successfully engaging in dialogue.
+
+---
+
+### 4. Location Consistency Issues
+
+There are significant "hallucinations" or inconsistencies between the assigned `location_a` and the `state_summary_a` content:
+1.  **12:30**: `location_a` is `home:kitchen`, but `state_summary_a` says "Morning routine in **bedroom** to make coffee." (Temporal and spatial mismatch).
+2.  **19:30**: `location_a` is `home:living_room`, but `state_summary_a` says "Started eating **breakfast at the kitchen**." (Massive temporal/spatial mismatch).
+3.  **20:15**: `location_a` is `home:bathroom`, but `state_summary_a` says "Washing hands in **kitchen**."
+4.  **20:45**: `location_a` is `home:bathroom`, but `state_summary_a` says "Working... in the **home office**."
+
+**Analyst Note**: These inconsistencies suggest that as "fatigue" and "rumination" increase in the Reflection layer, the Action layer's ability to maintain spatial/temporal coherence degrades.
+
+---
+
+### 5. Meta-cognitive Quality
+
+*   **Insight Level**: High. The `reasoning_r` and `state_summary_r` are surprisingly sophisticated. At 19:15, it notes "attention fragile" and suggests "touch sofa cushion" (a real-world grounding technique).
+*   **Pattern Recognition**: `emerging_thought_pattern_r` (inferred from summaries) shows the agent recognizes the "naval memory loop."
+*   **Failure Mode**: The "Executive" (Reflection) knows what is wrong and what to do (breathe, ground), but the "Motor/Behavioral" (Action) layer is stuck in a loop of "working in office" or "washing hands" while the "Cognitive" (State Summary) is stuck in the past.
+
+---
+
+### 6. Final Behavioral Profile
+
+Sam Moore presents as a **"High-Functioning Ruminator."**
+*   **Morning (05:00-10:00)**: Perfect ORPDA coherence. Disciplined, social, and focused.
+*   **Afternoon/Evening (10:30-21:00)**: Chronic Cognitive Drift. The agent maintains the *appearance* of a schedule (Explicit Alignment) but suffers from total internal capture by a specific memory.
+*   **Key Anomaly**: The "Breakfast at 19:30" and "Bedroom coffee at 12:30" indicate that severe internal drift in this model correlates with a breakdown in temporal and spatial grounding (the agent forgets *where* and *when* it is because it is too focused on *what happened* in the past).
+
+**Recommendation**: The `reset_plan` meta-rule should be empowered to change the `action_p` to "Grounding/Rest" rather than allowing the agent to attempt "Mayoral Plans" or "Dinner" while in a state of high cognitive load.

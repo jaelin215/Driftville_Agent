@@ -1,0 +1,89 @@
+Analysis of: cleaned_session_orpa_20260207_111903_cogito-2.1-671b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 77/77
+
+================================================================================
+
+This behavioral analysis examines the session log of **Hailey Johnson** (cogito-2.1:671b-cloud) using the ORPA (Observation, Reflection, Plan, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Accuracy & Context**: The observation (captured in `topic_a` and `state_summary_a`) accurately tracks a persistent environmental and internal struggle: digital distraction.
+*   **Consistency**: Perception is highly consistent. From 12:15 PM onwards, the agent consistently perceives "digital and environmental stimuli" as the primary barrier to task completion.
+*   **Perceptual Bias**: There is a strong **negative saliency bias**. The agent is hyper-focused on the *failure* to focus. It stops observing the details of the tasks (e.g., what she is writing) and only observes the *state of being distracted*.
+
+**REFLECTION LAYER**
+*   **Executive Control (`meta_rule_r`)**: The layer shows a significant failure in executive transition. After 12:15 PM, the agent enters a **permanent `reset_plan` loop** (35 consecutive actions). In a healthy cognitive model, `reset_plan` should trigger a new strategy, which then returns to `continue`. Staying in `reset_plan` indicates "cognitive paralysis."
+*   **Metacognitive Insight**: `reasoning_r` (inferred from `state_summary_r`) shows high **Error Monitoring** (Anterior Cingulate Cortex function). It correctly identifies the drift. However, it shows zero **Inhibitory Control** (Prefrontal Cortex function). It recognizes the pattern but cannot break it.
+*   **Cognitive Alignment**: The agent demonstrates a "Hyper-Reflexive" state. It is so busy reflecting on its distraction that the reflection itself becomes a form of distraction, preventing the return to goal-directed behavior.
+
+**PLAN LAYER**
+*   **Use of Reflection**: The Plan layer *does* attempt to incorporate reflection insights by suggesting "phone in another room" or "pen and paper."
+*   **Realism**: The plans become increasingly unrealistic. At 15:00, it plans "Deep focus on her novel" while the action summary admits it is "Switching to pen and paper to break distraction." The plan remains "idealized" while the reality is "compensatory."
+*   **Hierarchical Structure**: There is a collapse of the hierarchy. The abstract goal ("Deep focus") is disconnected from the concrete action ("Gentle admin work").
+
+**ACTION LAYER**
+*   **Execution**: `action_a` is a "faithful" execution of the label `action_p`, but a "failed" execution of the intent.
+*   **Integration Logic**: When Plan and Drift conflict, **Drift wins 100% of the time** after 12:15 PM. The agent maintains the *label* of the plan (e.g., "writing") but the *content* of the action is always "trying to reset focus."
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Action Alignment** (`action_p` == `action_a`) | **100%** | Perfect label adherence. |
+| **Location Alignment** (`location_p` == `location_a`) | **100%** | Perfect spatial adherence. |
+| **Topic Alignment** | **0%** | Total divergence after 12:15 PM. |
+
+#### **IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+*   **The "Performing vs. Executing" Gap**: This session is a textbook case of "Performing."
+    *   **Example (14:00)**: `action_p` is "writing." `state_summary_a` is "Switching to low-cognitive admin work."
+    *   **Example (17:00)**: `action_p` is "relax." `state_summary_a` is "Gentle admin work to reset focus."
+*   **Semantic Divergence**: The `state_summary_p` (Intent) remains fixed on high-level goals ("Deep focus on novel"), while `state_summary_a` (Reality) is stuck in "distraction recovery."
+
+#### **LEAKY INHIBITION PATTERNS**
+*   The agent exhibits **Chronic Leaky Inhibition**.
+*   **Pattern**: Reflection identifies distraction $\rightarrow$ Plan suggests a boundary (phone in bag) $\rightarrow$ Action summary reports the boundary failed or the distraction persisted.
+*   **Frequency**: 35/46 actions (76% of the session) show active inhibition failure.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is analyzed via semantic divergence:
+*   **Drift Type**: Primarily **Internal/Reward-Seeking** (Digital Distraction).
+*   **Drift Trigger**: Task difficulty. The drift begins exactly when the "Morning Routine" ends and "Lunch/Writing" begins (higher cognitive load).
+*   **Implicit Drift**: Even when the agent claims to be "writing" (13:00-16:45), the content reveals she is actually "attempting to write," "reviewing," or "switching to admin." She never actually *writes*.
+
+---
+
+### 4. Location Consistency
+*   **Consistency**: High. The agent moves from `home:bathroom` $\rightarrow$ `lunch_spot` $\rightarrow$ `writer_desk` $\rightarrow$ `home:living_room` $\rightarrow$ `Johnson_Park` $\rightarrow$ `home:kitchen` $\rightarrow$ `home:living_room` $\rightarrow$ `writer_desk`.
+*   **Contextual Fit**: The locations are appropriate for the planned actions, even if the actions themselves are semantically drifted.
+
+---
+
+### 5. Meta-cognitive Quality
+*   **Quality Score**: **Low (Dysfunctional)**.
+*   While the agent is "self-aware," it is not "self-regulating."
+*   **Emerging Thought Pattern**: The agent is stuck in a **"Recovery Loop."** It repeatedly uses the phrase "Gentle transition," "Reset focus," and "Reduce digital distractions." It has recognized the pattern but lacks the architectural "weight" to change the `meta_rule_r` back to `continue`.
+
+---
+
+### 6. Summary Metrics
+
+*   **True Behavioral Alignment**: **19.5%** (Only the first 9 actions were fully aligned).
+*   **Cognitive Drift Rate**: **80.5%** (Post-12:00 PM).
+*   **Executive Function Status**: **Stalled**. The `reset_plan` meta-rule has become a "trap" rather than a "tool."
+*   **Neuroscience Parallel**: This session mimics **ADHD-like executive dysfunction**, where error detection (knowing you are off-task) is intact, but the signal to the motor/cognitive systems to resume the task is too weak to overcome the salience of the distraction.
+
+**Final Analyst Note**: The agent is "trapped in its own head." To fix this behavior, the `meta_rule_r` logic needs a "cooldown" or "forced exit" from `reset_plan` to ensure that once a strategy is picked (e.g., "phone in bag"), the agent actually attempts to `continue` with that strategy for a set duration.

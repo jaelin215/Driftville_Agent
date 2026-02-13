@@ -1,0 +1,91 @@
+Analysis of: cleaned_session_orpda_20260207_171847_gpt-oss-20b-cloud_1.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 31/77
+
+================================================================================
+
+This behavioral analysis is based on the 65-action session log for Hailey Johnson.
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: The reflection layer (`state_summary_r`) is highly sensitive to internal states. It accurately captures the transition from "low distraction" (10:00) to "internal drift" (12:00) and eventually "high fatigue and fragile focus" (00:30).
+*   **Meta-Rule Logic**: The transition from `continue` to `reset_plan` is appropriately triggered by behavioral failures. For example, at 12:15, when the agent recognizes it is "internally drifting... misaligned," the meta-rule switches to `reset_plan`.
+*   **Cognitive Alignment (Metacognition)**:
+    *   **Error Monitoring (ACC)**: Strong. The agent consistently identifies when its thoughts (podcast brainstorming) diverge from the task (writing).
+    *   **Inhibition Capacity**: Realistic but weak. The agent demonstrates "ideal-world assumptions" in its plans (e.g., "suppress lingering thoughts") but fails to execute that inhibition in the Action Layer, reflecting realistic prefrontal cortex limitations under fatigue.
+
+**PLAN & ACTION LAYERS**
+*   **Plan Realism**: The plans are behaviorally achievable (e.g., "Heat coffee," "Write outline"), but the `reset_plan` instructions often lack the "force" to override internal drift.
+*   **Action Execution**: `action_a` is a faithful execution of the *label* of `action_p`, but the *content* (`state_summary_a`) reveals a failure to follow the plan's qualitative constraints.
+*   **Cognitive Alignment (Motor/Goal)**: The agent shows a "habit vs. goal-directed" tradeoff. The "habit" of writing continues, but the "goal" of focusing on the novel is hijacked by the "reward-seeking" drift of podcast brainstorming.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Generally consistent (Observation → Reflection → Plan → Action). However, there is a **"Reflective-Action Gap."** Reflection identifies the drift, the Plan attempts to correct it (e.g., 22:45: "Switch to light reading"), but the Action Layer continues the drift (22:45: "Reading... while mind drifts to podcast").
+*   **Drift Integration**: The drift content (e.g., "characters in co-living story") is successfully integrated into `state_summary_a`, showing that the Action Layer is being influenced by the Drift Layer even when the Plan Layer demands focus.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment**: **96.9%** (63/65). Most labels match (e.g., `writing` to `writing`).
+*   **Location Alignment**: **98.4%** (64/65).
+*   **Topic Alignment**: **95.3%**.
+*   *Note*: Mismatches are rare, such as 16:15 where `action_p` is NaN but `action_a` is `writing`.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+*   **Alignment Rate**: **~35%**. While the agent is "writing" (explicit), the content (implicit) shows it is actually "brainstorming podcasts" or "thinking about backstories."
+*   **Performing vs. Executing**: There is a massive gap here.
+    *   *Example (23:45)*: `action_p` = writing, `action_a` = writing. **Explicit Match.**
+    *   *Content*: `state_summary_p` = "review and refine manuscript," `state_summary_a` = "Writing quick podcast notes... while mind drifts to podcast brainstorming." **Implicit Divergence.**
+*   **Linguistic Indicators**: The frequent use of the phrase "while mind drifts to..." in `state_summary_a` serves as a consistent marker of semantic misalignment.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Thematic Evolution of Drift**:
+    1.  **12:00 - 17:45**: Drift is focused on "co-living story characters."
+    2.  **19:00 - 02:00**: Drift shifts to "podcast brainstorming."
+*   **Leaky Inhibition**: This is the dominant pattern. The agent's `meta_rule_r` says "reset_plan" and the Plan says "focus," but the Action Layer "leaks" the drift topic into the activity.
+*   **Trigger**: Drift is clearly correlated with **fatigue** and **time of day**. As the session progresses into the late night (22:00+), the frequency of `reset_plan` increases, but the effectiveness of those resets decreases.
+
+---
+
+### 5. Location & Temporal Consistency
+
+*   **Location Anomalies**:
+    *   **18:15**: `location_a` is `Johnson_Park`, but `state_summary_a` says "Walking through the **living room**."
+    *   **18:45**: `state_summary_a` says "walks outside **from the living room**" while at `Johnson_Park`.
+*   **Temporal/Contextual Slip**:
+    *   **19:00**: `state_summary_a` describes "Cooking pasta for **lunch** in kitchen" at 7:00 PM. This is a significant contextual hallucination/action slip.
+
+---
+
+### 6. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Recurring Pattern**: The "Late-Night Loop." From 22:30 to 01:15, the agent enters a cycle of: *Drift detected → Reset Plan → Attempt to write → Immediate drift back to podcasts.*
+*   **Metacognitive Insight**: The `emerging_thought_pattern_r` (implied in reasoning) shows genuine recognition of the "fragile focus." The agent isn't just repeating a state; it is tracking its own declining cognitive control.
+*   **Anomalous Behavior**: The 01:45 action shows the agent "Continuing writing content outline" during a `night_routine` block where it was supposed to be preparing for bed. This indicates a failure of the "Night Routine" goal to inhibit the "Writing" habit.
+
+---
+
+### Summary Metrics
+
+| Metric | Value | Interpretation |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 96.9% | High procedural adherence to labels. |
+| **Implicit Content Alignment** | ~35% | Low thematic adherence; high internal distraction. |
+| **Inhibition Success Rate** | Low | Meta-rules identify errors but fail to stop them. |
+| **Primary Drift Driver** | Fatigue | Drift intensifies and becomes "sticky" after 22:00. |
+| **Location Consistency** | 95% | Minor "teleportation" errors in descriptions. |
+
+**Final Analyst Note**: Hailey Johnson exhibits a classic "high-functioning distracted" profile. She maintains the *appearance* of productivity (staying at the desk, keeping the 'writing' label), but her cognitive resources are almost entirely hijacked by a secondary interest (podcasts) due to depleted inhibition (fatigue). The ORPDA architecture successfully captured this "performing vs. executing" gap.

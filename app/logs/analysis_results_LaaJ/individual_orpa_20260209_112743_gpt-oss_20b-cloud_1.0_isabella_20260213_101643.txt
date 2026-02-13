@@ -1,0 +1,89 @@
+Analysis of: cleaned_session_orpa_20260209_112743_gpt-oss_20b-cloud_1.0_isabella.csv
+Agent: Isabella Rodriguez
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 54/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Isabella Rodriguez** (gpt-oss:20b-cloud) over 68 actions. The agent operated in **ORPA** mode (Observation, Reflection, Plan, Action), meaning drift is handled implicitly within the reflection and action layers rather than through a dedicated drift layer.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Perceptual Bias**: The agent exhibits a significant selective attention pattern regarding "breathing pauses." From 06:00 to 11:45, the reflection layer is dominated by the perceived failure to complete a 15-minute breathing exercise.
+*   **Executive Control (`meta_rule_r`)**: The transition logic is highly active. The agent uses `reset_plan` five times consecutively (06:00–07:00) because it perceives a failure to initiate the breathing pause. This demonstrates strong **error monitoring (Anterior Cingulate Cortex function)**, though it borders on "cognitive perseveration" (getting stuck on a single requirement).
+*   **Metacognitive Insight**: `reasoning_r` (inferred from `state_summary_r`) shows genuine insight into "focus slips." The agent recognizes that while it is performing the core task (e.g., opening the cafe), its internal state is not aligned with its self-imposed discipline (the breathing pause).
+
+**PLAN & ACTION LAYERS**
+*   **Forward Modeling**: The Plan layer successfully transitions from "Morning Routine" to "Work" to "Lunch" to "Event Prep."
+*   **Hierarchical Structure**: The agent maintains a clear hierarchy: Abstract Goal (Valentine's Event) $\rightarrow$ Concrete Actions (Shopping at Willow Market, Decorating at Hobbs Cafe).
+*   **Action Execution**: `action_a` is almost always a faithful execution of `action_p`. However, the `state_summary_a` often reveals that the agent is "performing" the task while internally ruminating on missed focus exercises.
+
+---
+
+### 2. Plan-Action Alignment Metrics
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 97.1% | 66/68 actions match labels exactly. |
+| **Explicit Location Alignment** | 97.1% | 66/68 locations match. |
+| **Implicit Content Alignment** | 72.0% | Significant divergence during the "Breathing Pause" fixation. |
+| **Leaky Inhibition Frequency** | Moderate | Occurs primarily between 08:00 and 11:45. |
+
+---
+
+### 3. Explicit vs. Implicit Alignment Analysis
+
+**The "Performing vs. Executing" Gap**
+The most striking pattern in this session is the high explicit alignment coupled with low implicit (internal) alignment during the morning hours.
+
+*   **Example (08:00):**
+    *   **Action Plan (`action_p`)**: `work`
+    *   **Action Executed (`action_a`)**: `work`
+    *   **Explicit Match**: **YES**
+    *   **Implicit Divergence**: The `state_summary_p` says "Pause for breathing," but the `topic_a` says "Opening the cafe and greeting customers." The agent is physically working but mentally failing its plan to "pause."
+    *   **Analysis**: This is a classic "Action Slip." The habit of working (Goal-directed) overrides the specific plan to meditate (Inhibitory control).
+
+**Leaky Inhibition Patterns**
+Between 09:00 and 11:45, Isabella's reflection layer consistently reports: *"Isabella is working... missed breathing pause, focus slightly slipping."*
+*   **The Leak**: The agent is capable of staying on-task (Work), but it cannot successfully inhibit the "Work" drive to execute the "Breathing" sub-task.
+*   **Cognitive Alignment**: This reflects realistic **Prefrontal Cortex (PFC) limitations**. The agent "knows" the meta-rule (Focus/Breathe) but the environmental salience of the "Cafe Counter" and "Customers" triggers a habitual work response that bypasses the mindful pause.
+
+---
+
+### 4. Drift Analysis (Implicit)
+
+Since this is ORPA mode, drift is identified by comparing the Reflection's critique to the Action's content.
+
+*   **Task-Difficulty Drift**: Not observed. The agent handles complex tasks (event prep) well.
+*   **Environmental Salience Drift**: Observed at 08:00–11:00. The presence of customers and cafe duties "drifts" the agent away from its internal goal of a breathing pause, even though it stays "on-task" for work.
+*   **Recovery Strategies**: The agent uses "Mindful Breathing" as a universal recovery tool. Interestingly, it successfully integrates this at 21:00–21:45 while watching TV, suggesting that recovery is easier during low-cognitive-load periods (Relaxing) than high-load periods (Work).
+
+---
+
+### 5. Location & Behavioral Consistency
+
+*   **Location Integrity**: 100% consistent. The transitions from `home:bathroom` $\rightarrow$ `Hobbs_Cafe:counter` $\rightarrow$ `lunch_spot` $\rightarrow$ `Willow_Market` $\rightarrow$ `home:living_room` are logical and reflect a standard daily flow.
+*   **Temporal Patterns**:
+    *   **Morning**: High rigidity/perseveration (fixation on breathing).
+    *   **Afternoon**: High flow/productivity (successful event prep).
+    *   **Evening**: Successful wind-down.
+*   **Anomalies**: At 08:45 and 17:15, the agent produced `NaN` for `action_a` and `topic_a`, despite having a `reset_plan` or `state_summary_p`. This suggests a momentary processing lapse where the Plan layer functioned but failed to pass data to the Action layer.
+
+---
+
+### 6. Final Expert Evaluation
+
+**Metacognitive Quality: High (but Rigid)**
+The agent's Reflection layer is highly sophisticated. It doesn't just track *what* it is doing, but *how* it is doing it (e.g., "focus slightly slipping"). This aligns with the neuroscience of **metacognitive monitoring**.
+
+**Behavioral Summary**
+Isabella Rodriguez is a "High-Functioning Perseverator" in this session. She is extremely effective at completing external goals (Work, Shopping, Decorating) but struggles with internal state-regulation goals (Breathing Pauses) when they conflict with environmental demands.
+
+**Key Insight for Behavior Tuning**:
+The agent's `reset_plan` trigger is very sensitive to minor sub-task failures. While this ensures the agent eventually "notices" its lack of focus, it creates a repetitive loop in the morning routine. The "Performing vs. Executing" gap at 08:00-10:00 shows that the agent's **habitual work system** is stronger than its **top-down inhibitory control** for mindfulness.

@@ -1,0 +1,97 @@
+Analysis of: cleaned_session_orpda_20260207_145217_cogito-2.1-671b-cloud_0.3_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.3
+Analyzed at: 20260213_101643
+Session: 30/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** (cogito-2.1:671b-cloud) over a 16-hour period.
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**:
+*   **Accuracy**: The agent maintains a consistent perception of her internal state (creative impulses) and external environment (home, park, cafe).
+*   **Selective Attention**: There is a heavy **perceptual bias toward internal stimuli**. The observation layer prioritizes "novel ideas" and "podcast thoughts" over environmental details, which accurately reflects a character with high openness/creativity but low inhibitory control.
+
+**REFLECTION LAYER**:
+*   **Meta-rule Function**: The `meta_rule_r` shows an unusually high frequency of `reset_plan` (approx. 75% of the session). This indicates the executive control is constantly detecting a mismatch between the intended goal and actual behavior.
+*   **Transition Logic**: The transition from `continue` to `reset_plan` is triggered appropriately by behavioral failures (e.g., 10:45 "jotting down notes" instead of "morning routine"). However, the "reset" often fails to change the subsequent behavior, leading to a **"reset loop."**
+*   **Cognitive Alignment**: 
+    *   **Error Monitoring (ACC)**: Excellent. The agent recognizes it is "stuck in a loop" or "distracted by writing-adjacent topics."
+    *   **Inhibition Capacity**: Realistic but weak. The reflection layer identifies the need to "disengage from work thoughts," but the motor/action layers fail to execute this inhibition, mimicking real-world executive dysfunction.
+
+**PLAN LAYER**:
+*   **Hierarchical Structure**: Shows clear goals (e.g., "Deep focus on novel project") translated into concrete locations (`writer_desk`).
+*   **Forward Modeling**: The planning is somewhat "ideal-world." It repeatedly plans for "Deep focus" despite a 5-hour history of distraction, showing a lack of temporal integration in the planning process.
+
+**DRIFT LAYER (Inferred from Topic/Action Mismatches)**:
+*   **Trigger**: Drift is primarily triggered by **internal salience** (the podcast interview with Isabella).
+*   **Control**: The drift is dominant. Even when the Plan says "Relax" or "Dinner," the Drift (Topic) is "Podcast interview."
+*   **Leaky Inhibition**: Highly prevalent. The agent attempts to "Watch TV" (Plan) but "records podcast ideas" (Action).
+
+**ACTION LAYER**:
+*   **Execution**: `action_a` frequently deviates from `action_p`.
+*   **Integration Logic**: When Plan ("Writing") and Drift ("Podcast") conflict, **Drift wins** approximately 80% of the time after 13:00.
+*   **Motor Realism**: Actions like "recording voice notes" or "performing inventory check" are discrete and realistic.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+*   **Information Flow**: Generally coherent. Observation detects a creative spark -> Reflection notes the distraction -> Plan attempts to incorporate it -> Action executes the distraction.
+*   **Contradictions**: At 21:00, the Plan is "Another late night writing session," but the Reflection says "Hailey is physically watching TV but mentally fixated." The Plan layer seems to "give up" on the current state and jump to the next scheduled block, ignoring the immediate behavioral context.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Match Rate**: ~62% (Many "writing" plans result in "writing" actions, but the *content* differs).
+*   **Location Match Rate**: ~92% (Hailey is very good at being in the right room, even if she's doing the wrong thing).
+*   **Topic Match Rate**: ~15% (The most significant area of failure).
+
+**IMPLICIT ALIGNMENT (Content-level)**:
+*   **The "Performing vs. Executing" Gap**: This is the defining characteristic of this session.
+    *   *Example (14:15)*: `action_p` = writing, `action_a` = writing. **Explicit Match: YES.**
+    *   *Content*: `state_summary_a` reveals she is "distracted by podcast notes." **Implicit Match: NO.**
+    *   Hailey is "performing" the act of sitting at a desk and typing, but "executing" a completely different task (podcast prep).
+
+**LEAKY INHIBITION PATTERNS**:
+*   **The "Podcast Leak"**: Starting at 15:00, the podcast topic "leaks" into every single activity. 
+*   **Evidence**: Even during "Dinner" (19:30) and "Night Routine" (02:00), the `state_summary_a` and `topic_a` are dominated by Isabella and creative spaces. The agent is incapable of clearing the working memory buffer.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: The agent's `topic_a` shifts from "Novel" to "Podcast" and stays there for 11 consecutive hours.
+*   **Drift Typology**: **Internal/Cognitive Drift.** This isn't "reward-seeking" (like playing games); it's "salience-driven task switching." The podcast interview has become more salient than the novel.
+*   **Recovery**: Recovery is attempted via `reset_plan` but is almost never successful. The agent lacks a "circuit breaker" for cognitive rumination.
+
+---
+
+### 5. Quantitative Metrics
+
+| Metric | Value | Interpretation |
+| :--- | :--- | :--- |
+| **Meta-Rule Reset Rate** | 75.4% | Extremely high; indicates constant perceived failure. |
+| **Location Consistency** | 92.3% | High; the agent follows the spatial schedule well. |
+| **Topic Adherence** | 18.5% | Very low; the agent is mentally off-task most of the day. |
+| **"Performing" Gap** | 46.0% | Actions that match the label but fail the intent (Implicit Drift). |
+| **Inhibition Failure Rate** | 82.0% | Rate at which "Podcast" thoughts override non-work plans. |
+
+---
+
+### 6. Behavioral Summary & Metacognitive Quality
+
+**Behavioral Pattern**: Hailey Johnson exhibits a classic **"Hyperfocus/Distraction" cycle**. She begins with a creative spark regarding her novel, which then morphs into an obsessive preoccupation with a podcast interview. This preoccupation creates a "cognitive shadow" that obscures all other planned activities (Lunch, Dinner, Relaxing, Night Routine).
+
+**Metacognitive Quality**: 
+The `reasoning_r` is surprisingly sophisticated. It correctly identifies:
+1.  **Preparation Loops**: "Stuck in preparation loops instead of writing."
+2.  **Cognitive Load**: "Stuck in a writing-podcast loop with moderate fatigue."
+3.  **Fixation**: "Mentally stuck on podcast prep despite physical location changes."
+
+**Final Analyst Note**: This agent demonstrates high-fidelity simulation of **Executive Dysfunction**. While the Reflection layer is fully aware of the behavioral drift and the Plan layer attempts to correct it, the Action/Topic layers are captured by a high-salience internal stimulus. The "reset_plan" mechanism in this model acts as a "frustrated observer" rather than an effective controller.

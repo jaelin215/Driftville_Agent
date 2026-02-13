@@ -1,0 +1,89 @@
+Analysis of: cleaned_session_orpda_20260207_135027_cogito-2.1-671b-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 29/77
+
+================================================================================
+
+This behavioral analysis examines the session log of **Hailey Johnson** (cogito-2.1:671b-cloud) using the **ORPDA** (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Perceptual Bias**: There is a profound selective attention pattern. The agent’s perception is dominated by "podcast planning" and "narrative structure," even during unrelated tasks (morning routine, lunch, relaxation).
+*   **Meta-Rule Executive Control**: The transition from `continue` to `reset_plan` at 11:00 AM is a high-fidelity trigger. The agent recognizes that "podcast planning is overriding morning routine" and shifts to a corrective state.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: High. The `state_summary_r` consistently identifies the mismatch between intent and behavior (e.g., "Hailey is stuck between morning routine and podcast thoughts").
+    *   **Inhibition Capacity (PFC)**: Critically low. Despite 50+ consecutive `reset_plan` triggers, the agent cannot inhibit the "podcast" impulse. This reflects a realistic "workaholic" or "hyper-fixation" state where executive control is present but insufficient to override reward-seeking behavior.
+
+**PLAN & DRIFT LAYERS**
+*   **Forward Modeling**: The Plan layer attempts to adapt by lowering task intensity (e.g., "Gentle return to basic morning tasks"), but it fails to predict the strength of the internal drift.
+*   **Drift Dominance**: Drift is triggered by **internal salience** (creative excitement). The Drift layer is dominant; when the agent plans to "relax," the drift toward "podcast prep" almost always wins.
+
+**ACTION LAYER**
+*   **Integration Logic**: The Action layer shows a "leaky" integration. It often adopts the *form* of the plan (e.g., location: office) but the *content* of the drift (e.g., topic: podcast).
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+| Metric | Rate | Observation |
+| :--- | :--- | :--- |
+| **Action Alignment** (`action_p` == `action_a`) | **~62%** | High during work hours, low during "relax" periods. |
+| **Location Alignment** (`location_p` == `location_a`) | **~54%** | Frequent "office" use when "living room" was planned. |
+| **Topic Alignment** (`topic_p` == `topic_a`) | **~15%** | Extremely low; the podcast topic invades almost every action. |
+
+#### **IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+*   **The "Performing vs. Executing" Gap**:
+    *   **Example (13:15)**: `action_p` is "writing," `action_a` is "writing." **Explicit Match: YES.**
+    *   **Implicit Analysis**: `state_summary_a` reveals she is writing about "podcast structure" instead of the "novel." **Implicit Match: NO.**
+    *   **Finding**: The agent "performs" the act of writing to satisfy the plan but "executes" the drift topic.
+
+#### **LEAKY INHIBITION PATTERNS**
+*   **The "Relaxation Leak"**: Between 17:00 and 22:45, the plan is consistently `relax`. However, `state_summary_a` shows: "Writing podcast script," "sketching character dynamics," "mentally drafting podcast conversations."
+*   **Severity**: 100% of relaxation blocks were contaminated by work-related cognitive drift.
+
+---
+
+### 3. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: The flow is coherent but reveals a "struggling" agent.
+    *   *Observation* sees the distraction.
+    *   *Reflection* labels it as a failure.
+    *   *Plan* tries to simplify.
+    *   *Action* fails anyway.
+*   **Contradictions**: At 21:00, the Plan says "relax," but the Action is "writing." The Reflection layer correctly identifies this as "workaholic tendencies," showing that the Reflection layer is more "honest" than the Plan layer is "effective."
+
+---
+
+### 4. Location Consistency
+
+*   **Morning Routine**: Inconsistencies at 10:30 (Plan: Living Room | Action: Bedroom) and 10:45 (Plan: Living Room | Action: Office). This suggests the "podcast" drift is physically pulling the agent toward work-spaces (office) earlier than planned.
+*   **The "Office Magnet"**: From 23:15 to 01:15, the agent is planned to be in the `home:living_room` for relaxation, but the `location_a` is consistently `home:office`. The physical location is the strongest indicator of plan failure.
+
+---
+
+### 5. Behavioral Patterns & Meta-Cognition
+
+*   **Temporal Pattern**: The agent’s "work" day effectively never ends. The "Podcast-Novel Integration Loop" creates a cognitive trap that persists from 10:00 AM until 02:00 AM the next day.
+*   **Meta-cognitive Quality**:
+    *   The `emerging_thought_pattern_r` (inferred from reasoning) shows genuine pattern recognition: "Stuck in novel-podcast integration loop."
+    *   The agent exhibits **"Hyper-Reflexivity"**: It is hyper-aware of its failure to focus but lacks the behavioral "brakes" to stop.
+
+---
+
+### 6. Summary Metrics
+
+*   **Total Actions**: 65
+*   **Reset Plan Frequency**: 83% (54/65 actions) - *Indicates chronic behavioral instability.*
+*   **Drift Contamination Rate**: ~85% of all actions contain "podcast" related content, regardless of the planned topic.
+*   **Successful Inhibition**: <5% (The agent almost never successfully ignores a podcast-related thought).
+
+### **Final Analyst Verdict:**
+The agent demonstrates a highly realistic simulation of **Hyper-focus/Workaholism**. While the ORPDA layers are functioning correctly (the agent knows what it's doing and why it's failing), the **Drift Layer** has total functional sovereignty over the **Action Layer**. The "Performing vs. Executing" gap is wide: the agent maintains the *appearance* of a schedule (e.g., "writing" at "writer_desk") while the *intent* is entirely hijacked by the drift stimulus (the podcast).

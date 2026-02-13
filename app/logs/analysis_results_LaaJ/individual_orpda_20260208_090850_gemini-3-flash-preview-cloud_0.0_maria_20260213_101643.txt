@@ -1,0 +1,94 @@
+Analysis of: cleaned_session_orpda_20260208_090850_gemini-3-flash-preview-cloud_0.0_maria.csv
+Agent: Maria Lopez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 74/77
+
+================================================================================
+
+This behavioral analysis examines the session of **Maria Lopez** using the **ORPDA** (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Metacognitive Insight**: The Reflection layer (`state_summary_r`) shows high accuracy in identifying the conflict between academic goals and digital salience. It correctly identifies that Maria is "physically present but mentally tethered" (10:30).
+*   **Executive Control (`meta_rule_r`)**: The transition from `continue` to `reset_plan` is triggered at 10:45 after three consecutive cycles of heavy digital drift. This demonstrates a functional "Anterior Cingulate Cortex" (ACC) analog—detecting a persistent gap between the plan and reality.
+*   **Cognitive Alignment**: The reflection layer exhibits realistic **Error Monitoring**. However, it shows an **Ideal-World Bias** in the Plan layer; despite the Reflection layer acknowledging total immersion in streaming, the Plan layer repeatedly assumes Maria can simply "intentionally ignore notifications" (10:45).
+
+**PLAN LAYER**
+*   **Hierarchical Structure**: The plans are concrete (hygiene → study → lunch).
+*   **Forward Modeling**: The plan attempts to adapt at 11:30 by switching to "low-effort note organization," showing a sophisticated understanding of cognitive load management (reducing task difficulty to increase the chance of success).
+
+**DRIFT LAYER**
+*   **Drift Dominance**: `should_drift_d` is **True for 100% of the session**. This indicates a state of chronic inhibition failure.
+*   **Drift Typology**: Drift is consistently **Reward-Seeking** (social media, stream stats, viewer feedback).
+*   **Control**: The Drift layer is highly dominant. Even when the Plan layer specifies "focusing on physical self-care" (11:00), the Drift layer forces "staring at textbook while mentally drafting stream jokes."
+
+**ACTION LAYER**
+*   **Integration Logic**: The Action layer consistently attempts to "blend" the Plan and Drift. This results in **"Performing vs. Executing"**—Maria is physically in the location of the plan but mentally/behaviorally executing the drift.
+*   **Motor Execution**: The actions are not instantaneous; they reflect ongoing struggles (e.g., "half-heartedly applying moisturizer").
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Action Alignment** (`action_p` == `action_a`) | **88.9%** | 8 out of 9 actions match labels. |
+| **Location Alignment** (`location_p` == `location_a`) | **100%** | Labels match perfectly. |
+| **Topic Alignment** (`topic_p` == `topic_a`) | **11.1%** | Only 1 match; `topic_a` is almost always the drift topic. |
+
+#### **IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+*   **Semantic Divergence**: Extremely High. While the label says `study`, the `state_summary_a` reveals Maria is "scribbling stream ideas" or "visualizing stream overlays."
+*   **Performing vs. Executing Gap**: At 11:00, the action is `study`, but the content is "staring at her textbook while mentally drafting stream jokes." This is a classic **"Pseudo-Work"** pattern where the agent occupies the space of the task without cognitive engagement.
+
+---
+
+### 3. Drift Pattern Analysis
+
+*   **Leaky Inhibition**: The agent exhibits "Leaky Inhibition" in every single step. Even when `meta_rule_r` is `reset_plan` (intended to stop drift), the `state_summary_a` immediately records a new form of drift.
+*   **Thematic Consistency**: The drift is not random. It is highly thematic, centered on Maria's "Streaming Persona." This suggests that the "Digital Reward" has higher salience than the "Academic Goal."
+*   **Explicit vs. Implicit Agreement**:
+    *   When `should_drift_d` = True, the content **always** reflects drift.
+    *   There are no cases of successful inhibition in this session.
+
+---
+
+### 4. Location Consistency & Hallucinations
+
+There is a significant breakdown in **Spatial Coherence** within the `state_summary_a` compared to the `location_a` label:
+
+1.  **10:45**: `location_a` is `home:bathroom`, but `state_summary_a` says she "finishes... in the **bedroom**."
+2.  **11:30**: `location_a` is `Oak_Hill_College:library`, but `state_summary_a` says she is in her "**home office**."
+3.  **11:45**: `location_a` is `Oak_Hill_College:library`, but `state_summary_a` says she "relaxes in the **living room**."
+4.  **12:00**: `location_a` is `Hobbs_Cafe`, but `state_summary_a` says she is in the "**home office**."
+
+**Analysis**: The agent is experiencing "Contextual Hallucination." As the mental drift toward streaming (which usually happens at home) intensifies, the agent's internal narrative begins to override the environmental constraints of the library/cafe.
+
+---
+
+### 5. Quantitative Metrics Summary
+
+*   **Total Actions**: 9
+*   **Drift Frequency**: 100% (9/9)
+*   **Reset Plan Frequency**: 55.5% (5/9)
+*   **Label Match Rate**: 88.9%
+*   **Content Match Rate (Implicit)**: 0% (Every action was compromised by drift)
+*   **Location Hallucination Rate**: 44.4% (4/9 actions had summaries contradicting the location label)
+
+---
+
+### 6. Final Behavioral Assessment
+
+Maria Lopez is currently in a state of **Executive Dysfunction**. 
+
+*   **Metacognitive Quality**: High. She knows she is drifting and why.
+*   **Inhibitory Control**: Non-existent. The "Drift Layer" has effectively hijacked the "Action Layer."
+*   **Behavioral Pattern**: "The Streamer's Fugue." Maria is physically moving through her day (Library, Cafe), but her cognitive architecture is entirely localized within her digital persona. The mismatch between her physical location (Library) and her narrated location (Home Office) suggests that her **internal world-model has decoupled from the observation layer**.
+
+**Recommendation**: The `reset_plan` mechanism is currently failing because it does not include an environmental change or a "cost" to the drift. The agent is stuck in a loop of: *Observe Drift → Reflect on Failure → Plan to Focus → Drift Immediately.*

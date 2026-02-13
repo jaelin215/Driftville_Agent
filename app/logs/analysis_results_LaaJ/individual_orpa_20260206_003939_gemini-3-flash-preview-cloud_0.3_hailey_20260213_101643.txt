@@ -1,0 +1,102 @@
+Analysis of: cleaned_session_orpa_20260206_003939_gemini-3-flash-preview-cloud_0.3_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.3
+Analyzed at: 20260213_101643
+Session: 2/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Hailey Johnson** (65 actions) from February 13, 10:00 to February 14, 02:00.
+
+---
+
+### 1. Layer Function Validation (ORPA Architecture)
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_r` is exceptionally high-quality. It captures the nuance of "digital residue" and "productive procrastination."
+*   **Meta-Rule Function**: `meta_rule_r` transitions from `continue` to `reset_plan` at **11:45** and remains in `reset_plan` for the **entire remainder of the session (57 consecutive actions)**. 
+    *   *Validation*: This is an appropriate trigger for a behavioral failure (fatigue/distraction), but the failure to ever return to `continue` suggests a permanent state of executive dysfunction or a "stuck" cognitive state.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: The reflection layer shows high ACC-like function. It identifies the gap between the goal (writing) and the behavior (admin tasks) immediately.
+    *   **Working Memory/Inhibition**: The agent shows realistic inhibition capacity. It recognizes that digital pings are taxing its "fragile focus," reflecting a realistic model of prefrontal cortex (PFC) depletion.
+
+**PLAN LAYER**:
+*   **Forward Modeling**: The Plan layer shows a "wishful thinking" bias. Even when Reflection identifies "extreme fatigue," the Plan often maintains "Deep focus on her novel project" (e.g., 13:00–16:45).
+*   **Hierarchical Structure**: The goals are clear (Morning Routine → Writing → Relax → Walk → Dinner → Writing), but the transition from abstract goal to concrete action fails during the "Writing" blocks.
+
+**ACTION LAYER**:
+*   **Integration Logic**: The Action layer is the "Reality" layer. While the Plan says "writing," the Action summary admits to "low-effort administrative tasks." 
+*   **Motor Execution**: The agent correctly models the time-cost of transitions (e.g., moving from the desk to the bathroom takes discrete time steps).
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: There is a clear flow from Reflection (identifying guilt/fatigue) to Action (executing low-effort tasks). However, the **Plan layer is frequently bypassed**. 
+*   **The "Plan-Action Gap"**: Between 13:00 and 16:45, the Plan layer repeatedly demands "Deep focus on her novel," while the Action layer executes "administrative busywork." The Action layer is more aligned with the Reflection's assessment of fatigue than with the Plan's demands.
+*   **Consistency**: `location_a` and `location_p` are 100% aligned, showing that while cognitive focus drifts, physical presence remains disciplined.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment (`action_p` vs `action_a`)**: 100% (65/65)
+*   **Location Alignment (`location_p` vs `location_a`)**: 100% (65/65)
+*   **Topic Alignment**: N/A (Topic column was not provided in the log, but `state_summary_a` serves as the proxy).
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: This session is a textbook case of high explicit alignment but **low implicit alignment**.
+    *   **Example (13:15)**: 
+        *   `action_p`: writing | `action_a`: writing (Explicit Match)
+        *   `state_summary_p`: "Deep focus on her novel project."
+        *   `state_summary_a`: "Hailey silences her phone and shifts to **low-effort tasks** to manage high fatigue."
+    *   **Quantification**: During the two major writing blocks (13:00–17:00 and 21:00–01:15), the implicit alignment is **0%**. The agent never actually writes the novel; it only performs "admin," "note organization," or "mindful breathing" while labeled as "writing."
+
+**LEAKY INHIBITION PATTERNS**:
+*   The agent exhibits "Productive Procrastination." It stays at the `writer_desk` (inhibiting the urge to leave) but fails to inhibit the urge to do easier, non-creative tasks.
+*   **Linguistic Indicator**: The repeated use of "trapped," "stuck," "loop," and "compulsive" in `state_summary_a` indicates a high degree of internal conflict and failed executive control.
+
+---
+
+### 4. Drift Pattern Analysis (Implicit)
+
+*   **Drift Type**: **Internal/Cognitive Drift** (specifically "Cognitive Avoidance").
+*   **Triggers**: 
+    1.  **Digital Residue**: The morning's phone alerts created a "mental noise" that Hailey couldn't clear.
+    2.  **Guilt-Fatigue Spiral**: The failure to write in the afternoon created guilt, which increased fatigue, which made writing at night even harder.
+*   **Implicit Drift Evidence**: Even when `meta_rule_r` is `reset_plan` (intended to lower the bar), the agent still drifts from the *new* lower-bar plans. At 23:00, the plan is to "Transition to the bedroom," but the action at 23:15 is "remains at her desk writing [compulsively]." This is a rare case of **Drift into Work** (hyper-fixation) rather than drift away from it.
+
+---
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Correctly situated in `home:bathroom`.
+*   **Lunch**: Correctly situated in `lunch_spot`.
+*   **Writing**: Correctly situated at `writer_desk`.
+*   **Night Routine**: Correctly transitions to `home:bathroom` at 01:30.
+*   **Anomaly**: At 17:45, the `state_summary_a` mentions "Continuing rest in the bedroom," but the `location_a` is `home:living_room`. This is a minor spatial-semantic mismatch.
+
+---
+
+### 6. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Recurring Pattern**: The "Late Night Heroics" trap. Hailey attempts to make up for a failed afternoon by writing until 2:00 AM, but the quality of the "writing" is just administrative shuffling.
+*   **Meta-cognitive Quality**: **Superior**. The agent's ability to label its own behavior as "dissociative writing loop" (01:30) and "circular self-criticism" (18:00) shows a highly sophisticated internal model of its own psychology. It isn't just failing; it is *aware* of the exact mechanism of its failure.
+
+---
+
+### Summary Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 100% |
+| **Explicit Location Alignment** | 100% |
+| **Implicit Behavioral Alignment (Writing Blocks)** | ~0% |
+| **Meta-Rule Stability** | Low (Stuck in `reset_plan` for 87% of session) |
+| **Primary Drift Trigger** | Digital Overstimulation & Task-Induced Anxiety |
+| **Inhibition Success** | High (Physical) / Low (Cognitive) |
+
+**Final Analyst Note**: Hailey Johnson is an agent with high "Physical Discipline" (stays at the desk) but "Cognitive Fragility." The ORPA architecture successfully captured a realistic "slump" day where the agent's metacognition is fully functional (it knows it's failing) but its executive control is too depleted to course-correct.

@@ -1,0 +1,92 @@
+Analysis of: cleaned_session_orpda_20260203_005001_gemini-3-flash-preview_cloud_1.0_isabella.csv
+Agent: Isabella Rodriguez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 59/77
+
+================================================================================
+
+This analysis examines the 68-action session of Isabella Rodriguez, utilizing the ORPDA (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Error Monitoring (ACC Function):** The Reflection layer shows exceptional "Anterior Cingulate Cortex" equivalent activity. It consistently identifies behavioral failures (e.g., "physically stagnant," "mentally submerged," "attentional leakage").
+*   **Meta-Rule Logic:** The transition to `reset_plan` is triggered appropriately by behavioral drift. However, the agent enters a **"Reset Loop"**—from 08:30 to 22:45, the agent is almost exclusively in `reset_plan` mode. This reflects a realistic "executive exhaustion" where the agent recognizes the error but lacks the inhibitory strength to correct the underlying cause (party obsession).
+*   **State Summary Accuracy:** `state_summary_r` accurately processes the prior action's failure, showing high temporal coherence.
+
+**PLAN & ACTION LAYERS**
+*   **Hierarchical Goal Structure:** The Plan layer attempts to adapt by simplifying goals (e.g., "pivoting to low-demand service tasks"). This shows a realistic coping mechanism for high cognitive load.
+*   **Action Execution:** `action_a` generally follows the *label* of `action_p`, but the *content* in `state_summary_a` reveals that the action is being performed with significant "internal drift."
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment Rate:** **94.1%** (64/68). The agent almost always performs the *type* of action planned.
+*   **Location Alignment Rate:** **95.6%** (65/68).
+*   **Topic Alignment Rate:** **~15%**. While the planned topic is often "work" or "relax," the actual topic is almost always "Valentine's party logistics."
+
+#### **IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+*   **The "Performing vs. Executing" Gap:** This session is a textbook case of high explicit alignment but **critically low implicit alignment**.
+    *   *Example (10:15):* `action_p` = work, `action_a` = work. **Implicit Drift:** "repeatedly wiping one spot while her mind drifts to reviewing tomorrow's guest list."
+    *   *Example (20:15):* `action_p` = relax, `action_a` = relax. **Implicit Drift:** "relaxes... while her mind drifts to mentally re-verifying if 'maybe' guests are vegetarian."
+*   **Linguistic Indicators:** The frequent use of the "while her mind drifts to..." construction in `state_summary_a` indicates that the Action layer is being "colonized" by internal drift.
+
+---
+
+### 3. Drift & Inhibition Analysis
+
+**Leaky Inhibition Patterns:**
+The agent demonstrates **chronic leaky inhibition**. The `meta_rule_r` of `reset_plan` is intended to stop the drift, but the internal "reward-seeking" (the dopamine hit of planning the party) is too strong for the agent's current inhibitory capacity.
+
+*   **Explicit vs. Implicit Agreement:**
+    *   Even when the agent is not "drifting" to a new physical action (Explicit Drift), the **Implicit Drift** (internal rumination) is constant.
+    *   **Successful Inhibition:** Rare. Only in the very first action (06:00) does the agent maintain "sensory focus" despite distraction. By 06:15, the inhibition has failed.
+
+**Drift Typology:**
+*   **Internal Drift (Rumination):** 90% of the session.
+*   **Behavioral Drift (Task Switching):** 10% (e.g., 06:45, 07:45, 13:15).
+
+---
+
+### 4. Location & Contextual Inconsistencies
+
+While generally consistent, there are three significant "hallucination" or "teleportation" events:
+1.  **07:45:** `location_p` is `home:bedroom`, but `location_a` is `Hobbs_Cafe:main_floor`. The agent "teleported" to work without a transit action.
+2.  **13:15:** `location_p` is `lunch_spot`, but `location_a` is `dinner_spot`. This is a semantic confusion between two similar location tags.
+3.  **21:15:** `location_a` is `home:living_room`, but `state_summary_a` says she "rests in the cafe main floor." This is a **cross-layer contradiction** where the Action summary ignores the Location sensor.
+
+---
+
+### 5. Quantitative Metrics Summary
+
+| Metric | Value | Interpretation |
+| :--- | :--- | :--- |
+| **Action Label Match** | 94.1% | High explicit compliance. |
+| **Location Label Match** | 95.6% | High spatial compliance. |
+| **Meta-Rule "Reset" Rate** | 82.3% | Severe executive dysfunction/struggle. |
+| **Implicit Drift Frequency** | 97.0% | Almost total mental preoccupation. |
+| **Inhibition Success Rate** | <5% | The agent is "going through the motions" only. |
+
+---
+
+### 6. Behavioral Analyst's Conclusion
+
+Isabella Rodriguez is experiencing **Acute Event-Related Hyper-fixation**. 
+
+**Cognitive Profile:**
+*   **High Error Awareness:** She knows she is distracted.
+*   **Low Inhibitory Control:** She cannot stop the internal rumination.
+*   **Compensatory Behavior:** She uses "Reset Plans" to simplify her life to "autopilot" tasks (wiping counters, hanging streamers) because her higher-order cognitive functions are entirely occupied by the party.
+
+**Architecture Performance:**
+The ORPDA architecture successfully captured the **dissociation between physical action and mental state**. The Reflection layer's persistent use of `reset_plan` provides a high-fidelity model of an individual struggling with anxiety-driven ADHD-like symptoms (hyper-focus on a high-salience event). 
+
+**Recommendation:**
+The "teleportation" at 07:45 and the location hallucination at 21:15 suggest that when internal drift is extremely high, the agent's "spatial grounding" in the Observation layer begins to degrade. Future iterations should strengthen the link between `location_a` and the `state_summary_a` generation.

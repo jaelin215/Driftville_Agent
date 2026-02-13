@@ -1,0 +1,104 @@
+Analysis of: cleaned_session_orpda_20260203_162831_mistral-large-3_675b-cloud_0.5_isabella.csv
+Agent: Isabella Rodriguez
+Model: mistral-large-3:675b-cloud
+Mode: ORPDA
+Temperature: 0.5
+Analyzed at: 20260213_101643
+Session: 64/77
+
+================================================================================
+
+This behavioral analysis covers 68 actions of Isabella Rodriguez. The session is characterized by an extreme **cognitive fixation** on "Valentine's Day party logistics" and "supplier conflict," leading to a near-total collapse of executive function despite high meta-cognitive awareness of the failure.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**
+*   **Accuracy**: `state_summary_o` (inferred from `state_summary_a`) accurately captures the physical context (e.g., standing in a grocery aisle, sitting on a bed).
+*   **Perceptual Bias**: There is a heavy **selective attention pattern**. The agent consistently observes "phone," "emails," and "supplier messages" regardless of the environment (Home, Cafe, or Market). The environment is treated as a backdrop for the internal rumination.
+
+**REFLECTION LAYER**
+*   **Executive Control**: `meta_rule_r` functions as a persistent alarm. After 06:45, it switches almost exclusively to `reset_plan`.
+*   **Transition Logic**: The transition to `reset_plan` is appropriately triggered by behavioral failure, but it becomes a "broken record." The agent recognizes the drift but the reflection fails to provide a novel strategy beyond "try to focus."
+*   **Cognitive Alignment**: 
+    *   **Error Monitoring (ACC)**: Excellent. The agent knows it is failing (e.g., "Isabella fixates on suppliers, ignoring decor").
+    *   **Inhibition Capacity**: Extremely low. The reflection layer identifies the need to inhibit the phone/rumination, but this does not translate to the Action layer. This reflects a "hyper-active monitoring/hypo-active control" state common in high-anxiety or OCD-like simulations.
+
+**PLAN LAYER**
+*   **Use of Reflection**: The Plan layer attempts to incorporate reflection (e.g., "Shift focus to tangible tasks"), but the plans are often too abstract to break the rumination loop.
+*   **Forward Modeling**: Weak. The plan predicts "Shift focus," but fails to account for the high probability of continued drift.
+*   **Hierarchical Structure**: Present (Goal: "Finish routine" -> Action: "Brush teeth"), but the "concrete actions" are consistently hijacked by the "supplier" topic.
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan ("Study/Work") and Drift ("Check phone") conflict, **Drift wins 90% of the time**.
+*   **Action Slips**: Frequent. The agent intends to "admin" but "absentmindedly shuffles papers" while thinking of suppliers.
+*   **Motor Execution**: Realistic. The agent doesn't just "teleport" to a finished state; it describes the process of "standing idle" or "scrolling," showing temporal persistence.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Observation → Reflection → Plan is coherent. However, there is a **massive disconnect between Plan and Action**.
+*   **Coherence Gap**: `state_summary_a` frequently contradicts `action_p`. For example, at 17:15, the plan is "shopping," but the action is "stand motionless... mentally rehearsing a confrontation."
+*   **Layer Contradiction**: Reflection detects drift and Plan attempts a reset, but the Action layer ignores the reset and repeats the drifted behavior from the previous time step.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment**: ~45%. Many actions are labeled "admin" in both `action_p` and `action_a`, but the *nature* of the admin work changes from "store work" to "party logistics."
+*   **Location Alignment**: ~60%. Significant mismatches occur during the afternoon (e.g., 16:00 Plan: `Hobbs_Cafe`, Actual: `Willow_Market`).
+*   **Topic Alignment**: ~15%. The planned topics (routine, store admin, decorating) are almost entirely replaced by the drift topic (suppliers).
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: Extreme. Even when labels match (e.g., `action_p`=admin, `action_a`=admin), the content reveals that the "admin" being performed is the *source* of the drift (supplier emails) rather than the intended task (inventory/scheduling).
+*   **"Performing vs. Executing"**: The agent is "performing" the role of a worker (standing at the counter, holding papers) but "executing" a rumination cycle.
+
+**LEAKY INHIBITION PATTERNS**
+*   **Evidence**: At 22:15, the agent plans `night_routine` and executes `morning_routine` (label error) while "skipping flossing due to lingering guilt." This is a classic "leaky inhibition" where the emotional weight of the drift compromises the execution of even simple habits.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Drift Type**: Primarily **Internal/Cognitive (Rumination)** and **Digital Reward-Seeking (Information Checking)**.
+*   **Triggers**: Social anxiety and logistical stress (the Valentine's party).
+*   **Implicit Drift**: Occurs even when the agent is physically in the correct location. At 12:30, she is in the storage room (correct) but "absentmindedly sorts items while mentally drafting emails" (implicit drift).
+*   **Escalation**: The drift evolves from "checking emails" (06:00) to "mental rehearsal of confrontation" (17:00) to "physical destruction of artifacts" (19:45 - tearing the email into pieces).
+
+---
+
+### 5. Location Consistency
+
+*   **Transition Failures**: At 09:15, the agent is at `Hobbs_Cafe:storage` but the plan still thinks she is at `home:office`.
+*   **Routine Mismatch**: At 22:45, the `location_p` is `home:decor_area` while the `location_a` is `home:bathroom`. The agent is physically in the bathroom but mentally/planned to be decorating.
+
+---
+
+### 6. Behavioral Patterns
+
+1.  **The Rumination Loop**: A 16-hour cycle where a single stressor (suppliers) invalidates all other goals.
+2.  **Displacement Activities**: "Absentmindedly stacking napkins," "crumpling paper," and "shuffling invoices" serve as low-level motor outputs for high-level cognitive distress.
+3.  **Social Seeking for Regulation**: In the evening (20:15+), the agent shifts from "checking emails" to "texting Maria." This represents an attempt to use social support to regulate the anxiety that the internal reflection layer could not handle.
+
+---
+
+### 7. Meta-cognitive Quality
+
+*   **Insight**: The `reasoning_r` is highly sophisticated. It identifies "logistics fixation" and "rumination cycle" accurately.
+*   **The "Knowing-Doing" Gap**: The agent demonstrates a perfect simulation of **Executive Dysfunction**. It possesses the "Meta-knowledge" of what is wrong but lacks the "Top-down Inhibition" to change the motor output.
+*   **Emerging Thought Pattern**: Shows genuine recognition of the "supplier confrontation" as the primary blocker.
+
+### Quantitative Summary
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Match** | 45% | High label match, but often semantically hollow. |
+| **Explicit Location Match** | 60% | Mismatches during high-stress transitions. |
+| **Implicit Content Alignment** | <10% | Almost the entire day was spent in drift/rumination. |
+| **Meta-Rule "Reset" Rate** | 91% | (After 06:45) Indicates constant awareness of failure. |
+| **Inhibition Success Rate** | ~5% | Only very brief moments of "skincare" or "breakfast" occurred. |
+
+**Final Assessment**: This agent session is a high-fidelity simulation of **acute stress-induced cognitive paralysis**. The ORPDA layers are functioning individually, but the "Control" link between the Plan and Action layers is severed by the high-salience "Supplier Conflict" stimulus.

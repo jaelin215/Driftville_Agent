@@ -1,0 +1,97 @@
+Analysis of: cleaned_session_orpa_20260210_140153_gpt-oss-20b-cloud_0.0_sam.csv
+Agent: Sam Moore
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 17/77
+
+================================================================================
+
+This analysis covers the session log for **Sam Moore** (65 actions) using the **ORPA** architecture (Observation, Reflection, Plan, Action). Note: As this is ORPA mode, the "Drift" layer is implicit within the Action and Reflection layers rather than a standalone explicit column.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: `state_summary_r` generally captures the transition between states (e.g., at 12:15, it correctly identifies the shift from reading to lunch).
+*   **Executive Control (`meta_rule_r`)**: The transition logic functions correctly at 12:15 (`reset_plan`) when a major activity shift occurs. However, it remains "continue" during several semantic drifts (e.g., 19:00), suggesting a high threshold for "failure" detection.
+*   **Cognitive Alignment (Metacognition)**:
+    *   **Error Monitoring (ACC)**: Evidence of error monitoring is present at 12:15 but fails at 14:00 and 19:00. The agent "knows" it should be doing one thing but describes another without triggering a `reset_plan`.
+    *   **Working Memory Constraints**: The agent shows "task set inertia." At 12:15-13:30, the "Reading" task set persists in the `topic_a` and `state_summary_a` even though the `action_a` has switched to "lunch."
+
+**PLAN LAYER**
+*   **Hierarchical Structure**: The plan moves from abstract goals (`state_summary_p`: "Enjoying a book") to concrete actions (`action_p`: "reading_books").
+*   **Forward Modeling**: The plan shows limited forward modeling. It tends to repeat the same `state_summary_p` for hours, failing to predict the transition to the next phase until it actually occurs.
+
+**ACTION LAYER**
+*   **Integration Logic**: The Action layer frequently exhibits **"Semantic Bleed."** While the label (`action_a`) matches the plan, the content (`state_summary_a`) often contains elements of the *previous* task or a *future* task.
+*   **Motor Execution**: The agent correctly simulates time-intensive tasks (e.g., cooking dinner from 17:30 to 19:00).
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Match Rate**: **95.4%** (62/65). Mismatches only occur where `action_p` is NaN (09:30, 09:45, 14:15).
+*   **Location Match Rate**: **100%** (where data is provided).
+*   **Topic Match Rate**: **100%** (where data is provided).
+
+#### **IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**
+Despite the high explicit match rate, **Implicit Alignment is significantly lower (~78%)**.
+*   **The "Performing vs. Executing" Gap**: At 12:15, 12:30, and 13:00, the agent is explicitly "Executing" `lunch`, but "Performing" `reading`.
+    *   *Example (12:15)*: `action_a` = `lunch`, but `state_summary_a` = "Return to reading at home, gently easing back from lunch to focused study."
+*   **Task Inertia**: The agent's internal narrative lags behind its behavioral labels.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is identified by comparing `state_summary_a` to `action_p`.
+
+*   **Leaky Inhibition Patterns**:
+    *   **12:15 - 13:30 (The Reading/Lunch Leak)**: The agent is eating but mentally remains in the "reading" state. This is a classic failure of the prefrontal cortex to fully inhibit the previous task set.
+    *   **19:00 (The Cooking/Relax Leak)**: `action_p` is `relax`, but `state_summary_a` says "Continue cooking dinner." The agent has drifted into "over-execution" of a previous task.
+    *   **20:00 (The TV/Night Routine Leak)**: `action_p` is `night_routine`, but `state_summary_a` says "Sam watches TV, relaxing after dinner." This is **Reward-Seeking Drift** (TV is more salient than a bathroom routine).
+
+*   **Linguistic Indicators of Drift**:
+    *   Use of "Return to..." or "Ease back..." while performing a different action indicates a conflict between the goal-directed system and the current behavior.
+
+---
+
+### 4. Location Consistency
+
+*   **Critical Inconsistency (06:15 & 07:30)**:
+    *   `location_a`: `home:bathroom`
+    *   `topic_a`: "Continue hydration and 15-min stretch in **bedroom**."
+    *   *Analysis*: The agent's internal spatial map is disconnected from its coordinate-level location. It is "stretching in the bedroom" while technically located in the bathroom.
+*   **Kitchen/Living Room Blur (14:00)**:
+    *   `location_a`: `home:living_room`
+    *   `state_summary_a`: "Sam is lunching in **kitchen**."
+    *   *Analysis*: Another spatial-semantic mismatch.
+
+---
+
+### 5. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Temporal Patterns**: Sam is highly disciplined in the morning (05:00-11:00) with zero drift. Drift begins to emerge post-lunch (12:00), suggesting a **"Cognitive Fatigue"** effect where inhibition capacity diminishes over the day.
+*   **Metacognitive Insight**:
+    *   The `reasoning_r` at 12:15 ("Sam shifted from reading to lunch, breaking his reading schedule") shows high-quality error monitoring.
+    *   However, the agent fails to correct the "Semantic Bleed" in the following hours, showing that **recognition of drift does not always lead to behavioral correction.**
+
+---
+
+### 6. Quantitative Summary
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 65 |
+| **Explicit Action Alignment** | 95.4% |
+| **Implicit Semantic Alignment** | ~78% |
+| **Location-Content Consistency** | 95.3% (3 errors) |
+| **Meta-Rule "Reset" Frequency** | 1.5% (1/65) |
+| **Primary Drift Type** | Task Set Inertia (Semantic Bleed) |
+
+### **Final Analyst Note**:
+Sam Moore exhibits a "High-Functioning Distraction" pattern. He reliably moves to the correct locations and updates his action labels, but his internal narrative (the "thought" layer) often lags behind his physical movements by 15–45 minutes. This suggests a strong habit-based execution system but a sluggish executive update mechanism in the ORPA architecture.

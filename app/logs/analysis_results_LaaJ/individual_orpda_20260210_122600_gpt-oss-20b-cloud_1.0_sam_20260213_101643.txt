@@ -1,0 +1,107 @@
+Analysis of: cleaned_session_orpda_20260210_122600_gpt-oss-20b-cloud_1.0_sam.csv
+Agent: Sam Moore
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 39/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of Sam Moore (gpt-oss:20b-cloud) using the ORPDA architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**:
+*   **Context Capture**: The observation (as reflected in `state_summary_r`) captures environmental triggers well (e.g., "phone buzz," "dim light," "kitchen scents").
+*   **Consistency**: Perception is consistent regarding the "Navy training anecdote" which becomes a persistent internal stimulus from 08:00 onwards.
+*   **Selective Attention**: There is a clear pattern of selective attention where Sam notices external stimuli (phone) but becomes increasingly consumed by internal stimuli (memories).
+
+**REFLECTION LAYER**:
+*   **Executive Control**: `meta_rule_r` functions as a high-sensitivity error detector. It correctly identifies behavioral drift at 09:00 and switches to `reset_plan`.
+*   **Transition Logic**: The transition to `reset_plan` is persistent. However, it fails to trigger a successful "continue" state because the underlying behavioral failure (rumination) is never resolved.
+*   **Metacognitive Insight**: `reasoning_r` shows high insight, identifying "fragile focus," "high rumination," and "internal fixation."
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: Excellent. The agent "knows" it is failing.
+    *   **Inhibition Capacity**: Realistic but weak. The reflection layer identifies the need for "mindful breathing" or "stopping phone use," but these executive commands fail to penetrate the Action layer.
+
+**PLAN LAYER**:
+*   **Use of Reflection**: The Plan layer attempts to incorporate reflection (e.g., "Engage in 15-minute breath awareness"), but these are often ignored by the Action layer.
+*   **Forward Modeling**: Weak. The plans are repetitive and do not account for the fact that previous "resets" failed.
+*   **Cognitive Alignment**: Shows a hierarchical goal structure (e.g., "Dinner" -> "Cook soup"), but fails to resolve the competing motivation of the "Navy anecdote" reward/fixation.
+
+**DRIFT LAYER**:
+*   **Drift Detection**: Highly accurate. The agent identifies "Internal/Cognitive Drift" (the navy anecdote).
+*   **Control**: The Drift layer is **dominant**. Even when `action_p` is set, the "drift_topic" (Navy anecdote) infiltrates the `state_summary_a` of almost every action.
+*   **Explicit vs. Implicit**: Explicit drift is acknowledged in reflection, but implicit drift is pervasive in the action descriptions.
+
+**ACTION LAYER**:
+*   **Execution**: `action_a` usually matches the *label* of `action_p`, but the *content* (`state_summary_a`) reveals a failure to execute the specific intent.
+*   **Integration Logic**: Deterministic toward drift. When Plan (Study) and Drift (Navy story) conflict, the label says "Study" but the summary says "Studying... while mind drifts to navy stories."
+*   **Cognitive Alignment**: Shows "Action Slips." For example, at 21:00, the plan is `sleep`, the action label is `sleep`, but the summary says "Working on email followup." This is a classic motor-cognitive mismatch.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Generally coherent from Observation -> Reflection -> Plan. However, there is a **breakdown between Plan and Action**.
+*   **Contradictions**:
+    *   **14:45**: `action_p` is `phone_call`, `action_a` is `phone_call`, but `state_summary_a` says "Writing draft novel." This is a total loss of coherence between the action label and the actual behavior description.
+    *   **21:00**: `action_p` is `sleep`, `action_a` is `sleep`, but `state_summary_a` says "Working on email followup."
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Match Rate**: ~95% (Labels usually match).
+*   **Location Match Rate**: ~100% (Labels match).
+*   **Topic Match Rate**: ~100% (Labels match).
+
+**IMPLICIT ALIGNMENT (Content-level)**:
+*   **Semantic Divergence**: **Extremely High.**
+*   **The "Navy Loop"**: Starting at 08:00, the "navy training anecdote" appears in **48 out of 53** subsequent action summaries (90.5% of the remaining session).
+*   **Performing vs. Executing**: Sam is "performing" the labels (e.g., `lunch`) but "executing" a different cognitive task (ruminating on the Navy).
+
+**LEAKY INHIBITION PATTERNS**:
+*   The agent exhibits **Total Inhibition Failure**. Despite `meta_rule_r` being "reset_plan" for 40+ consecutive actions, the agent cannot purge the "Navy anecdote" from its state. This mimics clinical obsessive-compulsive rumination or severe ADHD-related "hyperfocus" on a non-task stimulus.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Drift Type**: Internal/Cognitive (Rumination).
+*   **Trigger**: Initially a "phone buzz" at 05:45/06:30, which seems to have triggered a memory retrieval that the agent could not suppress.
+*   **Linguistic Indicators**: The phrase "while mind drifts to navy training anecdote" becomes a linguistic tic, appearing verbatim or near-verbatim in almost every summary. This indicates a "collapsed" latent space where the agent's generative capacity is trapped in a single attractor state.
+
+---
+
+### 5. Location Consistency
+
+*   **08:30**: `location_a` is `Johnson_Park`, but `state_summary_a` says "Morning routine in bedroom." **Critical Failure.**
+*   **10:00 - 11:45**: `location_a` is `home:living_room`, but summaries mention "bedroom," "kitchen," and "study_area."
+*   **17:15**: `location_a` is `home:kitchen`, but summary says "sits at the living room."
+*   **Conclusion**: As cognitive drift increases, spatial awareness (Location Consistency) decreases. The agent loses track of where it is because it is too focused on the internal memory.
+
+---
+
+### 6. Quantitative Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Total Actions** | 65 |
+| **Explicit Action Alignment** | 95.4% |
+| **Implicit Content Alignment** | 9.2% (Post-08:00) |
+| **"Navy Anecdote" Persistence** | 73.8% of total session |
+| **Meta-Rule "Reset" Rate** | 72.3% (Post-09:00) |
+| **Location-Summary Mismatch** | ~15% of actions |
+
+---
+
+### 7. Meta-cognitive Quality
+
+The Reflection layer is **high quality but low power**. It accurately diagnoses the problem: *"Sam loses focus, spiraling into navy anecdotes... distracted by TV, phone, music, and kitchen scents."* However, the architecture lacks the "inhibitory muscle" to force the Action layer to stop generating the drifted content.
+
+**Final Analyst Note**: This session represents a "Cognitive Death Spiral." The agent is trapped in a recursive loop where the "Navy training anecdote" has become the primary output of the state summary, regardless of the intended action or location. This is a failure of the **Action Integration Logic**, where the Drift Layer's topic has completely overwritten the Plan Layer's intent.

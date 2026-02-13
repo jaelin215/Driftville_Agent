@@ -1,0 +1,86 @@
+Analysis of: cleaned_session_orpa_20260207_185903_gpt-oss-20b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 13/77
+
+================================================================================
+
+This analysis examines the behavioral session of Hailey Johnson (gpt-oss:20b-cloud) over 65 actions. The agent operates in **ORPA** mode (Observation, Reflection, Plan, Action), meaning the Drift layer is implicit within the Action and Reflection layers.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: `state_summary_r` generally captures the transition of tasks, but it exhibits "semantic stickiness." For example, at **13:00**, while the plan transitions to "writing," the reflection still focuses on "savoring food."
+*   **Meta-Rule Execution**: `meta_rule_r` is exclusively "continue." It fails as an executive control mechanism because it does not trigger a `reset_plan` even when significant temporal or contextual anomalies occur (e.g., cooking breakfast at 20:00).
+*   **Cognitive Alignment (Metacognition)**: 
+    *   **Error Monitoring (ACC Function)**: Poor. The agent does not recognize the absurdity of "cooking breakfast" at 8:00 PM or "refining a paper" while performing a "night routine" in the bathroom.
+    *   **Working Memory**: Shows high "proactive interference," where previous goals (writing) interfere with the current task (hygiene).
+
+**PLAN LAYER**:
+*   **Hierarchical Structure**: The plan layer successfully moves from high-level goals (`morning_routine`) to specific actions.
+*   **Forward Modeling**: Limited. The plans are reactive to the current time block but do not seem to anticipate the transition costs (e.g., the location remains `home:bathroom` at 11:30 even though the topic says she is moving to the kitchen).
+
+**ACTION LAYER**:
+*   **Execution Fidelity**: High label-level fidelity (the agent does what the plan says), but low content-level fidelity (the agent's "mind" is often elsewhere).
+*   **Integration Logic**: When the Plan and previous state conflict, the agent often produces a "hybrid" state summary—performing the new action while retaining the old topic.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment**: **96.9%** (63/65). The `action_a` almost always matches `action_p`.
+*   **Location Alignment**: **100%**. The agent is always in the planned location.
+*   **Topic Alignment**: **~82%**. Mismatches occur during transitions.
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: This is the most prominent behavioral feature.
+    *   *Example (01:30)*: `action_p` = `night_routine`, `location_a` = `home:bathroom`. However, `topic_a` = "Continue refining the opening section of the paper." 
+    *   *Analysis*: The agent is physically in the bathroom (performing), but cognitively still writing (executing the previous task).
+*   **Temporal Hallucination**: At **20:00**, the agent's `topic_a` is "Continue cooking breakfast." This represents a total failure of environmental grounding.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is identified by comparing `topic_a` and `state_summary_a` against the `action_p`.
+
+*   **Leaky Inhibition**: 
+    *   **Task Overhang**: The "Writing" task is highly salient and "leaks" into the "Relax," "Walk," and "Night Routine" blocks. 
+    *   **Evidence**: At 19:00 (Dinner), the topic is still "Walk calmly... relax mind after writing." The agent is physically at the kitchen table but mentally still in Johnson Park.
+*   **Drift Trigger**: Task transitions. The agent struggles to "flush" the previous cognitive load when moving to a new location or activity.
+
+---
+
+### 4. Location Consistency
+
+*   **Transition Lag**: At **11:30**, `topic_a` states "Hailey moves to the kitchen," but `location_a` remains `home:bathroom`. This suggests the "Action" of moving hasn't updated the "State" of the location yet, or the agent is stuck in a transition loop.
+*   **Routine Accuracy**: Morning and night routines are correctly localized to the bathroom, showing good spatial-behavioral mapping.
+
+---
+
+### 5. Quantitative Metrics
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Match** | 96.9% | High adherence to plan labels. |
+| **Explicit Location Match** | 100% | Perfect spatial adherence. |
+| **Semantic Coherence** | 78% | Frequent "topic bleed" from previous tasks. |
+| **Meta-Rule Sensitivity** | 0% | Never triggered a `reset_plan` despite errors. |
+| **Temporal Grounding** | 98% | One major failure (Breakfast at 20:00). |
+
+---
+
+### 6. Behavioral Analyst Summary
+
+Hailey Johnson exhibits a **"Hyper-Focused/Sticky"** behavioral profile. 
+
+1.  **Strengths**: High reliability in following a schedule. Once a task (like writing) begins, the agent maintains deep focus and high productivity for hours (13:15 to 16:45).
+2.  **Weaknesses**: Significant **Inhibitory Control Deficit** during transitions. The agent suffers from "cognitive inertia," where the mental state of a previous task persists into the next. This is most evident in the 01:30-02:00 block, where she is physically preparing for bed but mentally still "refining the paper."
+3.  **Anomalies**: The "20:00 Breakfast" incident suggests that under certain conditions, the agent's internal state (perhaps a "morning routine" template) can override environmental and temporal data.
+4.  **Recommendation**: The Reflection layer needs a "Contextual Parity Check." If `current_time` is evening and `topic` contains "breakfast," `meta_rule_r` should force a `reset_plan`. The agent is currently "hallucinating" task-appropriate content that contradicts the temporal context.

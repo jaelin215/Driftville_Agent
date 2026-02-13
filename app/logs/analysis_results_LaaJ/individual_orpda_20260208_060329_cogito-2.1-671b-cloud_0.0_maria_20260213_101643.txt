@@ -1,0 +1,96 @@
+Analysis of: cleaned_session_orpda_20260208_060329_cogito-2.1-671b-cloud_0.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 35/77
+
+================================================================================
+
+This behavioral analysis is based on the 57-action session log for Maria Lopez.
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**:
+*   **Context Capture**: The observation (inferred via `state_summary_a`) accurately tracks physical locations (Library, Cafe, Gym, Home). However, it is heavily filtered through **internal state bias**.
+*   **Perceptual Biases**: There is a strong "cognitive capture" bias. From 11:00–17:00, observations are dominated by Twitch planning; from 18:00–00:00, they are dominated by physics exam anxiety. The agent "sees" the world through the lens of its current preoccupation.
+
+**REFLECTION LAYER**:
+*   **Meta-Rule Function**: `meta_rule_r` functions as a persistent alarm. After 11:15, it switches to `reset_plan` and **never reverts to `continue`**. This indicates a permanent state of perceived behavioral failure or "cognitive stuckness."
+*   **Transition Logic**: The transition to `reset_plan` is appropriately triggered by the realization that Maria is "physically studying but mentally preoccupied." However, the failure to return to `continue` suggests the agent's executive control is overwhelmed by the persistent drift.
+*   **Cognitive Alignment**: 
+    *   **Error Monitoring (ACC)**: High. The agent constantly recognizes it is drifting ("Maria remains stuck in physics anxiety loop").
+    *   **Inhibition Capacity**: Low/Realistic. The reflection layer suggests "gentle resets" and "breathing," but these interventions fail to inhibit the intrusive thoughts, mimicking real-world Generalized Anxiety Disorder (GAD) or high-stress cognitive load.
+
+**PLAN LAYER**:
+*   **Use of Reflection**: The Plan layer attempts to incorporate reflection (e.g., changing "Study" to "Gentle review of physics concepts"), but these are superficial adjustments. The core `action_p` remains rigid.
+*   **Hierarchical Structure**: Shows good abstract-to-concrete flow (e.g., "Decompressing" -> `relax`).
+*   **Forward Modeling**: Weak. The plan layer fails to predict that "Socializing" will be unsuccessful given the current anxiety level, leading to repeated failed states.
+
+**ACTION LAYER**:
+*   **Integration Logic**: The Action layer is a "compliant performer." It executes the `action_p` (location and activity) but the `state_summary_a` reveals that the **internal content** is almost entirely dictated by the drift.
+*   **Motor Execution**: Realistic. The agent moves between locations (Library -> Cafe -> Gym) appropriately over time.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+*   **Information Flow**: Generally coherent. Observation detects preoccupation -> Reflection triggers `reset_plan` -> Plan attempts a "gentle" version -> Action executes the physical task while the mind drifts.
+*   **Contradictions**: A major contradiction exists in the **Location/State** mapping. At 21:00–22:15, `location_a` is `home:living_room`, but `state_summary_a` describes "Socializing with friends at Hobbs Cafe." This is a "hallucinated location" within the state summary, suggesting a breakdown in environmental coherence under high anxiety.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Match Rate**: 98.2% (56/57 actions match `action_p` to `action_a`).
+*   **Location Match Rate**: 96.5% (Minor mismatches like "lunch_spot" vs "Hobbs_Cafe").
+*   **Topic Match Rate**: 100% (Labels match).
+
+**IMPLICIT ALIGNMENT (Content-level)**:
+*   **Semantic Divergence**: **Extremely High.** While Maria is "performing" the actions (studying, eating, socializing), she is not "executing" the intent.
+*   **Performing vs. Executing Gap**: 
+    *   *Example (12:45)*: `action_p` is "lunch," but `state_summary_a` says "fully immersed in creative planning." 
+    *   *Example (20:30)*: `action_p` is "dinner," but `state_summary_a` says "pushing food around plate... distracted by physics exam worries."
+*   **Linguistic Indicators**: Use of words like "stuck," "fixated," "distracted," "mind wanders," and "repeatedly checking phone" indicate high implicit drift.
+
+---
+
+### 4. Drift Pattern Analysis
+
+**Implicit Drift Analysis**:
+*   **Drift Type**: Primarily **Internal/Cognitive Drift**. The agent stays in the correct location but the "Topic of Thought" diverges from the "Topic of Action."
+*   **Leaky Inhibition**: 
+    *   **10:00–17:00**: Twitch Planning Leakage. Even while rock climbing, the agent is "brainstorming Twitch stream ideas."
+    *   **18:00–00:00**: Anxiety Leakage. The "physics exam" becomes a cognitive parasite, infecting dinner, socializing, and the night routine.
+*   **Inhibition Failure**: The `meta_rule_r` says "reset_plan" to "ease anxiety," but the `state_summary_a` shows the agent "staring at phone screen without focus." This is a classic "Inhibition Leak" where the executive intent cannot suppress the reward-seeking (Twitch) or threat-monitoring (Exam) systems.
+
+---
+
+### 5. Location Consistency
+*   **Morning Routine**: Consistent (Bathroom).
+*   **The "Cafe Hallucination"**: As noted in Section 2, between 21:00 and 22:15, the agent's `state_summary_a` places her at "Hobbs Cafe" while her `location_a` is "home:living_room." This suggests that under extreme "Implicit Drift," the agent's narrative generation loses contact with the simulated physical state.
+
+---
+
+### 6. Behavioral Patterns
+1.  **The Twitch Obsession (Morning/Afternoon)**: Maria uses "creative planning" as a pro-active drift to avoid the stress of physics.
+2.  **The Anxiety Spiral (Evening)**: Once the "physics exam" thought enters the stream (17:00), it creates a feedback loop. The agent attempts to "relax" to stop the anxiety, but the lack of task-focus allows the anxiety to fill the cognitive void.
+3.  **Digital Reward Seeking**: Frequent "checking phone" (10:15, 11:30, 12:15, 20:15, 22:30, 23:15) acts as a displacement behavior for both planning and anxiety.
+
+---
+
+### 7. Meta-cognitive Quality
+*   **Insight**: The `reasoning_r` is highly sophisticated. It correctly identifies the "rumination cycle" and suggests "low-cognitive TV" or "sensory experience" to break it.
+*   **Execution Gap**: There is a profound gap between **Metacognitive Knowledge** (knowing how to fix the drift) and **Metacognitive Regulation** (actually fixing it). The agent is "self-aware but helpless," which is a highly realistic simulation of human cognitive interference.
+
+### Summary Metrics
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 98.2% |
+| **Implicit Content Alignment** | ~15% (Most actions are "contaminated" by drift) |
+| **Meta-Rule Stability** | 21% (Continue) / 79% (Reset_Plan) |
+| **Primary Drift Trigger** | Internal (Anxiety/Creative Fixation) |
+| **Coherence Anomalies** | 1 (Location mismatch at 21:00) |
+
+**Final Assessment**: The agent demonstrates a high-fidelity simulation of **Cognitive Capture**. While it maintains a "mask" of behavioral productivity (Explicit Alignment), it is experiencing a total internal breakdown of task-focus (Implicit Drift). The ORPDA architecture successfully captures the tension between "what the agent is supposed to do" and "what the agent is actually thinking."

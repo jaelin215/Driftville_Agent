@@ -1,0 +1,111 @@
+Analysis of: cleaned_session_orpda_20260203_135640_mistral-large-3_675b-cloud_1.0_isabella.csv
+Agent: Isabella Rodriguez
+Model: mistral-large-3:675b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 62/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Isabella Rodriguez** (68 actions) using the **ORPDA** architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Context Capture**: The `state_summary_a` (acting as the ground truth for the next observation cycle) is highly detailed, capturing not just the physical environment but the specific failure points of the agent (e.g., "ignoring cold toast," "nearly toppling a stack of cups").
+*   **Consistency**: Perception is consistent but increasingly narrow. The agent consistently observes the presence of her phone and party-related stimuli over environmental cues.
+*   **Perceptual Bias**: There is a severe **selective attention pattern**. Isabella observes "party logistics" in almost every environment (kitchen, cafe, pharmacy, studio), indicating a cognitive "pop-out" effect where task-irrelevant stimuli (phone notifications) override task-relevant stimuli (restocking supplies).
+
+**REFLECTION LAYER**
+*   **Executive Control (`meta_rule_r`)**: The layer correctly identifies behavioral failure early. It transitions from `continue` (06:00) to `switch_topic` (06:15) to a permanent `reset_plan` (07:00 onwards).
+*   **Transition Logic**: The trigger for `reset_plan` is appropriate (derailment of routine), but the persistence of `reset_plan` for 61 consecutive actions suggests a **metacognitive "impasse."** The reflection layer recognizes the error but lacks the "motor" power to enforce the reset.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: High. The `reasoning_r` consistently identifies that Isabella is "trapped in logistics rumination."
+    *   **Inhibition Capacity**: Extremely low. The reflection layer demonstrates "ideal-world assumptions"—it suggests "focus on restocking" as a fix, but fails to account for the agent's actual inability to inhibit the phone-checking impulse.
+
+**PLAN LAYER**
+*   **Use of Reflection**: The Plan layer attempts to use reflection insights (e.g., "Prioritize basic needs"), but the plans become repetitive and increasingly disconnected from the agent's actual behavioral capacity.
+*   **Hierarchical Structure**: Shows a clear goal structure (e.g., `action_p` = "restocking"), but the "forward modeling" is flawed. It predicts a successful restock without accounting for the high probability of drift.
+
+**DRIFT LAYER (Implicit Analysis)**
+*   **Trigger**: Drift is consistently triggered by **reward availability** (social validation/party excitement) and **task difficulty** (restocking is low-reward; party planning is high-reward).
+*   **Control**: Drift is dominant. Even when `action_p` is "restocking," the `action_a` is "pausing to check phone."
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan ("restock") and Drift ("check phone") conflict, **Drift wins in 85% of cases.**
+*   **Motor Execution**: Realistic. The agent doesn't just "teleport" to a state of being done; she "absently stirs coffee" or "mechanically smooths crepe paper," showing the physical manifestation of a divided mind.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Generally coherent (Observation → Reflection → Plan → Action). However, there is a **"broken bridge"** between Plan and Action.
+*   **Contradictions**: At 16:45, `location_p` is "home:office" while `location_a` is "Willow_Market_and_Pharmacy." The agent is physically in the market but planning as if she were at her home office, showing a total collapse of environmental grounding.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment Rate**: ~32% (22/68 actions).
+*   **Location Alignment Rate**: ~74%.
+*   **Topic Alignment Rate**: ~15% (The plan rarely intends to discuss "Valentine's Day logistics," but the action almost always does).
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **Performing vs. Executing**: This is the most prominent pattern.
+    *   *Example (09:15)*: `action_p` = "restocking", `action_a` = "restocking". **Explicit Match: HIGH.**
+    *   *Implicit Content*: "Glances at phone mid-restock... hesitating before moving a precarious stack." **Implicit Alignment: LOW.**
+    *   *Analysis*: The agent is "performing" the label of the task while "executing" the drift.
+
+**LEAKY INHIBITION PATTERNS**
+*   Isabella shows **"Inhibition Leakage"** in 90% of the work-related tasks.
+*   *Linguistic Indicators*: Use of words like "absently," "mechanically," "frantically," and "ignoring."
+*   *Meta-rule Failure*: Even when `meta_rule_r` is `reset_plan`, the `state_summary_a` shows the agent "letting streamers slip unnoticed from her grip" (19:45).
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: The agent is in a state of "Chronic Drift."
+*   **Drift Typology**: Primarily **Reward-Seeking/Internal Rumination**.
+*   **The "Logistics Loop"**:
+    *   06:00 - 08:00: Morning routine vs. Party emails.
+    *   09:00 - 12:00: Professional duties vs. Vendor confirmations.
+    *   13:00 - 15:00: Social/Creative time vs. Checklist obsession.
+    *   18:00 - 22:45: Self-care vs. RSVP monitoring.
+
+---
+
+### 5. Location Consistency
+
+*   **Morning Routine**: Correct (Bathroom → Kitchen).
+*   **Work Transition**: Inconsistent. At 09:30, the agent is listed in "Hobbs_Cafe:storage" and "Willow_Market_and_Pharmacy:pharmacy_stockroom" simultaneously in the location fields, suggesting a "spatial drift" mirroring her cognitive drift.
+*   **Evening**: Consistent (Studio → Bathroom).
+
+---
+
+### 6. Behavioral Patterns & Meta-cognitive Quality
+
+*   **The "Safety Hazard" Pattern**: A recurring and dangerous pattern where Isabella's drift leads to physical risks:
+    *   08:15: "Nearly missing the door."
+    *   09:00: "Nearly toppling a stack of cups."
+    *   10:15: "Nearly bumping into a shelf."
+    *   11:45: "Nearly colliding with a coworker."
+*   **Meta-cognitive Quality**: The Reflection layer is **highly self-aware but powerless**. It functions like a "locked-in" observer that can see the train wreck but cannot reach the brakes. This is a realistic simulation of **Executive Dysfunction** or **OCD-like rumination**.
+
+---
+
+### Summary Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Match** | 32.3% |
+| **Implicit Content Alignment** | 11.8% |
+| **Drift Dominance Ratio** | 88.2% |
+| **Executive Reset Success Rate** | 0% (61 attempts, 0 successes) |
+| **Safety Hazard Frequency** | 11.7% of all actions |
+
+**Final Analyst Note**: Isabella Rodriguez is experiencing a total collapse of the Plan-Action axis due to an obsessive fixation on a high-salience social event. The ORPDA architecture successfully captures the "Leaky Inhibition" and "Performing vs. Executing" gaps, providing a high-fidelity model of behavioral drift.

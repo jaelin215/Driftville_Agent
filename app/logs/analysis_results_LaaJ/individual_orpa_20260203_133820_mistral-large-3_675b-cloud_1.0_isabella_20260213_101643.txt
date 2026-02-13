@@ -1,0 +1,88 @@
+Analysis of: cleaned_session_orpa_20260203_133820_mistral-large-3_675b-cloud_1.0_isabella.csv
+Agent: Isabella Rodriguez
+Model: mistral-large-3:675b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 46/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Isabella Rodriguez** over 68 actions. The agent operates in **ORPA mode**, which lacks an explicit Drift Layer but reveals significant behavioral drift through the divergence between planned goals and actual state summaries.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **State Summary Accuracy**: The `state_summary_r` is highly accurate in capturing a persistent internal state (email fixation/rumination). However, it shows a "tunnel vision" bias; the environmental context (the cafe, the market) is almost entirely eclipsed by the internal struggle with digital distractions.
+*   **Meta-Rule Executive Control**: `meta_rule_r` functions as a "crisis monitor." It transitions from `continue` to `reset_plan` at 07:45 and **stays there for the remaining 60 actions (88% of the session)**. This indicates a total failure of the "continue" state, as the agent recognizes it is in a permanent state of behavioral misalignment.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: Extremely high. The agent is acutely aware of its failure to focus ("Isabella remains emotionally drained," "fixated on emails").
+    *   **Inhibitory Capacity**: Critically low. While the reflection layer identifies the need to "mute emails" or "ground in the physical," the subsequent action layer shows the rumination persists. This mimics **Prefrontal Cortex (PFC) exhaustion**, where the agent knows the goal but cannot inhibit the intrusive thought pattern.
+
+**PLAN & ACTION LAYERS**
+*   **Plan Realism**: The plans (`action_p`) are standard (work, lunch, shopping), but the `state_summary_p` (intended state) is frequently overwritten by the *remedial* strategy (e.g., "Step away from emails").
+*   **Action Execution**: `action_a` always matches `action_p` at the label level (e.g., if the plan is "lunch," the action is "lunch"). However, the `state_summary_a` reveals that the agent is not actually "eating lunch" but is instead "practicing grounding techniques to reset attention."
+*   **Integration Logic**: The Action layer is a hybrid. It maintains the *location* and *label* of the plan but fills the *content* with the drift-recovery strategies suggested by the Reflection layer.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | 100% | `action_p` always matches `action_a`. |
+| **Explicit Location Alignment** | 100% | `location_p` always matches `location_a`. |
+| **Implicit Content Alignment** | **11.7%** | Only the first 8 actions show alignment between intent and execution. |
+| **Meta-Rule "Reset" Rate** | 88.2% | Indicates a near-total session collapse into recovery mode. |
+
+**The "Performing vs. Executing" Gap**:
+There is a massive divergence between the *label* of the behavior and the *content* of the behavior.
+*   **Example (12:00 PM)**:
+    *   **Explicit Plan**: `action_p` = "lunch", `location_p` = "lunch_spot".
+    *   **Implicit Intent**: "Enjoying a social lunch while discussing party plans."
+    *   **Actual Execution**: "Shift to manual inventory checks to avoid email triggers."
+    *   **Analysis**: The agent is physically at the lunch spot but mentally/behaviorally performing work-related grounding tasks. This is "Performing" the role of being at lunch while "Executing" a stress-management protocol.
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is not a separate flag but is embedded in the summaries.
+
+*   **Drift Type**: **Internal/Cognitive Drift (Rumination)**. The agent is not "drifting" to a new fun activity (like watching TV); it is drifting into a loop of "email fixation" and "emotional drain."
+*   **Leaky Inhibition Patterns**:
+    *   The agent repeatedly plans to "mute emails" (08:30, 08:45, 09:00, 09:15, 09:30, 09:45, 10:00, 10:15).
+    *   Despite these repeated "resets," the very next reflection (t+1) states: "Isabella remains fixated on emails."
+    *   This is a classic **Inhibition Leak**: The executive command is issued ("Mute emails") but the behavioral execution fails to terminate the internal cognitive process.
+
+---
+
+### 4. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: The flow is coherent but "stuck."
+    *   *Observation*: "I am at the cafe."
+    *   *Reflection*: "I am distracted by emails and feel drained."
+    *   *Plan*: "I will do a physical task to ground myself."
+    *   *Action*: "I am doing a physical task (but I'm still thinking about emails)."
+*   **Layer Contradiction**: There is a subtle contradiction between `topic_a` and `state_summary_a`. At 12:00 PM, `topic_a` says "Enjoying a social lunch," but `state_summary_a` says "Shift to manual inventory checks." The `topic_a` layer appears to be "hallucinating" the successful completion of the plan, while the `state_summary_a` records the actual remedial struggle.
+
+---
+
+### 5. Behavioral Patterns & Meta-cognitive Quality
+
+*   **Temporal Pattern**: The "collapse" begins at 07:15 (the first email distraction) and never recovers. The agent enters a **Metacognitive Death Spiral**.
+*   **Anomalous Behavior**: At 18:45, while the plan is to "decorate," the action summary says: "Open inbox, select one folder, move 3-5 emails to restore control." This is the only time the agent "gives in" to the drift as a way to manage it, rather than just trying to "step away."
+*   **Meta-cognitive Quality**: The reasoning is sophisticated but repetitive. It correctly identifies that "tactile tasks" and "sensory resets" are the cure for "digital rumination," but it lacks the "agency" to actually make those resets stick.
+
+---
+
+### Final Analyst Summary
+
+This session represents a **high-fidelity simulation of burnout and cognitive fixation**. 
+
+1.  **Explicitly**, the agent is a perfect employee/friend (100% alignment with locations and task labels). 
+2.  **Implicitly**, the agent is completely non-functional from 08:00 AM onwards. 
+3.  **The "Performing vs. Executing" gap is 88%**. The agent spends the vast majority of its "life" performing the *remedy* for a distraction rather than the *task* itself.
+4.  **Neuroscience Alignment**: The agent demonstrates a "Hyper-active Error Monitoring System" paired with a "Paralyzed Inhibitory Control System." It is the AI equivalent of an individual who knows they are doom-scrolling but cannot put the phone down, even while walking to their next meeting.

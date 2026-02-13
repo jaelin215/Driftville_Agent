@@ -1,7 +1,7 @@
 # config.yaml
 
 ollama_models:
-  default: "deepseek-r1:32b" # default model is used in ollama_api.py
+  default: "gemini-3-flash-preview:cloud" # default model is used in ollama_api.py
   llama: "llama2:latest" # 7b
   mistral: "mistral-large-3:675b-cloud" # "mistral:latest" # 7b
   qwen: "qwen3-next:80b-cloud" # qwen3:8b

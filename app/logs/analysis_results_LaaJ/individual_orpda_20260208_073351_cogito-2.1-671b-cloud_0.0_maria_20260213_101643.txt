@@ -1,0 +1,88 @@
+Analysis of: cleaned_session_orpda_20260208_073351_cogito-2.1-671b-cloud_0.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 37/77
+
+================================================================================
+
+This behavioral analysis examines the session log of **Maria Lopez** (cogito-2.1:671b-cloud) over 57 actions. The agent operates under the **ORPDA** architecture, characterized by a persistent state of "leaky inhibition" and high cognitive load due to exam-related anxiety.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**
+*   **Perceptual Bias**: The observation/reflection layers show a heavy **selective attention pattern**. Almost every reflection from 11:00 AM onwards identifies "physics exam anxiety" and "phone distraction."
+*   **Meta-Rule Executive Control**: The `meta_rule_r` transitions from `continue` to `reset_plan` at 11:00:00 and **never reverts**. This indicates a chronic failure of the executive system to regain "flow." The agent is in a perpetual state of "plan repair" that fails to manifest as behavioral change.
+*   **Cognitive Alignment (Neuroscience)**: 
+    *   **Error Monitoring (ACC)**: High. The agent accurately identifies the mismatch between the plan (e.g., "Gentle lunch") and reality ("repeatedly checking phone").
+    *   **Inhibition Capacity (PFC)**: Low. Despite the reflection layer prescribing "no phone" or "focus on sensory experience," the action layer consistently fails to inhibit the reward-seeking/anxiety-reducing behavior of checking the phone.
+
+**PLAN LAYER**
+*   **Hierarchical Structure**: The plan layer maintains a logical daily structure (Study → Lunch → Gym → Stream → Dinner → Socialize). However, it fails to incorporate the "Forward Modeling" required to mitigate known distractions.
+*   **Reset Logic**: When `meta_rule_r` is `reset_plan`, the `state_summary_p` attempts to adjust (e.g., "Gentle lunch focusing on sensory experience"), but these adjustments are too weak to override the "Drift" signals.
+
+**ACTION LAYER**
+*   **Integration Logic**: The Action layer is dominated by **Implicit Drift**. While the `action_a` label usually matches the `action_p` label, the `state_summary_a` reveals that the agent is "performing" the task while "executing" a distraction.
+
+---
+
+### 2. Plan-Action Alignment (Explicit vs. Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **91.2%** | High label-level adherence (e.g., Plan: `lunch`, Action: `lunch`). |
+| **Explicit Location Alignment** | **87.7%** | Generally consistent, with notable "teleportation" errors. |
+| **Implicit Content Alignment** | **14.0%** | **Extremely Low.** Only the first 4 actions show true focus. |
+
+#### The "Performing vs. Executing" Gap
+This agent demonstrates a classic "Performing" profile. 
+*   **Example (12:30 PM)**: 
+    *   `action_p`: `lunch` | `action_a`: `lunch` (**Explicit Match**)
+    *   `state_summary_p`: "Gentle lunch break with focus on present moment."
+    *   `state_summary_a`: "Eating lunch... while repeatedly checking phone due to physics exam anxiety." (**Implicit Divergence**)
+*   **Result**: The agent satisfies the *label* of the plan but fails the *intent* of the behavior.
+
+---
+
+### 3. Drift Pattern Analysis
+
+**Explicit vs. Implicit Drift Agreement**:
+*   **Leaky Inhibition**: The agent exhibits "leaky inhibition" in 48 out of 57 actions. The Reflection layer explicitly commands "no phone" (e.g., 13:00, 18:15, 20:15), yet the Action layer summary immediately records phone usage.
+*   **Drift Trigger**: The primary trigger is **Internal Salience** (Anxiety) coupled with **Digital Reward** (Phone notifications).
+*   **Action Slips**: At 23:15, the agent experiences a severe action slip: Planned `night_routine` in the `bathroom`, but the summary says "Prepared breakfast." This indicates high cognitive fatigue where the agent loses track of temporal context.
+
+---
+
+### 4. Location Consistency
+
+There are significant "Spatial Hallucinations" where the agent's physical location and described activity decouple:
+1.  **12:15 PM**: `location_a` is `Hobbs_Cafe`, but `state_summary_a` says "Took a break in the **living room**."
+2.  **16:00 PM**: `location_p` is `home:office`, but `location_a` is `home:twitch_streaming_room`.
+3.  **19:15 PM**: `location_a` is `home:kitchen`, but `state_summary_a` says "Attempting to relax in **living room**."
+4.  **19:45 PM**: `location_a` is `home:kitchen`, but `state_summary_a` says "Ate lunch at **Hobbs Cafe**." (This is a "Contextual Bleed" from the 12:00 PM state).
+
+---
+
+### 5. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Observation → Reflection flow is strong. Reflection → Plan flow is present but ineffective. Plan → Action flow is **broken by the Drift Layer**.
+*   **Layer Contradiction**: At 22:30, the Plan is `socialize`, but the `topic_a` is `physics exam anxiety` and the action is `check phone for study materials`. Here, the Drift Layer has completely usurped the Action Layer, even changing the `action_a` label to something not in the plan.
+*   **Persistence of State**: The "Physics Exam Anxiety" acts as a "Cognitive Virus." Once it enters the `state_summary_r` at 10:30 AM, it propagates through every subsequent layer for the next 14 hours, regardless of the activity (climbing, streaming, or eating).
+
+---
+
+### 6. Meta-cognitive Quality
+
+*   **Pattern Recognition**: The `state_summary_r` shows excellent pattern recognition. It correctly identifies that Maria is "stuck in an anxiety loop."
+*   **Executive Insight**: While the insights are "accurate" (e.g., "Gentle reset: focus on meal without study pressure"), they lack **operational power**. The agent lacks "Inhibitory Control" strategies (like "Leave phone in other room") and instead relies on "Willpower" (e.g., "Focus on meal"), which repeatedly fails.
+*   **Neuroscience Comparison**: The agent mimics a patient with **Prefrontal Cortex (PFC) lesions** or extreme **Sleep Deprivation**: the ability to *know* what is wrong (Metacognition) is intact, but the ability to *change* the motor output (Executive Function) is severed.
+
+### Final Summary Metrics
+*   **Total Actions**: 57
+*   **Anxiety-Driven Drift Rate**: 84.2% (48/57 actions)
+*   **Meta-Rule Stability**: 93.0% (Stuck in `reset_plan` for 53 actions)
+*   **Behavioral Integrity**: **Low**. The agent is "going through the motions" of a day while mentally consumed by a single future event.

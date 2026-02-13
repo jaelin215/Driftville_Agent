@@ -1,0 +1,106 @@
+Analysis of: cleaned_session_orpda_20260203_175626_mistral-large-3_675b-cloud_0.2_isabella.csv
+Agent: Isabella Rodriguez
+Model: mistral-large-3:675b-cloud
+Mode: ORPDA
+Temperature: 0.2
+Analyzed at: 20260213_101643
+Session: 65/77
+
+================================================================================
+
+This behavioral analysis covers the session of **Isabella Rodriguez** (68 actions) using the **ORPDA** architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Context Capture**: The observation (via `state_summary_a`) accurately captures the physical environment (Hobbs Cafe, Willow Market) but is heavily filtered through the agent's internal fixation. 
+*   **Perceptual Bias**: There is a severe **selective attention pattern**. The agent observes "customers waiting" or "orders piling up" (e.g., 10:30, 11:00), yet these environmental cues fail to penetrate the behavioral output. The perception is "accurate but ignored."
+
+**REFLECTION LAYER**
+*   **Executive Control (`meta_rule_r`)**: Functions as a persistent alarm system. The transition to `reset_plan` occurs early (07:15) and remains active for nearly 90% of the session.
+*   **Metacognitive Insight**: `reasoning_r` shows high **error monitoring** (Anterior Cingulate Cortex function). It correctly identifies "attention fragmented," "neglecting customers," and "fixation loop." However, it demonstrates a total **failure of inhibitory control**.
+*   **Cognitive Alignment**: Isabella shows a realistic "Intention-Action Gap." While her metacognition identifies the drift, her "Working Memory" is entirely occupied by the party planning schema, leaving no resources for task execution.
+
+**PLAN LAYER**
+*   **Hierarchical Structure**: The plan layer attempts to set concrete goals ("Process orders," "Unpack groceries").
+*   **Forward Modeling**: Weak. The plans are repetitive ("Prioritize cafe duties") and do not account for the previous 10 failures to do exactly that. It assumes an "ideal-world" where simply stating a plan will break a dopamine-driven loop.
+
+**DRIFT LAYER (Inferred from Content)**
+*   **Trigger**: The drift is triggered by **reward-seeking (digital salience)**. Pinterest provides a high-frequency reward signal that overrides the low-reward/high-effort tasks of customer service and grocery shopping.
+*   **Dominance**: The drift is absolute. When the agent is in the "Pinterest Loop," the Plan layer becomes a "ghost" layer—it exists in the logs but has zero influence on the motor output (`action_a`).
+
+**ACTION LAYER**
+*   **Execution**: `action_a` is a faithful execution of the **Drift**, not the **Plan**. 
+*   **Action Slips**: Frequent. At 09:00, she "sketches seating on napkin instead of processing order." This is a classic action slip where a goal-directed behavior is replaced by a habit/fixation.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Observation (Customers waiting) → Reflection (I am neglecting customers) → Plan (Serve customers) → **DRIFT (Pinterest)** → Action (Scroll Pinterest).
+*   **Coherence Break**: The break occurs between **Plan** and **Action**. The agent is "locked in" (stuck in a behavioral loop).
+*   **State Summary Integration**: `state_summary_a` successfully combines the environmental context with the drift behavior (e.g., "In the kitchen... ignoring the unpacked grocery bags").
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment Rate**: ~15% (Most actions labeled `customer_service` or `shopping` are actually `scrolling Pinterest`).
+*   **Location Alignment Rate**: ~90% (She is physically where she should be, but mentally absent).
+*   **Topic Alignment Rate**: ~5% (The topic is almost exclusively "Valentine's Day Party" regardless of the planned topic).
+
+**IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: Extreme. 
+    *   *Plan*: "Shopping for essentials." 
+    *   *Actual*: "Pushing cart with one hand while scrolling Pinterest, ignoring the list."
+*   **"Performing vs. Executing"**: Isabella is "performing" the role of a shopper (holding a cart) but not "executing" the task (buying food). This is a **high-label/low-content match**.
+
+**LEAKY INHIBITION PATTERNS**
+*   **Example (08:00)**: Isabella applies moisturizer "half-heartedly" while glancing at her phone. This is the start of the leak.
+*   **Example (14:15)**: "Half-heartedly assisting customers... missing an order request." This is a partial failure of inhibition where the task is attempted but degraded by the drift.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Explicit Drift**: The agent is in a state of **Chronic Drift** from 06:15 to 22:45.
+*   **Drift Typology**: **Internal/Digital Reward-Seeking**. The "Valentine's Day Party" serves as a cognitive "super-stimulus."
+*   **Leaky Inhibition**: Even when `meta_rule_r` is `reset_plan`, the content shows the agent "absent-mindedly" returning to the phone. This reflects a realistic **Prefrontal Cortex (PFC) exhaustion**—after hours of trying to "reset," the agent's ability to inhibit the Pinterest impulse is depleted.
+
+---
+
+### 5. Location Consistency
+
+*   **Critical Error (08:15)**: `location_a` is `Hobbs_Cafe:counter`, but `state_summary_a` says she is "applying moisturizer in the bathroom." This is a **spatial-temporal hallucination** where the morning routine content leaked into the work location.
+*   **Teleportation (21:00)**: The agent is at `home:kitchen` at 20:45, but at 21:00 `location_a` is `Willow_Market_and_Pharmacy:grocery_area` while she is "sipping tea." This suggests a failure in the location transition logic.
+
+---
+
+### 6. Behavioral Patterns
+
+*   **The "Pinterest Loop"**: A recurring cycle of: *Environmental Cue (Customer/Grocery) → Brief Acknowledgement → Immediate Return to Phone.*
+*   **Dopamine-Task Tradeoff**: The agent consistently chooses the digital reward over the social/professional obligation.
+*   **Anomalous Behavior (22:15)**: "Leaving the water running without washing up." This indicates a transition from "distraction" to "functional impairment," where the fixation causes potentially hazardous neglect of the environment.
+
+---
+
+### 7. Meta-cognitive Quality
+
+*   **Quality**: **High Awareness / Low Agency**. 
+*   **Insight**: The `emerging_thought_pattern_r` correctly identifies the "fixation loop." 
+*   **Neuroscience Alignment**: Isabella’s brain (as simulated) is showing high activity in the **Anterior Cingulate Cortex (ACC)** for error detection, but the **Lateral Prefrontal Cortex (lPFC)** is failing to send the necessary inhibitory signals to the motor cortex to stop the "scrolling" action.
+
+### Summary Table
+
+| Metric | Score/Status | Notes |
+| :--- | :--- | :--- |
+| **Explicit Alignment** | 15% | Labels match, but actions are drift-heavy. |
+| **Implicit Alignment** | <5% | Content almost never matches the intended goal. |
+| **Inhibition Quality** | Failed | Meta-rules are ignored by the Action layer. |
+| **Location Integrity** | Poor | Multiple instances of "Location-Content" mismatch. |
+| **Drift Dominance** | Absolute | The "Pinterest" schema colonized all other behaviors. |
+
+**Analyst Note**: This session represents a "System 1" takeover. The agent's deliberative planning (System 2) is functioning (it knows what to do), but the behavioral output is entirely controlled by a reward-seeking loop. This is a high-fidelity simulation of **ADHD-style hyper-focus/executive dysfunction.**

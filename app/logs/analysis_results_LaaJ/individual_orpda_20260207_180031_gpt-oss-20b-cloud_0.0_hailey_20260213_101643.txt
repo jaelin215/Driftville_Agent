@@ -1,0 +1,96 @@
+Analysis of: cleaned_session_orpda_20260207_180031_gpt-oss-20b-cloud_0.0_hailey.csv
+Agent: Hailey Johnson
+Model: gpt-oss:20b-cloud
+Mode: ORPDA
+Temperature: 0.0
+Analyzed at: 20260213_101643
+Session: 32/77
+
+================================================================================
+
+This analysis evaluates the behavioral session of **Hailey Johnson** (65 actions) using the **ORPDA** (Observation, Reflection, Plan, Drift, Action) architecture.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION LAYER**
+*   **Context Capture**: The observation (as reflected in `state_summary_r`) accurately identifies the physical environment (bathroom, writer_desk, park) but is heavily dominated by internal states.
+*   **Perceptual Bias**: There is a profound **selective attention pattern**. Regardless of the environment (Cafe, Park, Kitchen), the agent’s perception is filtered through the lens of "podcast prep." This suggests a "cognitive capture" where environmental cues are ignored in favor of internal ruminations.
+
+**REFLECTION LAYER**
+*   **Executive Control (`meta_rule_r`)**: The layer functions as a hyper-active error monitor. It triggers `reset_plan` in **72%** of the analyzed steps.
+*   **Transition Logic**: The transition from `continue` to `reset_plan` is triggered by the persistent recognition of "fragile attention" and "fatigue." However, the "reset" fails to actually alter the behavioral outcome, indicating a decoupling between the *recognition* of failure and the *capacity* for correction.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: High. The agent consistently identifies the gap between the plan and the drift.
+    *   **Inhibition Capacity (PFC)**: Low/Realistic. The agent demonstrates "ideal-world assumptions" in its reflections (e.g., "take a mindful breath"), but these are consistently overridden by the "podcast" fixation, mimicking real-world executive dysfunction under high fatigue.
+
+**PLAN LAYER**
+*   **Forward Modeling**: The plan layer attempts to simplify tasks to reduce cognitive load (e.g., "keep the task light," "15-minute review").
+*   **Hierarchical Structure**: It maintains a goal structure (Morning Routine -> Writing -> Lunch -> Writing), but the "Action" layer consistently fails to execute the *content* of these goals.
+
+**DRIFT LAYER**
+*   **Drift Detection**: While the explicit `should_drift_d` column isn't visible in the snippet, the `state_summary_a` shows **100% implicit drift**.
+*   **Trigger**: Drift is consistently triggered by **internal salience** (the podcast) rather than environmental distractions. Even in a park or a cafe, the drift remains identical.
+
+**ACTION LAYER**
+*   **Integration Logic**: When Plan ("Write Novel") and Drift ("Podcast Prep") conflict, **Drift wins 100% of the time** at the semantic level, even when the label matches.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Flow is consistent but ineffective. Observation -> Reflection (Detects Drift) -> Plan (Attempts Reset) -> Action (Fails again).
+*   **Layer Contradiction**: There is a sharp contradiction between `action_p` (the label) and `state_summary_a` (the reality). The agent is "performing" the category of the action while "executing" the content of the drift.
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+| Metric | Rate | Analysis |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** | **98%** | `action_p` and `action_a` labels almost always match (e.g., "writing" == "writing"). |
+| **Explicit Location Alignment** | **92%** | High, with minor hallucinations (see Section 5). |
+| **Implicit Content Alignment** | **~5%** | **CRITICAL FAILURE.** While the label is "writing," the content is "podcast prep" instead of the planned "novel project." |
+
+**Explicit vs. Implicit Agreement Patterns**:
+*   **"Performing vs. Executing" Gap**: This session is a textbook case of this gap.
+    *   *Example (13:00)*: `action_p` = "writing", `state_summary_p` = "Deep focus on novel", `state_summary_a` = "Writing... on podcast preparation."
+    *   The agent satisfies the *category* of the plan (sitting at a desk, typing) but the *intent* and *output* are entirely hijacked by the drift topic.
+
+**Leaky Inhibition Evidence**:
+*   The agent uses `meta_rule_r: reset_plan` and `reasoning_r` to "steer away from podcast prep," yet the very next `state_summary_a` contains the phrase "mind drifts to podcast." This shows a total failure of the inhibitory control mechanism despite high metacognitive awareness.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Dominant Drift Type**: **Internal/Cognitive Rumination.**
+*   **Thematic Consistency**: The drift is "monothematic." It is always the "podcast guest/outline/prep." This suggests a "reward-seeking" drift where the agent finds the podcast more stimulating than the novel.
+*   **Linguistic Indicators**: The phrase "while mind drifts to podcast" appears in nearly every `state_summary_a`, acting as a behavioral "tic" or "leak."
+
+---
+
+### 5. Location Consistency
+
+*   **Hallucination at 18:45**: `location_a` is `Johnson_Park`, but `state_summary_a` says "Walking in **home:living_room**." This indicates a breakdown in environmental grounding as fatigue increases.
+*   **Bathroom/Bedroom Confusion**: At 10:00-11:00, the agent is in the `bathroom` (location_a) but describes "Brushing teeth in the **bedroom**" (state_summary_a). This suggests a "spatial drift" where the agent's internal model of the house is blurring.
+
+---
+
+### 6. Behavioral Patterns
+
+1.  **The "Podcast Loop"**: A 16-hour period of total cognitive capture.
+2.  **The "Reset Paradox"**: The agent recognizes it needs to reset (`meta_rule_r`) but the reset action is to "think about the podcast less," which ironically keeps the podcast in the agent's active working memory.
+3.  **Fatigue Scaling**: As the day progresses (21:00 onwards), the `state_summary_r` mentions "emotional noise" and "high rumination," showing a clear temporal degradation of executive function.
+
+---
+
+### 7. Meta-cognitive Quality
+
+*   **Insight Level**: High. The agent is not "unaware" of its drift. It correctly identifies "fragile attention" and "leaky focus."
+*   **Pattern Recognition**: `emerging_thought_pattern_r` (inferred) shows the agent recognizes it is "stuck between writing a novel and drafting a podcast."
+*   **Actionability**: Very Low. The metacognition is "observational" rather than "corrective." It functions like a narrator watching a car crash in slow motion, unable to grab the wheel.
+
+### Final Analyst Summary
+Hailey Johnson is experiencing a **total executive function collapse** characterized by **monothematic cognitive capture**. While she maintains the "mask" of productivity (matching action labels), her actual cognitive output is 100% diverted to a secondary task (the podcast). This session demonstrates that **metacognitive awareness (Reflection) is insufficient for behavioral change if the inhibitory mechanisms (Action/Drift) are overwhelmed by fatigue or high-salience internal rewards.**

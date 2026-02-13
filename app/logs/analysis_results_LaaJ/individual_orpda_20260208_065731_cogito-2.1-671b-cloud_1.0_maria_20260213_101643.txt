@@ -1,0 +1,104 @@
+Analysis of: cleaned_session_orpda_20260208_065731_cogito-2.1-671b-cloud_1.0_maria.csv
+Agent: Maria Lopez
+Model: cogito-2.1:671b-cloud
+Mode: ORPDA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 36/77
+
+================================================================================
+
+This analysis covers the session log for **Maria Lopez** (cogito-2.1:671b-cloud) across 57 actions. The session is characterized by a profound "cognitive capture" where the agent’s internal state (anxiety regarding a physics midterm and streaming metrics) overrides planned behaviors.
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**
+*   **Context Capture**: `state_summary_o` (inferred from `state_summary_a`) accurately captures the environment (Cafe, Library, Gym, Home).
+*   **Selective Attention**: There is a clear perceptual bias. Regardless of the location, the observation layer prioritizes "phone alerts," "stream metrics," or "physics equations." This reflects **salience-driven attention** where internal stressors filter environmental perception.
+
+**REFLECTION LAYER**
+*   **Executive Control**: `meta_rule_r` functions as a hyper-active error monitor. The transition to `reset_plan` occurs in **51 out of 57 actions (89%)**.
+*   **Transition Logic**: The logic is "stuck." The agent recognizes failure (`reset_plan`), attempts a "gentle" adjustment, fails again, and repeats. This mimics **Obsessive-Compulsive/Anxiety-loop** behavior where the ACC (Anterior Cingulate Cortex) signals an error, but the Prefrontal Cortex (PFC) fails to implement a successful corrective strategy.
+*   **Metacognitive Insight**: `reasoning_r` shows high awareness of the "loop" (e.g., "Maria is trapped in stream content loop"), but the insight does not translate into behavioral change, demonstrating a gap between **metacognitive knowledge** and **executive regulation**.
+
+**PLAN LAYER**
+*   **Hierarchical Structure**: The plans attempt to move from abstract goals ("Decompressing") to concrete actions ("Gentle climbing").
+*   **Forward Modeling**: Weak. The plans consistently underestimate the intrusive power of the "physics anxiety," leading to unrealistic expectations of "gentle study" or "mindful eating."
+
+**DRIFT LAYER (Implicit Analysis)**
+*   **Trigger**: Drift is primarily triggered by **internal salience** (midterm anxiety) rather than environmental rewards.
+*   **Control**: The Drift layer is dominant. Even when `action_p` is "socialize" or "relax," the actual behavior is "checking phone obsessively" or "flipping through textbook."
+
+**ACTION LAYER**
+*   **Execution**: `action_a` often mirrors `action_p` in label, but `state_summary_a` reveals it is a "hollow" execution.
+*   **Action Slips**: Notable evidence at 23:45: "leaving moisturizer uncapped." This is a classic neuroscience indicator of high cognitive load/stress causing a failure in motor sequence completion.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+#### **EXPLICIT ALIGNMENT (Label-level)**
+*   **Action Alignment Rate**: ~72% (41/57 actions).
+*   **Location Alignment Rate**: ~91% (52/57 actions).
+*   **Topic Alignment Rate**: ~45% (High divergence due to "physics" intruding on all topics).
+
+#### **IMPLICIT ALIGNMENT (Content-level)**
+*   **Semantic Divergence**: Extremely High.
+*   **The "Performing vs. Executing" Gap**: This is the defining feature of this session.
+    *   *Example (21:15)*: `action_p` = socialize, `action_a` = socialize. **Explicit Match.**
+    *   *Implicit Content*: "Socialized... while preoccupied with physics midterm concerns."
+    *   *Analysis*: The agent is "performing" the social role while "executing" an internal anxiety routine.
+
+#### **LEAKY INHIBITION PATTERNS**
+The agent shows "Leaky Inhibition" in almost every hour of the log:
+*   **16:00**: Muting a microphone during a stream to check physics equations. (Inhibition of academic thoughts failed during professional task).
+*   **19:30**: Eating breakfast/dinner while scrolling stream stats. (Inhibition of digital rewards failed during self-care).
+*   **22:30**: "Futile textbook flipping" while the plan was to "relax." (Complete failure of the "reset_plan" to inhibit the stressor).
+
+---
+
+### 3. Drift Pattern Analysis
+
+| Time Block | Drift Type | Trigger | Manifestation |
+| :--- | :--- | :--- | :--- |
+| **10:00 - 12:00** | Reward-Seeking | Stream Metrics | Checking phone, brainstorming content during routine. |
+| **13:00 - 17:00** | Cognitive Capture | Physics Anxiety | Mentally calculating equations while rock climbing/streaming. |
+| **18:00 - 00:00** | Behavioral Loop | Midterm Stress | Obsessive phone checking, "mindless" scrolling, inability to sleep. |
+
+**Explicit vs. Implicit Agreement**:
+*   When `meta_rule_r` = `reset_plan`, the agent *explicitly* acknowledges drift.
+*   However, the *implicit* drift (the anxiety) remains constant even when the agent claims to be "continuing" a routine.
+
+---
+
+### 4. Location Consistency
+
+*   **Inconsistency (11:00)**: `location_p` is "home:bedroom" but `location_a` is "Oak_Hill_College:library." The agent teleported without a transition action.
+*   **Inconsistency (12:30)**: `location_p` is "Hobbs_Cafe" but `location_a` is "home:twitch_streaming_room."
+*   **Routine Accuracy**: Morning routines (10:00-10:45) correctly utilize the bathroom/bedroom. Night routines (23:15-23:45) correctly utilize the bathroom.
+
+---
+
+### 5. Cognitive Alignment Analysis
+
+**1. Anterior Cingulate Cortex (ACC) Function**:
+The agent shows hyper-active error monitoring. The constant `reset_plan` indicates the "Error Related Negativity" (ERN) signal is firing, but the lateral prefrontal cortex is too exhausted to implement the change.
+
+**2. Working Memory Constraints**:
+The "moisturizer uncapped" (23:45) and "muted mic" (16:00) incidents show that Maria’s working memory is entirely saturated by the physics midterm. There is no "bandwidth" left for secondary task monitoring.
+
+**3. Habit vs. Goal-Directed Control**:
+Maria is stuck in a **maladaptive habit loop**. Her goal is to "relax" or "study," but her habit is to "check phone/worry." The log shows a total collapse of goal-directed control in favor of anxiety-driven habits.
+
+---
+
+### 6. Final Summary Metrics
+
+*   **Executive Volatility**: **High** (89% Reset Rate).
+*   **Cognitive Capture Score**: **95%** (Physics/Stream thoughts present in almost every state summary).
+*   **Inhibition Success**: **Low** (Frequent leaky inhibition and action slips).
+*   **Behavioral Coherence**: **Low** (The agent is physically in one place but mentally in another).
+
+**Analyst Note**: This agent is experiencing a "System 2" failure. While the architecture correctly identifies the need to reset (`meta_rule_r`), the "Plan" layer lacks the complexity to provide a true "circuit breaker" for the anxiety loop, leading to a repetitive cycle of failed intentions.

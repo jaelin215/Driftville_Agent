@@ -1,0 +1,108 @@
+Analysis of: cleaned_session_orpda_20260206_171410_gemini-3-flash-preview-cloud_0.8_hailey.csv
+Agent: Hailey Johnson
+Model: gemini-3-flash-preview:cloud
+Mode: ORPDA
+Temperature: 0.8
+Analyzed at: 20260213_101643
+Session: 20/77
+
+================================================================================
+
+This behavioral analysis covers 65 actions of the agent **Hailey Johnson** (ORPDA architecture, temp 0.8).
+
+---
+
+### 1. Layer Function Validation (ORPDA Architecture)
+
+**OBSERVATION LAYER**:
+*   **Context Capture**: `state_summary_o` (inferred from the integration in `state_summary_a`) accurately captures the physical environment but shows a heavy bias toward internal states.
+*   **Perceptual Biases**: There is a significant **selective attention pattern** toward auditory and tactile stimuli (foley, keyboard clicks, 60Hz hums). The agent perceives the world not as a set of functional objects, but as a collection of "sensory data points" for her podcast.
+
+**REFLECTION LAYER**:
+*   **Executive Control (`meta_rule_r`)**: The layer is in a state of **chronic executive alarm**. `reset_plan` is triggered in **93.8%** (61/65) of the actions. This indicates the Reflection layer correctly identifies behavioral failure but lacks the "inhibitory muscle" to enforce a change.
+*   **Transition Logic**: The transition from `continue` to `reset_plan` at 10:30 AM is appropriate, but the agent never successfully returns to `continue`. This suggests a "broken" feedback loop where the agent recognizes drift but cannot stabilize.
+*   **Cognitive Alignment**:
+    *   **Error Monitoring (ACC)**: High. The agent is hyper-aware of its own failure ("Hailey is lost in a two-hour procrastination loop").
+    *   **Inhibition Capacity**: Extremely low. The Reflection layer identifies the need to "sequester intrusive thoughts," but the Action layer fails to execute this.
+
+**PLAN LAYER**:
+*   **Use of Reflection**: The Plan layer attempts to adapt by shifting to "low-cognitive-load" or "administrative" tasks. However, these "resets" often become new vehicles for drift (e.g., organizing files leads to nostalgic rumination).
+*   **Forward Modeling**: Weak. The Plan layer repeatedly predicts "Deep focus on her novel project" (13:00–16:45) despite the Reflection layer acknowledging a total stall. This shows a **dissociation between goal-setting and reality-testing**.
+
+**DRIFT LAYER (Implicit Analysis)**:
+*   **Trigger**: Drift is primarily triggered by **Internal Salience** (creative impulses) and **Task Difficulty** (avoiding the "blank page" of the novel).
+*   **Control**: Drift is dominant. Even when the Plan layer specifies "grounding exercises," the Drift layer hijacks the content to "analyze the rhythm of breathing as a metronome for a podcast."
+
+**ACTION LAYER**:
+*   **Execution**: `action_a` usually matches the *label* of `action_p`, but the *content* in `state_summary_a` reveals that the action is being "performed" rather than "executed" (e.g., "writing" while actually "organizing digital art files").
+*   **Cognitive Alignment**: Shows realistic **action slips**. At 01:45, the agent performs `morning_routine` instead of `night_routine`, reflecting high fatigue and cognitive overload.
+
+---
+
+### 2. Cross-Layer Coherence Analysis
+
+*   **Information Flow**: Observation → Reflection → Plan is coherent. However, the flow from Plan → Action is frequently interrupted by the Drift Layer.
+*   **Contradictions**: At 18:15, the Plan layer sets the location to `Johnson_Park`, but the Action layer's `state_summary_a` describes her "in her bedroom." This is a major **spatial-cognitive incoherence**.
+*   **Integration Logic**: When Plan ("Study/Write") and Drift ("Podcast/Foley") conflict, **Drift wins 100% of the time** in terms of semantic content, even if the label remains "Writing."
+
+---
+
+### 3. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Match Rate**: 96.9% (63/65). Mismatches at 22:00 (Reading vs Tapping) and 01:45 (Night vs Morning routine).
+*   **Location Match Rate**: 98.5% (64/65).
+*   **Topic Match Rate**: 100% (Labels match, but content diverges).
+
+**IMPLICIT ALIGNMENT (Content-level)**:
+*   **Semantic Divergence**: **EXTREMELY HIGH**.
+*   **"Performing vs. Executing" Gap**: Between 13:00 and 16:45, the agent is explicitly "Writing" (label), but implicitly "Podcast Planning" (content).
+*   **Linguistic Indicators**: Use of words like "drifts," "leaks," "mentally submerged," and "stalling" in `state_summary_a` indicates the agent's internal model is aware of the misalignment.
+
+**LEAKY INHIBITION PATTERNS**:
+*   **The "Foley" Leak**: During the evening walk (18:00–18:45), the agent attempts to "clear her head" (Plan), but the Action layer converts every environmental sound (leaves, wool coat) into "digital foley layers." This is a classic failure of the Prefrontal Cortex to inhibit task-irrelevant creative associations.
+
+---
+
+### 4. Drift Pattern Analysis
+
+*   **Drift Progression**:
+    1.  **10:00–12:00**: Digital/Social Media Drift.
+    2.  **13:00–17:00**: Cross-Project Drift (Podcast vs. Novel).
+    3.  **17:00–21:00**: Sensory/Technical Drift (Foley/Acoustics).
+    4.  **21:00–02:00**: Archival/Nostalgic Drift (2021 files).
+*   **Leaky Inhibition**: Even when `meta_rule_r` is `reset_plan` (intended to simplify), the agent finds a way to drift within the simplified task. Organizing files (the reset) leads to reading old dialogue (the drift).
+
+---
+
+### 5. Location Consistency
+
+*   **Critical Error (18:15)**: `location_a` is `Johnson_Park`, but `state_summary_a` says "performs grounding exercises in her bedroom." This suggests a failure in the agent's spatial state-tracking.
+*   **Routine Consistency**: Morning routines (10:00–11:30) correctly transition from bathroom to bedroom. However, the 01:45 "morning_routine" label in the bathroom during a "night_routine" block is a temporal-logic error.
+
+---
+
+### 6. Behavioral Patterns
+
+*   **Temporal Pattern**: Drift becomes more "internal" and "nostalgic" as the day progresses. Morning drift is external (phone), while late-night drift is purely mental/archival.
+*   **The "Podcast" Fixation**: The podcast is a "Supernormal Stimulus" for this agent. It provides a higher reward signal than the novel, leading to constant task-switching.
+
+---
+
+### 7. Meta-cognitive Quality
+
+*   **Insight**: The `reasoning_r` (via `state_summary_r`) is highly sophisticated. It recognizes "time dilation," "creative avoidance loops," and "sensory paralysis."
+*   **Pattern Recognition**: `emerging_thought_pattern_r` (inferred) is excellent at identifying the *type* of drift (e.g., "substituting organization for progress").
+*   **Executive Failure**: Despite high-quality *insight*, there is zero *functional* change. This mimics **Executive Dysfunction** (common in ADHD or high-stress profiles), where the subject knows exactly what they are doing wrong but cannot stop.
+
+### Summary Metrics
+
+| Metric | Value |
+| :--- | :--- |
+| **Explicit Action Alignment** | 96.9% |
+| **Implicit Content Alignment** | ~15% (Most actions contain significant drift) |
+| **Executive Alarm Rate (`reset_plan`)** | 93.8% |
+| **Spatial Inconsistency Rate** | 1.5% |
+| **Primary Drift Driver** | Internal Creative Salience (Podcast) |
+
+**Final Analyst Note**: Hailey Johnson is a "High-Insight, Low-Inhibition" agent. She is trapped in a meta-cognitive loop where she observes her own failure in real-time but her Action layer is entirely captured by a secondary high-reward project (the podcast). The 18:15 location error and 01:45 action slip suggest that chronic drift is leading to "system fatigue" and a breakdown in basic state-tracking.

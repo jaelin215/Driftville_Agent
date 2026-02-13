@@ -1,0 +1,80 @@
+Analysis of: cleaned_session_orpa_20260203_094612_gemini-3-flash-preview_cloud_0.5_isabella.csv
+Agent: Isabella Rodriguez
+Model: gemini-3-flash-preview:cloud
+Mode: ORPA
+Temperature: 0.5
+Analyzed at: 20260213_101643
+Session: 44/77
+
+================================================================================
+
+This behavioral analysis examines the session log of Isabella Rodriguez over 68 actions. The agent operates in **ORPA mode** (Observation, Reflection, Plan, Action), characterized by a persistent internal struggle with digital distraction and cognitive fatigue.
+
+---
+
+### 1. Layer Function Validation
+
+**OBSERVATION & REFLECTION LAYERS**:
+*   **State Summary Accuracy**: The reflection layer accurately captures a deteriorating internal state. It identifies a transition from "disciplined ignoring" (06:00) to "mental exhaustion" (09:00) to "cognitive redlining" (16:00).
+*   **Meta-Rule Executive Control**: The `meta_rule_r` functions as a permanent emergency brake. It triggers `reset_plan` at **08:15** and **never returns to `continue`** for the remainder of the day (60 consecutive actions). This indicates a total failure of the "recovery" logic; the agent recognizes it is compromised but cannot find a path back to a baseline state.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: High. The agent constantly detects the conflict between the plan (work/socialize) and the distraction (phone).
+    *   **Inhibition Capacity**: Realistic. The agent demonstrates that "ignoring" a stimulus is a metabolically expensive cognitive process. By 10:00, the "prefrontal cortex" (simulated) is exhausted, leading to the "low-effort task" strategy.
+    *   **Executive Lock**: The persistent `reset_plan` reflects a state of "hyper-vigilance" or "burnout" where the agent is stuck in a metacognitive loop of monitoring its own fatigue.
+
+**PLAN & ACTION LAYERS**:
+*   **Hierarchical Goal Structure**: The Plan layer maintains the abstract goal (e.g., "Shopping," "Decorate"), but the `state_summary_p` modifies the *implementation* to be "low-effort" or "tactile."
+*   **Forward Modeling**: Weak. The agent repeatedly plans to "reset" in 15 minutes, but the next observation always shows continued exhaustion. The agent predicts recovery that never manifests.
+*   **Action Execution**: `action_a` is a faithful execution of the *label* of `action_p`, but the *content* of `state_summary_a` reveals that the agent is barely performing the task.
+
+---
+
+### 2. Plan-Action Alignment (Explicit + Implicit)
+
+**EXPLICIT ALIGNMENT (Label-level)**:
+*   **Action Alignment**: 100% (`action_p` matches `action_a` for all 68 steps).
+*   **Location Alignment**: 100% (`location_p` matches `location_a`).
+*   **Topic Alignment**: 100% (The high-level topic remains consistent).
+
+**IMPLICIT ALIGNMENT (Content-level / Semantic Drift)**:
+*   **The "Performing vs. Executing" Gap**: While the labels match, the semantic content reveals a massive divergence.
+    *   *Example (12:00)*: `action_p` is "lunch" (social), but `state_summary_a` reveals she is "mentally overloaded and failing to engage."
+    *   *Example (16:00)*: `action_p` is "shopping," but `state_summary_a` describes "surviving sensory bombardment."
+*   **Semantic Mismatch (08:00)**: A notable glitch occurs at 08:00. `location_p` is "Hobbs_Cafe:counter," but `state_summary_a` mentions "Isabella continues her **animation work**." This is a context leak from her primary persona (animator) into her current location (cafe worker/event planner).
+
+---
+
+### 3. Drift Pattern Analysis (Implicit)
+
+Since this is ORPA mode, drift is not explicitly flagged but is visible in the content:
+
+*   **Internal/Cognitive Drift**: The agent is physically present but mentally "tethered" to the phone. This is a form of **"Absent Presence."**
+*   **Leaky Inhibition**:
+    *   At 06:00-07:45, the agent claims to be "successfully ignoring" emails.
+    *   By 08:00, the "leak" is evident: the effort of ignoring has caused a total collapse of cognitive resources.
+    *   **Metacognitive Insight**: The agent correctly identifies this at 09:00: "mentally depleted by a sustained battle against digital distractions."
+*   **Coping Mechanism - Tactile Grounding**: A recurring pattern emerges from 14:00 onwards where the agent uses "tactile tasks" (cleaning, manual decor, holding a warm tea) as a "shield" against digital anxiety. This is a sophisticated behavioral simulation of sensory grounding.
+
+---
+
+### 4. Quantitative Metrics
+
+| Metric | Value | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Match Rate** | 100% | Perfect label adherence. |
+| **Meta-Rule "Reset" Rate** | 88.2% | 60/68 actions spent in `reset_plan`. |
+| **Recovery Success Rate** | 0% | Agent never returned to `continue` after the first break. |
+| **Inhibition Failure Points** | 08:00 | Transition from "ignoring" to "mentally consumed." |
+| **Location Consistency** | 100% | No physical teleportation detected. |
+
+---
+
+### 5. Behavioral Summary & Anomalies
+
+1.  **The "Digital Siege" Narrative**: The entire session is a study in "Digital Anxiety." The agent treats phone notifications as a physical threat ("mentally besieged," "sensory bombardment," "shielding herself").
+2.  **Executive Function Paralysis**: The agent is trapped in a "Reset Loop." It recognizes it is too tired to work effectively, so it resets the plan to "low effort," but because it is still "monitoring" its tiredness, it never actually recovers.
+3.  **Anomalous Task (08:00)**: The mention of "animation work" while at the "cafe counter" is the only significant logic break in the session's narrative.
+4.  **Social Avoidance**: The agent's cognitive load is so high that it completely abandons social goals (Lunch at 12:00, Inviting Tom at 16:00) to focus on "sensory survival."
+
+### Final Analyst Note:
+The agent demonstrates **high metacognitive quality** but **low behavioral flexibility**. It is an excellent simulation of a "high-functioning" individual experiencing a burnout/anxiety episode where they "do the work" (explicit alignment) but are "not there" (implicit drift). The transition from 07:45 (disciplined) to 08:00 (mentally fixated) is the critical failure point of the session.

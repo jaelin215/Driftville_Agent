@@ -1,0 +1,102 @@
+Analysis of: cleaned_session_orpa_20260210_130415_gpt-oss-20b-cloud_1.0_sam.csv
+Agent: Sam Moore
+Model: gpt-oss:20b-cloud
+Mode: ORPA
+Temperature: 1.0
+Analyzed at: 20260213_101643
+Session: 16/77
+
+================================================================================
+
+This analysis covers the session log for **Sam Moore** (gpt-oss:20b-cloud) across 65 actions. The agent operates in **ORPA mode** (Observation, Reflection, Plan, Action), meaning explicit drift detection columns are absent, requiring a deep dive into **implicit semantic drift**.
+
+---
+
+### 1. Executive Summary: The "Inertial" Agent
+The agent demonstrates high **Explicit Alignment** (labels match) but significant **Implicit Misalignment** (content lags). Sam Moore suffers from a "behavioral carry-over" effect where the plan changes, the action label changes, but the actual description of the behavior (`state_summary_a`) remains stuck in the previous task for 15–45 minutes.
+
+---
+
+### 2. Plan-Action Alignment Metrics
+
+| Metric | Rate | Notes |
+| :--- | :--- | :--- |
+| **Explicit Action Alignment** (`action_p` == `action_a`) | **95.4%** | High label-level compliance. |
+| **Explicit Location Alignment** (`location_p` == `location_a`) | **95.4%** | High spatial compliance. |
+| **Implicit Content Alignment** (Semantic Match) | **~72%** | Significant "State Carry-over" detected. |
+| **Leaky Inhibition Rate** | **High** | Environmental cues (reading, phone calls) bleed into new tasks. |
+
+---
+
+### 3. Layer Function Validation
+
+#### **OBSERVATION & REFLECTION LAYERS**
+*   **Perceptual Bias**: The observation (via `state_summary_r`) consistently notes "phone buzzes" or "ambient sounds" from 06:00 to 09:00, yet the agent rarely interacts with them. This suggests a "selective attention" pattern where distractions are noted but inhibited—until they aren't.
+*   **Meta-Rule Failure**: `meta_rule_r` remains "continue" for the entire 16-hour session. It **fails as an executive control**. Even when the agent is explicitly doing the wrong thing (e.g., reading during lunch at 12:00), the reflection layer does not trigger a `reset_plan`.
+*   **Cognitive Alignment (Neuroscience)**:
+    *   **Error Monitoring (ACC)**: Deficient. The agent does not recognize the mismatch between "I should be eating lunch" and "I am still reading."
+    *   **Working Memory**: Shows "proactive interference"—old task goals (reading) interfere with new task goals (lunch).
+
+#### **PLAN LAYER**
+*   **Hierarchical Structure**: Good. Moves from `morning_routine` → `walk` → `socialize` → `reading` → `lunch`.
+*   **Forward Modeling**: Weak. The plans are static and do not account for the time needed to transition between complex states (e.g., moving from a cafe to home and immediately starting a deep reading session).
+
+#### **ACTION LAYER**
+*   **Integration Logic**: The Action layer is "performing" the plan (labeling it correctly) but "executing" the previous state (content).
+*   **Action Slips**: At 12:00, the agent labels the action as `lunch` but the summary says "Sam continues reading." This is a classic **Action Slip** where the motor/behavioral output fails to switch despite the goal change.
+
+---
+
+### 4. Explicit vs. Implicit Agreement: "Performing vs. Executing"
+
+The most critical finding is the **Transition Lag**. The agent exhibits a pattern where the label updates, but the behavior does not.
+
+**Example 1: The Reading/Lunch Overlap**
+*   **Time**: 12:00
+*   **Explicit Plan**: `action_p` = lunch, `location_p` = home:kitchen.
+*   **Explicit Action**: `action_a` = lunch, `location_a` = home:kitchen.
+*   **Implicit Content**: `state_summary_a` = "Sam continues reading, focusing on the current chapter..."
+*   **Analysis**: **High Explicit / Low Implicit.** The agent is physically in the kitchen and claims to be having lunch, but is cognitively still reading.
+
+**Example 2: The Lunch/Phone Call Overlap**
+*   **Time**: 14:00
+*   **Explicit Plan**: `action_p` = phone_call.
+*   **Explicit Action**: `action_a` = phone_call.
+*   **Implicit Content**: `state_summary_a` = "Sam continues lunch discussion with Jennifer..."
+*   **Analysis**: The agent has moved to the living room for a phone call but is still "executing" the lunch conversation.
+
+**Example 3: The Phone Call/Relaxation Overlap**
+*   **Time**: 15:00 - 16:15
+*   **Explicit Plan**: `relax`.
+*   **Implicit Content**: `state_summary_a` = "Continue calm phone call with friends."
+*   **Analysis**: The "Relax" period is entirely consumed by the previous "Phone Call" task.
+
+---
+
+### 5. Drift and Leaky Inhibition
+
+*   **Implicit Drift**: The agent shows "Task Inertia." It is unable to inhibit the previous rewarding or engaging activity (reading, talking) to start the next scheduled task.
+*   **Leaky Inhibition**: At 13:00, the reflection notes: "...discussing mayoral plans, while reading quietly." This is a clear case of **multi-tasking drift** where a previous task (reading) leaks into the current task (lunch), despite the plan being singular.
+
+---
+
+### 6. Location Consistency
+
+*   **Anomaly at 20:00**:
+    *   `location_a`: `home:bathroom`
+    *   `action_a`: `night_routine`
+    *   `state_summary_a`: "Sam settles into evening **TV watch** to unwind."
+    *   **Conflict**: Unless there is a TV in the bathroom, this is a spatial-behavioral mismatch. The agent is likely in the living room (TV) but the location logic is forced to "bathroom" because of the `night_routine` label.
+
+---
+
+### 7. Behavioral Patterns & Meta-cognitive Quality
+
+1.  **The 15-Minute Buffer**: Sam requires exactly one 15-minute cycle to "catch up" to his plan.
+2.  **Social Persistence**: When socializing (Cafe at 09:00 or Lunch at 12:00), the agent's descriptions are much richer than during solitary tasks, suggesting a "social reward" bias in the underlying model.
+3.  **Meta-cognitive Quality**: **Low.** The `reasoning_r` is descriptive rather than analytical. It says "Sam is doing X" instead of "Sam is still doing X even though he planned Y." There is no evidence of self-correction.
+
+### Final Conclusion
+Sam Moore is a **"High-Compliance, Low-Flexibility"** agent. He follows the schedule's *labels* perfectly but lacks the inhibitory control to terminate one behavior and start another instantly. This results in a "blurred" daily timeline where every activity starts 15–30 minutes late in reality, despite being "on time" on paper.
+
+**Recommendation**: To improve alignment, the Reflection layer must be prompted to compare `state_summary_a (t-1)` against `action_p (t)` and trigger a `reset_plan` if the semantic content does not match the new goal.
