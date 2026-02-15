@@ -29,8 +29,12 @@ instruction: |
     - Behavioral drift: show observable changes linked to the above (inconsistency, small errors, omissions, delay).
     - Do NOT assign numeric thresholds beyond drift_intensity. No invented neuroscience metrics.
     - Drift must not be random; it must be causally tied to persona, task, and prior internal thoughts.
-    - If meta_rule == "reset_plan": decrease behavioral drift likelihood but still allow internal drift.
-    - If meta_rule == "switch_topic": allow drift_topic to shift even under moderate intensity.
+
+  Meta-Rule Constraints:
+    - If meta_rule == "reset_plan": Force should_drift to "false". Recovery mode activated.
+    - If meta_rule == "switch_topic": Allow drift_topic to shift, but enforce location consistency check.
+    - If meta_rule == "continue": Normal drift probability applies.
+
 
   Output ONLY JSON:
   {

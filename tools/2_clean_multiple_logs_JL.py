@@ -42,7 +42,7 @@ def get_df_name(df):
 ###########################################################
 ROOT = Path.cwd()
 LOGS_PATH = Path(ROOT, "app/logs/")
-FOLDER_PATH = Path(LOGS_PATH, "v3_complete_waking_hours")
+FOLDER_PATH = Path(LOGS_PATH, "v4_after_prompt_engineering")
 ###########################################################
 
 # Process all log files
@@ -126,72 +126,83 @@ for session_path in log_files:
 
         # 4. Filter ORPDA columns
         # O
-        o_df = df_observe[
-            [
-                "datetime_start",
-                "location",
-                "action",
-                "state_summary",
-                "environment_description",
-            ]
-        ]
-        o_df.columns = o_df.columns + "_o"
+        # o_df = df_observe[
+        #     [
+        #         "datetime_start",
+        #         "location",
+        #         "action",
+        #         "state_summary",
+        #         "environment_description",
+        #     ]
+        # ]
+        # FIX: USE ALL PARAMS
+        o_df = df_observe.copy()
+        o_df.columns = o_df.columns.astype(str) + "_o"
         # o_df.rename(columns={"datetime_start_o": "datetime_start"}, inplace=True)
 
         # P
-        p_df = df_plan[
-            ["datetime_start", "location", "action", "topic", "state_summary"]
-        ]
-        p_df.columns = p_df.columns + "_p"
+        # p_df = df_plan[
+        #     ["datetime_start", "location", "action", "topic", "state_summary"]
+        # ]
+        # FIX: USE ALL PARAMS
+        p_df = df_plan.copy()
+        p_df.columns = p_df.columns.astype(str) + "_p"
         # p_df.rename(columns={"datetime_start_p": "datetime_start"}, inplace=True)
 
         # D
         if mode == "orpda":
-            d_df = df_drift.drop(columns=["duration_min", "drift_intensity"])
-            d_df = d_df[
-                [
-                    "datetime_start",
-                    "should_drift",
-                    "drift_type",
-                    "drift_topic",
-                    "drift_action",
-                    "potential_recovery",
-                    "justification",
-                ]
-            ]
-            d_df.columns = d_df.columns + "_d"
+            # d_df = df_drift.drop(columns=["duration_min", "drift_intensity"])
+            # d_df = d_df[
+            #     [
+            #         "datetime_start",
+            #         "should_drift",
+            #         "drift_type",
+            #         "drift_topic",
+            #         "drift_action",
+            #         "potential_recovery",
+            #         "justification",
+            #     ]
+            # ]
+            # FIX: USE ALL PARAMS
+            d_df = df_drift.copy()
+            d_df.columns = d_df.columns.astype(str) + "_d"
             # d_df.rename(columns={"datetime_start_d": "datetime_start"}, inplace=True)
 
         # A
-        a_df = df_act[
-            [
-                "datetime_start",
-                "location",
-                "action",
-                "topic",
-                "drift_type",
-                "drift_topic",
-                "state_summary",
-            ]
-        ]
-        a_df.columns = a_df.columns + "_a"
+        # a_df = df_act[
+        #     [
+        #         "datetime_start",
+        #         "location",
+        #         "action",
+        #         "topic",
+        #         "drift_type",
+        #         "drift_topic",
+        #         "state_summary",
+        #     ]
+        # ]
+        # FIX: USE ALL PARAMS
+        a_df = df_act.copy()
+        a_df.columns = a_df.columns.astype(str) + "_a"
         # a_df.rename(columns={"datetime_start_a": "datetime_start"}, inplace=True)
 
         # R
         df_reflect["datetime_start"] = a_df["datetime_start_a"].copy()
-        r_df = df_reflect[
-            [
-                "datetime_start",
-                "rumination_theme",
-                "emerging_thought_pattern",
-                "executive_insight",
-                "state_summary",
-                "reasoning",
-                "meta_rule",
-            ]
-        ]
+        # r_df = df_reflect[
+        #     [
+        #         "datetime_start",
+        #         "rumination_theme",
+        #         "emerging_thought_pattern",
+        #         "executive_insight",
+        #         "state_summary",
+        #         "reasoning",
+        #         "meta_rule",
+        #     ]
+        # ]
 
-        r_df.columns = r_df.columns + "_r"
+        # FIX: USE ALL PARAMS
+        r_df = df_reflect.copy()
+
+        r_df.columns = r_df.columns.astype(str) + "_r"
         # r_df.rename(columns={"datetime_start_r": "datetime_start"}, inplace=True)
 
         # print DF

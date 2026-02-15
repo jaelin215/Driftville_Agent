@@ -25,7 +25,7 @@ embedding_model:
 
 embed_cost_per_1k_tokens: 0.00015
 
-use_drift: True  # False: no drift, True: drift
+use_drift: False  # False: no drift, True: drift
 
 sim_config:
   persona: "Sam Moore"    # get the names from driftville_personas.json file
@@ -34,4 +34,4 @@ sim_config:
 
 load_prompt_from_langfuse: True   # False: loading the prompt from the local .yaml file, True: loading the prompt from LangFuse
 
-temperature: 1.0
+temperature: 0.5
